@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="35" passed="35">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ClinicianAppSmokeTestScenarios" duration-ms="1419828" started-at="2016-04-28T10:01:22Z" finished-at="2016-04-28T10:25:02Z">
+    <groups>
+      <group name="functest">
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsLOngTermNursing()" name="TS_01_testVerifyLoginAsLOngTermNursing" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsPhlebotomists()" name="TS_01_testVerifyLoginAsPhlebotomists" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsShortTermNursing()" name="TS_01_testVerifyLoginAsShortTermNursing" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginSuccessfully()" name="TS_01_testVerifyLoginSuccessfully" class="com.qa.mobileapp.tests.LoginTests"/>
+      </group>
+      <group name="smoketest">
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()" name="TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_04_testVerifyProfileScreenVisibility()" name="TC_04_testVerifyProfileScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_05_testVerifyOnTopDashboardNavVisibilty()" name="TC_05_testVerifyOnTopDashboardNavVisibilty" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_06_testVerifyClincianNameVisibility()" name="TC_06_testVerifyClincianNameVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_07_testVerifyClincianProfessionVisibility()" name="TC_07_testVerifyClincianProfessionVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_08_testVerifyClincianCashInHandVisibility()" name="TC_08_testVerifyClincianCashInHandVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_09_testVerifyClincianWorkingHrsVisibility()" name="TC_09_testVerifyClincianWorkingHrsVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_10_testVerifyAppointmentNavVisibility()" name="TC_10_testVerifyAppointmentNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()" name="TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_12_testVerifyPatientNavVisibility()" name="TC_12_testVerifyPatientNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_13_testVerifyOnTapPatientNavPatientScreenVisibility()" name="TC_13_testVerifyOnTapPatientNavPatientScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_14_testVerifyCalendarNavVisibility()" name="TC_14_testVerifyCalendarNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility()" name="TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_16_testVerifyPaymentNavVisibility()" name="TC_16_testVerifyPaymentNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility()" name="TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_18_testVerifyCaseFileNavVisibility()" name="TC_18_testVerifyCaseFileNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility()" name="TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_20_testVerifyLeavesNavVisibility()" name="TC_20_testVerifyLeavesNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility()" name="TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_22_testVerifyReportNavVisibility()" name="TC_22_testVerifyReportNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_23_testVerifyOnTapReportsNavReportsScreenVisibility()" name="TC_23_testVerifyOnTapReportsNavReportsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_24_testVerifyCampsNavVisibility()" name="TC_24_testVerifyCampsNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_25_testVerifyOnTapCampNavCampScreenVisibility()" name="TC_25_testVerifyOnTapCampNavCampScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_26_testVerifyAlertsNavVisibility()" name="TC_26_testVerifyAlertsNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility()" name="TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_28_testVerifyReferPatientNavVisibility()" name="TC_28_testVerifyReferPatientNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility()" name="TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_30_testVerifyFeedbackNavVisibility()" name="TC_30_testVerifyFeedbackNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility()" name="TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_32_testVerifyLogoutNavVisibility()" name="TC_32_testVerifyLogoutNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility()" name="TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsLOngTermNursing()" name="TS_01_testVerifyLoginAsLOngTermNursing" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsPhlebotomists()" name="TS_01_testVerifyLoginAsPhlebotomists" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginAsShortTermNursing()" name="TS_01_testVerifyLoginAsShortTermNursing" class="com.qa.mobileapp.tests.LoginTests"/>
+        <method signature="com.qa.mobileapp.tests.LoginTests.TS_01_testVerifyLoginSuccessfully()" name="TS_01_testVerifyLoginSuccessfully" class="com.qa.mobileapp.tests.LoginTests"/>
+      </group>
+      <group name="UITest">
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()" name="TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_04_testVerifyProfileScreenVisibility()" name="TC_04_testVerifyProfileScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_05_testVerifyOnTopDashboardNavVisibilty()" name="TC_05_testVerifyOnTopDashboardNavVisibilty" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_06_testVerifyClincianNameVisibility()" name="TC_06_testVerifyClincianNameVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_07_testVerifyClincianProfessionVisibility()" name="TC_07_testVerifyClincianProfessionVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_08_testVerifyClincianCashInHandVisibility()" name="TC_08_testVerifyClincianCashInHandVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_09_testVerifyClincianWorkingHrsVisibility()" name="TC_09_testVerifyClincianWorkingHrsVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_10_testVerifyAppointmentNavVisibility()" name="TC_10_testVerifyAppointmentNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()" name="TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_12_testVerifyPatientNavVisibility()" name="TC_12_testVerifyPatientNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_13_testVerifyOnTapPatientNavPatientScreenVisibility()" name="TC_13_testVerifyOnTapPatientNavPatientScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_14_testVerifyCalendarNavVisibility()" name="TC_14_testVerifyCalendarNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility()" name="TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_16_testVerifyPaymentNavVisibility()" name="TC_16_testVerifyPaymentNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility()" name="TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_18_testVerifyCaseFileNavVisibility()" name="TC_18_testVerifyCaseFileNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility()" name="TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_20_testVerifyLeavesNavVisibility()" name="TC_20_testVerifyLeavesNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility()" name="TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_22_testVerifyReportNavVisibility()" name="TC_22_testVerifyReportNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_23_testVerifyOnTapReportsNavReportsScreenVisibility()" name="TC_23_testVerifyOnTapReportsNavReportsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_24_testVerifyCampsNavVisibility()" name="TC_24_testVerifyCampsNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_25_testVerifyOnTapCampNavCampScreenVisibility()" name="TC_25_testVerifyOnTapCampNavCampScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_26_testVerifyAlertsNavVisibility()" name="TC_26_testVerifyAlertsNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility()" name="TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_28_testVerifyReferPatientNavVisibility()" name="TC_28_testVerifyReferPatientNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility()" name="TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_30_testVerifyFeedbackNavVisibility()" name="TC_30_testVerifyFeedbackNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility()" name="TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_32_testVerifyLogoutNavVisibility()" name="TC_32_testVerifyLogoutNavVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+        <method signature="com.qa.mobileapp.tests.DashboardTests.TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility()" name="TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility" class="com.qa.mobileapp.tests.DashboardTests"/>
+      </group>
+    </groups>
+    <test name="SmokeTestSuite" duration-ms="1419828" started-at="2016-04-28T10:01:22Z" finished-at="2016-04-28T10:25:02Z">
+      <class name="com.qa.mobileapp.tests.DashboardTests">
+        <test-method status="PASS" signature="setUp()" name="setUp" is-config="true" duration-ms="13777" started-at="2016-04-28T10:01:22Z" finished-at="2016-04-28T10:01:36Z">
+        </test-method>
+        <test-method status="PASS" signature="initDashboard()" name="initDashboard" is-config="true" duration-ms="91538" started-at="2016-04-28T10:01:36Z" finished-at="2016-04-28T10:03:07Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="3" started-at="2016-04-28T10:03:07Z" finished-at="2016-04-28T10:03:07Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()" name="TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen" duration-ms="32" started-at="2016-04-28T10:03:07Z" finished-at="2016-04-28T10:03:07Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="17694" started-at="2016-04-28T10:03:07Z" finished-at="2016-04-28T10:03:25Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:03:25Z" finished-at="2016-04-28T10:03:25Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_04_testVerifyProfileScreenVisibility()" name="TC_04_testVerifyProfileScreenVisibility" duration-ms="3885" started-at="2016-04-28T10:03:25Z" finished-at="2016-04-28T10:03:29Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="12620" started-at="2016-04-28T10:03:29Z" finished-at="2016-04-28T10:03:42Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_05_testVerifyOnTopDashboardNavVisibilty()" name="TC_05_testVerifyOnTopDashboardNavVisibilty" duration-ms="42" started-at="2016-04-28T10:03:42Z" finished-at="2016-04-28T10:03:42Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:03:42Z" finished-at="2016-04-28T10:03:42Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18059" started-at="2016-04-28T10:03:42Z" finished-at="2016-04-28T10:04:00Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_06_testVerifyClincianNameVisibility()" name="TC_06_testVerifyClincianNameVisibility" duration-ms="2222" started-at="2016-04-28T10:04:00Z" finished-at="2016-04-28T10:04:02Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:04:00Z" finished-at="2016-04-28T10:04:00Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18720" started-at="2016-04-28T10:04:02Z" finished-at="2016-04-28T10:04:21Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:04:21Z" finished-at="2016-04-28T10:04:21Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_07_testVerifyClincianProfessionVisibility()" name="TC_07_testVerifyClincianProfessionVisibility" duration-ms="1216" started-at="2016-04-28T10:04:21Z" finished-at="2016-04-28T10:04:22Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19105" started-at="2016-04-28T10:04:22Z" finished-at="2016-04-28T10:04:41Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_08_testVerifyClincianCashInHandVisibility()" name="TC_08_testVerifyClincianCashInHandVisibility" duration-ms="2357" started-at="2016-04-28T10:04:41Z" finished-at="2016-04-28T10:04:43Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:04:41Z" finished-at="2016-04-28T10:04:41Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18768" started-at="2016-04-28T10:04:43Z" finished-at="2016-04-28T10:05:02Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_09_testVerifyClincianWorkingHrsVisibility()" name="TC_09_testVerifyClincianWorkingHrsVisibility" duration-ms="2224" started-at="2016-04-28T10:05:02Z" finished-at="2016-04-28T10:05:04Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:05:02Z" finished-at="2016-04-28T10:05:02Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18930" started-at="2016-04-28T10:05:04Z" finished-at="2016-04-28T10:05:23Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_10_testVerifyAppointmentNavVisibility()" name="TC_10_testVerifyAppointmentNavVisibility" duration-ms="1187" started-at="2016-04-28T10:05:23Z" finished-at="2016-04-28T10:05:24Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:05:23Z" finished-at="2016-04-28T10:05:23Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18992" started-at="2016-04-28T10:05:24Z" finished-at="2016-04-28T10:05:43Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="1" started-at="2016-04-28T10:05:43Z" finished-at="2016-04-28T10:05:43Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()" name="TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility" duration-ms="4474" started-at="2016-04-28T10:05:43Z" finished-at="2016-04-28T10:05:48Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="12189" started-at="2016-04-28T10:05:48Z" finished-at="2016-04-28T10:06:00Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_12_testVerifyPatientNavVisibility()" name="TC_12_testVerifyPatientNavVisibility" duration-ms="2272" started-at="2016-04-28T10:06:00Z" finished-at="2016-04-28T10:06:02Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:06:00Z" finished-at="2016-04-28T10:06:00Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18958" started-at="2016-04-28T10:06:02Z" finished-at="2016-04-28T10:06:21Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_13_testVerifyOnTapPatientNavPatientScreenVisibility()" name="TC_13_testVerifyOnTapPatientNavPatientScreenVisibility" duration-ms="4458" started-at="2016-04-28T10:06:21Z" finished-at="2016-04-28T10:06:26Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:06:21Z" finished-at="2016-04-28T10:06:21Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="12098" started-at="2016-04-28T10:06:26Z" finished-at="2016-04-28T10:06:38Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="1" started-at="2016-04-28T10:06:38Z" finished-at="2016-04-28T10:06:38Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_14_testVerifyCalendarNavVisibility()" name="TC_14_testVerifyCalendarNavVisibility" duration-ms="2221" started-at="2016-04-28T10:06:38Z" finished-at="2016-04-28T10:06:40Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19076" started-at="2016-04-28T10:06:40Z" finished-at="2016-04-28T10:06:59Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:06:59Z" finished-at="2016-04-28T10:06:59Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility()" name="TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility" duration-ms="4686" started-at="2016-04-28T10:06:59Z" finished-at="2016-04-28T10:07:04Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="20121" started-at="2016-04-28T10:07:04Z" finished-at="2016-04-28T10:07:24Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:07:24Z" finished-at="2016-04-28T10:07:24Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_16_testVerifyPaymentNavVisibility()" name="TC_16_testVerifyPaymentNavVisibility" duration-ms="2241" started-at="2016-04-28T10:07:24Z" finished-at="2016-04-28T10:07:26Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18951" started-at="2016-04-28T10:07:26Z" finished-at="2016-04-28T10:07:45Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:07:45Z" finished-at="2016-04-28T10:07:45Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility()" name="TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility" duration-ms="4453" started-at="2016-04-28T10:07:45Z" finished-at="2016-04-28T10:07:50Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="133382" started-at="2016-04-28T10:07:50Z" finished-at="2016-04-28T10:10:03Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="1" started-at="2016-04-28T10:10:03Z" finished-at="2016-04-28T10:10:03Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_18_testVerifyCaseFileNavVisibility()" name="TC_18_testVerifyCaseFileNavVisibility" duration-ms="2717" started-at="2016-04-28T10:10:03Z" finished-at="2016-04-28T10:10:06Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18812" started-at="2016-04-28T10:10:06Z" finished-at="2016-04-28T10:10:25Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:10:25Z" finished-at="2016-04-28T10:10:25Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility()" name="TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility" duration-ms="4464" started-at="2016-04-28T10:10:25Z" finished-at="2016-04-28T10:10:29Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="12022" started-at="2016-04-28T10:10:29Z" finished-at="2016-04-28T10:10:41Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_20_testVerifyLeavesNavVisibility()" name="TC_20_testVerifyLeavesNavVisibility" duration-ms="2229" started-at="2016-04-28T10:10:41Z" finished-at="2016-04-28T10:10:43Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:10:41Z" finished-at="2016-04-28T10:10:41Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19015" started-at="2016-04-28T10:10:43Z" finished-at="2016-04-28T10:11:02Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:11:02Z" finished-at="2016-04-28T10:11:02Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility()" name="TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility" duration-ms="4466" started-at="2016-04-28T10:11:02Z" finished-at="2016-04-28T10:11:07Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="11965" started-at="2016-04-28T10:11:07Z" finished-at="2016-04-28T10:11:19Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_22_testVerifyReportNavVisibility()" name="TC_22_testVerifyReportNavVisibility" duration-ms="6716" started-at="2016-04-28T10:11:19Z" finished-at="2016-04-28T10:11:25Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:11:19Z" finished-at="2016-04-28T10:11:19Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19009" started-at="2016-04-28T10:11:25Z" finished-at="2016-04-28T10:11:44Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:11:44Z" finished-at="2016-04-28T10:11:44Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_23_testVerifyOnTapReportsNavReportsScreenVisibility()" name="TC_23_testVerifyOnTapReportsNavReportsScreenVisibility" duration-ms="9756" started-at="2016-04-28T10:11:44Z" finished-at="2016-04-28T10:11:54Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="135960" started-at="2016-04-28T10:11:54Z" finished-at="2016-04-28T10:14:10Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="1" started-at="2016-04-28T10:14:10Z" finished-at="2016-04-28T10:14:10Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_24_testVerifyCampsNavVisibility()" name="TC_24_testVerifyCampsNavVisibility" duration-ms="2248" started-at="2016-04-28T10:14:10Z" finished-at="2016-04-28T10:14:12Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18725" started-at="2016-04-28T10:14:12Z" finished-at="2016-04-28T10:14:31Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:14:31Z" finished-at="2016-04-28T10:14:31Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_25_testVerifyOnTapCampNavCampScreenVisibility()" name="TC_25_testVerifyOnTapCampNavCampScreenVisibility" duration-ms="4499" started-at="2016-04-28T10:14:31Z" finished-at="2016-04-28T10:14:36Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="11947" started-at="2016-04-28T10:14:36Z" finished-at="2016-04-28T10:14:48Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_26_testVerifyAlertsNavVisibility()" name="TC_26_testVerifyAlertsNavVisibility" duration-ms="2262" started-at="2016-04-28T10:14:48Z" finished-at="2016-04-28T10:14:50Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:14:48Z" finished-at="2016-04-28T10:14:48Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18605" started-at="2016-04-28T10:14:50Z" finished-at="2016-04-28T10:15:08Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:15:08Z" finished-at="2016-04-28T10:15:08Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility()" name="TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility" duration-ms="4483" started-at="2016-04-28T10:15:08Z" finished-at="2016-04-28T10:15:13Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="11973" started-at="2016-04-28T10:15:13Z" finished-at="2016-04-28T10:15:25Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_28_testVerifyReferPatientNavVisibility()" name="TC_28_testVerifyReferPatientNavVisibility" duration-ms="7369" started-at="2016-04-28T10:15:25Z" finished-at="2016-04-28T10:15:32Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:15:25Z" finished-at="2016-04-28T10:15:25Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19070" started-at="2016-04-28T10:15:32Z" finished-at="2016-04-28T10:15:51Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:15:51Z" finished-at="2016-04-28T10:15:51Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility()" name="TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility" duration-ms="9024" started-at="2016-04-28T10:15:51Z" finished-at="2016-04-28T10:16:00Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="11892" started-at="2016-04-28T10:16:00Z" finished-at="2016-04-28T10:16:12Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_30_testVerifyFeedbackNavVisibility()" name="TC_30_testVerifyFeedbackNavVisibility" duration-ms="6293" started-at="2016-04-28T10:16:12Z" finished-at="2016-04-28T10:16:19Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:16:12Z" finished-at="2016-04-28T10:16:12Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18998" started-at="2016-04-28T10:16:19Z" finished-at="2016-04-28T10:16:38Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:16:38Z" finished-at="2016-04-28T10:16:38Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility()" name="TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility" duration-ms="9184" started-at="2016-04-28T10:16:38Z" finished-at="2016-04-28T10:16:47Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="11959" started-at="2016-04-28T10:16:47Z" finished-at="2016-04-28T10:16:59Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:16:59Z" finished-at="2016-04-28T10:16:59Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_32_testVerifyLogoutNavVisibility()" name="TC_32_testVerifyLogoutNavVisibility" duration-ms="6340" started-at="2016-04-28T10:16:59Z" finished-at="2016-04-28T10:17:05Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="18829" started-at="2016-04-28T10:17:05Z" finished-at="2016-04-28T10:17:24Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:17:24Z" finished-at="2016-04-28T10:17:24Z">
+        </test-method>
+        <test-method status="PASS" signature="TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility()" name="TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility" duration-ms="8135" started-at="2016-04-28T10:17:24Z" finished-at="2016-04-28T10:17:32Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureDashboardPage()" name="ensureDashboardPage" is-config="true" duration-ms="19564" started-at="2016-04-28T10:17:32Z" finished-at="2016-04-28T10:17:52Z">
+        </test-method>
+        <test-method status="PASS" signature="cleanUp()" name="cleanUp" is-config="true" duration-ms="1453" started-at="2016-04-28T10:17:52Z" finished-at="2016-04-28T10:17:53Z">
+        </test-method>
+      </class>
+      <class name="com.qa.mobileapp.tests.LoginTests">
+        <test-method status="PASS" signature="setUp()" name="setUp" is-config="true" duration-ms="14160" started-at="2016-04-28T10:17:53Z" finished-at="2016-04-28T10:18:07Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:18:07Z" finished-at="2016-04-28T10:18:07Z">
+        </test-method>
+        <test-method status="PASS" signature="TS_01_testVerifyLoginAsLOngTermNursing()" name="TS_01_testVerifyLoginAsLOngTermNursing" duration-ms="87315" started-at="2016-04-28T10:18:07Z" finished-at="2016-04-28T10:19:35Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureAppointmentPage()" name="ensureAppointmentPage" is-config="true" duration-ms="14928" started-at="2016-04-28T10:19:35Z" finished-at="2016-04-28T10:19:49Z">
+        </test-method>
+        <test-method status="PASS" signature="TS_01_testVerifyLoginAsPhlebotomists()" name="TS_01_testVerifyLoginAsPhlebotomists" duration-ms="84133" started-at="2016-04-28T10:19:49Z" finished-at="2016-04-28T10:21:14Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:19:49Z" finished-at="2016-04-28T10:19:49Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureAppointmentPage()" name="ensureAppointmentPage" is-config="true" duration-ms="15158" started-at="2016-04-28T10:21:14Z" finished-at="2016-04-28T10:21:29Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="1" started-at="2016-04-28T10:21:29Z" finished-at="2016-04-28T10:21:29Z">
+        </test-method>
+        <test-method status="PASS" signature="TS_01_testVerifyLoginAsShortTermNursing()" name="TS_01_testVerifyLoginAsShortTermNursing" duration-ms="89970" started-at="2016-04-28T10:21:29Z" finished-at="2016-04-28T10:22:59Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureAppointmentPage()" name="ensureAppointmentPage" is-config="true" duration-ms="15420" started-at="2016-04-28T10:22:59Z" finished-at="2016-04-28T10:23:14Z">
+        </test-method>
+        <test-method status="PASS" signature="initPageObjects()" name="initPageObjects" is-config="true" duration-ms="0" started-at="2016-04-28T10:23:14Z" finished-at="2016-04-28T10:23:14Z">
+        </test-method>
+        <test-method status="PASS" signature="TS_01_testVerifyLoginSuccessfully()" name="TS_01_testVerifyLoginSuccessfully" duration-ms="90725" started-at="2016-04-28T10:23:14Z" finished-at="2016-04-28T10:24:45Z">
+        </test-method>
+        <test-method status="PASS" signature="ensureAppointmentPage()" name="ensureAppointmentPage" is-config="true" duration-ms="15569" started-at="2016-04-28T10:24:45Z" finished-at="2016-04-28T10:25:00Z">
+        </test-method>
+        <test-method status="PASS" signature="cleanUp()" name="cleanUp" is-config="true" duration-ms="1490" started-at="2016-04-28T10:25:00Z" finished-at="2016-04-28T10:25:02Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

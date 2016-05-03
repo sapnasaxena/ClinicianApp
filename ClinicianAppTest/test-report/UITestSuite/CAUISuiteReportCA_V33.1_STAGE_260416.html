@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.param,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.param td,table.param th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.param th {vertical-align:bottom}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.param td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.param tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing=0 cellpadding=0 class="param">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">RegressionUISuite</td><td class="numi">133</td><td class="numi">133</td><td class="numi">0</td><td class="numi">0</td><td class="numi">13,509.3 seconds</td><td class="numi">UITest </td><td class="numi"></td></tr>
+</table>
+<a id="summary"></a>
+<table cellspacing=0 cellpadding=0 class="passed">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Time<br/>(Msecs)</th></tr>
+<tr><th colspan="4">RegressionUISuite &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m1"><b>TC_20_testOnTapMenuOptionCheckVitalCheckVitalsScreenVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12392</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ReferPatientTests<td><a href="#m2"><b>tc_04_testCancelOptionOnPatientPage</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10091</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m3"><b>TC_05_testVerifyCheckBoxOnCashInHandTab</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4438</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.CalendarTests<td><a href="#m4"><b>TC08testVerifyHomeBackButtonOnCalendarScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10752</td></tr><tr class="passedeven"><td><a href="#m5"><b>TC02testVerifyNextsliderButtonvisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9761</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.FeedbackTests<td><a href="#m6"><b>testVerifyFeedBackScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7167</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m7"><b>TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9440</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m8"><b>TC_10_testVerifyOnPatientDetailsScreenRefreshImageVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5636</td></tr>
+<tr class="passedeven"><td rowspan="3">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m9"><b>TC_02_testVerifyUpcomingTabVisibiltyOnAppointmentScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4460</td></tr><tr class="passedeven"><td><a href="#m10"><b>TC_25_testVerifyOnTabFabButtonPayOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10106</td></tr><tr class="passedeven"><td><a href="#m11"><b>TC_02_testVerifyTodayTabVisibiltyOnAppointmentScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4479</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m12"><b>TC_02_testVerifyPatientDetailsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4352</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ProfileTests<td><a href="#m13"><b>TS_01_testVerifyProfessionalDetailsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4542</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m14"><b>TC_30_testVerifyOnTabFabButtonAddAppointmentAddAppointmentDetailsScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">64632</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ReferPatientTests<td><a href="#m15"><b>tc_03_testVerifyReferPatientOnSideMenu</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7431</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m16"><b>TC_43_testVerifyForConfirmedApptAddApptRescheduleCallToCancelReachedfabOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">11816</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.CalendarTests<td><a href="#m17"><b>TC05testVerifyappointmentdetailsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5449</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m18"><b>TC_14_testVerifyAddPatientScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6171</td></tr>
+<tr class="passedeven"><td rowspan="3">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m19"><b>testVerifyPatientDetailsVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10454</td></tr><tr class="passedeven"><td><a href="#m20"><b>TC_22_testVerifyOnTabFabButtonAddAppointmentOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10199</td></tr><tr class="passedeven"><td><a href="#m21"><b>TC_15_testOnAppointmentDetailsScreenPaymentTabVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7568</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.LeaveTests<td><a href="#m22"><b>TC_01testVerifyLeaveScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6445</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m23"><b>TC_06_testVerifyAllAppointmentsOptionVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5861</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ReportTests<td><a href="#m24"><b>tc_06_testVerifyCancelBtn</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7668</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m25"><b>TC_26_testVerifyOnTabFabButtonAddAppointmentOptionsAddAppointmentScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">21880</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m26"><b>TC_01_testVerifyPaymentScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4426</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m27"><b>TC_16_testVerifyPaymentNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2231</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m28"><b>TC_29_testVerifyOnTabFabButtonPayOptionsPaymentScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12830</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m29"><b>TC_26_testVerifyAlertsNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2286</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m30"><b>TC_09_testVerifyOnPatientDetailsScreenFeedbackLinkVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6137</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m31"><b>TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4642</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.LeaveTests<td><a href="#m32"><b>TC_07testApplybuttonTapVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">22653</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m33"><b>TC_05_testVerifyPastAppointmentListVisibility</b> (UITest) </a></td><td class="numi">1</td><td class="numi">15151</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m34"><b>TC_08_testVerifyOnPatientDetailsScreenReferAServiceLinkVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6213</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m35"><b>TC_35_testVerifyWalletBalanceSendOTPLinkVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">24060</td></tr><tr class="passedeven"><td><a href="#m36"><b>TC_40_testVerifyOnTapYesForAddCaseRedirectToPhysioApp</b> (UITest) </a></td><td class="numi">1</td><td class="numi">16227</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.LeaveTests<td><a href="#m37"><b>TC_03testVerifyHolidayTabVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9604</td></tr><tr class="passedodd"><td><a href="#m38"><b>TC_02testVerifyApplyButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4428</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m39"><b>TC_31_testVerifyOnPayScreenCashAndOnlineTabsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">13697</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.PatientTests<td><a href="#m40"><b>TC_07_testVerifyOnPatientDetailsScreenPatientDetailsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6445</td></tr><tr class="passedodd"><td><a href="#m41"><b>testVerifySubscribedPackageDetailsVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">26962</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m42"><b>TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4074</td></tr><tr class="passedeven"><td><a href="#m43"><b>TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4481</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m44"><b>TC_36_testVerifyEnterAmountOnlineEmailIdMobileNoSendLinkVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">33439</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m45"><b>TC_12_testVerifyPatientNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2336</td></tr><tr class="passedeven"><td><a href="#m46"><b>TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">19</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ForgotPasswordTests<td><a href="#m47"><b>TC_05_testVerifySendOTPButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">1388</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LogOutTests<td><a href="#m48"><b>TC_02_testVerifyLogoutMessagePopupScreenVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7469</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ProfileTests<td><a href="#m49"><b>TS_02_testVerifyRefreshButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3328</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m50"><b>TC_13_testVerifyOnTapPatientNavPatientScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4487</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.CalendarTests<td><a href="#m51"><b>TC03testVerifysaveCheckButtonOnCalendarScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4564</td></tr>
+<tr class="passedeven"><td rowspan="4">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m52"><b>TC_01_testVerifyAppointmentScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4935</td></tr><tr class="passedeven"><td><a href="#m53"><b>TC_24_testVerifyOnTabFabButtonUploadOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9836</td></tr><tr class="passedeven"><td><a href="#m54"><b>TC_41_testVerifyOnTapNOForRedirectToCaseScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">19283</td></tr><tr class="passedeven"><td><a href="#m55"><b>TC_28_testVerifyOnTabFabButtonUploadOptionsAddDocumentPopUpVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">72194</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ProfileTests<td><a href="#m56"><b>TS_03_testVerifyEditButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3252</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m57"><b>TC_21_testViewVitalsScreenVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">22593</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ReportTests<td><a href="#m58"><b>tc_02_testVerifyTimingLeaveAppointment</b> (UITest) </a></td><td class="numi">1</td><td class="numi">20894</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m59"><b>TC_06_testVerifyDepositButtonVisiblityOnSelectingCheckBox</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4661</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m60"><b>TC_11_testVerifyMenuOptionsOnPatientListingVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">8942</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m61"><b>TC_07_testVerifyBranchCityAndNotesFieldVisiblityOnDepositScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9345</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m62"><b>TC_13_testOnTapPatientNameAppointmentDetailsScreenVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7575</td></tr><tr class="passedodd"><td><a href="#m63"><b>TC_07_testVerifyPatientDetailsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9168</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ReferPatientTests<td><a href="#m64"><b>tc_03_testVerifyPatientDetailsSubmittion</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10453</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m65"><b>TC_08_testVerifyOnClickDepositButtonDepositScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9261</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m66"><b>TC_32_testVerifyOnCashPaymentScreenCashAndChequeOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12498</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.FeedbackTests<td><a href="#m67"><b>testVerifySearchButtonVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7359</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m68"><b>TC_03_testVerifyTodaysAppointmentListVisibility</b> (UITest) </a></td><td class="numi">1</td><td class="numi">14971</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m69"><b>TC_04_testVerifyRefreshButtonVisibilityOnPatientListing</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3513</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.CalendarTests<td><a href="#m70"><b>TC01testVerifyCalendarScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">2595</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m71"><b>TC_01_testVerifyOnClickPatientNavBarPatientListVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4221</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m72"><b>TC_30_testVerifyFeedbackNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6212</td></tr><tr class="passedeven"><td><a href="#m73"><b>TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4900</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.ReportTests<td><a href="#m74"><b>tc_03_testVerfyCnclnContinueBtn</b> (UITest) </a></td><td class="numi">1</td><td class="numi">8156</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.PatientTests<td><a href="#m75"><b>TC_03_testVerifySearchButtonVisibilityOnPatientListing</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3458</td></tr><tr class="passedeven"><td><a href="#m76"><b>testVerifyPatientDetailsScreenVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5098</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m77"><b>TC_22_testVerifyReportNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6257</td></tr><tr class="passedodd"><td><a href="#m78"><b>TC_09_testVerifyClincianWorkingHrsVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2218</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m79"><b>TC_18_testOnAppointmentDetailsScreenMenuCheckVitalsOptionVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9913</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m80"><b>TC_20_testVerifyLeavesNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2304</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LeaveTests<td><a href="#m81"><b>TC_06testApplybuttonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6755</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m82"><b>TC_17_testOnAppointmentDetailsScreenMenuOptionVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7575</td></tr><tr class="passedodd"><td><a href="#m83"><b>TC_16_testOnAppointmentDetailsScreenAppointmentTabVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7759</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ForgotPasswordTests<td><a href="#m84"><b>TC_02_EnterMobileNoLabelVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">1406</td></tr>
+<tr class="passedodd"><td rowspan="3">com.qa.mobileapp.tests.DashboardTests<td><a href="#m85"><b>TC_06_testVerifyClincianNameVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2246</td></tr><tr class="passedodd"><td><a href="#m86"><b>TC_04_testVerifyProfileScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">3844</td></tr><tr class="passedodd"><td><a href="#m87"><b>TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4497</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m88"><b>TC_38_testVerifyOnTapCaseFabButtonCaseDetailsAndAddCaseOptionsVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12462</td></tr><tr class="passedeven"><td><a href="#m89"><b>TC_02_testVerifyPastTabVisibiltyOnAppointmentScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4464</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m90"><b>TC_05_testVerifyOnTopDashboardNavVisibilty</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">30</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ForgotPasswordTests<td><a href="#m91"><b>TC_01_ForgotPasswordScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3512</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m92"><b>TC_32_testVerifyLogoutNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6078</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m93"><b>TC_19_testOnAppointmentDetailsScreenMenuViewVitalsOptionVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9977</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m94"><b>TC_23_testVerifyOnTapReportsNavReportsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9404</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ProfileTests<td><a href="#m95"><b>TS_05_testVerifyProfessionalCashInHandPendingVerificationVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5514</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m96"><b>TC_39_testVerifyOnTapAddCaseButtonAlertWindowWithYesNoOptionVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">14631</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m97"><b>TC_18_testVerifyCaseFileNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2215</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m98"><b>TC_33_testVerifyOnEnterChequeAmountIssueBankDetailsTextboxVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">19658</td></tr><tr class="passedodd"><td><a href="#m99"><b>TC_09_testVerifyOnPendingAppointmentConfirmButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4916</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m100"><b>TC_14_testVerifyCalendarNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2220</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m101"><b>TC_27_testVerifyOnTabFabButtonAddCaseOptionsCaseDetailsScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12409</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.CasefileTests$CalendarTests<td><a href="#m102"><b>testVerifyCasefileScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">22635</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.LeaveTests<td><a href="#m103"><b>TC_04testVerifyLeavesTabVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9809</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m104"><b>TC_10_testVerifyAppointmentNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">1287</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m105"><b>TC_14_testOnAppointmentDetailsScreenPatientTabVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">7627</td></tr><tr class="passedodd"><td><a href="#m106"><b>TC_012_testVerifyOpenAppointmentsOptionVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5854</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ReferPatientTests<td><a href="#m107"><b>tc_02_testVerifyPatientDetailsPage</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10721</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m108"><b>TC_011_testVerifyClosedAppointmentsOptionVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5983</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m109"><b>TC_03_testVerifyRefreshButtonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4430</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m110"><b>TC_37_testVerifyOnAddAppointmentScreenCurrentMonthYearVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">22982</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m111"><b>TC_13_testVerifyFeedbackScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9416</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m112"><b>TC_09_testVerifyDepositButtonVisiblityOnDepositScreen</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9421</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LogOutTests<td><a href="#m113"><b>TC_03_testVerifyCancelLogout</b> (UITest) </a></td><td class="numi">1</td><td class="numi">11829</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m114"><b>TC_42_testVerifyAddDocumentScreenElementsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">12231</td></tr>
+<tr class="passedeven"><td rowspan="3">com.qa.mobileapp.tests.DashboardTests<td><a href="#m115"><b>TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4483</td></tr><tr class="passedeven"><td><a href="#m116"><b>TC_07_testVerifyClincianProfessionVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">1209</td></tr><tr class="passedeven"><td><a href="#m117"><b>TC_28_testVerifyReferPatientNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">7494</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.PatientTests<td><a href="#m118"><b>TC_05_testVerifyAddPatientButtonVisibilityOnPatientListing</b> (UITest) </a></td><td class="numi">1</td><td class="numi">3522</td></tr><tr class="passedodd"><td><a href="#m119"><b>TC_12_testVerifyReferServiceScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">9263</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m120"><b>TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9343</td></tr><tr class="passedeven"><td><a href="#m121"><b>TC_25_testVerifyOnTapCampNavCampScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4485</td></tr>
+<tr class="passedodd"><td rowspan="2">com.qa.mobileapp.tests.AppointmentTests<td><a href="#m122"><b>TC_23_testVerifyOnTabFabButtonAddCaseOptionsVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10353</td></tr><tr class="passedodd"><td><a href="#m123"><b>TC_04_testVerifyUpcomingAppointmentListVisibility</b> (UITest) </a></td><td class="numi">1</td><td class="numi">14972</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m124"><b>TC_02_testVerifyCashInHandANDDepositedTabVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4475</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.DashboardTests<td><a href="#m125"><b>TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">8370</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LogOutTests<td><a href="#m126"><b>TC_01_testLogOutNavBarVisibilty</b> (UITest) </a></td><td class="numi">1</td><td class="numi">5622</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.LeaveTests<td><a href="#m127"><b>TC_05testVerifyOvertimescreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6730</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.PatientTests<td><a href="#m128"><b>TC_06_testVerifyOnTapPatientNamePatientDetailsScreenVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">6160</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.PaymentTests<td><a href="#m129"><b>TC_04_testVerifyAmountTypeUserAndDateFieldVisibiltyOnCashInHandTab</b> (UITest) </a></td><td class="numi">1</td><td class="numi">4402</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.ForgotPasswordTests<td><a href="#m130"><b>TC_04_testVerifyEnterMobileNoFieldVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">1411</td></tr>
+<tr class="passedodd"><td rowspan="1">com.qa.mobileapp.tests.CalendarTests<td><a href="#m131"><b>TC02testVerifyPreviousSliderbuttonVisiblity</b> (UITest) </a></td><td class="numi">1</td><td class="numi">10121</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.DashboardTests<td><a href="#m132"><b>TC_24_testVerifyCampsNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2352</td></tr><tr class="passedeven"><td><a href="#m133"><b>TC_08_testVerifyClincianCashInHandVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2231</td></tr>
+</table>
+<h1>RegressionUISuite</h1>
+<a id="m1"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_20_testOnTapMenuOptionCheckVitalCheckVitalsScreenVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m2"></a><h2>com.qa.mobileapp.tests.ReferPatientTests:tc_04_testCancelOptionOnPatientPage</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m3"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_05_testVerifyCheckBoxOnCashInHandTab</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m4"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC08testVerifyHomeBackButtonOnCalendarScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m5"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC02testVerifyNextsliderButtonvisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m6"></a><h2>com.qa.mobileapp.tests.FeedbackTests:testVerifyFeedBackScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m7"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m8"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_10_testVerifyOnPatientDetailsScreenRefreshImageVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m9"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_02_testVerifyUpcomingTabVisibiltyOnAppointmentScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m10"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_25_testVerifyOnTabFabButtonPayOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m11"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_02_testVerifyTodayTabVisibiltyOnAppointmentScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m12"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_02_testVerifyPatientDetailsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m13"></a><h2>com.qa.mobileapp.tests.ProfileTests:TS_01_testVerifyProfessionalDetailsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m14"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_30_testVerifyOnTabFabButtonAddAppointmentAddAppointmentDetailsScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m15"></a><h2>com.qa.mobileapp.tests.ReferPatientTests:tc_03_testVerifyReferPatientOnSideMenu</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m16"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_43_testVerifyForConfirmedApptAddApptRescheduleCallToCancelReachedfabOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m17"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC05testVerifyappointmentdetailsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m18"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_14_testVerifyAddPatientScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m19"></a><h2>com.qa.mobileapp.tests.AppointmentTests:testVerifyPatientDetailsVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m20"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_22_testVerifyOnTabFabButtonAddAppointmentOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m21"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_15_testOnAppointmentDetailsScreenPaymentTabVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m22"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_01testVerifyLeaveScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m23"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_06_testVerifyAllAppointmentsOptionVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m24"></a><h2>com.qa.mobileapp.tests.ReportTests:tc_06_testVerifyCancelBtn</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m25"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_26_testVerifyOnTabFabButtonAddAppointmentOptionsAddAppointmentScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m26"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_01_testVerifyPaymentScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m27"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_16_testVerifyPaymentNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m28"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_29_testVerifyOnTabFabButtonPayOptionsPaymentScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m29"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_26_testVerifyAlertsNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m30"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_09_testVerifyOnPatientDetailsScreenFeedbackLinkVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m31"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m32"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_07testApplybuttonTapVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m33"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_05_testVerifyPastAppointmentListVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m34"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_08_testVerifyOnPatientDetailsScreenReferAServiceLinkVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m35"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_35_testVerifyWalletBalanceSendOTPLinkVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m36"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_40_testVerifyOnTapYesForAddCaseRedirectToPhysioApp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m37"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_03testVerifyHolidayTabVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m38"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_02testVerifyApplyButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m39"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_31_testVerifyOnPayScreenCashAndOnlineTabsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m40"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_07_testVerifyOnPatientDetailsScreenPatientDetailsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m41"></a><h2>com.qa.mobileapp.tests.PatientTests:testVerifySubscribedPackageDetailsVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m42"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m43"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m44"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_36_testVerifyEnterAmountOnlineEmailIdMobileNoSendLinkVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m45"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_12_testVerifyPatientNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m46"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m47"></a><h2>com.qa.mobileapp.tests.ForgotPasswordTests:TC_05_testVerifySendOTPButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m48"></a><h2>com.qa.mobileapp.tests.LogOutTests:TC_02_testVerifyLogoutMessagePopupScreenVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m49"></a><h2>com.qa.mobileapp.tests.ProfileTests:TS_02_testVerifyRefreshButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m50"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_13_testVerifyOnTapPatientNavPatientScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m51"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC03testVerifysaveCheckButtonOnCalendarScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m52"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_01_testVerifyAppointmentScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m53"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_24_testVerifyOnTabFabButtonUploadOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m54"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_41_testVerifyOnTapNOForRedirectToCaseScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m55"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_28_testVerifyOnTabFabButtonUploadOptionsAddDocumentPopUpVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m56"></a><h2>com.qa.mobileapp.tests.ProfileTests:TS_03_testVerifyEditButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m57"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_21_testViewVitalsScreenVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m58"></a><h2>com.qa.mobileapp.tests.ReportTests:tc_02_testVerifyTimingLeaveAppointment</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m59"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_06_testVerifyDepositButtonVisiblityOnSelectingCheckBox</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m60"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_11_testVerifyMenuOptionsOnPatientListingVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m61"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_07_testVerifyBranchCityAndNotesFieldVisiblityOnDepositScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m62"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_13_testOnTapPatientNameAppointmentDetailsScreenVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m63"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_07_testVerifyPatientDetailsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m64"></a><h2>com.qa.mobileapp.tests.ReferPatientTests:tc_03_testVerifyPatientDetailsSubmittion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m65"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_08_testVerifyOnClickDepositButtonDepositScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m66"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_32_testVerifyOnCashPaymentScreenCashAndChequeOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m67"></a><h2>com.qa.mobileapp.tests.FeedbackTests:testVerifySearchButtonVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m68"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_03_testVerifyTodaysAppointmentListVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m69"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_04_testVerifyRefreshButtonVisibilityOnPatientListing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m70"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC01testVerifyCalendarScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m71"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_01_testVerifyOnClickPatientNavBarPatientListVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m72"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_30_testVerifyFeedbackNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m73"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m74"></a><h2>com.qa.mobileapp.tests.ReportTests:tc_03_testVerfyCnclnContinueBtn</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m75"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_03_testVerifySearchButtonVisibilityOnPatientListing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m76"></a><h2>com.qa.mobileapp.tests.PatientTests:testVerifyPatientDetailsScreenVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m77"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_22_testVerifyReportNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m78"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_09_testVerifyClincianWorkingHrsVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m79"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_18_testOnAppointmentDetailsScreenMenuCheckVitalsOptionVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m80"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_20_testVerifyLeavesNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m81"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_06testApplybuttonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m82"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_17_testOnAppointmentDetailsScreenMenuOptionVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m83"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_16_testOnAppointmentDetailsScreenAppointmentTabVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m84"></a><h2>com.qa.mobileapp.tests.ForgotPasswordTests:TC_02_EnterMobileNoLabelVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m85"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_06_testVerifyClincianNameVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m86"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_04_testVerifyProfileScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m87"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m88"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_38_testVerifyOnTapCaseFabButtonCaseDetailsAndAddCaseOptionsVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m89"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_02_testVerifyPastTabVisibiltyOnAppointmentScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m90"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_05_testVerifyOnTopDashboardNavVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m91"></a><h2>com.qa.mobileapp.tests.ForgotPasswordTests:TC_01_ForgotPasswordScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m92"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_32_testVerifyLogoutNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m93"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_19_testOnAppointmentDetailsScreenMenuViewVitalsOptionVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m94"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_23_testVerifyOnTapReportsNavReportsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m95"></a><h2>com.qa.mobileapp.tests.ProfileTests:TS_05_testVerifyProfessionalCashInHandPendingVerificationVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m96"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_39_testVerifyOnTapAddCaseButtonAlertWindowWithYesNoOptionVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m97"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_18_testVerifyCaseFileNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m98"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_33_testVerifyOnEnterChequeAmountIssueBankDetailsTextboxVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m99"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_09_testVerifyOnPendingAppointmentConfirmButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m100"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_14_testVerifyCalendarNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m101"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_27_testVerifyOnTabFabButtonAddCaseOptionsCaseDetailsScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m102"></a><h2>com.qa.mobileapp.tests.CasefileTests$CalendarTests:testVerifyCasefileScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m103"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_04testVerifyLeavesTabVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m104"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_10_testVerifyAppointmentNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m105"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_14_testOnAppointmentDetailsScreenPatientTabVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m106"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_012_testVerifyOpenAppointmentsOptionVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m107"></a><h2>com.qa.mobileapp.tests.ReferPatientTests:tc_02_testVerifyPatientDetailsPage</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m108"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_011_testVerifyClosedAppointmentsOptionVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m109"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_03_testVerifyRefreshButtonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m110"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_37_testVerifyOnAddAppointmentScreenCurrentMonthYearVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m111"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_13_testVerifyFeedbackScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m112"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_09_testVerifyDepositButtonVisiblityOnDepositScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m113"></a><h2>com.qa.mobileapp.tests.LogOutTests:TC_03_testVerifyCancelLogout</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m114"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_42_testVerifyAddDocumentScreenElementsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m115"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m116"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_07_testVerifyClincianProfessionVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m117"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_28_testVerifyReferPatientNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m118"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_05_testVerifyAddPatientButtonVisibilityOnPatientListing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m119"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_12_testVerifyReferServiceScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m120"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m121"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_25_testVerifyOnTapCampNavCampScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m122"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_23_testVerifyOnTabFabButtonAddCaseOptionsVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m123"></a><h2>com.qa.mobileapp.tests.AppointmentTests:TC_04_testVerifyUpcomingAppointmentListVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m124"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_02_testVerifyCashInHandANDDepositedTabVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m125"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m126"></a><h2>com.qa.mobileapp.tests.LogOutTests:TC_01_testLogOutNavBarVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m127"></a><h2>com.qa.mobileapp.tests.LeaveTests:TC_05testVerifyOvertimescreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m128"></a><h2>com.qa.mobileapp.tests.PatientTests:TC_06_testVerifyOnTapPatientNamePatientDetailsScreenVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m129"></a><h2>com.qa.mobileapp.tests.PaymentTests:TC_04_testVerifyAmountTypeUserAndDateFieldVisibiltyOnCashInHandTab</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m130"></a><h2>com.qa.mobileapp.tests.ForgotPasswordTests:TC_04_testVerifyEnterMobileNoFieldVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m131"></a><h2>com.qa.mobileapp.tests.CalendarTests:TC02testVerifyPreviousSliderbuttonVisiblity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m132"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_24_testVerifyCampsNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m133"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_08_testVerifyClincianCashInHandVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

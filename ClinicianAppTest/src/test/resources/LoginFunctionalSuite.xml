@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="ClincianAppP1UITestScenarios">
+ 
+	<test name="LoginTests">
+		<classes>
+		    <class name="com.qa.mobileapp.tests.LoginTests"/>
+		    <method>
+		        <include name="TS_01_testVerifyLoginSuccessfully"/>
+		        <include name="TS_01_testVerifyLoginAsPhlebotomists"/>
+		        <include name="TS_01_testVerifyLoginAsLOngTermNursing"/>
+		        <include name="TS_01_testVerifyLoginAsShortTermNursing"/>
+		        <include name="TS_01_testVerifyLoginAsDoctor"/>
+		        <include name="TS_04_testVerifyOnClickShowPasswordShouldNotHangScreen"/>
+		        <include name="TC_07_testVerifyUserGetsLocationEnabledAlert"/>
+		        <include name="TC_08_testVerifyErrorOnLoginWithInvalidCredentials"/>
+		        <include name="TC_09_testVerifyErrorOnLoginWithblankPasswordFields"/>
+		        <include name="TC_10_testVerifyErrorOnLoginWithblankUsernameFields"/>
+		        <include name="TC_11_testVerifyErrorOnLoginWithblankUserNameAndPasswordFields"/>
+		        
+		    </method>
+                 </classes>
+
+	
+
+	
+	
+	
+</suite> 	

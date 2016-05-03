@@ -1,0 +1,6 @@
+userName,password,expected_output,result 
+dinnyportea@gmail.com,password,successfully login,pass
+,password,username field is empty,pass
+dinnyportea@gmail.com,,password field is empty,pass
+dinnyportea@gmail.com,123456,wrong credentials,pass
+,,Required field should not be empty,pass

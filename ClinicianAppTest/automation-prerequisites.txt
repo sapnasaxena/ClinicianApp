@@ -1,0 +1,6 @@
+Prerequisites:-
+
+1. Maven must be installed and configured.
+2. Ant must be installed and configured.
+3. JDK 1.7 min must be installed and configured.
+4. ant-contrib needs to be installed in ant lib.

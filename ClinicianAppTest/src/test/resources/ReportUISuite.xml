@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="ClincianAppP1UITestScenarios">
+ 
+	
+	
+		<test name="CalendarTestSS">
+		<classes>
+		    <class name="com.qa.mobileapp.tests.CalendarTestSS"/>
+                 </classes>
+		</test>
+		
+		<test name="ReportsTests">
+		<classes>
+		    <class name="com.qa.mobileapp.tests.ReportTests"/>
+                 </classes>
+		</test>
+</suite> 	

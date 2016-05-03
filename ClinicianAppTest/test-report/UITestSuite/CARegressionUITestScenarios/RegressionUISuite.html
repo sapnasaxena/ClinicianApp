@@ -1,0 +1,744 @@
+<html>
+<head>
+<title>TestNG:  RegressionUISuite</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RegressionUISuite</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>133/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 02 00:23:30 IST 2016</td>
+</tr>
+<tr><td>Total time:</td><td>13509 seconds (13509252 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>UITest </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC01testVerifyCalendarScreenVisiblity()'><b>TC01testVerifyCalendarScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC02testVerifyNextsliderButtonvisiblity()'><b>TC02testVerifyNextsliderButtonvisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC02testVerifyPreviousSliderbuttonVisiblity()'><b>TC02testVerifyPreviousSliderbuttonVisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC03testVerifysaveCheckButtonOnCalendarScreenVisiblity()'><b>TC03testVerifysaveCheckButtonOnCalendarScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC05testVerifyappointmentdetailsVisiblity()'><b>TC05testVerifyappointmentdetailsVisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CalendarTests.TC08testVerifyHomeBackButtonOnCalendarScreenVisiblity()'><b>TC08testVerifyHomeBackButtonOnCalendarScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.CalendarTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.CalendarTests@52636e13</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_011_testVerifyClosedAppointmentsOptionVisiblity()'><b>TC_011_testVerifyClosedAppointmentsOptionVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_012_testVerifyOpenAppointmentsOptionVisiblity()'><b>TC_012_testVerifyOpenAppointmentsOptionVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ForgotPasswordTests.TC_01_ForgotPasswordScreenVisiblity()'><b>TC_01_ForgotPasswordScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.ForgotPasswordTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.ForgotPasswordTests@74b1896c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LogOutTests.TC_01_testLogOutNavBarVisibilty()'><b>TC_01_testLogOutNavBarVisibilty</b><br>Test class: com.qa.mobileapp.tests.LogOutTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.LogOutTests@43e65667</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_01_testVerifyAppointmentScreenVisiblity()'><b>TC_01_testVerifyAppointmentScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()'><b>TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>0</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_01_testVerifyOnClickPatientNavBarPatientListVisibilty()'><b>TC_01_testVerifyOnClickPatientNavBarPatientListVisibilty</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_01_testVerifyPaymentScreenVisiblity()'><b>TC_01_testVerifyPaymentScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_01testVerifyLeaveScreenVisiblity()'><b>TC_01testVerifyLeaveScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ForgotPasswordTests.TC_02_EnterMobileNoLabelVisiblity()'><b>TC_02_EnterMobileNoLabelVisiblity</b><br>Test class: com.qa.mobileapp.tests.ForgotPasswordTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.mobileapp.tests.ForgotPasswordTests@74b1896c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_02_testVerifyCashInHandANDDepositedTabVisiblity()'><b>TC_02_testVerifyCashInHandANDDepositedTabVisiblity</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LogOutTests.TC_02_testVerifyLogoutMessagePopupScreenVisibilty()'><b>TC_02_testVerifyLogoutMessagePopupScreenVisibilty</b><br>Test class: com.qa.mobileapp.tests.LogOutTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.LogOutTests@43e65667</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_02_testVerifyPastTabVisibiltyOnAppointmentScreen()'><b>TC_02_testVerifyPastTabVisibiltyOnAppointmentScreen</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_02_testVerifyPatientDetailsVisiblity()'><b>TC_02_testVerifyPatientDetailsVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_02_testVerifyTodayTabVisibiltyOnAppointmentScreen()'><b>TC_02_testVerifyTodayTabVisibiltyOnAppointmentScreen</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_02_testVerifyUpcomingTabVisibiltyOnAppointmentScreen()'><b>TC_02_testVerifyUpcomingTabVisibiltyOnAppointmentScreen</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_02testVerifyApplyButtonVisiblity()'><b>TC_02testVerifyApplyButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LogOutTests.TC_03_testVerifyCancelLogout()'><b>TC_03_testVerifyCancelLogout</b><br>Test class: com.qa.mobileapp.tests.LogOutTests</td>
+<td></td>
+<td>11</td>
+<td>com.qa.mobileapp.tests.LogOutTests@43e65667</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_03_testVerifyRefreshButtonVisiblity()'><b>TC_03_testVerifyRefreshButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_03_testVerifySearchButtonVisibilityOnPatientListing()'><b>TC_03_testVerifySearchButtonVisibilityOnPatientListing</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_03_testVerifyTodaysAppointmentListVisibility()'><b>TC_03_testVerifyTodaysAppointmentListVisibility</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>14</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_03testVerifyHolidayTabVisiblity()'><b>TC_03testVerifyHolidayTabVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_04_testVerifyAmountTypeUserAndDateFieldVisibiltyOnCashInHandTab()'><b>TC_04_testVerifyAmountTypeUserAndDateFieldVisibiltyOnCashInHandTab</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ForgotPasswordTests.TC_04_testVerifyEnterMobileNoFieldVisiblity()'><b>TC_04_testVerifyEnterMobileNoFieldVisiblity</b><br>Test class: com.qa.mobileapp.tests.ForgotPasswordTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.mobileapp.tests.ForgotPasswordTests@74b1896c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_04_testVerifyProfileScreenVisibility()'><b>TC_04_testVerifyProfileScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_04_testVerifyRefreshButtonVisibilityOnPatientListing()'><b>TC_04_testVerifyRefreshButtonVisibilityOnPatientListing</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_04_testVerifyUpcomingAppointmentListVisibility()'><b>TC_04_testVerifyUpcomingAppointmentListVisibility</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>14</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_04testVerifyLeavesTabVisiblity()'><b>TC_04testVerifyLeavesTabVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_05_testVerifyAddPatientButtonVisibilityOnPatientListing()'><b>TC_05_testVerifyAddPatientButtonVisibilityOnPatientListing</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_05_testVerifyCheckBoxOnCashInHandTab()'><b>TC_05_testVerifyCheckBoxOnCashInHandTab</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_05_testVerifyOnTopDashboardNavVisibilty()'><b>TC_05_testVerifyOnTopDashboardNavVisibilty</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>0</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_05_testVerifyPastAppointmentListVisibility()'><b>TC_05_testVerifyPastAppointmentListVisibility</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>15</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ForgotPasswordTests.TC_05_testVerifySendOTPButtonVisiblity()'><b>TC_05_testVerifySendOTPButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.ForgotPasswordTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.mobileapp.tests.ForgotPasswordTests@74b1896c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_05testVerifyOvertimescreenVisiblity()'><b>TC_05testVerifyOvertimescreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_06_testVerifyAllAppointmentsOptionVisiblity()'><b>TC_06_testVerifyAllAppointmentsOptionVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_06_testVerifyClincianNameVisibility()'><b>TC_06_testVerifyClincianNameVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_06_testVerifyDepositButtonVisiblityOnSelectingCheckBox()'><b>TC_06_testVerifyDepositButtonVisiblityOnSelectingCheckBox</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_06_testVerifyOnTapPatientNamePatientDetailsScreenVisiblity()'><b>TC_06_testVerifyOnTapPatientNamePatientDetailsScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_06testApplybuttonVisiblity()'><b>TC_06testApplybuttonVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_07_testVerifyBranchCityAndNotesFieldVisiblityOnDepositScreen()'><b>TC_07_testVerifyBranchCityAndNotesFieldVisiblityOnDepositScreen</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_07_testVerifyClincianProfessionVisibility()'><b>TC_07_testVerifyClincianProfessionVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_07_testVerifyOnPatientDetailsScreenPatientDetailsVisiblity()'><b>TC_07_testVerifyOnPatientDetailsScreenPatientDetailsVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_07_testVerifyPatientDetailsVisiblity()'><b>TC_07_testVerifyPatientDetailsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.LeaveTests.TC_07testApplybuttonTapVisiblity()'><b>TC_07testApplybuttonTapVisiblity</b><br>Test class: com.qa.mobileapp.tests.LeaveTests</td>
+<td></td>
+<td>22</td>
+<td>com.qa.mobileapp.tests.LeaveTests@33b54d4e</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_08_testVerifyClincianCashInHandVisibility()'><b>TC_08_testVerifyClincianCashInHandVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_08_testVerifyOnClickDepositButtonDepositScreenVisiblity()'><b>TC_08_testVerifyOnClickDepositButtonDepositScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_08_testVerifyOnPatientDetailsScreenReferAServiceLinkVisiblity()'><b>TC_08_testVerifyOnPatientDetailsScreenReferAServiceLinkVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_09_testVerifyClincianWorkingHrsVisibility()'><b>TC_09_testVerifyClincianWorkingHrsVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PaymentTests.TC_09_testVerifyDepositButtonVisiblityOnDepositScreen()'><b>TC_09_testVerifyDepositButtonVisiblityOnDepositScreen</b><br>Test class: com.qa.mobileapp.tests.PaymentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.PaymentTests@4e731c20</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_09_testVerifyOnPatientDetailsScreenFeedbackLinkVisiblity()'><b>TC_09_testVerifyOnPatientDetailsScreenFeedbackLinkVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_09_testVerifyOnPendingAppointmentConfirmButtonVisiblity()'><b>TC_09_testVerifyOnPendingAppointmentConfirmButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_10_testVerifyAppointmentNavVisibility()'><b>TC_10_testVerifyAppointmentNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_10_testVerifyOnPatientDetailsScreenRefreshImageVisiblity()'><b>TC_10_testVerifyOnPatientDetailsScreenRefreshImageVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_11_testVerifyMenuOptionsOnPatientListingVisiblity()'><b>TC_11_testVerifyMenuOptionsOnPatientListingVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>8</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()'><b>TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_12_testVerifyPatientNavVisibility()'><b>TC_12_testVerifyPatientNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_12_testVerifyReferServiceScreenVisiblity()'><b>TC_12_testVerifyReferServiceScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_13_testOnTapPatientNameAppointmentDetailsScreenVisibilty()'><b>TC_13_testOnTapPatientNameAppointmentDetailsScreenVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_13_testVerifyFeedbackScreenVisiblity()'><b>TC_13_testVerifyFeedbackScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_13_testVerifyOnTapPatientNavPatientScreenVisibility()'><b>TC_13_testVerifyOnTapPatientNavPatientScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_14_testOnAppointmentDetailsScreenPatientTabVisibilty()'><b>TC_14_testOnAppointmentDetailsScreenPatientTabVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.TC_14_testVerifyAddPatientScreenVisiblity()'><b>TC_14_testVerifyAddPatientScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_14_testVerifyCalendarNavVisibility()'><b>TC_14_testVerifyCalendarNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_15_testOnAppointmentDetailsScreenPaymentTabVisibilty()'><b>TC_15_testOnAppointmentDetailsScreenPaymentTabVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility()'><b>TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_16_testOnAppointmentDetailsScreenAppointmentTabVisibilty()'><b>TC_16_testOnAppointmentDetailsScreenAppointmentTabVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_16_testVerifyPaymentNavVisibility()'><b>TC_16_testVerifyPaymentNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_17_testOnAppointmentDetailsScreenMenuOptionVisibilty()'><b>TC_17_testOnAppointmentDetailsScreenMenuOptionVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility()'><b>TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_18_testOnAppointmentDetailsScreenMenuCheckVitalsOptionVisibilty()'><b>TC_18_testOnAppointmentDetailsScreenMenuCheckVitalsOptionVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_18_testVerifyCaseFileNavVisibility()'><b>TC_18_testVerifyCaseFileNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_19_testOnAppointmentDetailsScreenMenuViewVitalsOptionVisibilty()'><b>TC_19_testOnAppointmentDetailsScreenMenuViewVitalsOptionVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility()'><b>TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_20_testOnTapMenuOptionCheckVitalCheckVitalsScreenVisibilty()'><b>TC_20_testOnTapMenuOptionCheckVitalCheckVitalsScreenVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_20_testVerifyLeavesNavVisibility()'><b>TC_20_testVerifyLeavesNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility()'><b>TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_21_testViewVitalsScreenVisibilty()'><b>TC_21_testViewVitalsScreenVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>22</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_22_testVerifyOnTabFabButtonAddAppointmentOptionsVisiblity()'><b>TC_22_testVerifyOnTabFabButtonAddAppointmentOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_22_testVerifyReportNavVisibility()'><b>TC_22_testVerifyReportNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_23_testVerifyOnTabFabButtonAddCaseOptionsVisiblity()'><b>TC_23_testVerifyOnTabFabButtonAddCaseOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_23_testVerifyOnTapReportsNavReportsScreenVisibility()'><b>TC_23_testVerifyOnTapReportsNavReportsScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_24_testVerifyCampsNavVisibility()'><b>TC_24_testVerifyCampsNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_24_testVerifyOnTabFabButtonUploadOptionsVisiblity()'><b>TC_24_testVerifyOnTabFabButtonUploadOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_25_testVerifyOnTabFabButtonPayOptionsVisiblity()'><b>TC_25_testVerifyOnTabFabButtonPayOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_25_testVerifyOnTapCampNavCampScreenVisibility()'><b>TC_25_testVerifyOnTapCampNavCampScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_26_testVerifyAlertsNavVisibility()'><b>TC_26_testVerifyAlertsNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_26_testVerifyOnTabFabButtonAddAppointmentOptionsAddAppointmentScreenVisiblity()'><b>TC_26_testVerifyOnTabFabButtonAddAppointmentOptionsAddAppointmentScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>21</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_27_testVerifyOnTabFabButtonAddCaseOptionsCaseDetailsScreenVisiblity()'><b>TC_27_testVerifyOnTabFabButtonAddCaseOptionsCaseDetailsScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility()'><b>TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_28_testVerifyOnTabFabButtonUploadOptionsAddDocumentPopUpVisiblity()'><b>TC_28_testVerifyOnTabFabButtonUploadOptionsAddDocumentPopUpVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>72</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_28_testVerifyReferPatientNavVisibility()'><b>TC_28_testVerifyReferPatientNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_29_testVerifyOnTabFabButtonPayOptionsPaymentScreenVisiblity()'><b>TC_29_testVerifyOnTabFabButtonPayOptionsPaymentScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility()'><b>TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_30_testVerifyFeedbackNavVisibility()'><b>TC_30_testVerifyFeedbackNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_30_testVerifyOnTabFabButtonAddAppointmentAddAppointmentDetailsScreenVisiblity()'><b>TC_30_testVerifyOnTabFabButtonAddAppointmentAddAppointmentDetailsScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>64</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_31_testVerifyOnPayScreenCashAndOnlineTabsVisiblity()'><b>TC_31_testVerifyOnPayScreenCashAndOnlineTabsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>13</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility()'><b>TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>9</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_32_testVerifyLogoutNavVisibility()'><b>TC_32_testVerifyLogoutNavVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>6</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_32_testVerifyOnCashPaymentScreenCashAndChequeOptionsVisiblity()'><b>TC_32_testVerifyOnCashPaymentScreenCashAndChequeOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_33_testVerifyOnEnterChequeAmountIssueBankDetailsTextboxVisibilty()'><b>TC_33_testVerifyOnEnterChequeAmountIssueBankDetailsTextboxVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>19</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.DashboardTests.TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility()'><b>TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility</b><br>Test class: com.qa.mobileapp.tests.DashboardTests</td>
+<td></td>
+<td>8</td>
+<td>com.qa.mobileapp.tests.DashboardTests@55433fd1</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_35_testVerifyWalletBalanceSendOTPLinkVisibilty()'><b>TC_35_testVerifyWalletBalanceSendOTPLinkVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>24</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_36_testVerifyEnterAmountOnlineEmailIdMobileNoSendLinkVisibilty()'><b>TC_36_testVerifyEnterAmountOnlineEmailIdMobileNoSendLinkVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>33</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_37_testVerifyOnAddAppointmentScreenCurrentMonthYearVisibilty()'><b>TC_37_testVerifyOnAddAppointmentScreenCurrentMonthYearVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>22</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_38_testVerifyOnTapCaseFabButtonCaseDetailsAndAddCaseOptionsVisibilty()'><b>TC_38_testVerifyOnTapCaseFabButtonCaseDetailsAndAddCaseOptionsVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_39_testVerifyOnTapAddCaseButtonAlertWindowWithYesNoOptionVisibilty()'><b>TC_39_testVerifyOnTapAddCaseButtonAlertWindowWithYesNoOptionVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>14</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_40_testVerifyOnTapYesForAddCaseRedirectToPhysioApp()'><b>TC_40_testVerifyOnTapYesForAddCaseRedirectToPhysioApp</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>16</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_41_testVerifyOnTapNOForRedirectToCaseScreen()'><b>TC_41_testVerifyOnTapNOForRedirectToCaseScreen</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>19</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_42_testVerifyAddDocumentScreenElementsVisiblity()'><b>TC_42_testVerifyAddDocumentScreenElementsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>12</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.TC_43_testVerifyForConfirmedApptAddApptRescheduleCallToCancelReachedfabOptionsVisiblity()'><b>TC_43_testVerifyForConfirmedApptAddApptRescheduleCallToCancelReachedfabOptionsVisiblity</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>11</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ProfileTests.TS_01_testVerifyProfessionalDetailsVisiblity()'><b>TS_01_testVerifyProfessionalDetailsVisiblity</b><br>Test class: com.qa.mobileapp.tests.ProfileTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.mobileapp.tests.ProfileTests@673ba11c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ProfileTests.TS_02_testVerifyRefreshButtonVisiblity()'><b>TS_02_testVerifyRefreshButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.ProfileTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.ProfileTests@673ba11c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ProfileTests.TS_03_testVerifyEditButtonVisiblity()'><b>TS_03_testVerifyEditButtonVisiblity</b><br>Test class: com.qa.mobileapp.tests.ProfileTests</td>
+<td></td>
+<td>3</td>
+<td>com.qa.mobileapp.tests.ProfileTests@673ba11c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ProfileTests.TS_05_testVerifyProfessionalCashInHandPendingVerificationVisiblity()'><b>TS_05_testVerifyProfessionalCashInHandPendingVerificationVisiblity</b><br>Test class: com.qa.mobileapp.tests.ProfileTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.ProfileTests@673ba11c</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReferPatientTests.tc_02_testVerifyPatientDetailsPage()'><b>tc_02_testVerifyPatientDetailsPage</b><br>Test class: com.qa.mobileapp.tests.ReferPatientTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.ReferPatientTests@7bce6a36</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReportTests.tc_02_testVerifyTimingLeaveAppointment()'><b>tc_02_testVerifyTimingLeaveAppointment</b><br>Test class: com.qa.mobileapp.tests.ReportTests</td>
+<td></td>
+<td>20</td>
+<td>com.qa.mobileapp.tests.ReportTests@2c9f3eba</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReportTests.tc_03_testVerfyCnclnContinueBtn()'><b>tc_03_testVerfyCnclnContinueBtn</b><br>Test class: com.qa.mobileapp.tests.ReportTests</td>
+<td></td>
+<td>8</td>
+<td>com.qa.mobileapp.tests.ReportTests@2c9f3eba</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReferPatientTests.tc_03_testVerifyPatientDetailsSubmittion()'><b>tc_03_testVerifyPatientDetailsSubmittion</b><br>Test class: com.qa.mobileapp.tests.ReferPatientTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.ReferPatientTests@7bce6a36</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReferPatientTests.tc_03_testVerifyReferPatientOnSideMenu()'><b>tc_03_testVerifyReferPatientOnSideMenu</b><br>Test class: com.qa.mobileapp.tests.ReferPatientTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.ReferPatientTests@7bce6a36</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReferPatientTests.tc_04_testCancelOptionOnPatientPage()'><b>tc_04_testCancelOptionOnPatientPage</b><br>Test class: com.qa.mobileapp.tests.ReferPatientTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.ReferPatientTests@7bce6a36</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.ReportTests.tc_06_testVerifyCancelBtn()'><b>tc_06_testVerifyCancelBtn</b><br>Test class: com.qa.mobileapp.tests.ReportTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.ReportTests@2c9f3eba</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.CasefileTests$CalendarTests.testVerifyCasefileScreenVisiblity()'><b>testVerifyCasefileScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.CasefileTests$CalendarTests</td>
+<td></td>
+<td>22</td>
+<td>com.qa.mobileapp.tests.CasefileTests$CalendarTests@7dcfcba6</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.FeedbackTests.testVerifyFeedBackScreenVisiblity()'><b>testVerifyFeedBackScreenVisiblity</b><br>Test class: com.qa.mobileapp.tests.FeedbackTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.FeedbackTests@3212de12</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.testVerifyPatientDetailsScreenVisibilty()'><b>testVerifyPatientDetailsScreenVisibilty</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>5</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.AppointmentTests.testVerifyPatientDetailsVisibilty()'><b>testVerifyPatientDetailsVisibilty</b><br>Test class: com.qa.mobileapp.tests.AppointmentTests</td>
+<td></td>
+<td>10</td>
+<td>com.qa.mobileapp.tests.AppointmentTests@2521ddb8</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.FeedbackTests.testVerifySearchButtonVisibilty()'><b>testVerifySearchButtonVisibilty</b><br>Test class: com.qa.mobileapp.tests.FeedbackTests</td>
+<td></td>
+<td>7</td>
+<td>com.qa.mobileapp.tests.FeedbackTests@3212de12</td></tr>
+<tr>
+<td title='com.qa.mobileapp.tests.PatientTests.testVerifySubscribedPackageDetailsVisibilty()'><b>testVerifySubscribedPackageDetailsVisibilty</b><br>Test class: com.qa.mobileapp.tests.PatientTests</td>
+<td></td>
+<td>26</td>
+<td>com.qa.mobileapp.tests.PatientTests@4732a704</td></tr>
+</table><p>
+</body>
+</html>

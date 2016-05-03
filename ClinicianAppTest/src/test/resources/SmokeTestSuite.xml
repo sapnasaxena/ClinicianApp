@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="ClinicianAppSmokeTestScenarios">
+ 
+	<test name="SmokeTestSuite" preserve-order=true>
+	      <groups>
+      <run>
+      <include name="smoketest" />
+      </run>
+   </groups>
+
+		<classes>
+		    <class name="com.qa.mobileapp.tests.LoginTests"/>
+		    <class name="com.qa.mobileapp.tests.DashboardTests"/>
+        </classes>
+	</test>
+ 
+	
+
+	
+	
+
+	
+		
+	
+	
+</suite> 	

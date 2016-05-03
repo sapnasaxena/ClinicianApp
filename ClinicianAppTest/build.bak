@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+<project name="automationtests" default="package" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Import maven-build.xml into the current project                        -->
+  <!-- ====================================================================== -->
+
+  <import file="maven-build.xml"/>
+  <property file="config.properties" />
+  <property environment="env" />
+  <property name="ANDROID_HOME" value="${env.ANDROID_HOME}" />
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+  <taskdef 
+  
+  <!-- ====================================================================== -->
+  <!-- Run all tests                                                          -->
+  <!-- ====================================================================== -->
+
+  <target name="test" 
+          depends="compile-tests"
+          description="Run the test cases">
+    
+  </target>
+  
+  <target name="setup">
+  
+	<!--kill the adb server -->
+	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe" >
+		<arg line="kill-server" />
+	</exec>
+	<sleep seconds="5" />
+	<!-- start the emulator -->
+	<exec executable="${ANDROID_HOME}/tools/emulator.exe" >
+		<arg line="@${device.name}" />
+	</exec>
+	<!-- check if the boot animation is over or not -->
+	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe"
+				failonerror="false"
+				outputproperty="anim.state">
+			<arg line="shell getprop init.svc.bootanim" />			
+	</exec>
+				
+	<check-device-status status="${anim.state}"/>
+	
+	<!-- Start adb server -->
+	
+	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe" >
+		<arg line="start-server" />
+	</exec>
+	<sleep seconds="5" />
+	
+	<!-- start appium server -->
+	<exec executable="${appium.install.dir}/node.exe">
+		<arg line="${appium.install.dir}/node_modules/appium/lib/server/main.js --address 127.0.0.1 --port 4723 --app ${app.path} --full-reset --platform-name Android --platform-version 21 --automation-name Appium --device-name '${device.name}' --log-no-color" />
+	</exec>
+	<!--sleep for 10 seconds so that server is fully initialized -->
+	<sleep seconds="10" />
+	
+  </target>
+  
+  <target name="te" >	  
+	
+	
+		
+  </target>
+  
+  <macrodef name="check-device-status">
+		<attribute name="status" />
+		<sequential>
+		<var name="statevalue" value="@{status}" />
+		<for param="iter" list="0,1,2,3,4,5,6,7,8,9" keepgoing="true">
+			<sequential>
+				<if>				
+					<equals arg1= "${statevalue}" arg2="stopped" />
+						<then >
+						</then>
+					<else>
+						<sleep seconds="30" />						
+						<exec executable="${ANDROID_HOME}/platform-tools/adb.exe"
+							failonerror="false"
+							outputproperty="anim.state@{iter}">
+							<arg line="shell getprop init.svc.bootanim" />							
+						</exec>
+						<var name="statevalue" value="${anim.state@{iter}}" />
+					</else>
+				</if>
+														
+			</sequential>
+		</for>
+		</sequential>
+  </macrodef>
+  
+
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="CARegressionUITestScenarios">
+ 
+	<test name="LeaveTests">
+	       <groups>
+      <run>
+      <include name="UItest" />
+      </run>
+   </groups>
+		<classes>
+		    <class name="com.qa.mobileapp.tests.LeaveTests"/>
+                 </classes>
+	</test>
+</suite> 	

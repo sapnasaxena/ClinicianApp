@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.param,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.param td,table.param th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.param th {vertical-align:bottom}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.param td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.param tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing=0 cellpadding=0 class="param">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">SmokeTestSuite</td><td class="numi">35</td><td class="numi">35</td><td class="numi">0</td><td class="numi">0</td><td class="numi">1,419.8 seconds</td><td class="numi">smoketest </td><td class="numi"></td></tr>
+</table>
+<a id="summary"></a>
+<table cellspacing=0 cellpadding=0 class="passed">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Time<br/>(Msecs)</th></tr>
+<tr><th colspan="4">SmokeTestSuite &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="8">com.qa.mobileapp.tests.DashboardTests<td><a href="#m1"><b>TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">8135</td></tr><tr class="passedodd"><td><a href="#m2"><b>TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4686</td></tr><tr class="passedodd"><td><a href="#m3"><b>TC_07_testVerifyClincianProfessionVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">1216</td></tr><tr class="passedodd"><td><a href="#m4"><b>TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9024</td></tr><tr class="passedodd"><td><a href="#m5"><b>TC_28_testVerifyReferPatientNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">7369</td></tr><tr class="passedodd"><td><a href="#m6"><b>TC_30_testVerifyFeedbackNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6293</td></tr><tr class="passedodd"><td><a href="#m7"><b>TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4483</td></tr><tr class="passedodd"><td><a href="#m8"><b>TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4453</td></tr>
+<tr class="passedeven"><td rowspan="2">com.qa.mobileapp.tests.LoginTests<td><a href="#m9"><b>TS_01_testVerifyLoginAsLOngTermNursing</b> (functest, smoketest) </a></td><td class="numi">1</td><td class="numi">87315</td></tr><tr class="passedeven"><td><a href="#m10"><b>TS_01_testVerifyLoginAsShortTermNursing</b> (functest, smoketest) </a></td><td class="numi">1</td><td class="numi">89970</td></tr>
+<tr class="passedodd"><td rowspan="5">com.qa.mobileapp.tests.DashboardTests<td><a href="#m11"><b>TC_16_testVerifyPaymentNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2241</td></tr><tr class="passedodd"><td><a href="#m12"><b>TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4474</td></tr><tr class="passedodd"><td><a href="#m13"><b>TC_20_testVerifyLeavesNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2229</td></tr><tr class="passedodd"><td><a href="#m14"><b>TC_06_testVerifyClincianNameVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2222</td></tr><tr class="passedodd"><td><a href="#m15"><b>TC_22_testVerifyReportNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6716</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LoginTests<td><a href="#m16"><b>TS_01_testVerifyLoginSuccessfully</b> (functest, smoketest) </a></td><td class="numi">1</td><td class="numi">90725</td></tr>
+<tr class="passedodd"><td rowspan="15">com.qa.mobileapp.tests.DashboardTests<td><a href="#m17"><b>TC_18_testVerifyCaseFileNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2717</td></tr><tr class="passedodd"><td><a href="#m18"><b>TC_10_testVerifyAppointmentNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">1187</td></tr><tr class="passedodd"><td><a href="#m19"><b>TC_25_testVerifyOnTapCampNavCampScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4499</td></tr><tr class="passedodd"><td><a href="#m20"><b>TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4464</td></tr><tr class="passedodd"><td><a href="#m21"><b>TC_08_testVerifyClincianCashInHandVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2357</td></tr><tr class="passedodd"><td><a href="#m22"><b>TC_13_testVerifyOnTapPatientNavPatientScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4458</td></tr><tr class="passedodd"><td><a href="#m23"><b>TC_04_testVerifyProfileScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">3885</td></tr><tr class="passedodd"><td><a href="#m24"><b>TC_26_testVerifyAlertsNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2262</td></tr><tr class="passedodd"><td><a href="#m25"><b>TC_05_testVerifyOnTopDashboardNavVisibilty</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">42</td></tr><tr class="passedodd"><td><a href="#m26"><b>TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">4466</td></tr><tr class="passedodd"><td><a href="#m27"><b>TC_14_testVerifyCalendarNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2221</td></tr><tr class="passedodd"><td><a href="#m28"><b>TC_12_testVerifyPatientNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2272</td></tr><tr class="passedodd"><td><a href="#m29"><b>TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9184</td></tr><tr class="passedodd"><td><a href="#m30"><b>TC_24_testVerifyCampsNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2248</td></tr><tr class="passedodd"><td><a href="#m31"><b>TC_09_testVerifyClincianWorkingHrsVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">2224</td></tr>
+<tr class="passedeven"><td rowspan="1">com.qa.mobileapp.tests.LoginTests<td><a href="#m32"><b>TS_01_testVerifyLoginAsPhlebotomists</b> (functest, smoketest) </a></td><td class="numi">1</td><td class="numi">84133</td></tr>
+<tr class="passedodd"><td rowspan="3">com.qa.mobileapp.tests.DashboardTests<td><a href="#m33"><b>TC_32_testVerifyLogoutNavVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">6340</td></tr><tr class="passedodd"><td><a href="#m34"><b>TC_23_testVerifyOnTapReportsNavReportsScreenVisibility</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">9756</td></tr><tr class="passedodd"><td><a href="#m35"><b>TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen</b> (smoketest, UITest) </a></td><td class="numi">1</td><td class="numi">32</td></tr>
+</table>
+<h1>SmokeTestSuite</h1>
+<a id="m1"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m2"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m3"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_07_testVerifyClincianProfessionVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m4"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m5"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_28_testVerifyReferPatientNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m6"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_30_testVerifyFeedbackNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m7"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m8"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m9"></a><h2>com.qa.mobileapp.tests.LoginTests:TS_01_testVerifyLoginAsLOngTermNursing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m10"></a><h2>com.qa.mobileapp.tests.LoginTests:TS_01_testVerifyLoginAsShortTermNursing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m11"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_16_testVerifyPaymentNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m12"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m13"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_20_testVerifyLeavesNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m14"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_06_testVerifyClincianNameVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m15"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_22_testVerifyReportNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m16"></a><h2>com.qa.mobileapp.tests.LoginTests:TS_01_testVerifyLoginSuccessfully</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m17"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_18_testVerifyCaseFileNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m18"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_10_testVerifyAppointmentNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m19"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_25_testVerifyOnTapCampNavCampScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m20"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m21"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_08_testVerifyClincianCashInHandVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m22"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_13_testVerifyOnTapPatientNavPatientScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m23"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_04_testVerifyProfileScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m24"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_26_testVerifyAlertsNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m25"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_05_testVerifyOnTopDashboardNavVisibilty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m26"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m27"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_14_testVerifyCalendarNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m28"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_12_testVerifyPatientNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m29"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m30"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_24_testVerifyCampsNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m31"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_09_testVerifyClincianWorkingHrsVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m32"></a><h2>com.qa.mobileapp.tests.LoginTests:TS_01_testVerifyLoginAsPhlebotomists</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m33"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_32_testVerifyLogoutNavVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m34"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_23_testVerifyOnTapReportsNavReportsScreenVisibility</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m35"></a><h2>com.qa.mobileapp.tests.DashboardTests:TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>
