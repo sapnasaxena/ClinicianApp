@@ -34,7 +34,7 @@
   <!-- ====================================================================== -->
 
   <target name="run-test" 
-          depends="setup-avd"
+          depends="compile-tests, setup-avd"
           description="Run the test cases">
 	  <sequential>
 			<reset-output-dir />
