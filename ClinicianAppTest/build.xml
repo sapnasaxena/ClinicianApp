@@ -20,9 +20,9 @@
   <property file="config.properties" />
   <property environment="env" />
   <property name="ANDROID_HOME" value="${env.ANDROID_HOME}" />
+  <property name="GENYMOTION_HOME" value="${env.GENYMOTION_HOME}" />
   <property name="test-report" value="test-report/${suite.name}" />
-  <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
-  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+  
    <taskdef name="testng" classname="org.testng.TestNGAntTask">
       <classpath>
          <pathelement location="${maven.repo.local}/org/testng/testng/6.1.1/testng-6.1.1.jar"/>
@@ -34,7 +34,7 @@
   <!-- ====================================================================== -->
 
   <target name="run-test" 
-          depends="compile-tests, setup-android"
+          depends="setup-avd"
           description="Run the test cases">
 	  <sequential>
 			<reset-output-dir />
@@ -48,54 +48,46 @@
 			</testng>
 			<echo message="Trying to kill appium" />
 			<sleep seconds="5" />
-			<!--<stop-appium />-->
+			<stop-appium />
 		</sequential>
 	
   </target>
   
-  <target name="setup-android">
-  
+  <target name="setup-avd">
 	<!--kill the adb server -->
-	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe" >
+	<exec executable="${ANDROID_HOME}/platform-tools/adb">
 		<arg line="kill-server" />
 	</exec>
 	<sleep seconds="5" />
 	
-	<!-- start the emulator -->
-	<!--
-	<exec executable="${ANDROID_HOME}/tools/emulator.exe" >
-		<arg line="@${device.name}" />
+	<!--kill the avd if already running -->
+	<exec executable="cmd">
+		<arg value="/c" />
+		<arg value="taskkill /IM player.exe /F" />
 	</exec>
 
-	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe"
-				failonerror="false"
-				outputproperty="anim.state">
-			<arg line="shell getprop init.svc.bootanim" />			
-	</exec>
-			
-	<check-device-status status="${anim.state}"/>
-	-->
-	<!-- Start adb server -->
-	
-	<exec executable="${ANDROID_HOME}/platform-tools/adb.exe" >
-		<arg line="start-server" />
-	</exec>
 	<sleep seconds="5" />
 	
+	<echo message="Starting AVD : ${device.name}" />
+	<!-- start the emulator -->
+	<exec executable="${GENYMOTION_HOME}/player.exe" spawn="true">
+		<arg line="--vm-name ${device.name}" />
+	</exec>
+	<sleep seconds="120" />
   </target>
   
    <macrodef name="start-appium">
 	<sequential>
 		<!-- start appium server -->
-		<echo message="starting the appium server" />
-		<exec dir="." executable="cmd">
-			<arg value="/c"/>
-			<arg value="start"/>
+		<exec dir="." executable="cmd" spawn="true">
+			<arg value="/c" />
 			<arg value="start-appium.bat"/>
-			<arg value="${appium.install.dir}" />
-			<arg value="${app.path}" />
-			<arg value="${device.name}" />
+			<arg value="${appium.install.dir}"/>
+			<arg value="${app.path}"/>
+			<arg value="${device.name}"/>
 		</exec>
+		
+		
 		<!--sleep for 10 seconds so that server is fully initialized -->
 		<sleep seconds="10" />
 	</sequential>
@@ -106,40 +98,12 @@
 		<!-- stopping appium server -->
 		<echo message="stopping the appium server" />
 		<exec dir="." executable="cmd">
-			<arg value="/c"/>
-			<arg value="start"/>
+			<arg value="/c" />
 			<arg value="stop-appium.bat"/>
 		</exec>
 	</sequential>
   </macrodef>
-  
-  
-  <macrodef name="check-device-status">
-		<attribute name="status" />
-		<sequential>
-		<var name="statevalue" value="@{status}" />
-		<for param="iter" list="0,1,2,3,4,5,6,7,8,9" keepgoing="true">
-			<sequential>
-				<if>				
-					<equals arg1= "${statevalue}" arg2="stopped" />
-						<then >
-						</then>
-					<else>
-						<sleep seconds="30" />						
-						<exec executable="${ANDROID_HOME}/platform-tools/adb.exe"
-							failonerror="false"
-							outputproperty="anim.state@{iter}">
-							<arg line="shell getprop init.svc.bootanim" />							
-						</exec>
-						<var name="statevalue" value="${anim.state@{iter}}" />
-					</else>
-				</if>
-														
-			</sequential>
-		</for>
-		</sequential>
-  </macrodef>
-  
+    
 	<macrodef name="reset-output-dir">
 		<sequential>
 			<delete dir= "${test-report}" failonerror="false" />
