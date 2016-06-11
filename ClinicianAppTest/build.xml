@@ -16,12 +16,391 @@
   <!-- Import maven-build.xml into the current project                        -->
   <!-- ====================================================================== -->
 
-  <import file="maven-build.xml"/>
+  <property file="${user.home}/.m2/maven.properties"/>
+  <property file="maven-build.properties"/>
+
+  <property name="maven.build.finalName" value="automationtests-0.0.1-SNAPSHOT"/>
+  <property name="maven.build.dir" value="target"/>
+  <property name="maven.build.outputDir" value="${maven.build.dir}/classes"/>
+  <property name="maven.build.srcDir.0" value="src/main/java"/>
+  <property name="maven.build.resourceDir.0" value="src/main/resources"/>
+  <property name="maven.build.testOutputDir" value="${maven.build.dir}/test-classes"/>
+  <property name="maven.build.testDir.0" value="src/test/java"/>
+  <property name="maven.build.testResourceDir.0" value="src/test/resources"/>
+  <property name="maven.test.reports" value="${maven.build.dir}/test-reports"/>
+  <property name="maven.reporting.outputDirectory" value="${maven.build.dir}/site"/>
+
+  <property name="maven.repo.local" value="${user.home}/.m2/repository"/>
+  <property name="maven.settings.offline" value="false"/>
+  <property name="maven.settings.interactiveMode" value="true"/>
+  
   <property file="config.properties" />
   <property environment="env" />
   <property name="ANDROID_HOME" value="${env.ANDROID_HOME}" />
   <property name="GENYMOTION_HOME" value="${env.GENYMOTION_HOME}" />
   <property name="test-report" value="test-report/${suite.name}" />
+  
+  
+  <!-- ====================================================================== -->
+  <!-- Defining classpaths                                                    -->
+  <!-- ====================================================================== -->
+
+  <path id="build.classpath">
+    <pathelement location="${maven.repo.local}/io/appium/java-client/3.4.1/java-client-3.4.1.jar"/>
+    <pathelement location="${maven.repo.local}/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-java/2.53.0/selenium-java-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-chrome-driver/2.53.0/selenium-chrome-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-remote-driver/2.53.0/selenium-remote-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-api/2.53.0/selenium-api-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-edge-driver/2.53.0/selenium-edge-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/commons-io/commons-io/2.4/commons-io-2.4.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-firefox-driver/2.53.0/selenium-firefox-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-ie-driver/2.53.0/selenium-ie-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar"/>
+    <pathelement location="${maven.repo.local}/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-safari-driver/2.53.0/selenium-safari-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/io/netty/netty/3.5.7.Final/netty-3.5.7.Final.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-support/2.53.0/selenium-support-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-leg-rc/2.53.0/selenium-leg-rc-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+    <pathelement location="${maven.repo.local}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+    <pathelement location="${maven.repo.local}/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+    <pathelement location="${maven.repo.local}/com/google/guava/guava/19.0/guava-19.0.jar"/>
+    <pathelement location="${maven.repo.local}/cglib/cglib/3.2.1/cglib-3.2.1.jar"/>
+    <pathelement location="${maven.repo.local}/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+    <pathelement location="${maven.repo.local}/commons-validator/commons-validator/1.5.0/commons-validator-1.5.0.jar"/>
+    <pathelement location="${maven.repo.local}/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar"/>
+    <pathelement location="${maven.repo.local}/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar"/>
+    <pathelement location="${maven.repo.local}/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"/>
+  </path>
+  <path id="build.test.classpath">
+    <pathelement location="${maven.repo.local}/org/testng/testng/6.1.1/testng-6.1.1.jar"/>
+    <pathelement location="${maven.repo.local}/junit/junit/3.8.1/junit-3.8.1.jar"/>
+    <pathelement location="${maven.repo.local}/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar"/>
+    <pathelement location="${maven.repo.local}/com/beust/jcommander/1.12/jcommander-1.12.jar"/>
+    <pathelement location="${maven.repo.local}/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar"/>
+    <pathelement location="${maven.repo.local}/io/appium/java-client/3.4.1/java-client-3.4.1.jar"/>
+    <pathelement location="${maven.repo.local}/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-java/2.53.0/selenium-java-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-chrome-driver/2.53.0/selenium-chrome-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-remote-driver/2.53.0/selenium-remote-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-api/2.53.0/selenium-api-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-edge-driver/2.53.0/selenium-edge-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/commons-io/commons-io/2.4/commons-io-2.4.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-firefox-driver/2.53.0/selenium-firefox-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-ie-driver/2.53.0/selenium-ie-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar"/>
+    <pathelement location="${maven.repo.local}/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-safari-driver/2.53.0/selenium-safari-driver-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/io/netty/netty/3.5.7.Final/netty-3.5.7.Final.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-support/2.53.0/selenium-support-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/seleniumhq/selenium/selenium-leg-rc/2.53.0/selenium-leg-rc-2.53.0.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+    <pathelement location="${maven.repo.local}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+    <pathelement location="${maven.repo.local}/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+    <pathelement location="${maven.repo.local}/com/google/guava/guava/19.0/guava-19.0.jar"/>
+    <pathelement location="${maven.repo.local}/cglib/cglib/3.2.1/cglib-3.2.1.jar"/>
+    <pathelement location="${maven.repo.local}/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+    <pathelement location="${maven.repo.local}/commons-validator/commons-validator/1.5.0/commons-validator-1.5.0.jar"/>
+    <pathelement location="${maven.repo.local}/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar"/>
+    <pathelement location="${maven.repo.local}/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar"/>
+    <pathelement location="${maven.repo.local}/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"/>
+    <pathelement location="${maven.repo.local}/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"/>
+  </path>
+
+  <!-- ====================================================================== -->
+  <!-- Cleaning up target                                                     -->
+  <!-- ====================================================================== -->
+
+  <target name="clean" description="Clean the output directory">
+    <delete dir="${maven.build.dir}"/>
+  </target>
+
+  <!-- ====================================================================== -->
+  <!-- Compilation target                                                     -->
+  <!-- ====================================================================== -->
+
+  <target name="compile" depends="get-deps" description="Compile the code">
+    <mkdir dir="${maven.build.outputDir}"/>
+    <javac destdir="${maven.build.outputDir}" 
+           nowarn="false" 
+           debug="true" 
+           optimize="false" 
+           deprecation="true" 
+           target="1.7" 
+           verbose="false" 
+           fork="false" 
+           source="1.7">
+      <src>
+        <pathelement location="${maven.build.srcDir.0}"/>
+      </src>
+      <classpath refid="build.classpath"/>
+    </javac>
+  </target>
+
+  <!-- ====================================================================== -->
+  <!-- Test-compilation target                                                -->
+  <!-- ====================================================================== -->
+
+  <target name="compile-tests" 
+          depends="compile" 
+          description="Compile the test code" 
+          unless="maven.test.skip">
+    <mkdir dir="${maven.build.testOutputDir}"/>
+    <javac destdir="${maven.build.testOutputDir}" 
+           nowarn="false" 
+           debug="true" 
+           optimize="false" 
+           deprecation="true" 
+           target="1.7" 
+           verbose="false" 
+           fork="false" 
+           source="1.7">
+      <src>
+        <pathelement location="${maven.build.testDir.0}"/>
+      </src>
+      <classpath>
+        <path refid="build.test.classpath"/>
+        <pathelement location="${maven.build.outputDir}"/>
+      </classpath>
+    </javac>
+    <copy todir="${maven.build.testOutputDir}">
+      <fileset dir="${maven.build.testResourceDir.0}"/>
+    </copy>
+  </target>
+
+  
+
+  <!-- ====================================================================== -->
+  <!-- Package target                                                         -->
+  <!-- ====================================================================== -->
+
+  <target name="package" depends="compile, compile-tests" description="Package the application">
+    <jar jarfile="${maven.build.dir}/${maven.build.finalName}.jar" 
+         compress="true" 
+         index="false" 
+         basedir="${maven.build.outputDir}" 
+         excludes="**/package.html"/>
+  </target>
+
+  <!-- ====================================================================== -->
+  <!-- A dummy target for the package named after the type it creates         -->
+  <!-- ====================================================================== -->
+
+  <target name="jar" depends="package" description="Builds the jar for the application"/>
+
+  <!-- ====================================================================== -->
+  <!-- Download dependencies target                                           -->
+  <!-- ====================================================================== -->
+
+  <target name="test-offline">
+    <condition property="maven.mode.offline">
+      <equals arg1="${maven.settings.offline}" arg2="true"/>
+    </condition>
+  </target>
+
+  <target name="get-deps" 
+          depends="test-offline" 
+          description="Download all dependencies" 
+          unless="maven.mode.offline">
+    <mkdir dir="${maven.repo.local}"/>
+    <mkdir dir="${maven.repo.local}/org/testng/testng/6.1.1"/>
+    <get src="http://repo.maven.apache.org/maven2/org/testng/testng/6.1.1/testng-6.1.1.jar" 
+         dest="${maven.repo.local}/org/testng/testng/6.1.1/testng-6.1.1.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/junit/junit/3.8.1"/>
+    <get src="http://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar" 
+         dest="${maven.repo.local}/junit/junit/3.8.1/junit-3.8.1.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/beanshell/bsh/2.0b4"/>
+    <get src="http://repo.maven.apache.org/maven2/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar" 
+         dest="${maven.repo.local}/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/com/beust/jcommander/1.12"/>
+    <get src="http://repo.maven.apache.org/maven2/com/beust/jcommander/1.12/jcommander-1.12.jar" 
+         dest="${maven.repo.local}/com/beust/jcommander/1.12/jcommander-1.12.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/yaml/snakeyaml/1.6"/>
+    <get src="http://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar" 
+         dest="${maven.repo.local}/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/io/appium/java-client/3.4.1"/>
+    <get src="http://repo.maven.apache.org/maven2/io/appium/java-client/3.4.1/java-client-3.4.1.jar" 
+         dest="${maven.repo.local}/io/appium/java-client/3.4.1/java-client-3.4.1.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/com/google/code/gson/gson/2.6.2"/>
+    <get src="http://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar" 
+         dest="${maven.repo.local}/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-java/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-java/2.53.0/selenium-java-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-java/2.53.0/selenium-java-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-chrome-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-chrome-driver/2.53.0/selenium-chrome-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-chrome-driver/2.53.0/selenium-chrome-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-remote-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-remote-driver/2.53.0/selenium-remote-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-remote-driver/2.53.0/selenium-remote-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/cglib/cglib-nodep/2.1_3"/>
+    <get src="http://repo.maven.apache.org/maven2/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar" 
+         dest="${maven.repo.local}/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-api/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-api/2.53.0/selenium-api-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-api/2.53.0/selenium-api-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-edge-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-edge-driver/2.53.0/selenium-edge-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-edge-driver/2.53.0/selenium-edge-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-io/commons-io/2.4"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar" 
+         dest="${maven.repo.local}/commons-io/commons-io/2.4/commons-io-2.4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/commons/commons-exec/1.3"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar" 
+         dest="${maven.repo.local}/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-firefox-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-firefox-driver/2.53.0/selenium-firefox-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-firefox-driver/2.53.0/selenium-firefox-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-ie-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-ie-driver/2.53.0/selenium-ie-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-ie-driver/2.53.0/selenium-ie-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/net/java/dev/jna/jna/4.1.0"/>
+    <get src="http://repo.maven.apache.org/maven2/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar" 
+         dest="${maven.repo.local}/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/net/java/dev/jna/jna-platform/4.1.0"/>
+    <get src="http://repo.maven.apache.org/maven2/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar" 
+         dest="${maven.repo.local}/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-safari-driver/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-safari-driver/2.53.0/selenium-safari-driver-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-safari-driver/2.53.0/selenium-safari-driver-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/io/netty/netty/3.5.7.Final"/>
+    <get src="http://repo.maven.apache.org/maven2/io/netty/netty/3.5.7.Final/netty-3.5.7.Final.jar" 
+         dest="${maven.repo.local}/io/netty/netty/3.5.7.Final/netty-3.5.7.Final.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-support/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-support/2.53.0/selenium-support-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-support/2.53.0/selenium-support-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/seleniumhq/selenium/selenium-leg-rc/2.53.0"/>
+    <get src="http://repo.maven.apache.org/maven2/org/seleniumhq/selenium/selenium-leg-rc/2.53.0/selenium-leg-rc-2.53.0.jar" 
+         dest="${maven.repo.local}/org/seleniumhq/selenium/selenium-leg-rc/2.53.0/selenium-leg-rc-2.53.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/httpcomponents/httpclient/4.5.2"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar" 
+         dest="${maven.repo.local}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/httpcomponents/httpcore/4.4.4"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar" 
+         dest="${maven.repo.local}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-logging/commons-logging/1.2"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" 
+         dest="${maven.repo.local}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-codec/commons-codec/1.9"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.9/commons-codec-1.9.jar" 
+         dest="${maven.repo.local}/commons-codec/commons-codec/1.9/commons-codec-1.9.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/com/google/guava/guava/19.0"/>
+    <get src="http://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar" 
+         dest="${maven.repo.local}/com/google/guava/guava/19.0/guava-19.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/cglib/cglib/3.2.1"/>
+    <get src="http://repo.maven.apache.org/maven2/cglib/cglib/3.2.1/cglib-3.2.1.jar" 
+         dest="${maven.repo.local}/cglib/cglib/3.2.1/cglib-3.2.1.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/ow2/asm/asm/5.0.3"/>
+    <get src="http://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" 
+         dest="${maven.repo.local}/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/ant/ant/1.9.4"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.4/ant-1.9.4.jar" 
+         dest="${maven.repo.local}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/ant/ant-launcher/1.9.4"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar" 
+         dest="${maven.repo.local}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-validator/commons-validator/1.5.0"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-validator/commons-validator/1.5.0/commons-validator-1.5.0.jar" 
+         dest="${maven.repo.local}/commons-validator/commons-validator/1.5.0/commons-validator-1.5.0.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-beanutils/commons-beanutils/1.9.2"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar" 
+         dest="${maven.repo.local}/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-digester/commons-digester/1.8.1"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar" 
+         dest="${maven.repo.local}/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/commons-collections/commons-collections/3.2.2"/>
+    <get src="http://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" 
+         dest="${maven.repo.local}/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+    <mkdir dir="${maven.repo.local}/org/apache/commons/commons-lang3/3.4"/>
+    <get src="http://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar" 
+         dest="${maven.repo.local}/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar" 
+         usetimestamp="false" 
+         ignoreerrors="true"/>
+  </target>
   
    <taskdef name="testng" classname="org.testng.TestNGAntTask">
       <classpath>
@@ -34,7 +413,7 @@
   <!-- ====================================================================== -->
 
   <target name="run-test" 
-          depends="compile-tests, setup-avd"
+          depends="setup-avd"
           description="Run the test cases">
 	  <sequential>
 			<reset-output-dir />
