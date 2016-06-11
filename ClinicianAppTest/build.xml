@@ -449,8 +449,12 @@
 	
 	<echo message="Starting AVD : ${device.name}" />
 	<!-- start the emulator -->
-	<exec executable="${GENYMOTION_HOME}/player.exe" spawn="true">
-		<arg line="--vm-name ${device.name}" />
+
+	<exec executable="cmd" spawn="true">
+		<arg value="/c" />
+		<arg value="start-avd.bat" />
+		<arg value="${GENYMOTION_HOME}" />
+		<arg value="--vm-name ${device.name}" />
 	</exec>
 	<sleep seconds="120" />
   </target>
