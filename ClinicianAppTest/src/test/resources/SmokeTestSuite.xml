@@ -3,7 +3,7 @@
  
 <suite name="ClinicianAppSmokeTestScenarios">
  
-	<test name="SmokeTestSuite" preserve-order=true>
+	<test name="SmokeTestSuite" preserve-order="true">
 	      <groups>
       <run>
       <include name="smoketest" />
