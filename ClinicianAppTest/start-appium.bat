@@ -1,1 +1,1 @@
-%1/node.exe %1/node_modules/appium/lib/server/main.js --device-ready-timeout 300 --address 127.0.0.1 --port 4723 --app %2 --full-reset --session-override --platform-name Android --platform-version 21 --automation-name Appium --device-name \"%3\" --log-no-color
+start %1/node.exe %1/node_modules/appium/lib/server/main.js --device-ready-timeout 180 --address 127.0.0.1 --port 4723 --app %2 --full-reset --session-override --platform-name Android --platform-version 21 --automation-name Appium --device-name \"%3\" --log-no-color
