@@ -5,8 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-
 import com.qa.mobileapp.common.BasePage;
 import com.qa.mobileapp.common.GlobalUtil;
 
@@ -33,7 +31,7 @@ public class LoginPage extends BasePage {
 	private final By registerButtonLocator = By.id("com.portea.internal:id/actionButton");
 	private final By logoutButtonLocator = By.name("Logout");
 	private final By forgotPasswordButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/tvForgotPassword");
-	private final By locationEnableAlertLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
+	private final By locationEnableAlertLocator = By.name("Location Disabled!");
 	private final By enableLocationLocator = By.name("Enable Location");
 	
 	private final By homeScreenRedirectLocator = By.id("com.healthvista.clinicianapp.stage:id/rlProgressLayout");
@@ -118,9 +116,23 @@ public class LoginPage extends BasePage {
 		GlobalUtil.wait(2);
 		clickWhenVisible(loginButtonLocator);
 		GlobalUtil.wait(2);
+		clickWhenVisible(By.xpath("//android.widget.Button[contains(@text,'Skip')]"),GlobalUtil.LongInterval * 2);
+		//GlobalUtil.wait(2);
+		clickWhenVisible(By.name("Allow"));
+		GlobalUtil.wait(1);
 		dismissLocation();
 	}
-	
+	public void doLogin(String username, String password)
+	{
+		inputText(userNameFieldLocator, username);
+		inputText(passwordFieldLocator, password);
+		GlobalUtil.wait(2);
+		clickWhenVisible(loginButtonLocator);
+		GlobalUtil.wait(2);
+		WebElement ele =driver.findElement(By.name("Skip"));
+		ele.click();
+
+	}
 	
 	public void inputText(By locator, String text)
 	{
@@ -192,4 +204,6 @@ public class LoginPage extends BasePage {
 	{
 		clickWhenVisible(showPasswordFieldLocator);
 	}
+	
+	
 }
