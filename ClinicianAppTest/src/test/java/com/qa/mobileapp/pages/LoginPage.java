@@ -119,7 +119,7 @@ public class LoginPage extends BasePage {
 		clickWhenVisible(By.xpath("//android.widget.Button[contains(@text,'Skip')]"),GlobalUtil.LongInterval * 2);
 		//GlobalUtil.wait(2);
 		// clickWhenVisible(By.name("Allow"));
-		// GlobalUtil.wait(1);
+		GlobalUtil.wait(1);
 		dismissLocation();
 	}
 	public void doLogin(String username, String password)
