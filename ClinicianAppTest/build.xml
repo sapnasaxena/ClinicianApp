@@ -15,7 +15,7 @@
   <!-- ====================================================================== -->
   <!-- Import maven-build.xml into the current project                        -->
   <!-- ====================================================================== -->
-
+  <import file="maven-build.xml" />
   <property file="${user.home}/.m2/maven.properties"/>
   <property file="maven-build.properties"/>
   <property file="config.properties" />
