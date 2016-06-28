@@ -1,12 +1,17 @@
 package com.qa.mobileapp.pages;
 
+
+
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.qa.mobileapp.common.BasePage;
+import com.qa.mobileapp.common.GlobalUtil;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 
 
 /* Author: Sapna Saxena
@@ -26,15 +31,15 @@ public class DashboardPage extends BasePage {
 	private final By outButtonLocator = By.name("com.healthvista.clinicianapp.stage:id/switch2");
 	private final By patientListLocator = By.id("com.healthvista.clinicianapp.stage:id/general_list");
 	private final By patientNameLocator = By.id("com.healthvista.clinicianapp.stage:id/tvTitle");
-	private final By checkInTimeLocator = By.id("com.healthvista.clinicianapp.stage:id/tvCheckInTime"); 
-	private final By checkOutTimeLocator = By.id("com.healthvista.clinicianapp.stage:id/tvCheckOutTime");
+	private final By checkInTimeLocator = By.name("ON"); 
+	private final By checkOutTimeLocator = By.name("OFF");
 	private final By clinicianNameLocator = By.id("com.healthvista.clinicianapp.stage:id/tv_nav_cli_name");
 	private final By clinicianProfessionLocator = By.id("com.healthvista.clinicianapp.stage:id/tv_nav_designation");
 	private final By cashInHandLocator = By.id("com.healthvista.clinicianapp.stage:id/tv_nav_cashinhand");
 	private final By clinicianworkingHrsLocator = By.id("com.healthvista.clinicianapp.stage:id/tv_nav_workinghours");
 	private final By appointmentNavLocator = By.name("Appointments");
 	private final By patientNavLocator = By.name("Patients");
-	private final By calendarNavLocator = By.name("Calender");
+	private final By calendarNavLocator = By.name("Calendar");
 	private final By paymentsNavLocator = By.name("Payments");
 	private final By casefileNavLocator = By.name("Casefile");
 	private final By campsNavLocator = By.name("Camps");
@@ -46,11 +51,13 @@ public class DashboardPage extends BasePage {
 	private final By logOutNavLocator = By.name("Logout");
 	private final By exitAppTitleLocator = By.name("Exit App");
 	
+	@Override
 	public By getExitAppTitleLocator(){
 		return exitAppTitleLocator;
 	}
 	
 	
+	@Override
 	public By getHomeScreenLocator() {
 		return homeScreenLocator;
 	}
@@ -172,12 +179,27 @@ public class DashboardPage extends BasePage {
 	public void onTapDashboardtext()
 	{
 		clickWhenVisible(navigationDrawerLocator);
+		GlobalUtil.wait(1);
+		WebElement ele = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/imageView"));
+		ele.click();
 		
+	}
+	public void onTapMyTasksExpandButton()
+	{
+		 WebElement ls = driver.findElement(By.name("My Tasks"));
+		 ls.click();
+	}
+	public void onTapSettingsExpandButton()
+	{
+	     WebElement ls = driver.findElement(By.name("Settings"));
+		 ls.click();
 	}
 	
 	public void onTapAppointmentsNav()
 	{
 		clickWhenVisible(appointmentNavLocator);
+		GlobalUtil.wait(1);
+		clickWhenVisible(By.name("Got It"));
 		
 	}
 	
@@ -257,5 +279,38 @@ public class DashboardPage extends BasePage {
 		driver.scrollTo("Logout");
 		clickWhenVisible(logOutNavLocator);
 	}
-
+	
+	public void onTapCheckIn()
+	{
+		WebElement ele = driver.findElement(checkOutTimeLocator);
+	    if(ele.isEnabled())
+	    {
+		ele.click();
+	    }
+	}
+	
+	public void checkCheckOutVisibility()
+	{
+		
+		if (driver.findElement(By.xpath("//android.widget.Switch[contains(@text,'ON')]")).isSelected())
+		{
+			checkOut();
+		}
+		else
+		{
+			onTapDashboardtext();
+		}
+  
+	}
+	
+	public void checkOut()
+	{
+		clickWhenVisible(checkInTimeLocator);
+	}
+	
+	public void checkIn()
+	{
+		clickWhenVisible(checkOutTimeLocator);
+	}
+	
 }
