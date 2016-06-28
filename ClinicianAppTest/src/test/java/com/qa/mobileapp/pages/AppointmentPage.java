@@ -2,29 +2,24 @@ package com.qa.mobileapp.pages;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
-import java.util.Calendar;
-import java.util.Date;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import net.sf.cglib.core.Local;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import com.qa.mobileapp.common.BasePage;
 import com.qa.mobileapp.common.GlobalUtil;
 
 public class AppointmentPage extends BasePage{
-	
+
 	public AppointmentPage(AppiumDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		
+
 	}
-     Calendar cal;
+	Calendar cal;
 	private final By appointmentScreenLocator = By.name("All Appointments");
 	private final By leftDrawerNavLocator = By.id("com.healthvista.clinicianapp.stage:id/left_drawer");
 	private final By LocationDisabledLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
@@ -42,15 +37,16 @@ public class AppointmentPage extends BasePage{
 	private final By appointmentDateLocator = By.id("com.portea.internal:id/date");
 	private final By statusLocator = By.id("com.portea.internal:id/statusName");
 	private final By feesTextLocator = By.id("com.portea.internal:id/paymentText");
-	private final By rescheduleAppointmentButtonLocator = By.id("");
-	private final By addAppointmentButtonLocator = By.id("");
+	private final By rescheduleAppointmentButtonLocator = By.name("Reschedule");
+	private final By addAppointmentButtonLocator = By.name("Add Appointment");
 	private final By verifyPatientDetailsLinkLocator = By.id("");
-	private final By cancelAppointmentButtonLocator = By.id("");
+	private final By cancelAppointmentButtonLocator = By.name("Call to cancel");
 	private final By confirmAppointmentButtonLocator = By.name("Confirm");
 	private final By selectDateLocator = By.id("");
 	private final By addNoteFieldLocator = By.id("");
 	private final By allAppointmentsSpinnerLocator = By.name("All Appointments");
 	private final By addAppointmentScreenLocator = By.name("Add Appointment");
+	private final By errorAddDuplicateApptLocator = By.name("Error");
 	private final By uploadScreenLocator =By.name("Add Document");
 	private final By addCaseScreenLocator = By.name("Case Details");
 	private final By payScreenLocator = By.name("Balance");
@@ -66,7 +62,9 @@ public class AppointmentPage extends BasePage{
 	private final By chequeNotesTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/tilPayNotes");
 	private final By chequeIssueBankDetailsTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etChequeBank");
 	private final By chequeNoDetailsLocator = By.id("com.healthvista.clinicianapp.stage:id/etChequeNo");
-	
+	private final By apptCalDateLocator = By.xpath("//android.widget.ImageView[contains(@id,'com.healthvista.clinicianapp.stage:id/imageView1')]");
+	private final By loadMoreButtonLocator = By.name("Load More");
+
 	private final By walletCheckBoxLocator =By.id("com.healthvista.clinicianapp.stage:id/cbWallet");
 	private final By walletEnterAmountTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etWallet");
 	private final By walletBalanceLocator = By.id("com.healthvista.clinicianapp.stage:id/tvWalletBalance");
@@ -76,7 +74,7 @@ public class AppointmentPage extends BasePage{
 	private final By mobileNoTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etOnlineMobile");
 	private final By sendPaymentLinkLocator = By.id("com.healthvista.clinicianapp.stage:id/bSendLink");
 	private final By onlineCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbOnline");
-	
+
 	//xpath for on click on any Patient's appointment
 	private final By patientAppointmentDetailsScreenLocator = By.className("android.widget.RelativeLayout");
 	private final By appointmentStatusLocator = By.id("com.healthvista.clinicianapp.stage:id/statusName");
@@ -89,12 +87,12 @@ public class AppointmentPage extends BasePage{
 	private final By successCheckPointLocator = By.id("com.healthvista.clinicianapp.stage:id/tvCheckpointSuccessful");
 	private final By appointmentExpandFabButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/fab_expand_menu_button");
 	private final By fabUploadButtonLocator =By.name("Upload");
-	private final By fabAddCaseButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/attuneCasefile");
-	private final By fabAddAppointmentButtonLocator = By.name("Add Appointment");
-			//By.id("com.healthvista.clinicianapp.stage:id/newAppointmentFab");
-	private final By fabPayButtonLocator =By.name("Pay");
-			//By.id("om.healthvista.clinicianapp.stage:id/firstDynamicFab");
-	private final By appointmentOptionCheckVitalLocator = By.name("Check Vitals");
+	private final By fabAddCaseButtonLocator = By.name("add case file");
+	private final By fabAddAppointmentButtonLocator = By.name("Add appointment");
+	//By.id("com.healthvista.clinicianapp.stage:id/newAppointmentFab");
+	private final By fabPayButtonLocator = By.name("Pay");
+			//By.xpath("//android.view.View[contains(@text,'Pay')]");
+		private final By appointmentOptionCheckVitalLocator = By.name("Check Vitals");
 	private final By appointmentOptionViewVitalsLocator=By.name("View Vitals");
 	private final By appointmentScreenPatientNameLocator = By.id("com.healthvista.clinicianapp.stage:id/tvPatientName");
 	private final By appointmentScreenPatientAddressLocator = By.id("com.healthvista.clinicianapp.stage:id/address");
@@ -107,18 +105,18 @@ public class AppointmentPage extends BasePage{
 	private final By dateLocator = By.className("android.widget.TextView");
 	private final By appointmentTimeSelectWindowLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
 	private final By selectTimeLabelLocator = By.id("com.healthvista.clinicianapp.stage:id/selectTimeText");
-	private final By selectTimeLocator = By.id("android.widget.TextView");
+	private final By selectTimeLocator = By.className("android.widget.Spinner");
 	private final By cancelButtonAddAppointmentLocator = By.name("Cancel");
 	private final By addButtonLocator = By.name("Add Appointment");
-	
+    private final By addedSubServiceNameLocator = By.id("com.healthvista.clinicianapp.stage:id/subServiceName");
 	//xpath for Vitals screen
-	
+
 	private final By vitalScreenMenuLocator = By.id("com.healthvista.clinicianapp.stage:id/vital_menu");
 	private final By listViewOptionLocator = By.name("List View");
 	private final By graphViewOptionLocator = By.name("Graph View");
-	
+
 	//Xpath for Add case
-	
+
 	private final By listOfCasesLocator = By.id("com.healthvista.clinicianapp.stage:id/lv_cases");
 	private final By addCaseButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/new_case_file");
 	private final By caseNameLocator = By.id("com.healthvista.clinicianapp.stage:id/tv_case_main_complaint");
@@ -127,8 +125,8 @@ public class AppointmentPage extends BasePage{
 	private final By caseFilePopUpYesButtonLocator = By.name("Yes");
 	private final By caseFilePopUpNoButtonLocator = By.name("No");
 	private final By physioAppLocator = By.name("Physio App");
-	
-	
+
+
 	//Xpath for Upload Documents
 	private final By documentTypeLocator = By.id("com.healthvista.clinicianapp.stage:id/document_type");
 	private final By documentTitleLocator = By.id("com.healthvista.clinicianapp.stage:id/document_title");
@@ -136,9 +134,10 @@ public class AppointmentPage extends BasePage{
 	private final By documentNotesLocator = By.id("com.healthvista.clinicianapp.stage:id/document_notes");
 	private final By documentNextButtonLocator = By.name("Next");
 	private final By documentClearButtonLocator = By.name("Clear");
-	
+	private final By OpenRecentFolderLocator =By.name("Open from");
+
 	//Xpath for Appointments
-	
+
 	private final By appointmentTabLocator = By.name("APPOINTMENT"); 
 	private final By appointmentScheduleLocator =By.id("");
 	private final By appointmentDurationLocator = By.id("");
@@ -153,7 +152,9 @@ public class AppointmentPage extends BasePage{
 	private final By addAppointmentLocator = By.name("Add Appointment");
 	private final By rescheduleAppointmentScreenLocator = By.name("Postpone Appointment");
 	private final By successButtonLocator = By.name("Successful");
-	
+	private final By patientListLocator = By.className("android.widget.ListView");
+	private final By appointmentListingLocator = By.id("com.healthvista.clinicianapp.stage:id/appListView");
+
 	//xpath for Payments
 	private final By apptPaymentTabLocator = By.name("PAYMENT"); 
 	private final By reachedFabButtonLocator = By.name("Reached");
@@ -165,7 +166,7 @@ public class AppointmentPage extends BasePage{
 	private final By amountPaidLabelLocator = By.name("Amount Paid");
 	private final By amountPaidValueLocator = By.id("");
 	private final By balanceLabelLocator = By.name("Balance");
-	private final By balanceValueLocator = By.id("");
+	private final By balanceValueLocator = By.xpath("//android.widget.TextView[contains(@text,'Balance: ₹ 1835')]");
 	private final By walletBalanceLabelLocator = By.name("Wallet Balance");
 	private final By walletBalanceValueLocator = By.id("com.healthvista.clinicianapp.stage:id/tvWalletBalance");
 	private final By otpAuthorizationScreenLocator = By.id("android:id/alertTitle");
@@ -174,27 +175,47 @@ public class AppointmentPage extends BasePage{
 	private final By enterOTPLocator = By.id("com.healthvista.clinicianapp.stage:id/etWalletOTPValidate");
 	private final By authroizePaymentButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/bVertifyOTP");
 	private final By sentPaymentLinkSuccessMessage = By.name("payment link is being sent");
-	
-	
+	private final By netBalanceLocatorOnPaymentScreen = By.id("com.healthvista.clinicianapp.stage:id/tvNetBalanceAmount");
+	private final By walletBalanceLocatorOnPaymentScreen= By.id(" com.healthvista.clinicianapp.stage:id/tvwalletBalance");
+	private final By serviceBalanceLocatorOnPaymentScreen = By.id("com.healthvista.clinicianapp.stage:id/tvServiceBalanceAmount");
+	private final By serviceFeesLocatorOnPaymentScreen = By.id("com.healthvista.clinicianapp.stage:id/package_service_feesTv");
+	private final By onlineEnterAmountLocator = By.id("com.healthvista.clinicianapp.stage:id/etOnline");
+	//private final By cashEnterAmountLocator = By.id("com.healthvista.clinicianapp.stage:id/etCash");
+
+
+	//xpath for subservice
+
+	private final By fabButtonAddSubserviceLocator = By.name("SUB SERVICES");
+	private final By subServiceScreenLocator = By.name("Sub-Service");
+	private final By addNewSubserviceButtonLocator = By.name("Add new service");
+	private final By subServiceName= By.id("com.healthvista.clinicianapp.stage:id/subServiceName");
+	private final By subServicePrice=By.id("com.healthvista.clinicianapp.stage:id/subServicePrice");
+	private final By selectSubServiceButtonLocator=By.id("com.healthvista.clinicianapp.stage:id/subServiceState");
+	private final By saveSubServiceLocator = By.name("Done");
+	//By.id("com.healthvista.clinicianapp.stage:id/DoneButton");
+	private final By searchTextBoxLocator = By.id("id/search_src_text");
+	private final By searchBoxImageLocator = By.name("Search Here");
+
+
 	public By getBalanceValueLocator (){
 		return balanceValueLocator ;
-		}
+	}
 	public By getWalletBalanceLabelLocator (){
 		return walletBalanceLabelLocator ;
-		}
-	
+	}
+
 	public By getWalletBalanceValueLocator(){
 		return walletBalanceValueLocator;
-		}
-	
-	public By getLocationDisabledDismissButtonLocator(){
-	return LocationDisabledDismissButtonLocator;
 	}
-	
+
+	public By getLocationDisabledDismissButtonLocator(){
+		return LocationDisabledDismissButtonLocator;
+	}
+
 	public By getLeftDrawerNavLocator(){
 		return leftDrawerNavLocator;
-		}
-	
+	}
+
 	public By getLocationEnabledButtonLocator()
 	{
 		return LocationEnabledButtonLocator;
@@ -208,12 +229,15 @@ public class AppointmentPage extends BasePage{
 	public By getClosedAppointmentdropLocator() {
 		return ClosedAppointmentdropLocator;
 	}
-	
+
 	public By getLocationDisabledLocator(){
 		return LocationDisabledLocator;
 	}
 	public By getTodayAppointmentTabLocator() {
 		return TodayAppointmentTabLocator;
+	}
+	public By getApptCalDateLocator() {
+		return apptCalDateLocator;
 	}
 	public By getUpcomingsAppointmentTabLocator() {
 		return UpcomingsAppointmentTabLocator;
@@ -236,7 +260,7 @@ public class AppointmentPage extends BasePage{
 	public By getFeesTextLocator() {
 		return feesTextLocator;
 	}
-	
+
 	public By getBalanceLabelLocator() {
 		return balanceLabelLocator;
 	}
@@ -252,18 +276,18 @@ public class AppointmentPage extends BasePage{
 	public By getCancelAppointmentButtonLocator() {
 		return cancelAppointmentButtonLocator;
 	}
-	
+
 	public By getConfirmAppointmentButtonLocator() {
 		return confirmAppointmentButtonLocator;
 	}
-	
+
 	public By getSelectDateLocator() {
 		return selectDateLocator;
 	}
 	public By getAddNoteFieldLocator() {
 		return addNoteFieldLocator;
 	}
-	
+
 	public By getAmountPaidValueLocator() {
 		return amountPaidValueLocator;
 	}
@@ -378,7 +402,7 @@ public class AppointmentPage extends BasePage{
 	public By getAppointmentServiceTypeLocator() {
 		return appointmentServiceTypeLocator;
 	}
-	
+
 	public By getCheckVitalsScreenLocator() {
 		return checkVitalsScreenLocator;
 	}
@@ -397,8 +421,8 @@ public class AppointmentPage extends BasePage{
 	public By getPayScreenLocator() {
 		return payScreenLocator;
 	}
-	
-	
+
+
 	public By getAuthroizePaymentButtonLocator() {
 		return authroizePaymentButtonLocator;
 	}
@@ -494,59 +518,117 @@ public class AppointmentPage extends BasePage{
 	public void onClickUpcomingTab()
 	{
 		clickWhenVisible(UpcomingsAppointmentTabLocator);
-		
 	}
-	
+
 	public void onClickPastTab()
 	{
 		clickWhenVisible(PastAppointmentTabLocator);
-		
 	}
-	
+
 	public void onClickTodayTab()
 	{
 		clickWhenVisible(TodayAppointmentTabLocator);
-		
-	}
-	
-	public void onClickPatientName()
-	{
-		List<WebElement> patient = driver.findElements(By.id("com.healthvista.clinicianapp.stage:id/appListView"));
-		patient.get(0).click();
 
 	}
-	
+
+	@SuppressWarnings("all")
+	public void onClickPatientName(String status) throws NoSuchFieldException, SecurityException
+	{
+		List<WebElement> elements = driver.findElements(By.xpath("//android.widget.TextView[contains(@text,'Status : " + status + "')]/parent::*/child::android.widget.TextView"));
+		if(elements.size() > 0){
+			elements.get(0).click();
+		}else{
+			WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'Status : ')]/parent::*"));
+			int x = ele.getSize().height;
+			int scrollStart = (x);
+			int scrollEnd = scrollStart;
+			Dimension dimensions = driver.manage().window().getSize();
+			int totalScrolls = 0;
+			int[] oldValues = null;
+			int i = 0;
+			while(true && i < 30){
+				++i;  
+				driver.swipe(0, scrollStart, 0, scrollEnd/3, 1000);    
+				//scrollEnd += scrollEnd;
+				scrollStart = x + scrollEnd;
+				List<WebElement>eles = driver.findElements(By.xpath("//android.widget.TextView[contains(@text,'Status : ')]"));
+				//No more scrolling if the element is found.
+				boolean bFound = false;
+				int m = 0;
+				for(;m < eles.size(); m++){
+					if(eles.get(m).getAttribute("text").contains(status)){
+						bFound = true;
+						break;
+					}
+				}
+				if(bFound){
+					eles.get(m).click();
+					break;
+				}
+				if(oldValues == null){
+					oldValues = new int[eles.size()];
+					for(int n = 0; n < oldValues.length; n++){
+						oldValues[n] = eles.get(n).getLocation().y;
+					}
+				}else{
+					int[] newValues = new int[eles.size()];
+					for(int n = 0; n < newValues.length; n++){
+						newValues[n] = eles.get(n).getLocation().y;
+					}
+					if(newValues.length != oldValues.length){
+						oldValues = newValues;
+						continue;
+					}
+					else{
+						bFound = true;
+						for(int n = 0; n < oldValues.length; n++){
+							if(oldValues[n] != newValues[n]){
+								bFound = false;
+								break;
+							}
+						}
+						if(bFound)
+							break;
+						oldValues = newValues;
+					}
+				}
+			}
+		}
+
+
+	}
+
 	public void onClickRescheduleButton()
 	{
 		clickWhenVisible(rescheduleAppointmentButtonLocator);
-	
+
 	}
-	
+
 	public void onClickAddAppointmentButton()
 	{
-		 clickWhenVisible(addAppointmentButtonLocator);
-		
+		clickWhenVisible(addAppointmentButtonLocator);
+
 	}
-	
+
 	public void onClickCancelButton()
 	{
 		clickWhenVisible(cancelAppointmentButtonLocator);
-		
+
 	}
-	
+
 	public void onClickVerifyPatientDetailsLink()
 	{
 		clickWhenVisible(verifyPatientDetailsLinkLocator);
-		
+
 	}
-	
-	
+
+
 	public void onClickConfirmButton()
 	{
 		clickWhenVisible(confirmAppointmentButtonLocator);
-		
+
 	}
-	
+
 	public By getYesOTPAuthroizationLocator() {
 		return yesOTPAuthroizationLocator;
 	}
@@ -556,7 +638,7 @@ public class AppointmentPage extends BasePage{
 	public By getCurrentMonthLocator() {
 		return currentMonthLocator;
 	}
-	
+
 	public By getAppointmentTimeSelectWindowLocator() {
 		return appointmentTimeSelectWindowLocator;
 	}
@@ -599,226 +681,292 @@ public class AppointmentPage extends BasePage{
 	public By getPhysioAppLocator() {
 		return physioAppLocator;
 	}
-	public void selectDate()
+	public void selectDate(String num)
 	{
-		clickWhenVisible(selectDateLocator);
-		
+		WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'" +num+"')]"));
+		ele.click();
+
 	}
+
+	public void rescheduleAppt(String time)
+	{
+		WebElement spin = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/timeSpinner"));
+		spin.click();
+		driver.scrollToExact(time).click();
+		GlobalUtil.wait(2);
+		WebElement btn = driver.findElement(By.name("Postpone Appointment"));
+		btn.click();
+		WebElement done = driver.findElement(doneButtonForAddApptLocator);
+		done.click();
+		WebElement notes = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/notesText"));
+		notes.sendKeys("test");
+		GlobalUtil.wait(1);
+		btn.click();
+	}
+
 	public void onTapFabButton()
 	{
+		driver.findElement(By.name("Got It")).click();
+		GlobalUtil.wait(2);
 		clickWhenVisible(appointmentExpandFabButtonLocator);
-	
 	}
-	
+
 	public void onTapUploadButton()
 	{
-		 clickWhenVisible(fabUploadButtonLocator);
-	
+		clickWhenVisible(fabUploadButtonLocator);
+
 	}
-	
+
 	public void onTapAddCaseButton()
 	{
 		clickWhenVisible(fabAddCaseButtonLocator);
-		
+
 	}
-	
+
 	public void onTapAddAppointmentButton()
 	{
 		clickWhenVisible(fabAddAppointmentButtonLocator);
-	
+
 	}
-	
+
 	public void onTapPayButton()
 	{
 		clickWhenVisible(fabPayButtonLocator);
-		
+
 	}
-	
+
 	public void onTapAppointmentsTab()
 	{
-	clickWhenVisible(appointmentTabLocator);
-	
+		clickWhenVisible(appointmentTabLocator);
+
 	}
-	
+
 	public void onTapPaymentTab()
 	{
 		clickWhenVisible(apptPaymentTabLocator);
-		
+
 	}
-	
-	
+
+
 	public void onTabappointmentScreenMenuOptions()
 	{
 		WebElement tab = clickWhenVisible(appointmentScreenMenuOptionsLocator);
 		tab.clear();
 	}
-	
+
 	public void onTapViewVitalsOptions()
 	{
 		clickWhenVisible(appointmentOptionViewVitalsLocator);
-		
+
 	}
-	
+
 	public void onTapCheckVitalsOption()
 	{
 		clickWhenVisible(appointmentOptionCheckVitalLocator);
-		
+
 	}
-	
-	public void onTapPatienframe()
+
+	public void onTapPatienframe() throws NoSuchFieldException, SecurityException
 	{
-		clickWhenVisible(patientAppointmentDetailsScreenLocator);
-		
+		//		List<WebElement> list = driver.findElementsByClassName("android.widget.ListView");
+		//		list.get(1).click();
+		List<WebElement> patient = driver.findElementsByClassName("android.widget.RelativeLayout");
+		for(int i=0;i<patient.size();i++)
+		{
+			if(patient.get(i).getText().equals("Status:confirmed"))
+			{
+				patient.get(i).click();
+				//clickWhenVisible(patientAppointmentDetailsScreenLocator);
+			}
+		}
+
 	}
 
 	public void onTapApptScreenMenubutton()
 	{
 		clickWhenVisible(appointmentScreenMenuOptionsLocator);
-		
+
 	}
-	
+
 	public void onTapFabButtonAddAppointment()
 	{
-     clickWhenVisible(fabAddAppointmentButtonLocator);
-		
+		WebElement ele = driver.findElement(fabAddAppointmentButtonLocator);
+		ele.click();
+
 	}
-	
+
 	public void onTapFabButtonAddCase()
 	{
-		
-     clickWhenVisible(fabAddCaseButtonLocator);
-	
+
+		clickWhenVisible(fabAddCaseButtonLocator);
+
 	}
 	public void onTapFabButtonUpload()
 	{
 		clickWhenVisible(fabUploadButtonLocator);
-		
+
 	}
-	
+
+	public void onTapFabButtonSubservices()
+	{
+		clickWhenVisible(fabButtonAddSubserviceLocator);
+
+	}
+
 	public void enterChequeAmount()
 	{
 		WebElement txt = clickWhenVisible(chequeTextBoxLocator);
 		txt.sendKeys("1");
 	}
-	
+
 	public void enterWalletAmount()
 	{
 		WebElement txt = clickWhenVisible(walletEnterAmountTextBoxLocator);
 		txt.sendKeys("1");
 	}
-	
+
 	public void enterOnlineAmount()
 	{
 		WebElement txt = clickWhenVisible(onlineCheckBoxLocator);
 		txt.sendKeys("1");
 	}
-	
+
 	public void onTapFabButtonPay()
 	{
-//		WebElement status = driver.findElement(appointmentStatusLocator);
-//		switch(status.getText())
-//				{
-//					case Successful:
-//						clickWhenVisible(fabPayButtonLocator);
-//						break;
-//					case Pending:
-//						clickWhenVisible(confirmAppointmentButtonLocator);
-//						clickWhenVisible(reachedButtonLocator);
-//						clickWhenVisible(successButtonLocator);
-//						break;
-//					case Confirmed:
-//						clickWhenVisible(reachedButtonLocator);
-//						clickWhenVisible(successButtonLocator);
-//						break;
-//					default:
-//						break;
-//						
-//				}
-			
-		if (appointmentStatusLocator.equals("confirmed"))
-			{
-			     clickWhenVisible(reachedButtonLocator);
-			     GlobalUtil.wait(1);
-			     clickWhenVisible(successButtonLocator);
-			}else
-				if(appointmentStatusLocator.equals("Pending"))
-			{
-					clickWhenVisible(confirmAppointmentButtonLocator);
-					 clickWhenVisible(reachedButtonLocator);
-				     GlobalUtil.wait(1);
-				     clickWhenVisible(successButtonLocator);
-			}
-			else
-			{
-				clickWhenVisible(fabPayButtonLocator);
-			}
+		WebElement ele = driver.findElement(fabPayButtonLocator);
+		ele.click();
+		//clickWhenVisible(fabPayButtonLocator);
+		
+//		if (appointmentStatusLocator.equals("confirmed"))
+//		{
+//			clickWhenVisible(reachedButtonLocator);
+//			GlobalUtil.wait(1);
+//			clickWhenVisible(successButtonLocator);
+//		}else
+//			if(appointmentStatusLocator.equals("Pending"))
+//			{
+//				clickWhenVisible(confirmAppointmentButtonLocator);
+//				clickWhenVisible(reachedButtonLocator);
+//				GlobalUtil.wait(1);
+//				clickWhenVisible(successButtonLocator);
+//			}
+//			else
+//			{
+//				clickWhenVisible(fabPayButtonLocator);
+//			}
 	}
-	
+
 	public void payByCash()
 	{
+		driver.findElement(By.name("Got It")).click();
+		GlobalUtil.wait(1);
 		WebElement txt = clickWhenVisible(cashAmountTextBoxLocator);
 		txt.sendKeys("1");
 		GlobalUtil.wait(1);
 		clickWhenVisible(payButtonLocator);
-		
+
 	}
-	
-	public void payByCheque()
+
+	public void balancePayment()
 	{
+		List<WebElement> ele = driver.findElements(By.className("android.view.View"));
+		String balance= ele.get(1).getText();
+		System.out.println("Balance amount before payment:" +balance);
+	}
+
+	public void BalanceAfterPayment()
+	{
+		WebElement  ele = driver.findElement(serviceBalanceLocatorOnPaymentScreen);
+		ele.getText();
+		List<WebElement> pay = driver.findElements(By.className("android.view.View"));
+		pay.get(1).getText();
+		if (ele.getText().equals(pay.get(1).getText()))
+		{
+			System.out.println("");
+		}
+	}
+
+	public void payByCheque(String bankName, String chequeNo )
+	{
+		driver.findElement(By.name("Got It")).click();
+		GlobalUtil.wait(1);
 		WebElement txt = clickWhenVisible(chequeTextBoxLocator);
 		txt.sendKeys("1");
 		GlobalUtil.wait(1);
+		WebElement  bank = clickWhenVisible(chequeIssueBankDetailsTextBoxLocator);
+		bank.sendKeys(bankName);
+		GlobalUtil.wait(2);
+		WebElement  chequeno = clickWhenVisible(chequeNoDetailsLocator);
+		chequeno.sendKeys(chequeNo);
 		clickWhenVisible(payButtonLocator);
-		
+
 	}
-	
+
 	public void onTapOnlinePaymentsTab()
 	{
 		clickWhenVisible(onlineTabOnPayScreenLocator);
-		
+
 	}
-	
-	public void payByWallet(String otp)
+
+	public void payByWallet(String num, String otp)
 	{
-		WebElement txt = clickWhenVisible(walletEnterAmountTextBoxLocator);
-		txt.sendKeys("1");
+		clickWhenVisible(By.name("Got It"));
 		GlobalUtil.wait(1);
+		clickWhenVisible(onlineTabOnPayScreenLocator);
+		GlobalUtil.wait(1);
+		WebElement txt = clickWhenVisible(walletEnterAmountTextBoxLocator);
+		txt.sendKeys(num);
+		GlobalUtil.wait(1);
+		if(walletBalanceLocator.equals(num))
+		{
 		clickWhenVisible(sendOTPLocator);
 		WebElement enterOTP = clickWhenVisible(enterOTPLocator);
 		enterOTP.sendKeys(otp);
 		clickWhenVisible(authroizePaymentButtonLocator);
-		
+		}
+		else
+			System.out.println("The wallet balance is less that amount to be paid");
+
 	}
-	
+
 	public void otpDetails()
 	{
 		WebElement txt = clickWhenVisible(walletEnterAmountTextBoxLocator);
 		txt.sendKeys("1");
 		GlobalUtil.wait(1);
 		clickWhenVisible(sendOTPLocator);
-		
+
 	}
-	
+
 	public void payByOnline(String email, String mobileNo)
 	{
+		clickWhenVisible(By.name("Got it"));
+		GlobalUtil.wait(1);
+		clickWhenVisible(onlineTabOnPayScreenLocator);
+		GlobalUtil.wait(1);
+		WebElement online = clickWhenVisible(onlineEnterAmountLocator);
+		online.sendKeys("1");
+		GlobalUtil.wait(1);
 		WebElement txt = clickWhenVisible(emailOptionsLocator);
+		txt.clear();
 		txt.sendKeys(email);
 		GlobalUtil.wait(1);
 		WebElement mobile = clickWhenVisible(mobileNoTextBoxLocator);
+		mobile.clear();
 		mobile.sendKeys(mobileNo);
 		GlobalUtil.wait(1);
 		clickWhenVisible(sendPaymentLinkLocator);
-		
+
 	}
-	
+
 	public void getCurrentMonthCalendar()
 	{
-		 Calendar cal = Calendar.getInstance();
-		 System.out.println(String.valueOf(cal.get(Calendar.YEAR)));
-		 String.valueOf(cal.get(Calendar.YEAR)).equalsIgnoreCase("2016");
-		
+		Calendar cal = Calendar.getInstance();
+		System.out.println(String.valueOf(cal.get(Calendar.YEAR)));
+		String.valueOf(cal.get(Calendar.YEAR)).equalsIgnoreCase("2016");
+
 	}
-	
+
 	public By getDocumentNotesLocator() {
 		return documentNotesLocator;
 	}
@@ -840,66 +988,80 @@ public class AppointmentPage extends BasePage{
 	public By getRescheduleAppointmentScreenLocator() {
 		return rescheduleAppointmentScreenLocator;
 	}
+	public By getFabButtonAddSubserviceLocator() {
+		return fabButtonAddSubserviceLocator;
+	}
+	public By getSaveSubServiceLocator() {
+		return saveSubServiceLocator;
+	}
+	public By getSubServicePrice() {
+		return subServicePrice;
+	}
+	public By getSearchTextBoxLocator() {
+		return searchTextBoxLocator;
+	}
 	public By getCallToCancelLocator() {
 		return callToCancelLocator;
 	}
 	public By getDocumentNextButtonLocator() {
 		return documentNextButtonLocator;
 	}
-	
-	
-	public void addAppointment(String no)
+
+
+	public By getSubServiceScreenLocator() {
+		return subServiceScreenLocator;
+	}
+	public void addAppointment(String time)
 	{
-		WebElement date = clickWhenVisible(dateLocator);
-		date.sendKeys(no);
-		driver.switchTo().alert();
-		//window("com.healthvista.clinicianapp.stage:id/alertTitle");
-		List<WebElement> listsDropDown = driver.findElements(selectTimeLocator);
-        
-		for (WebElement listdropdown : listsDropDown) 
-		{
-        String list = listdropdown.getText();
-        if (list.equals("11:30 am")) 
-        {
-            listdropdown.click();
-            break;
-        }
-		}
+		WebElement spin = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/timeSpinner"));
+		spin.click();
+		driver.scrollToExact(time).click();
+		GlobalUtil.wait(2);
 		clickWhenVisible(addAppointmentButtonLocator);
-		
-//		WebElement cost = clickWhenVisible("");
-//		cost.sendKeys("1");
-//		WebElement duration = clickWhenVisible(by);
-//		duration.sendKeys("60");
-//		WebElement notes = clickWhenVisible(by.name("Notes"));
-//		notes.sendKeys("test");
-		clickWhenVisible(addAppointmentButtonLocator);
-		
-	    
+
 	}
 	
+	public void selectDateWithAppointment()
+	{
+//		WebElement appointmentDate = null;
+//		String calendarBlocksLocator = "//android.widget.TextView[@text='" + 
+//		String.valueOf(GlobalUtil.getCurrentDate()) + "']/..//following-sibling::android.widget.RelativeLayout";
+//		@SuppressWarnings("unchecked")
+//		List<WebElement> calendarBlocks = driver.findElements(By.xpath(calendarBlocksLocator));
+//		for(int i = 1; i <= calendarBlocks.size(); i++){
+//			List<WebElement> calendarBlockElements = driver.findElements(By.xpath(calendarBlocksLocator+"[" + i + "]/child::android.widget.TextView"));
+//			if(calendarBlockElements.size() == 0){
+	
+		WebElement sel = driver.findElement(apptCalDateLocator);
+		sel.click();
+		WebElement txt = driver.findElement(By.xpath("//android.widget.TextView[contains(@id,'com.healthvista.clinicianapp.stage:id/title2')]"));
+		String alreadyAptDate = txt.getText();
+		addAppointment(alreadyAptDate);
+	
+	}
+
 	public void onTapAddCaseButtonOnCaseScreen()
 	{
 		clickWhenVisible(addCaseButtonLocator);
-		
+
 	}
-	
+
 	public void onTapYesButtonToAddCaseFile()
 	{
 		clickWhenVisible(caseFilePopUpYesButtonLocator);
-		
+
 	}
-	
+
 	public void onTapNoBtnOnCaseScreen()
 	{
 		clickWhenVisible(caseFilePopUpNoButtonLocator);
-	    
+
 	}
-	
-	public void onClickConfirmedAppointment()
-	
+
+	public void onClickConfirmedAppointment() throws NoSuchFieldException, SecurityException
+
 	{
-		
+
 		if (appointmentStatusLocator.equals("Confirmed"))
 		{
 			onTapPatienframe();
@@ -907,11 +1069,9 @@ public class AppointmentPage extends BasePage{
 		else
 			System.out.println("No Confirmed appointments are available");
 	}
-	
-public void onClickPendingAppointment()
-	
+
+	public void onClickPendingAppointment() throws NoSuchFieldException, SecurityException
 	{
-		
 		if (appointmentStatusLocator.equals("Pending"))
 		{
 			onTapPatienframe();
@@ -920,69 +1080,257 @@ public void onClickPendingAppointment()
 			System.out.println("No Pending appointments are available");
 	}
 
-    public void onTapConfirmFabButton()
-    {
-    	clickWhenVisible(confirmAppointmentButtonLocator);
-    	
-	}
-	
-    public void onTapReachedFabButton()
-    {
-    	clickWhenVisible(reachedButtonLocator);
-    	
-	}
-    
-    public void getClosedAppointmentOption()
-    {
-    	List<WebElement> appt =driver.findElements(allAppointmentsSpinnerLocator);
-    	appt.get(2).click();
-    }
+	public void onTapConfirmFabButton()
+	{
+		clickWhenVisible(confirmAppointmentButtonLocator);
 
-    public void getOpenAppointmentOption()
-    {
-    	@SuppressWarnings("unchecked")
+	}
+
+	public void onTapReachedFabButton()
+	{
+		clickWhenVisible(reachedButtonLocator);
+
+	}
+
+	public void onTapSuccessFabButton()
+	{
+
+		clickWhenVisible(successfulFabButtonLocator);
+
+	}
+
+	public void getClosedAppointmentOption()
+	{
+		List<WebElement> appt =driver.findElements(allAppointmentsSpinnerLocator);
+		appt.get(2).click();
+	}
+
+	public By getSearchBoxImageLocator() {
+		return searchBoxImageLocator;
+	}
+	public By getServiceFeesLocatorOnPaymentScreen() {
+		return serviceFeesLocatorOnPaymentScreen;
+	}
+	public By getReachedFabButtonLocator() {
+		return reachedFabButtonLocator;
+	}
+	public By getAddedSubServiceNameLocator() {
+		return addedSubServiceNameLocator;
+	}
+	public By getAppointmentListingLocator() {
+		return appointmentListingLocator;
+	}
+	public By getServiceBalanceLocatorOnPaymentScreen() {
+		return serviceBalanceLocatorOnPaymentScreen;
+	}
+	public By getNetBalanceLocatorOnPaymentScreen() {
+		return netBalanceLocatorOnPaymentScreen;
+	}
+	public By getWalletBalanceLocatorOnPaymentScreen() {
+		return walletBalanceLocatorOnPaymentScreen;
+	}
+	public By getOpenRecentFolderLocator() {
+		return OpenRecentFolderLocator;
+	}
+	public By getSelectSubServiceButtonLocator() {
+		return selectSubServiceButtonLocator;
+	}
+	public void getOpenAppointmentOption()
+	{
+		@SuppressWarnings("unchecked")
 		List<WebElement> appt = driver.findElements(allAppointmentsSpinnerLocator);
-    	appt.get(1).click();
-    }
-     public void viewAllAppointmentOption()
-     {
-    	 @SuppressWarnings("unchecked")
-		List <WebElement> view = (List<WebElement>) driver.findElements(listViewForAppointmentSpinnerLocator);
-    	 view.get(0);
-     }
-     
-     public void viewOpenAppointmentOption()
-     {
-    	 @SuppressWarnings("unchecked")
+		appt.get(1).click();
+	}
+	public By getPatientListLocator() {
+		return patientListLocator;
+	}
+	public By getSubServiceName() {
+		return subServiceName;
+	}
+	public By getSuccessfulFabButtonLocator() {
+		return successfulFabButtonLocator;
+	}
+	public By getLoadMoreButtonLocator() {
+		return loadMoreButtonLocator;
+	}
+	public void viewAllAppointmentOption()
+	{
+		@SuppressWarnings("unchecked")
 		List <WebElement> view = driver.findElements(listViewForAppointmentSpinnerLocator);
-    	 view.get(1);
-     }
-     public void viewClosedAppointmentOption()
-     {
-    	 @SuppressWarnings("unchecked")
+		view.get(0);
+	}
+
+	public void viewOpenAppointmentOption()
+	{
+		@SuppressWarnings("unchecked")
 		List <WebElement> view = driver.findElements(listViewForAppointmentSpinnerLocator);
-    	 view.get(2);
-     }
-    
-    public void getAllAppointmentOption()
-    {
-    	List<WebElement> appt = driver.findElements(allAppointmentsSpinnerLocator);
-    	appt.get(0).click();
-    }
-    public void currentDate()
-    {
+		view.get(1);
+	}
+	public void viewClosedAppointmentOption()
+	{
+		@SuppressWarnings("unchecked")
+		List <WebElement> view = driver.findElements(listViewForAppointmentSpinnerLocator);
+		view.get(2);
+	}
 
-    	Calendar futureCal = Calendar.getInstance();
-    	 futureCal.set(2016, 05, 28);
-    	Calendar now = Calendar.getInstance();
-    	now.getTime();
-    	
-    {
-    	
-    }
+	public void getAllAppointmentOption()
+	{
+		List<WebElement> appt = driver.findElements(allAppointmentsSpinnerLocator);
+		appt.get(0).click();
+	}
+	public By getErrorAddDuplicateApptLocator() {
+		return errorAddDuplicateApptLocator;
+	}
+	public void currentDate()
+	{
 
-    }
+		Calendar futureCal = Calendar.getInstance();
+		futureCal.set(2016, 05, 28);
+		Calendar now = Calendar.getInstance();
+		now.getTime();
+	}
+
+
+
+	public void addAppointmentAccordingToPackage()
+	{
+
+	}
+	public void addService()
+	{
+
+	}
+
+	public void addCaseFile()
+	{
+
+	}
+
+	public void uploadDocument(String title, String month, String day, String year, String notes)
+	{
+		WebElement ele = clickWhenVisible(documentTitleLocator);
+		GlobalUtil.wait(1);
+		ele.sendKeys(title);
+		clickWhenVisible(documentReceivedDateLocator);
+		driver.findElement(By.xpath("//android.widget.NumberPicker[@index='0']")).sendKeys(month);
+		driver.findElement(By.xpath("//android.widget.NumberPicker[@index='1']")).sendKeys(day);
+		driver.findElement(By.xpath("//android.widget.NumberPicker[@index='2']")).sendKeys(year);
+		clickWhenVisible(By.name("Continue"));
+		driver.findElement(documentNotesLocator).sendKeys(notes);
+		clickWhenVisible(By.name("Next"));
+
+	}
+
+	public void onTapLoadMoreButton()
+	{
+		clickWhenVisible(loadMoreButtonLocator);
+	}
 	
+	public void payThroughWallet()
+	{
+
+	}
+
+	public void payThroughCash()
+	{
+
+	}
+
+	public void paySendPaymentLink()
+	{
+		WebElement tab = driver.findElement(onlineTabOnPayScreenLocator);
+		tab.click();
+		WebElement online = driver.findElement(onlineCheckBoxLocator);
+		online.sendKeys("1");
+		WebElement sendLink = driver.findElement(sendPaymentLinkLocator);
+		sendLink.click();
+
+	}
+
+	public void addSubService(String subService)
+	{
+
+		WebElement element = waitVisible(addNewSubserviceButtonLocator);
+		System.out.println("Add New Sub service button found");
+		element.click();
+		GlobalUtil.wait(2);
+		if(null != verticalScroll("Rs.", By.name(subService), 25)){
+			//The text element is found. Now we need to find corresponding Add Image View
+			element = waitVisible(By.xpath("//android.widget.TextView[contains(@text,'" + subService + "')]/parent::*"));
+			List<WebElement>elements = driver.findElements(By.xpath("//android.widget.TextView[contains(@text,'" + subService + "')]/parent::*/child::android.widget.ImageButton"));
+			if(elements.size() > 0)
+				elements.get(0).click();
+		}
+		GlobalUtil.wait(1);
+		WebElement sub = driver.findElement(By.id("subServiceState"));
+		GlobalUtil.wait(1);
+		sub.click();
+		WebElement done = driver.findElement(By.name("Done"));
+		done.click();
+		GlobalUtil.wait(1);
+		WebElement checkBtn = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/checkbutton"));
+		checkBtn.click();
+		GlobalUtil.wait(1);
+		WebElement fabButton = waitVisible(fabButtonAddSubserviceLocator);
+		fabButton.click();
+	}
+
+
+	public WebElement verticalScroll(String textFieldValue, By scrollTo, int maxScroll)
+	{
+
+		List<WebElement> elements = driver.findElements(scrollTo);
+		if(elements.size() > 0){
+			return elements.get(0);
+		}else{
+			WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'" + textFieldValue + "')]/parent::*"));
+			int x = ele.getSize().height;
+			int scrollStart = (x);
+			int scrollEnd = scrollStart;
+			Dimension dimensions = driver.manage().window().getSize();
+			int[] oldValues = null;
+			int i = 0;
+			//scrolls a maximum of maxScroll times.
+			while(i < maxScroll){
+				++i;  
+				driver.swipe(0, scrollStart, 0, scrollEnd/3, 1000);    
+				//scrollEnd += scrollEnd;
+				scrollStart = x + scrollEnd;
+				elements = driver.findElements(scrollTo);
+				//No more scrolling if the element is found.
+				if(elements.size() > 0){
+					return elements.get(0);
+				}				
+			}
+		}
+		return null;
+	}
+
+
+	public WebElement getFreeDateForAppointment(String currentAppointmentDate, boolean checkInNextMonth)
+	{
+		WebElement appointmentDate = null;
+		String calendarBlocksLocator = "//android.widget.TextView[@text='" + 
+					String.valueOf(currentAppointmentDate) + "']/..//following-sibling::android.widget.RelativeLayout";
+		@SuppressWarnings("unchecked")
+		List<WebElement> calendarBlocks = driver.findElements(By.xpath(calendarBlocksLocator));
+		
+		for(int i = 1; i <= calendarBlocks.size(); i++){
+			List<WebElement> calendarBlockElements = driver.findElements(By.xpath(calendarBlocksLocator+"[" + i + "]/child::android.widget.ImageView"));
+			if(calendarBlockElements.size() == 0){
+				return calendarBlocks.get(i-1);
+			}
+		}
+		if(checkInNextMonth){
+			//ToDo:click to open next month
+//			WebElement ele = driver.findElement(By.xpath("//android.widget.ImageView"));
+//			ele.click();
+			return getFreeDateForAppointment("1", false);
+		}
+		return appointmentDate;
+	}
+
+
 }
-	
+
 

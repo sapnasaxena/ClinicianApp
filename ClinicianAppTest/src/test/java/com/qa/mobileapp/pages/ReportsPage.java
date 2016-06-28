@@ -2,8 +2,11 @@ package com.qa.mobileapp.pages;
 
 
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import io.appium.java_client.AppiumDriver;
 
 import com.qa.mobileapp.common.BasePage;
@@ -29,6 +32,11 @@ public class ReportsPage extends BasePage{
 	private final By enterEmailId= By.id("com.healthvista.clinicianapp.stage:id/emailText");
 	private final By soonTxt= By.id("com.healthvista.clinicianapp.stage:id/statusText");
 	private final By getReportBtn= By.name("Get Reports");
+	private final By monthPicker= By.id("android:id/date_picker_month");
+	private final By datePicker= By.id("android:id/date_picker_day");
+	private final By yearPicker= By.id("android:id/date_picker_year");
+	private final By dayPicker= By.id("android:id/date_picker_header");
+	
 	
 	
 	public By getreportScreenLocator()
@@ -164,5 +172,43 @@ public class ReportsPage extends BasePage{
 		clickWhenVisible(getReportBtn);
 		
 	}
+	
+	public By getmonthPicker()
+	{
+		return monthPicker;
+	}
+	
+	public By getdatePicker()
+	{
+		return datePicker;
+	}
+	
+	public By getyearPicker()
+	{
+		return yearPicker;
+	}
+	
+	public By getdayPicker()
+	{
+		return dayPicker;
+	}
+
+//***************************************************************//	
+	
+	public void onClickentrEmailId(String emailID)
+	{
+		WebElement emailid= driver.findElement(enterEmailId);
+		emailid.sendKeys(emailID);
 		
+	}
+	
+	public void CalenderPicker()
+	{
+		
+		Assert.assertNotNull(getdayPicker());
+		Assert.assertNotNull(getmonthPicker());
+		Assert.assertNotNull(getdatePicker());
+		Assert.assertNotNull(getyearPicker());
+	}
+	
 }

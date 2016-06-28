@@ -1,13 +1,8 @@
 package com.qa.mobileapp.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-
 import com.qa.mobileapp.common.BasePage;
-import com.qa.mobileapp.common.GlobalUtil;
 
 public class CalendarPage extends BasePage {
 
@@ -43,10 +38,6 @@ public class CalendarPage extends BasePage {
 	private final By alertpopuptimetextLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
 	private final By PatientreferalLocator = By.name("com.healthvista.clinicianapp.stage:id/title1");
 	private final By TimeanddateunderpatientnameLocator = By.name("com.healthvista.clinicianapp.stage:id/title2");
-	
-	
-	
-	
 	
 	
 	public By getcalendarScreenLocator() {

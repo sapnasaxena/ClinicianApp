@@ -1,11 +1,7 @@
 package com.qa.mobileapp.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-
 import com.qa.mobileapp.common.BasePage;
 import com.qa.mobileapp.common.GlobalUtil;
 

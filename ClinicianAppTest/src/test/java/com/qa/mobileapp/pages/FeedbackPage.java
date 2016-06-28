@@ -1,12 +1,9 @@
 package com.qa.mobileapp.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.appium.java_client.AppiumDriver;
 
 import com.qa.mobileapp.common.BasePage;
-import com.qa.mobileapp.common.GlobalUtil;
 
 public class FeedbackPage extends BasePage {
 
@@ -20,7 +17,7 @@ public class FeedbackPage extends BasePage {
 	 * XPATH for Feedback Page 
 	 * */
 
-	private final By feedbackScreenTitleLocator = By.name("Patient Feedback");
+	private final By feedbackScreenTitleLocator = By.name("FeedBack");
 	//private final By patientTypeLocator = By.id("com.healthvista.clinicianapp.stage:id/patientType");
 	private final By searchButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/search_button");
 	private final By searchBarLocator = By.id("com.healthvista.clinicianapp.stage:id/search_bar");

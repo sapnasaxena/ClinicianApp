@@ -1,14 +1,12 @@
 package com.qa.mobileapp.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.appium.java_client.AppiumDriver;
 
 import com.qa.mobileapp.common.BasePage;
-import com.qa.mobileapp.common.GlobalUtil;
 
 public class LeavePage extends BasePage {
 
@@ -329,6 +327,33 @@ public class LeavePage extends BasePage {
 		//return element;
 		 
 		//}
+	
+	public void selectTimeForChangeTimings(int start, int end)
+	{
+		for(int i=0; i<=9;i++)
+		{
+		WebElement listViewChildElements = driver.findElement(By.className("//[...]android.widget.ScrollView[0]/android.widget.LinearLayout/*[1][2]"));
+		List <WebElement> ele = listViewChildElements.findElements(By.id("tv93S0"));
+	  
+		}
+		
+		
+//		List <WebElement> main = driver.findElements(By.className("android.widget.ScrollView"));
+//		main.get(0);
+//	    List<WebElement> parent = driver.findElements(By.className("android.widget.LinearLayout"));
+//		List<WebElement> child = (List<WebElement>) parent.subList(start, end);
+//		
+//		//List<WebElement> parent = driver.findElements(By.xpath("//android.widget.LinearLayout/child::[contains(@class,'android.widget.TextView')]"));
+//		//List<WebElement> child= driver.findElements(By.className("android.widget.TextView"));
+//		for(int i=0; i<=parent.size();i++)
+//		{
+//			System.out.println("no of ele:" +parent.size());
+//		child.get(1).click();
+//		child.get(2).click();
+//		}
+//		
+	}
+	
 	
 }
 	

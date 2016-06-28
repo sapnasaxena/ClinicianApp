@@ -1,11 +1,7 @@
 package com.qa.mobileapp.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.qa.mobileapp.common.BasePage;
-import com.qa.mobileapp.common.GlobalUtil;
-
 import io.appium.java_client.AppiumDriver;
 
 public class CaseFilePage extends BasePage  {
