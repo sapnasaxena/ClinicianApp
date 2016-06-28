@@ -40,7 +40,7 @@ public class ReferPatientTests extends TestBase{
 	}
 	
 	@AfterMethod(alwaysRun=true)
-	public void ensureDashboardPage() throws MalformedURLException{	
+	public void ensureReferPatientPage() throws MalformedURLException{	
 		boolean bFound = false;
 		try{
 		driver.navigate().back();
@@ -63,7 +63,7 @@ public class ReferPatientTests extends TestBase{
 		if(!bFound){
 			System.out.println("Refer Patient page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
@@ -73,7 +73,7 @@ public class ReferPatientTests extends TestBase{
 	//UI Scenarios
 	
 	@Test(groups = { "UITest" })
-	public void tc_03_testVerifyReferPatientOnSideMenu()
+	public void tc_01_testVerifyReferPatientOnSideMenu()
 	{
 		System.out.println("Verify that on tap Refer Patient nav, should display Refer a Patient details screen");
 		dashboardpage.onTapDashboardtext();
@@ -148,5 +148,32 @@ public class ReferPatientTests extends TestBase{
 		Assert.assertNotNull(referpatientpages.getCancelButton());
 	}
 	
+	//**************** SHITAL FUNCTIONAL TEST CASES********************//
+	
+	@Test(groups = { "functest" })
+	public void tc_01_validatePorteaPatient() {
+		System.out.println("Verify that user can able to refer patient for any service for the option portea patients");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Refer patient");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReferPatientNav();
+		GlobalUtil.wait(2);
+		referpatientpages.validatePorteaPatient("test");
+		//Assert.assertNotNull(dashboardpage.onTapDashboardtext());
+	}
+	
+	@Test(groups = { "functest" })
+	public void tc_02_validatePersonalNetwork() {
+		System.out.println("Verify that user can able to refer patient for any service for the option Personal Networks");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Refer patient");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReferPatientNav();
+		GlobalUtil.wait(2);
+		referpatientpages.ValidatePersonalNwPatient();
+		
+	}
 	
 }

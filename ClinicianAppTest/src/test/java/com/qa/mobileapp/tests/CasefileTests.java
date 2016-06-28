@@ -6,10 +6,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -17,10 +17,8 @@ import org.testng.annotations.Test;
 
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
-import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.CaseFilePage;
 import com.qa.mobileapp.pages.DashboardPage;
-import com.qa.mobileapp.pages.LoginPage;
 
 /* Author: Lipsha satpathy
  * Created date: 5th and 6th april 2016
@@ -74,7 +72,7 @@ public class CalendarTests extends TestBase {
 		if(!bFound){
 			System.out.println("Casefile page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
@@ -86,14 +84,13 @@ public class CalendarTests extends TestBase {
 		public void testVerifyCasefileScreenVisiblity()
 		{
 			System.out.println("Verify that on clicking Casefile nav bar, user should able to see Casefile screen");
-
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapCaseFileNav();
 			Assert.assertNotNull(casefilepage.getCaseFileScreenLocator());
 		}
 
-		//@Test(groups = { "UITest" })
+		@Test(groups = { "UITest" })
 		public void TC_01testVerify3tabscontainScreenVisiblity()
 		{
 			System.out.println("Verify that on tapping Case file nav, should display 3 tabs Pending,  Case filestab and Documents ");
@@ -106,7 +103,7 @@ public class CalendarTests extends TestBase {
 			Assert.assertNotNull(casefilepage.getDocumentLocator());
 			
 			}
-		//@Test(groups = { "UITest" })
+		@Test(groups = { "UITest" })
 		public void TC_02testVerifyPendingScreenVisibility()
 		{
 			System.out.println("Verify ontapping Pending tab,should display all Pendingcases alond with details like PatientName,PatientId and appointmentdate ");
@@ -119,7 +116,7 @@ public class CalendarTests extends TestBase {
 			Assert.assertNotNull(casefilepage. getPatientNameLocator());
 			Assert.assertNotNull(casefilepage.getAppointmentDateLocator());
 		}
-		//@Test(groups = { "UITest" })
+		@Test(groups = { "UITest" })
 		public void TC_03testVerifycasefiletabScreenVisibility()
 		{
 		System.out.println("Verify on tapping Casefiles tab,should display Patientlisting with casefiles details like Patient Name, ID, Status allong with Edit Case file button");
@@ -137,7 +134,7 @@ public class CalendarTests extends TestBase {
 		
 }
 
-		//@Test(groups = { "UITest" })
+		@Test(groups = { "UITest" })
 		public void TC_04TtestVerifyDocumentTabScreenVisibility()
 		{
 		System.out.println("Verify that on tapping Documentstap,should display the  details of documents uploaded for Patients along with details like Patient name, ID, and document name");
@@ -155,7 +152,7 @@ public class CalendarTests extends TestBase {
 		Assert.assertNotNull(casefilepage.getConsentLocator());
 		}
 		
-		//@Test(groups = { "UITest" })
+		@Test(groups = { "UITest" })
 		public void TC_05TtestVerifyUsershouldabletoEditcasefile()
 		{
 		System.out.println("User should able to Edit case file");

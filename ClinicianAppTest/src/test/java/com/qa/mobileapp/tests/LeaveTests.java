@@ -6,12 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.Assert;
-
-
-
-
-
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +17,6 @@ import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.LeavePage;
-import com.qa.mobileapp.pages.LoginPage;
 
 
 /* Author: Lipsha satpathy
@@ -45,6 +39,7 @@ public class LeaveTests extends TestBase{
 	public void initPageObjects(){
 		dashboardpage = new DashboardPage(driver);
 		leavepage = new LeavePage(driver);
+		appointmentpage = new AppointmentPage(driver);
 	}
 	
 	@AfterMethod(alwaysRun=true)
@@ -72,14 +67,14 @@ public class LeaveTests extends TestBase{
 		if(!bFound){
 			System.out.println("Leave page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
 	}
 
 	//UI Test Scenarios
-	
+	/*
 	@Test(groups = { "UITest" })
 	public void TC_01testVerifyLeaveScreenVisiblity()
 	{
@@ -181,7 +176,25 @@ public class LeaveTests extends TestBase{
 		leavepage.onClickapplyButtonLocator();
 		GlobalUtil.wait(3);
 		leavepage.onClickApplyLeavesButtonLocator();
-		Assert.assertNotNull(leavepage.getcalenderLocator());
+		Assert.assertNotNull(leavepage.getcalenderLocator());	
+		
+}
+	*/
+	@Test(groups = { "UITest" })
+	public void TC_DemotestSelectChangeTime()
+	{
+		System.out.println("Verify that select change timings...");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapLeavessNav();
+		GlobalUtil.wait(2);
+		leavepage.onClickapplyButtonLocator();
+		GlobalUtil.wait(3);
+		leavepage.onClickapplyChangeTimeLocator();
+		GlobalUtil.wait(2);
+		appointmentpage.selectDate("11");
+		leavepage.selectTimeForChangeTimings(4,9);
+		//Assert.assertNotNull(leavepage.getcalenderLocator());
 		
 		
 }

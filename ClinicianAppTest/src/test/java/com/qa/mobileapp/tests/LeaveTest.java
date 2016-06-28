@@ -12,6 +12,8 @@ import junit.framework.Assert;
 
 
 
+
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +24,6 @@ import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.LeavePage;
-import com.qa.mobileapp.pages.LoginPage;
 
 
 /* Author: Lipsha satpathy
@@ -73,7 +74,7 @@ public class LeaveTest extends TestBase{
 		if(!bFound){
 			System.out.println("Leave page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
@@ -186,6 +187,8 @@ public class LeaveTest extends TestBase{
 		GlobalUtil.wait(2);	
 		Assert.assertNotNull(leavepages.getcalenderLocator());
 }
+	
+	
 }
 	
 	

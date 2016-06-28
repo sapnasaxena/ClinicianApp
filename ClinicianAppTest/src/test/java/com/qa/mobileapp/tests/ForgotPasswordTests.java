@@ -1,23 +1,14 @@
 package com.qa.mobileapp.tests;
 
-import io.appium.java_client.android.AndroidDriver;
-
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
 import junit.framework.Assert;
 
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
-import com.qa.mobileapp.pages.AppointmentPage;
-import com.qa.mobileapp.pages.CalendarPage;
-import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.ForgotPasswordPage;
 import com.qa.mobileapp.pages.LoginPage;
 
@@ -132,6 +123,27 @@ public class ForgotPasswordTests extends TestBase{
 		Assert.assertNotNull(forgotpasswordpage.getInvalidMobileNoLocator());
 	}
 	
+	@Test(groups = { "funcTest" })
+	public void TS_08_testVerifyErrorVisibilityOnLeavingBlankRequiredField()
+	{
+		System.out.println("Verify that user should get error on leaving mobile number field blank");
+		loginpage.onTapForgotPasswordButton();
+		GlobalUtil.wait(2);
+		forgotpasswordpage.forgotPassword("");
+		GlobalUtil.wait(1);
+		Assert.assertNotNull(forgotpasswordpage.getInvalidMobileNoLocator());
+	}
+	
+	@Test(groups = { "funcTest" })
+	public void TS_08_testVerifyErrorVisibilityOnProvingLessThanRequiredNumbersOnMobileField()
+	{
+		System.out.println("Verify that user should get error on providing mobile number less than 10 digits.");
+		loginpage.onTapForgotPasswordButton();
+		GlobalUtil.wait(2);
+		forgotpasswordpage.forgotPassword("1234");
+		GlobalUtil.wait(1);
+		Assert.assertNotNull(forgotpasswordpage.getInvalidMobileNoLocator());
+	}
 	//@Test(groups = { "funcTest" })
 	public void TS_04_testVerifyOTP()
 	{

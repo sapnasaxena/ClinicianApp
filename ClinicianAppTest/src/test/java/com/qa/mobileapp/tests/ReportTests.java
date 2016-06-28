@@ -13,6 +13,8 @@ import junit.framework.Assert;
 
 
 
+
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -20,9 +22,7 @@ import org.testng.annotations.Test;
 
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
-import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.DashboardPage;
-import com.qa.mobileapp.pages.LoginPage;
 import com.qa.mobileapp.pages.ReportsPage;
 
 public class ReportTests extends TestBase{
@@ -64,7 +64,7 @@ public class ReportTests extends TestBase{
 		if(!bFound){
 			System.out.println("Reports page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
@@ -84,10 +84,9 @@ public class ReportTests extends TestBase{
 //	driver.scrollTo("Reports");
 //	GlobalUtil.wait(1);
 //	dashboardpage.onTapReportsNav();
-//	// Calendar : Waiting for design
-//	
+//	reportspage.CalenderPicker();
 //	}
-//	
+	
 	@Test(groups = { "UITest" })
 	public void tc_02_testVerifyTimingLeaveAppointment()
 	{
@@ -119,7 +118,7 @@ public class ReportTests extends TestBase{
 	}
 		
 	@Test(groups = { "UITest" })
-	public void tc_06_testVerifyCancelBtn()
+	public void tc_04_testVerifyCancelBtn()
 	{
 		System.out.println("Verify that on click cancel button should redirect to Dashboard screen.");
 		dashboardpage.onTapDashboardtext();
@@ -130,8 +129,8 @@ public class ReportTests extends TestBase{
 		Assert.assertNotNull(reportspage.getcancelBtn());
 	}
 	
-	@Test(groups = { "funcTest" })
-	public void tc_05_testVerifyReportBtn()
+	@Test(groups = { "functest" })
+	public void tc_05_testVerifySubmitReport()
 	{
 		System.out.println("Verify that on tap click get reports button should send report to user.");
 		dashboardpage.onTapDashboardtext();
@@ -145,6 +144,54 @@ public class ReportTests extends TestBase{
 		
 		Assert.assertNotNull(reportspage.getcontinueBtn());
 		Assert.assertNotNull(reportspage.getgetReportBtn());
+	}
+	
+	@Test(groups = { "functest" })
+	public void tc_01_testVerifyTimingReport()
+	{
+		System.out.println("Verify that User can send the timing report in the entered email id");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Reports");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReportsNav();
+		reportspage.onClicktimings();
+		reportspage.onClickcontinueBtn();
+		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
+		reportspage.onClickgetReportBtn();
+		
+	}
+	
+	@Test(groups = { "functest" })
+	public void tc_02_testVerifyLeaveReport()
+	{
+		System.out.println("Verify that User can send the leaves report in the entered email id");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Reports");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReportsNav();
+		reportspage.onClickleaves();
+		reportspage.onClickcontinueBtn();
+		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
+		reportspage.onClickgetReportBtn();
+		
+	}
+	
+	@Test(groups = { "functest" })
+	public void tc_03_testVerifyAppointmentReport()
+	{
+		System.out.println("Verify that User can send the Appointments report in the entered email id");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Reports");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReportsNav();
+		reportspage.onClickappointments();
+		reportspage.onClickcontinueBtn();
+		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
+		reportspage.onClickgetReportBtn();
+		
 	}
 	
 	

@@ -12,6 +12,8 @@ import junit.framework.Assert;
 
 
 
+
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +22,6 @@ import org.testng.annotations.Test;
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.DashboardPage;
-import com.qa.mobileapp.pages.LoginPage;
 import com.qa.mobileapp.pages.PaymentPage;
 
 //**Author: Sapna Saxena
@@ -183,12 +184,12 @@ public class PaymentTests extends TestBase{
 		GlobalUtil.wait(2);
 		paymentspage.onClickDepositButtonOnCIHTab();
 		GlobalUtil.wait(2);
-		paymentspage.depositAmount("test", "test", "Bangalore", "test");
+		paymentspage.selectDepositModeCashCollection();
 		Assert.assertNotNull(paymentspage.getPendingConfirmationMessageLocator());
 	}
 
 
-	//@Test(groups = { "funcTest" })
+	//@Test(groups = { "functest" })
 	public void testVerifyErrorWhileDepositAmountOnLeavingBlankFields()
 	{
 		System.out.println("Verify that while Deposit amount on leaving blank field, error for required is visible to user");
@@ -200,12 +201,12 @@ public class PaymentTests extends TestBase{
 		GlobalUtil.wait(2);
 		paymentspage.onClickDepositButtonOnCIHTab();
 		GlobalUtil.wait(2);
-		paymentspage.depositAmount("test", "test", "Bangalore", "test");
+		paymentspage.depositAmount("testbank", "testbranch", "Bangalore", "testnotes");
 		Assert.assertNotNull(paymentspage.getPendingConfirmationMessageLocator());
 	}
 
 	//@Test(groups = { "UITest" })
-	public void testVerifyDepositedAmountListedOnDepositedTab()
+	public void TC_testVerifyDepositedAmountCASHINHANDListedOnDepositedTab()
 	{
 
 		System.out.println("Verify that on Deposited amount, deposited amount is visible to user");
@@ -217,15 +218,14 @@ public class PaymentTests extends TestBase{
 		GlobalUtil.wait(2);
 		paymentspage.onClickDepositButtonOnCIHTab();
 		GlobalUtil.wait(2);
-		paymentspage.depositAmount("test", "test", "Bangalore", "test");
-		GlobalUtil.wait(2);
-		paymentspage.onClickDepositedTab();
-		Assert.assertNotNull(paymentspage.getAmountFieldDepoistedTabLocator());
-		Assert.assertNotNull(paymentspage.getTypeFieldCIHTabLocator());
-		Assert.assertNotNull(paymentspage.getStatusOnDepositedTabLocator());
+		paymentspage.selectDepositModeCashCollection();
+		Assert.assertNotNull(paymentspage.getCashInHandTabLocator());
+//		Assert.assertNotNull(paymentspage.getAmountFieldDepoistedTabLocator());
+//		Assert.assertNotNull(paymentspage.getTypeFieldCIHTabLocator());
+//		Assert.assertNotNull(paymentspage.getStatusOnDepositedTabLocator());
 	}
 
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_01_testVerifyDepositedAmountThroughiSure()
 	{
 
@@ -238,13 +238,13 @@ public class PaymentTests extends TestBase{
 		GlobalUtil.wait(1);
 		paymentspage.onClickDepositButtonOnCIHTab();
 		GlobalUtil.wait(2);
-		paymentspage.selectPaymentMode(1);
+		paymentspage.selectDepositModeICICIISure();
 		Assert.assertNotNull(paymentspage.getiSurePopUpAlertLocator());
 		Assert.assertNotNull(paymentspage.getiSurePopUpMessageLocator());
 		Assert.assertNotNull(paymentspage.getiSurePopUpOKButtonLocator());  
 	}
 
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_02_testVerifyDepositedAmountThroughCashCollection()
 	{
 
@@ -262,6 +262,34 @@ public class PaymentTests extends TestBase{
 		Assert.assertNotNull(paymentspage.getEnterNotesFieldLocator());
 		Assert.assertNotNull(paymentspage.getEnterOTPLocator());  
 		Assert.assertNotNull(paymentspage.getDepositButtonLocator()); 
+	}
+	
+	@Test(groups = { "functest" })
+	public void TS_05_testVerifyUserIsAbleToRefreshPaymentScreen()
+	{
+
+		System.out.println("Verify that user can able to refresh the Payments Screen");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPaymentsNav();
+		GlobalUtil.wait(1);
+		paymentspage.refreshPaymentScreen();
+		Assert.assertNotNull(paymentspage.getPaymentScreenLocator());
+	}
+	
+	@Test(groups = { "functest" })
+	public void TS_06_testVerifyUserIsAbleToDeclineiSurePayment()
+	{
+
+		System.out.println("Verify that user should able to decline ICICI iSure pay deposites ");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPaymentsNav();
+		GlobalUtil.wait(1);
+		paymentspage.onClickDepositedTab();
+		GlobalUtil.wait(1);
+		paymentspage.cancelISurePayment();
+		Assert.assertNotNull(paymentspage.getPaymentScreenLocator());
 	}
 
 	@AfterMethod(alwaysRun=true)
@@ -289,7 +317,7 @@ public class PaymentTests extends TestBase{
 		if(!bFound){
 			System.out.println("Payments page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}

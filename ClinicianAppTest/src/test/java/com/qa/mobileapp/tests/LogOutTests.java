@@ -13,6 +13,8 @@ import junit.framework.Assert;
 
 
 
+
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -24,8 +26,6 @@ import com.qa.mobileapp.common.TestBase;
 //**Created date: 07-APR-2016
 import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.LogOutPage;
-import com.qa.mobileapp.pages.LoginPage;
-import com.qa.mobileapp.pages.PaymentPage;
 
 public class LogOutTests extends TestBase {
 
@@ -67,7 +67,7 @@ public class LogOutTests extends TestBase {
 		if(!bFound){
 			System.out.println("Logout page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
@@ -95,7 +95,7 @@ public class LogOutTests extends TestBase {
 		
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_01_testVerifyLogOutFunctionality()
 	{
 		System.out.println("Verify that on click yes button, user is able to exit from the application");

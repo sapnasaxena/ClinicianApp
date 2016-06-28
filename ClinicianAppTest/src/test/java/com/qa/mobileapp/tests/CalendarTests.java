@@ -6,8 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -18,7 +18,6 @@ import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.CalendarPage;
 import com.qa.mobileapp.pages.DashboardPage;
-import com.qa.mobileapp.pages.LoginPage;
 
 
 /* Author: Lipsha satpathy
@@ -71,7 +70,7 @@ public class CalendarTests extends TestBase {
 		if(!bFound){
 			System.out.println("Calendar page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}

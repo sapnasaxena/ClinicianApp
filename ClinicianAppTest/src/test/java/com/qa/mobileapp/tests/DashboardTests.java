@@ -1,7 +1,6 @@
 package com.qa.mobileapp.tests;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,27 +8,23 @@ import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.AlertPage;
 import com.qa.mobileapp.pages.AppointmentPage;
+import com.qa.mobileapp.pages.CalendarPage;
 import com.qa.mobileapp.pages.CampPage;
 import com.qa.mobileapp.pages.CaseFilePage;
 import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.FeedbackPage;
 import com.qa.mobileapp.pages.LeavePage;
 import com.qa.mobileapp.pages.LogOutPage;
-import com.qa.mobileapp.pages.LoginPage;
 import com.qa.mobileapp.pages.PatientPage;
 import com.qa.mobileapp.pages.PaymentPage;
 import com.qa.mobileapp.pages.ProfilePage;
@@ -50,21 +45,41 @@ public class DashboardTests extends TestBase{
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
 		dashboardpage = new DashboardPage(driver);
+		camppage= new CampPage(driver);
+		profilepage = new ProfilePage(driver);
+		appointmentpage = new AppointmentPage(driver);
+		paymentspage = new PaymentPage(driver);
+		patientpage = new PatientPage(driver);
+		alertpage = new AlertPage(driver);
+		reportspage = new ReportsPage(driver);
+		casefilepage = new CaseFilePage(driver);
+		feedbackpage=new FeedbackPage(driver);
+		logoutpage = new LogOutPage(driver);
+		calendarpages = new CalendarPage(driver);
+		
 	}
 	
 
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()
 	{
-		System.out.println("Verify that on logged in to app, user should able to see Checkin screen");		
+		System.out.println("Verify that on logged in to app, user should able to see Checkin screen");
+		if(driver.findElement(dashboardpage.getCheckInTimeLocator()).isDisplayed()==false)
+		{ 
+			dashboardpage.checkIn();
+		}
 		Assert.assertNotNull(driver.findElement(dashboardpage.getCheckInTimeLocator()));
 		
 	}
 
-	//@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "UITest","smoketest" })
 	public void TC_01_testVerifyCheckOutStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkoutscreen");
+		if(driver.findElement(dashboardpage.getCheckOutTimeLocator()).isDisplayed()==false)
+		{ 
+			dashboardpage.checkOut();
+		}
 		Assert.assertNotNull(driver.findElement(dashboardpage.getCheckOutTimeLocator()));
 	}
 
@@ -103,9 +118,12 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianNameLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianCashInHand()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianProfession()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianWorkingHrs()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	//@Test (groups = { "UITest","smoketest" })
 	public void TC_08_testVerifyClincianCashInHandVisibility()
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's  cash in hand should be displayed");
@@ -114,7 +132,7 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianCashInHand()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	//@Test (groups = { "UITest","smoketest" })
 	public void TC_07_testVerifyClincianProfessionVisibility()
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's professional should be displayed");
@@ -122,7 +140,7 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianProfession()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	//@Test (groups = { "UITest","smoketest" })
 	public void TC_09_testVerifyClincianWorkingHrsVisibility()
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's  Work timings should be displayed");
@@ -132,12 +150,36 @@ public class DashboardTests extends TestBase{
 	}
 
 	@Test (groups = { "UITest","smoketest" })
-	public void TC_10_testVerifyAppointmentNavVisibility()
+	public void TC_10_testVerifyMyTasksNavVisibility()
 	{
-		System.out.println("Verify that on navigation bar, Appointment nav should be displayed");
+		System.out.println("Verify that My Tasks navigation menus Appointment, Patient, Payment, Calendar, Camps, CaseFile nav should be displayed");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		Assert.assertNotNull(driver.findElement(dashboardpage.getAppointmentNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getPatientNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getPaymentsNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getCalendarNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getCampsNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getCaseFileNavLocator()));
 	}
+	
+	@Test (groups = { "UITest","smoketest" })
+	public void TC_10_testVerifySettingsNavVisibility()
+	{
+		System.out.println("Verify that Settings navigation menus Alert, Reports, Refer Patient, Feedback, Logout should be displayed");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
+		Assert.assertNotNull(driver.findElement(dashboardpage.getAlertsNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getReportsNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getReferPatientLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getFeedbackNavLocator()));
+		Assert.assertNotNull(driver.findElement(dashboardpage.getLogOutNavLocator()));
+	}
+	
 
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()
@@ -145,20 +187,14 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Appointment nav, Appointment Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapAppointmentsNav();
-		AppointmentPage appointmentpage = new AppointmentPage(driver);
-		Assert.assertNotNull(driver.findElement(appointmentpage.getAllAppointmentdropLocator()));
-	}
-
-
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_12_testVerifyPatientNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Patient nav should be displayed");
-		dashboardpage.onTapDashboardtext();
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getPatientNavLocator()));
+		dashboardpage.onTapAppointmentsNav();
+		Assert.assertNotNull(appointmentpage.getAllAppointmentdropLocator());
 	}
+
+
+
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_13_testVerifyOnTapPatientNavPatientScreenVisibility()
@@ -166,20 +202,13 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Patient nav, Patient Listing Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
-		PatientPage patientpage = new PatientPage(driver);
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientsScreenLocator()));
+		dashboardpage.onTapPatientNav();
+		Assert.assertNotNull(patientpage.getPatientsScreenLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_14_testVerifyCalendarNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Calendar nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCalendarNavLocator()));
-	}
+
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_15_testVerifyOnTapCalendarNavCalendarScreenVisibility()
@@ -187,20 +216,13 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Calendar nav, Calendar Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
-		LeavePage leavepage = new LeavePage(driver);
-		Assert.assertNotNull(driver.findElement(leavepage.getcalenderLocator()));
+		Assert.assertNotNull(calendarpages.getcalendarScreenLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_16_testVerifyPaymentNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Payment nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getPaymentsNavLocator()));
-	}
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_17_testVerifyOnTapPaymentNavPaymentsScreenVisibility()
@@ -208,20 +230,12 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping payment nav, Payments Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapPaymentsNav();
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
-		PaymentPage paymentspage = new PaymentPage(driver);
-		Assert.assertNotNull(driver.findElement(paymentspage.getPaymentScreenLocator()));
+		dashboardpage.onTapPaymentsNav();
+		Assert.assertNotNull(paymentspage.getPaymentScreenLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_18_testVerifyCaseFileNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Case file nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCaseFileNavLocator()));
-	}
 
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_19_testVerifyOnTapCaseFileNavCaseFilesScreenVisibility()
@@ -229,26 +243,19 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Case File nav, Case files Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCaseFileNav();
-		GlobalUtil.wait(2);
-		CaseFilePage casefilepage = new CaseFilePage(driver);
-		Assert.assertNotNull(driver.findElement(casefilepage.getCaseFileScreenLocator()));
+		Assert.assertNotNull(casefilepage.getCaseFileScreenLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_20_testVerifyLeavesNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Leaves nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getLeavesNavLocator()));
-	}
-
-	@Test(groups = { "UITest","smoketest" })
+	//@Test(groups = { "UITest","smoketest" })
 	public void TC_21_testVerifyOnTapLeaveNavLeavesScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Leave nav, Leave Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapLeavessNav();
 		GlobalUtil.wait(2);
@@ -256,21 +263,14 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(leavepage.getLeaveScreenLocator()));
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_22_testVerifyReportNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Reports nav should be displayed");	
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		Assert.assertNotNull(driver.findElement(dashboardpage.getReportsNavLocator()));
-	}
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_23_testVerifyOnTapReportsNavReportsScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Reports nav, Report Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Reports");
 		GlobalUtil.wait(1);
@@ -281,14 +281,6 @@ public class DashboardTests extends TestBase{
 	}
 
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_24_testVerifyCampsNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Camps nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCampsNavLocator()));
-	}
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_25_testVerifyOnTapCampNavCampScreenVisibility()
@@ -296,21 +288,13 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Camp nav, Camp Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		CampPage camppage = new CampPage(driver);
-		Assert.assertNotNull(driver.findElement(camppage.getCampNameLocator()));
+		Assert.assertNotNull(camppage.getCampNameLocator());
 	}
 
-
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_26_testVerifyAlertsNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Alerts nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getAlertsNavLocator()));
-	}
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_27_testVerifyOnTapAlertsNavAlertsScreenVisibility()
@@ -318,28 +302,21 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Refer Alerts nav, Alerts Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapAlertsNav();
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
-		AlertPage alertpage = new AlertPage(driver);
-		Assert.assertNotNull(driver.findElement(alertpage.getAlertScreenLocator()));
+		dashboardpage.onTapAlertsNav();
+		Assert.assertNotNull(alertpage.getAlertScreenLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_28_testVerifyReferPatientNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Refer Patient nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		driver.scrollTo("Refer patient");
-		GlobalUtil.wait(1);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getReferPatientLocator()));
-	}
+	
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_29_testVerifyOnTapReferPatientNavReferAPatientScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Refer Patient nav, Refer Patient Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -349,45 +326,27 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(referpatientpage.getReferPatientScreenLocator()));
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_30_testVerifyFeedbackNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Feedback nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		driver.scrollTo("Feedback");
-		Assert.assertNotNull(driver.findElement(dashboardpage.getFeedbackNavLocator()));
-	}
-
+	
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_31_testVerifyOnTapFeedbackNavFeedbackScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Feedback nav, Feedback Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Feedback");
-		GlobalUtil.wait(1);
-		dashboardpage.onTapFeedbackNav();
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
-		FeedbackPage feedbackpage = new FeedbackPage(driver);
-		Assert.assertNotNull(driver.findElement(feedbackpage.getfeedbackScreenTitleLocator()));
+		dashboardpage.onTapFeedbackNav();
+		Assert.assertNotNull(feedbackpage.getfeedbackScreenTitleLocator());
 	}
 
-	@Test(groups = { "UITest","smoketest" })
-	public void TC_32_testVerifyLogoutNavVisibility()
-	{
-		System.out.println("Verify that on navigation bar, Feedback nav should be displayed");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.scrollToLogout();
-		Assert.assertNotNull(driver.findElement(dashboardpage.getLogOutNavLocator()));
-	}
 
 	@Test(groups = { "UITest","smoketest" })
 	public void TC_33_testVerifyOnTapLogoutNavLogoutScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Logout nav, Logout pop up screen with message 'Are you sure want to logout' should be displayed");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapLogOut();
 		GlobalUtil.wait(2);
@@ -419,7 +378,7 @@ public class DashboardTests extends TestBase{
 		if(!bFound){
 			System.out.println("Dashboard page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}

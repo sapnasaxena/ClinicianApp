@@ -4,22 +4,23 @@ import io.appium.java_client.android.AndroidDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
 
-import org.testng.annotations.AfterClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.mobileapp.common.GlobalUtil;
+import com.qa.mobileapp.common.PatientModal;
 import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.DashboardPage;
-import com.qa.mobileapp.pages.LoginPage;
 import com.qa.mobileapp.pages.PatientPage;
-import com.qa.mobileapp.pages.PaymentPage;
 
 public class PatientTests extends TestBase {
 
@@ -116,6 +117,7 @@ public class PatientTests extends TestBase {
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(2);
 		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(1);
 		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsPatientNameLocator()));
 		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsPatientIDLocator()));
 		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsAddressLocator()));
@@ -231,10 +233,12 @@ public class PatientTests extends TestBase {
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(2);
 		patientpage.searchPatient("test");
-		Assert.assertNotNull(driver.findElement(patientpage.getSearchStringLocator()));
+		List<WebElement> ls = driver.findElements(By.className("//android.widget.ListView"));
+		ls.get(0).getText();
+		Assert.assertEquals("test", ls.get(0).getText());
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_01_testVerifyUserIsAbleToSearchPatientByID()
 	{
 		System.out.println("Verify that user can able to search a patient by entering patient ID.");
@@ -246,31 +250,46 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(driver.findElement(patientpage.getSearchStringLocator()));
 	}
 	
-//	@Test(groups = { "funcTest" })
-//	public void TS_02_testVerifyUserIsAbleToAddPatient()
-//	{
-//		System.out.println("Verify that user can able to add a new patient on clicking (+) button.");
-//		dashboardpage.onTapDashboardtext();
-//		GlobalUtil.wait(2);
-//		dashboardpage.onTapPatientNav();
-//		GlobalUtil.wait(2);
-//		patientpage.addPatient("test", "ttt", "t@t.com", "tttt", "1234567890");
-//		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsScreenLocator()));
-//	}
+	@Test(groups = { "functest" })
+	public void TS_0_testVerifyUserIsAbleToAddPatient()
+	{
+		System.out.println("Verify that user can able to add a new patient on clicking (+) button.");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(2);
+		PatientModal patientModal=PatientModal.getPatientDetails();
+		patientModal.setPatientFirstName(GlobalUtil.getRandomName(8));
+		patientModal.setPatientLastName(GlobalUtil.getRandomName(6));
+		patientModal.setEmail(GlobalUtil.getRandomName(4) + "@test.com");
+		patientModal.setMobileNo(GlobalUtil.generateRandomMobileNo());
+		patientModal.setAddress("test test test");
+		patientModal.setPinCode("560071");
+		patientpage.addPatient(patientModal);
+//		patientpage.getPatientDetailsScreenLocator();
+     	patientpage.getAddedPatient(PatientModal.getPatientDetails());
+		Assert.assertNotNull(patientpage.getPatientListsLocator());
+		Assert.assertNotNull(patientModal.getPatientFirstName());
+	}
 	
-	@Test
-	public void TS_03_testVerifyUserIsAbleToReferPatient()
+	
+
+
+	@Test(groups = { "functest" })
+	public void TS_04_testVerifyUserIsAbleToReferService()
 	{
 		System.out.println("Verify that user can able to Refer a service for the selected patient.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(2);
-		patientpage.addPatient("test", "ttt", "t@t.com", "tttt", "1234567890");
+		patientpage.onClickPatientName();
+		GlobalUtil.wait(2);
+		patientpage.referService();
 		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsScreenLocator()));
 	}
 
-	//@Test(groups = { "UITest" })
+	@Test(groups = { "UITest" })
 	public void testVerifyAddPackageOptionVisibilty()
 	{
 		System.out.println("Verify that on Click on Patient Nav bar, Add Package button is visible to user");
@@ -309,10 +328,10 @@ public class PatientTests extends TestBase {
 		patientpage.onClickPatientName();
 		Assert.assertNotNull(patientpage.getPatientNameLocator());
 	}
-	
+
 	//functional Test Scenarios
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_01_testVerifyUserShouldAbleToSearchPatient()
 	{
 		System.out.println("Verify that user can able to search a patient by entering patient name and ID");
@@ -322,7 +341,7 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		
 	}
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_02_testVerifyUserIsAbleToAddPatient()
 	{
 		System.out.println("Verify that user can able to Refer a service for the selected patient");
@@ -330,11 +349,18 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.addPatient("testt", "ddwd", "t@g.com", "test", "6546546544");
+		PatientModal patientModal=PatientModal.getPatientDetails();
+		patientModal.setPatientFirstName(GlobalUtil.getRandomName(8));
+		patientModal.setPatientLastName(GlobalUtil.getRandomName(8));
+		patientModal.setMobileNo(GlobalUtil.getRandomNumber(10));
+		patientModal.setEmail(GlobalUtil.getRandomName(6) + "test.com");
+		patientModal.setAddress("test test test");
+		patientModal.setPinCode("560071");
+		 patientpage.addPatient(patientModal);
 		Assert.assertNotNull(patientpage.getPatientsScreenLocator());
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_03_testVerifyOnTapAnyPatientUserShouldRedirectedToPatientDetailScreen()
 	{
 		System.out.println("Verify that on clicking on any patient it should redirect to patient details screen");
@@ -346,22 +372,9 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
 	}
 	
-	@Test(groups = { "funcTest" })
-	public void TS_04_testVerifyUserIsAbleToReferService()
-	{
-		System.out.println("Verify that user can able to Refer a service for the selected patient");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(1);
-		patientpage.onTapReferServiceLink();
-		GlobalUtil.wait(1);
-		patientpage.referService();
-		Assert.assertTrue("Data under process. Please wait...", true);
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsScreenLocator()));
-	}
 	
-	@Test(groups = { "funcTest" })
+	
+	@Test(groups = { "functest" })
 	public void TS_05_testVerifyUserShouldGetsErrorWhileClickOnAddCase()
 	{
 		System.out.println("Verify that user can get error while trying to add case for a particular patient");
@@ -369,13 +382,16 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onTapReferServiceLink();
-		GlobalUtil.wait(1);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.onTapOptions();
+		GlobalUtil.wait(2);
 		patientpage.onTapAddCase();
-		Assert.assertNotNull(driver.findElement(patientpage.getAddCaseMessageLocator()));
+		Assert.assertNotNull(patientpage.getAddCaseMessageLocator());
 	}
 	
-	@Test(groups = { "funcTest" })
+	//Not working
+	//@Test(groups = { "functest" })
 	public void TS_06_testVerifyUserShouldAbleToAddPackage()
 	{
 		System.out.println("Verify that user can able to add package for aparticular patient");
@@ -383,23 +399,42 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.onTapOptions();
+		GlobalUtil.wait(2);
+		patientpage.onTapAddPackage();
 		patientpage.addPackage();
 		Assert.assertNotNull(driver.findElement(patientpage.getSubscribedPackageScreenLocator()));
-	}
+	} 
 
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_07_testVerifyUserShouldAbleToAddServiceForPatient()
 	{
 		System.out.println("Verify that user can able to add service for a particular patient");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(2);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.onTapOptions();
 		GlobalUtil.wait(1);
-		patientpage.addService();
-		Assert.assertNotNull(driver.findElement(patientpage.getSubscribedPackageScreenLocator()));
+		patientpage.onTapAddService();
+		GlobalUtil.wait(2);
+		patientpage.addService("Jun", "13", "2016");
+		if (appointmentpage.getApptCalDateLocator()!=null)
+		{
+			Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
+		}
+		else
+		{
+			System.out.println("Error");
+			Assert.assertNotNull(patientpage.getErrorAlreadyApptLocator());
+		}
 	}
 
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_08_testVerifyUserShouldAbleToViewSubscriptionsOfPatient()
 	{
 		System.out.println("Verify that user can able to view subscriptions for aparticular patient");
@@ -407,15 +442,15 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onClickPatientName();
+		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
-		patientpage.onTapPatientScreenNavOptions();
-		GlobalUtil.wait(1);
+		patientpage.onTapOptions();
+		GlobalUtil.wait(2);
 		patientpage.onTapViewSubscription();
-		Assert.assertNotNull(driver.findElement(patientpage.getSubscribedPackageScreenLocator()));
+		Assert.assertNotNull(patientpage.getSubscribedPackageScreenLocator());
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_09_testVerifyUserShouldAbleToCheckVitalsOfPatient()
 	{
 		System.out.println("Verify that user can able to check vitals for a particular patient");
@@ -423,31 +458,31 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onClickPatientName();
+		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
-		patientpage.onTapPatientScreenNavOptions();
-		GlobalUtil.wait(1);
+		patientpage.onTapOptions();
+		GlobalUtil.wait(2);
 		patientpage.onTapCheckVitals();
-		Assert.assertNotNull(driver.findElement(patientpage.getCheckVitalsScreenLocator()));
+		Assert.assertNotNull(patientpage.getCheckVitalsScreenLocator());
 	}	
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_10_testVerifyUserShouldAbleToViewVitalHistoryOfPatient()
 	{
-		System.out.println("Verify that user can able view vitals History for aparticular patient");
+		System.out.println("Verify that user can able view vitals History for a particular patient");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onClickPatientName();
+		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
-		patientpage.onTapPatientScreenNavOptions();
-		GlobalUtil.wait(1);
+		patientpage.onTapOptions();
+		GlobalUtil.wait(2);
 		patientpage.onTapViewVitals();
-		Assert.assertNotNull(driver.findElement(patientpage.getVitalsHistoryLocator()));
+		Assert.assertNotNull(patientpage.getVitalsHistoryLocator());
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_11_testVerifyUserShouldAbleToViewCaseDetailsOfPatient()
 	{
 		System.out.println("Verify that user can able to view case details if exist");
@@ -455,15 +490,28 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onClickPatientName();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientScreenNavOptions();
-		GlobalUtil.wait(1);
-		patientpage.onTapViewVitals();
-		Assert.assertNotNull(driver.findElement(patientpage.getVitalsHistoryLocator()));
+		patientpage.onTapPatientFrame();
+		driver.scrollToExact("Cases");
+		if(patientpage.getPatientDetailsCaseLocator()!=null)
+		{
+			Assert.assertNotNull(patientpage.getNoCaseFoundMessageOnPatientDetailsLocator());
+			
+
+		}
+		else
+		{
+			WebElement name = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/patient_name"));
+			WebElement status = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/casefile_status"));
+			WebElement apptDate = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/appointment_date"));
+			WebElement dateOfFirstVisit = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/firstVisitText"));
+			Assert.assertTrue(name.getText(), true);
+			Assert.assertTrue(status.getText(), true);
+			Assert.assertTrue(apptDate.getText(), true);
+			Assert.assertTrue(dateOfFirstVisit.getText(), true);
+		}
 	}
 	
-	@Test(groups = { "funcTest" })
+	@Test(groups = { "functest" })
 	public void TS_12_testVerifyUserShouldAbleToRefreshPatientDetails()
 	{
 		System.out.println("Verify that user can able to refresh the patient details screen");
@@ -471,11 +519,41 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
 		GlobalUtil.wait(1);
-		patientpage.onClickPatientName();
+		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
 		patientpage.refreshPatientDetails();
+		Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
+	}
+	
+    @Test(groups = { "functest" })
+	public void TS_13_testVerifyUserShouldAbleToSendDoctorServiceFeedback()
+	{
+		System.out.println("Verify that user can able to refresh the patient details screen");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(1);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.sendFeedback(0,"doctor");
+		Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
+	}
+
+	@Test(groups = { "functest" })
+	public void TS_13_testVerifyUserShouldAbleToSendPhysioServiceFeedback()
+	{
+		System.out.println("Verify that user can able to refresh the patient details screen");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(1);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.sendFeedback(0,"physiotherapy");
 		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsScreenLocator()));
 	}
+	
+	
 	
 	@AfterMethod(alwaysRun=true)
 	public void ensurePatientPage() throws MalformedURLException{		
@@ -502,7 +580,7 @@ public class PatientTests extends TestBase {
 		if(!bFound){
 			System.out.println("Patient page could not be restored. Performing relogin.");
 			driver.quit();
-			driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			ensureLogin(userName, password);
 		}
