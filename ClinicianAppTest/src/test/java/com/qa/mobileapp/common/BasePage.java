@@ -1,22 +1,22 @@
 package com.qa.mobileapp.common;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
+import java.io.File;
+import java.util.List;
 
-import java.util.concurrent.TimeUnit;
+import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.thoughtworks.selenium.condition.ConditionRunner.Context;
 
 
 public abstract class BasePage {
 	protected AppiumDriver driver;
 	public static boolean f11 = false;
-	protected final By dismissLocationLocator = By.name("Dismiss");
+	protected final By dismissLocationLocator = By.xpath("//android.widget.Button[contains(@text,'Dismiss')]");
 
 	public By getDismissLocationLocator() {
 		return dismissLocationLocator;
@@ -44,7 +44,6 @@ public abstract class BasePage {
 
 	public void dismissLocation(){
 		clickWhenVisible(dismissLocationLocator);
-		GlobalUtil.wait(2);
 	}
 
 	public WebElement clickWhenVisible(By locator, int timeOutInSeconds){
@@ -80,6 +79,34 @@ public abstract class BasePage {
 		}
 		return element;
 	}
-}
+	
+//	public Toast makeText (Context context, int resId, int duration)
+//	{
+//		return null;
+//	}
+	
+	public String trimString(String oldStr, String replaceWith)
+	{
+		
+		 String newStr= oldStr.replaceAll(oldStr,replaceWith);
+			return newStr;	
+	}
+	
+	/* public void testToastMessages(String img) throws Exception {
+	        // get and capture the picture of the img element used to display the barcode image
+	        WebElement testImage = driver.findElement(By.id(img));
+	        File imageFile = ImageTextExtracter.captureElementPicture(testImage);
+	 
+	        // get the Tesseract direct interace
+	        //Tesseract instance = new Tesseract();
+	 
+	        // the doOCR method of Tesseract will retrive the text
+	        // from image captured by Selenium
+	        String result = instance.doOCR(imageFile);
+	 
+	    }*/
+	}
+	
+
 
 

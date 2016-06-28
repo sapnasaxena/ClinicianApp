@@ -1,9 +1,20 @@
 package com.qa.mobileapp.common;
 
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
 import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.AppiumDriver;
 
 public class GlobalUtil {
 	
@@ -12,7 +23,7 @@ public class GlobalUtil {
 	public static final int MinuteInterval = 1;
 	public static final int StandardInterval = 10;
 	public static final String PLACEHOLDER = "<PLACE_HOLDER>";
-	
+    AppiumDriver driver;
 	
 	/*wait for time*/
 	
@@ -62,15 +73,98 @@ public class GlobalUtil {
 		{
 			 Calendar currentDate = Calendar.getInstance();
 			  SimpleDateFormat formatter= 
-			  new SimpleDateFormat("yyyy/MMM/dd");
+			  //new SimpleDateFormat("yyyy/MMM/dd");
+			  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 			  String dateNow = formatter.format(currentDate.getTime());
 			  System.out.println("Now the date is :=>  " + dateNow);
 			  return dateNow;
 		}
 		
+		public static String getTomorrowDate() throws ParseException
+		{
+			 
+			
+			String untildate=getCurrentDate();//can take any date in current format    
+			SimpleDateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSSXXX" );   
+			Calendar cal = Calendar.getInstance();    
+			cal.setTime(dateFormat.parse(untildate));    
+			cal.add(Calendar.DATE, 1 );    
+			String convertedDate=dateFormat.format(cal.getTime());    
+			System.out.println("Date increase by one.."+convertedDate);
+			return convertedDate;
+		}
 		
-	}
-	 
+		public static void getCurrentMonth()
+		{
+			int month;
+	        GregorianCalendar date = new GregorianCalendar();      
+	        month = date.get(Calendar.MONTH);
+	        month = month+1;
+	        System.out.println("Current month is  " + month);
+		}
+
+//		public static String getCurrentMonth()
+//		{
+//			 Calendar currentDate = Calendar.getInstance();
+//			  SimpleDateFormat formatter= 
+//			  new SimpleDateFormat("yyyy/MMM/dd");
+//			  String monthNow = formatter.format(currentDate.getWeekYear());
+//			  System.out.println("Now the date is :=>  " + monthNow);
+//			  return monthNow;
+//		}
+		
+	
+		public static String generateRandomMobileNo()
+		{
+			Random random=new Random();
+		    int randomNumber=0;
+		    boolean loop=true;
+		    while(loop) {
+		        randomNumber=random.nextInt();
+		        if(Integer.toString(randomNumber).length()==10 && !Integer.toString(randomNumber).startsWith("-")) {
+		            loop=false;
+		        }
+		        }
+		    return Integer.toString(randomNumber); 
+		
+		}
 	 
 
+/**
+ * Scrolls a ListView
+ * @param textFieldValue - text that needs to be present in the list view's element
+ * @param scrollTo - scroll to the element
+ */
+public WebElement verticalScroll(String textFieldValue, By scrollTo, int maxScroll)
+{
+
+	List<WebElement> elements = driver.findElements(scrollTo);
+	if(elements.size() > 0){
+		return elements.get(0);
+	}else{
+		WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'" + textFieldValue + " ')]/parent::*"));
+		int x = ele.getSize().height;
+		int scrollStart = (x);
+		int scrollEnd = scrollStart;
+		Dimension dimensions = driver.manage().window().getSize();
+		int[] oldValues = null;
+		int i = 0;
+		//scrolls a maximum of maxScroll times.
+		while(i < maxScroll){
+			++i;  
+			driver.swipe(0, scrollStart, 0, scrollEnd/3, 1000);    
+			//scrollEnd += scrollEnd;
+			scrollStart = x + scrollEnd;
+			elements = driver.findElements(scrollTo);
+			//No more scrolling if the element is found.
+			if(elements.size() > 0){
+				return elements.get(0);
+			}				
+		}
+	}
+	return null;
+}
+
+
+}
 
