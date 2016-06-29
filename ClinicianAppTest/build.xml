@@ -49,7 +49,7 @@
 			</testng>
 			<echo message="Trying to kill appium" />
 			<sleep seconds="5" />
-			<stop-appium />
+			<!--<stop-appium /> -->
 		</sequential>
 	
   </target>
