@@ -58,23 +58,27 @@ public class LoginTests extends TestBase {
 
 		System.out.println("Verify that Username Field is visible On Login screen");
 		Assert.assertNotNull(driver.findElement(loginpage.getUserNameFieldLocator()));
+		Assert.assertNotNull(driver.findElement(loginpage.getPasswordFieldLocator()));
+		Assert.assertNotNull(driver.findElement(loginpage.getLoginButtonLocator()));
+		Assert.assertNotNull(driver.findElement(loginpage.getForgotPasswordLocator()));
+		Assert.assertNotNull(driver.findElement(loginpage.getShowPasswordFieldLocator()));
 	}
 
-	@Test(groups = {"UItest"})
+	//@Test(groups = {"UItest"})
 	public void TC_02_testVerifyPasswordFieldVisibilityOnLoginScreen()
 	{
 		System.out.println("Verify that Password Field is visible On Login screen");
 		Assert.assertNotNull(driver.findElement(loginpage.getPasswordFieldLocator()));
 	}
 
-	@Test(groups = {"UItest"})
+	//@Test(groups = {"UItest"})
 	public void TC_05_testVerifyLoginButtonVisibilityOnLoginScreen()
 	{
 		System.out.println("Verify that Login to Portea Button is visible On Login screen");
 		Assert.assertNotNull(driver.findElement(loginpage.getLoginButtonLocator()));
 	}
 
-	@Test(groups = {"UItest"})
+	//@Test(groups = {"UItest"})
 	public void TC_04_testVerifyForgotPasswordButtonVisibilityOnLoginScreen()
 	{
 		System.out.println("Verify that Forgot Password Button is visible On Login screen");
@@ -105,15 +109,7 @@ public class LoginTests extends TestBase {
 	{
 		System.out.println("Verify that user is able to see error while logging with Invalid credentials");
 		ensureLogin(userName, "123456");
-//		WebElement testImage = driver.findElement(By.className("android.widget.FrameLayout"));
-//        File imageFile = ImageTextExtracter.captureElementPicture(testImage);
-//        // get the Tesseract direct interace
-//        Tesseract instance = new Tesseract();
-//        // the doOCR method of Tesseract will retrive the text
-//        // from image captured by Selenium
-//        String result = instance.doOCR(imageFile);
 		Assert.assertNotNull(loginpage.getLoginButtonLocator());
-		//Assert.assertTrue(result.contains("Wrong Credentials!!!"), "Wrong credentials!!!");
 	}
 
 	@Test(groups = {"functest"})
@@ -178,7 +174,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsLOngTermNursing()
 	{
 		System.out.println("Verify that LTN should able to login successfully");
-		ensureLogin("sridevi@gmail.com", password);
+		ensureLogin("longterm@test.com", password);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
@@ -189,7 +185,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsShortTermNursing()
 	{
 		System.out.println("Verify that STN should able to login successfully");
-		ensureLogin("dony345@gmail.com", password);
+		ensureLogin("sample@gmail.com", password);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();

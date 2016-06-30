@@ -60,11 +60,11 @@ public class DashboardTests extends TestBase{
 	}
 	
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "UITest"})
 	public void TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkin screen");
-		if(driver.findElement(dashboardpage.getCheckInTimeLocator()).isDisplayed()==false)
+		if(driver.findElement(dashboardpage.getCheckOutTimeLocator()).isDisplayed())
 		{ 
 			dashboardpage.checkIn();
 		}
@@ -72,11 +72,11 @@ public class DashboardTests extends TestBase{
 		
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "UITest"})
 	public void TC_01_testVerifyCheckOutStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkoutscreen");
-		if(driver.findElement(dashboardpage.getCheckOutTimeLocator()).isDisplayed()==false)
+		if(driver.findElement(dashboardpage.getCheckInTimeLocator()).isDisplayed())
 		{ 
 			dashboardpage.checkOut();
 		}
