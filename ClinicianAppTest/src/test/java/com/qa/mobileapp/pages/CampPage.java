@@ -69,6 +69,7 @@ public class CampPage extends BasePage {
 
 		private final By addLeadBtn = By.id("com.healthvista.clinicianapp.stage:id/leadBtn");
 		private final By addPatientBtn = By.id("com.healthvista.clinicianapp.stage:id/patientBtn");
+		private final By leadScreenLocator = By.name("Camp");
 		private final By LeadName = By.id("com.healthvista.clinicianapp.stage:id/tilPatientName");
 		private final By LeadMobileNumber = By.id("com.healthvista.clinicianapp.stage:id/tilPateintPhone");
 		private final By LeadEmailId = By.id("com.healthvista.clinicianapp.stage:id/tilEmail");
@@ -401,6 +402,10 @@ public class CampPage extends BasePage {
 			return appointmentBtn;
 		}
 
+		public By getLeadScreenLocator() {
+			return leadScreenLocator;
+		}
+
 		public By getpatientMobileNbr() {
 			return patientMobileNbr;
 		}
@@ -545,7 +550,9 @@ public class CampPage extends BasePage {
 		public void onClickMobilenumber(int len) {
 			WebElement LeadMobile = driver.findElement(LeadMobileNumber);
 			LeadMobile.click();
-			GlobalUtil.getRandomNumber(len);
+			LeadMobile.sendKeys(GlobalUtil.getRandomNumber(len));
+			WebElement search = driver.findElement(searchBtn);
+			search.click();
 		}
 
 		public void onClickAddLeadEmail() {
