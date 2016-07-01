@@ -276,7 +276,6 @@ public class DashboardPage extends BasePage {
 	}
 	public void onTapLogOut()
 	{
-		driver.scrollTo("Logout");
 		clickWhenVisible(logOutNavLocator);
 	}
 	

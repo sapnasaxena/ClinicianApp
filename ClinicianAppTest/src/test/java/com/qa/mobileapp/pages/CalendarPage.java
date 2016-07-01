@@ -34,7 +34,7 @@ public class CalendarPage extends BasePage {
 	private final By ExistingappointmentlistLocator = By.name("Existing Appointments");
 	private final By cancelButtonLocator = By.name("Cancel");
 	private final By okayButtonLocator = By.name("Okay");
-	private final By overtimedateSelectedLocator = By.id(" com.healthvista.clinicianapp.stage:id/tvovertime");
+	private final By overtimedateSelectedLocator = By.id("com.healthvista.clinicianapp.stage:id/tvovertime");
 	private final By alertpopuptimetextLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
 	private final By PatientreferalLocator = By.name("com.healthvista.clinicianapp.stage:id/title1");
 	private final By TimeanddateunderpatientnameLocator = By.name("com.healthvista.clinicianapp.stage:id/title2");

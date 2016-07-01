@@ -43,7 +43,7 @@ public class PatientPage extends BasePage {
 	private final By addPackageScreenLocator = By.id("android:id/alertTitle");
 	private final By refreshButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/menu_load");
 	private final By patientDetailsScreenLocator = By.xpath("//android.widget.TextView[contains(@text,'Patient Details')]");
-	private final By patientDetailsMenuButtonLocator = By.xpath("//android.widget.TextView[contains(@text,'Options')]");//By.id("com.healthvista.clinicianapp.stage:id/edit");
+	private final By patientDetailsMenuButtonLocator = By.name("Options");//By.id("com.healthvista.clinicianapp.stage:id/edit");
 	private final By patientDetailsReferServiceLinkLocator = By.name("Refer a Service");
 	private final By patientDetailsPatientFeedbackLinkLocator = By.name("Patient Feedback");
 	private final By patientDetailsPatientNameLocator = By.id("com.healthvista.clinicianapp.stage:id/patient_name");
@@ -717,8 +717,15 @@ public class PatientPage extends BasePage {
 		imp.sendKeys("test");
 		WebElement btn = driver.findElement(By.xpath("//android.widget.Button[contains(@text,'Proceed')]"));
 		btn.click();
-		String str = "Minimum Cost : 200";
-		String onlyCost = str.replaceAll("Minimum Cost:", "");
+//		List <WebElement> firstframe = driver.findElements(By.xpath("//android.widget.Framelayout"));
+//		List<WebElement> linearframe= firstframe.get(0).findElements(By.xpath("//android.widget.Framelayout"));
+//		List<WebElement> ls = linearframe.get(1).findElements(By.xpath("//android.widget.FrameLayout"));
+//		List<WebElement> minCost=ls.get(0).findElements(By.xpath("//android.widget.TextView"));
+//		String str1 = minCost.get(1).getText();
+		//System.out.println(str1);
+		String str = " Minimum Price: ₹ 400";
+		String onlyCost = str.replaceAll("Minimum Price: ₹ ", "");
+		System.out.println(onlyCost);
 		WebElement cost = driver.findElement(By.xpath("//android.widget.EditText[contains(@text,'Service Cost')]"));
 		cost.sendKeys(onlyCost);
 		btn.click();
