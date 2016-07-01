@@ -68,13 +68,16 @@ public class CampTests extends TestBase{
 			ensureLogin(userName, password);
 		}
 	}
-	/*
+	
 	@Test(groups = { "UITest" })
 	public void testVerifyCampNavVisibilityOnHomeScreen()
 	{
 		
 		System.out.println("Verify that Camp is visible On Left Nav bar");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		Assert.assertNotNull(driver.findElement(camppage.getCampNameLocator()));
 	}
 	
@@ -94,6 +97,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on click on Camp nav Add Lead button will be visible");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		camppage.onClickCampNavBar();
 		Assert.assertNotNull(driver.findElement(camppage.getAddLeadBtnLocator()));
 	}
@@ -103,6 +108,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that on click on Camp nav Add Patient button will be visible");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		camppage.onClickCampNavBar();
 		Assert.assertNotNull(driver.findElement(camppage.getAddPatientBtnLocator()));
@@ -116,6 +123,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tapping on any camp name, should display Camp name and address along with Add Lead and Add Patient buttons");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		Assert.assertNotNull(camppage.getCampNameLocator());
 	}
@@ -125,6 +134,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Veriify that on tapping Add Lead, should open Add Lead form details screen.");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -140,6 +151,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tapping Add Patient, should open Add Patient details screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -153,6 +166,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that on Add Lead screen, should display fields like Name, mobile number, email, age, gender options, location, locatlity, Address, pincode, service  and type of lead along with Cancel and save button");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -181,6 +196,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tap Add Patient button should display screen with 2 tabs Patients and Appointments");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -196,6 +213,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user should able to search patient with mobile number.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -205,7 +224,7 @@ public class CampTests extends TestBase{
 		Assert.assertNotNull(camppage.getCampLocationLocator());
 		Assert.assertNotNull(camppage.getmobileNumber());
 	}
-	/*
+
 	@Test(groups = { "UITest" })
 	public void tc_09_PatnetMobileNumberExistance()
 	{
@@ -303,6 +322,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tap Appointments tab, should display all the camp appointments.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -318,6 +339,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tap Appointments tab, should display all the camp appointments.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -331,7 +354,7 @@ public class CampTests extends TestBase{
 		Assert.assertNotNull(camppage.getaptStatus());
 		Assert.assertNotNull(camppage.getaptFee());
 	}
-*/
+
 	//***************** FUNCTIONAL TEST CASE*******************************//
 	
 
@@ -341,6 +364,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that user can able to add leads of type cold");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -443,6 +468,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user can able to add appointment for family relatives");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -484,6 +511,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user can able to add appointment for new patients");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -524,6 +553,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that user can able to add appointment for existing patients");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -587,6 +618,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user can able to add appointment for Later case");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -617,6 +650,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that user can able to add apoointment for the service physiotherapy");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -649,6 +684,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user can able to add apoointment for the service Doctor visit");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -679,6 +716,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that user can able to add apoointment for the service 12Hr Nursing");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
@@ -711,6 +750,8 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that user can able to add apoointment for the service 24Hr Nursing");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
 		camppage.onTapcampLocationLocator();
@@ -741,6 +782,8 @@ public class CampTests extends TestBase{
 	{
 		System.out.println("Verify that user can able to add apoointment for the service  Nursing Attendant");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);

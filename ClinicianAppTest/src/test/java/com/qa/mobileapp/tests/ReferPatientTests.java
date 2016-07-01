@@ -78,6 +78,8 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that on tap Refer Patient nav, should display Refer a Patient details screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
@@ -89,6 +91,8 @@ public class ReferPatientTests extends TestBase{
 	{
 		System.out.println("Verify that Refer Patient details screen should have fields like New Patient name, Mobile number, Service required, City, Existing Patient ID, details, radio button Portea Patient or Personal network along with Cancel and Done button.");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -116,6 +120,8 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that user should able to submit Refer a Patient successfully.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
@@ -141,6 +147,8 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that on tap cancel button should redirect to Dashboard screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
@@ -155,6 +163,8 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that user can able to refer patient for any service for the option portea patients");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
@@ -167,6 +177,8 @@ public class ReferPatientTests extends TestBase{
 	public void tc_02_validatePersonalNetwork() {
 		System.out.println("Verify that user can able to refer patient for any service for the option Personal Networks");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);

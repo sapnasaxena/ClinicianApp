@@ -93,8 +93,7 @@ public class ReportTests extends TestBase{
 	System.out.println("Verify that on Reports should display the field Report type with options: Timings, Leaves and Appointments");
 	dashboardpage.onTapDashboardtext();
 	GlobalUtil.wait(2);
-	loginpage.dismissLocation();
-	driver.scrollTo("Reports");
+	dashboardpage.onTapSettingsExpandButton();
 	GlobalUtil.wait(2);
 	dashboardpage.onTapReportsNav();
 	Assert.assertNotNull(reportspage.getstartNEndDateText());
@@ -110,8 +109,8 @@ public class ReportTests extends TestBase{
 	System.out.println("Verify that Reports tab should have Cancel and continue button");
 	dashboardpage.onTapDashboardtext();
 	GlobalUtil.wait(2);
-	driver.scrollTo("Reports");
-	GlobalUtil.wait(1);
+	dashboardpage.onTapSettingsExpandButton();
+	GlobalUtil.wait(2);
 	dashboardpage.onTapReportsNav();
 	Assert.assertNotNull(reportspage.getcontinueBtn());
 	Assert.assertNotNull(reportspage.getcancelBtn());
@@ -123,8 +122,8 @@ public class ReportTests extends TestBase{
 		System.out.println("Verify that on click cancel button should redirect to Dashboard screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
 		Assert.assertNotNull(reportspage.getcancelBtn());
 	}
@@ -135,8 +134,8 @@ public class ReportTests extends TestBase{
 		System.out.println("Verify that on tap click get reports button should send report to user.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
 		Assert.assertNotNull(reportspage.gettimings());
 		
@@ -152,8 +151,8 @@ public class ReportTests extends TestBase{
 		System.out.println("Verify that User can send the timing report in the entered email id");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
 		reportspage.onClicktimings();
 		reportspage.onClickcontinueBtn();
@@ -168,8 +167,8 @@ public class ReportTests extends TestBase{
 		System.out.println("Verify that User can send the leaves report in the entered email id");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
 		reportspage.onClickleaves();
 		reportspage.onClickcontinueBtn();
@@ -184,8 +183,8 @@ public class ReportTests extends TestBase{
 		System.out.println("Verify that User can send the Appointments report in the entered email id");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
 		reportspage.onClickappointments();
 		reportspage.onClickcontinueBtn();

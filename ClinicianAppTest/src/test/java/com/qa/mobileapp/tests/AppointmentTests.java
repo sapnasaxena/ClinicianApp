@@ -216,9 +216,10 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tapping Appointments nav, All appointments screen should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
-			dashboardpage.onTapAppointmentsNav();
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAllAppointmentdropLocator()));
+			dashboardpage.onTapAppointmentsNav();
+			Assert.assertNotNull(appointmentpage.getAllAppointmentdropLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -227,9 +228,10 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Today Tab is visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
-			dashboardpage.onTapAppointmentsNav();
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getTodayAppointmentTabLocator()));
+			dashboardpage.onTapAppointmentsNav();
+			Assert.assertNotNull(appointmentpage.getTodayAppointmentTabLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -238,9 +240,10 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Upcoming Tab is visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
-			dashboardpage.onTapAppointmentsNav();
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getUpcomingsAppointmentTabLocator()));
+			dashboardpage.onTapAppointmentsNav();
+			Assert.assertNotNull(appointmentpage.getUpcomingsAppointmentTabLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -249,9 +252,10 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that PAST Tab is visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
-			dashboardpage.onTapAppointmentsNav();
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getPastAppointmentTabLocator()));
+			dashboardpage.onTapAppointmentsNav();
+			Assert.assertNotNull(appointmentpage.getPastAppointmentTabLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -260,11 +264,13 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Today's Appointment List is visible on Today's Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
 			{
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentListViewPageLocator()));
+			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
 			else
 			{
@@ -279,11 +285,13 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Upcomings Appointment List is visible on Upcomings Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
 			{
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentListViewPageLocator()));
+			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
 			else
 			{
@@ -298,12 +306,14 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Past Appointment List is visible on Past Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
 			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
 			{
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentListViewPageLocator()));
+			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
 			else
 			{
@@ -317,10 +327,12 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on click All Appointment link, all Appointments are visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onTapAllAppointmentsSpinner();
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAllAppointmentdropLocator()));
+			Assert.assertNotNull(appointmentpage.getAllAppointmentdropLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -329,11 +341,12 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on click Open Appointment link, all Open appointments are visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onTapAllAppointmentsSpinner();
-			GlobalUtil.wait(1);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getOpenAppointmentdropLocator()));
+			Assert.assertNotNull(appointmentpage.getOpenAppointmentdropLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -342,11 +355,12 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on click Closed Appointment link, all Closed appointments are visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onTapAllAppointmentsSpinner();
-			GlobalUtil.wait(1);
-			Assert.assertNotNull(driver.findElement(appointmentpage.getClosedAppointmentdropLocator()));
+			Assert.assertNotNull(appointmentpage.getClosedAppointmentdropLocator());
 		}
 
 		@Test(groups = {"UITest"})
@@ -355,14 +369,16 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on click Patient Name, verify Patient details is visible on Patient Details Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPatientName("successful");
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentScreenPatientNameLocator()));
+			Assert.assertNotNull(appointmentpage.getAppointmentScreenPatientNameLocator());
 			//Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentScreenPatientPhoneLocator()));
-			Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentScreenPatientGenderLocator()));
+			Assert.assertNotNull(appointmentpage.getAppointmentScreenPatientGenderLocator());
 			//Assert.assertNotNull(driver.findElement(appointmentpage.getAppointmentScreenPatientBrandLocator()));
 			
 		}
@@ -373,12 +389,14 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on click Patient Name, verify Patient details is visible on Patient Details Screen");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
 					if (appointmentpage.getAppointmentStatusLocator().equals("Pending"))
 					{
-						Assert.assertNotNull(driver.findElement(appointmentpage.getConfirmAppointmentButtonLocator()));
+						Assert.assertNotNull(appointmentpage.getConfirmAppointmentButtonLocator());
 					}
 					else
 						System.out.println("Not able to find Pending appointment");
@@ -390,6 +408,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap on any Patient name Appointment Details screen should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -407,6 +427,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on Appointment Details screen, Patient tab should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -422,6 +444,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on Appointment Details screen, Payment tab should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -439,6 +463,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on Appointment Details screen, appointment tab should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -455,6 +481,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on Appointment Details screen, menu Option should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -469,6 +497,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on Appointment Details screen, on tap menu button, Check Vitals options should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -487,6 +517,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on Appointment Details screen, on tap menu button, View Vitals options should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -503,6 +535,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap menu option check vitals, Check Vitals screen should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -523,6 +557,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap menu option View vitals, View Vitals screen should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -540,6 +576,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap fab button, Add Appointment button should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -559,6 +597,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap fab button, Add Case button should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -576,6 +616,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap fab button, upload button should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -595,6 +637,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap fab button, Pay button should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -612,6 +656,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap fab button Add Appointment button, Add Appointment screen should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -633,6 +679,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap fab button Add Case button, Case details screen should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -652,6 +700,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that on tap fab button Upload, Add Document screen should be displayed");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -673,6 +723,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap fab button Pay, Payment screen should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -693,6 +745,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that on tap fab button Add Appointment, should display Add Appointment screen.");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -711,6 +765,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on Pay screen,  Cash Payment and Online Payments tab should be displayed");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -733,6 +789,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that Cash Payment have Options Cash, Cheque");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -752,6 +810,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on enter amount on Cheque, text box for Issuing bank and notes description should be displayed");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -777,6 +837,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that for online Payments, Wallet and Online options should be displayed");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -798,6 +860,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on enter amount for wallet, should displayed Wallet balance along with Send OTP link");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -822,6 +886,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on enter amount for online, should displayed text box for Email address, mobile number along with Send link");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -848,6 +914,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on Click on Add Appointment option, should display current month calendar along with done button");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -871,6 +939,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on Click on Add Case option, should display case details and add case button");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -892,6 +962,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on click Add case button, Add case file alerts should display along with Yes and No option");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -916,6 +988,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on tap YES button , should redirect to Physio App");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -939,6 +1013,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on tap No button , should redirect to Case Screen");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -961,6 +1037,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on Add Document screen, type of document, title, received date and notes should be displayed along with clear and next button.");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -986,6 +1064,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that for confirmed appointment on Fab Button, Add Appointment, Reschedule, Call to Cancel and Reached Options.");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
@@ -1006,6 +1086,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that for confirmed appointment on Fab Button, Add Appointment, Reschedule, Call to Cancel and Reached Options.");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1030,6 +1112,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on tap confirm fab button on pending appointment, should change the fab buttons Call to Cancel, Reschedule, Add Appointment and Reached.");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
@@ -1050,6 +1134,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that on tap reached button, if appointment time is in future, should displayed message'You cannot do reach status early'");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1073,6 +1159,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that on tap Reschedule fab button, should display current month calendar.");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
@@ -1095,6 +1183,8 @@ public class AppointmentTests extends TestBase {
 					}
 					GlobalUtil.wait(2);
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1122,6 +1212,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that user should get error while adding duplicate appointment ");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -1148,6 +1240,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that Upcomings Appointment List is visible on Upcomings Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			//appointmentpage.onClickPatientName();
@@ -1169,6 +1263,8 @@ public class AppointmentTests extends TestBase {
 			}
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(1);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickUpcomingTab();
@@ -1194,6 +1290,8 @@ public class AppointmentTests extends TestBase {
 			System.out.println("Verify that User should be redirected to call on cancel appointment.");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPatientName("confirmed");
@@ -1209,6 +1307,8 @@ public class AppointmentTests extends TestBase {
 		{
 			System.out.println("Verify that Upcomings Appointment List is visible on Upcomings Appointment Screen");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
@@ -1226,6 +1326,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that user should able to add subservices");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1254,6 +1356,8 @@ public class AppointmentTests extends TestBase {
 				{
 		    	    System.out.println("Verify that Amount paid and Balance amount in Payment tab of Appointment details screen after Payment.");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1284,6 +1388,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that Clinician should able to do Payment through Online");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -1306,6 +1412,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that Clinician should able to do Payment through Wallet)");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
@@ -1333,6 +1441,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that Clinician should able to do Payment by Cash");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -1357,6 +1467,8 @@ public class AppointmentTests extends TestBase {
 					System.out.println("Verify that Clinician should able to do Payment by Cheque)");
 					dashboardpage.onTapDashboardtext();
 					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
@@ -1380,6 +1492,8 @@ public class AppointmentTests extends TestBase {
 				{
 					System.out.println("Verify that user should able to upload documents.)");
 					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
 					GlobalUtil.wait(2);
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);

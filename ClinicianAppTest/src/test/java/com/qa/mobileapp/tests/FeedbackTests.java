@@ -88,8 +88,8 @@ public class FeedbackTests extends TestBase{
 		System.out.println("Verify ontapping Feedback should display fields like Options EOS,MOS.Location,ServicesandRating ");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Feedback");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
 		//Assert.assertNotNull(feedbackpage.getfeedbackScreenTitleLocator());
 		Assert.assertNotNull(feedbackpage.getServiceTypeLocator());
@@ -104,8 +104,8 @@ public class FeedbackTests extends TestBase{
 		System.out.println("Verify that search image should be visible on Patient feedback screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Feedback");
-		GlobalUtil.wait(1);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
 		Assert.assertNotNull(feedbackpage.getSearchButtonLocator());
 //		Assert.assertNotNull(feedbackpage.getSearchBarLocator());
@@ -114,10 +114,27 @@ public class FeedbackTests extends TestBase{
 			
 }
 	//@Test(groups = { "funcTest" })
-	public void testVerifysubmitButton()
+	public void testVerifyTechnicalFeedbackSubmission()
 	{
 		System.out.println("Verify submit button");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapFeedbackNav();
+		GlobalUtil.wait(2);
+		feedbackpage.onclickgetsubmitLocator();
+		GlobalUtil.wait(2);
+		Assert.assertNotNull(feedbackpage.getsubmitLocator());
+		
+	}
+	@Test
+	public void testVerifyOperationalFeedbackSubmission()
+	{
+		System.out.println("Verify submit button");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
 		GlobalUtil.wait(2);

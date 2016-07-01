@@ -79,8 +79,9 @@ public class LogOutTests extends TestBase {
 	{
 		System.out.println("Verify that on Navigation drawer, Logout nav bar is visible");
 		dashboardpage.onTapDashboardtext();
-		dashboardpage.scrollToLogout();
-		Assert.assertNotNull(driver.findElement(dashboardpage.getLogOutNavLocator()));
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		Assert.assertNotNull(dashboardpage.getLogOutNavLocator());
 		
 	}
 	
@@ -90,8 +91,10 @@ public class LogOutTests extends TestBase {
 		System.out.println("Verify that on tapping Logout nav bar, should display  alert message pop up Want to Logout along with No and Yes button.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapLogOut();
-		Assert.assertNotNull(driver.findElement(logoutpage.getLogOutLocator()));
+		Assert.assertNotNull(logoutpage.getLogOutLocator());
 		
 	}
 	
@@ -100,6 +103,8 @@ public class LogOutTests extends TestBase {
 	{
 		System.out.println("Verify that on click yes button, user is able to exit from the application");
         dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapLogOut();
 		GlobalUtil.wait(2);
@@ -112,6 +117,8 @@ public class LogOutTests extends TestBase {
 	{
 		System.out.println("Verify that on clicking on No button,  user is able to see Dashboard screen");
         dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapLogOut();
 		GlobalUtil.wait(2);

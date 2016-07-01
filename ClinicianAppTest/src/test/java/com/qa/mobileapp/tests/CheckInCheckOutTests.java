@@ -43,12 +43,14 @@ public class CheckInCheckOutTests extends TestBase {
 	{
 		System.out.println("Verify that if user is checkout, should not able to confirm the appointment.");
 		       // dashboardpage.checkCheckOutVisibility();
-	     	   if (driver.findElementByClassName("android.widget.Switch").isEnabled())
+	     	   if(driver.findElementByClassName("android.widget.Switch").isEnabled())
 		        {
 			    dashboardpage.checkOut();
 		        }
 	            GlobalUtil.wait(2);
 				dashboardpage.onTapDashboardtext();
+				GlobalUtil.wait(2);
+				dashboardpage.onTapMyTasksExpandButton();
 				GlobalUtil.wait(2);
 				dashboardpage.onTapAppointmentsNav();
 				GlobalUtil.wait(2);
@@ -77,6 +79,8 @@ public class CheckInCheckOutTests extends TestBase {
 		GlobalUtil.wait(2);
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
@@ -102,6 +106,8 @@ public class CheckInCheckOutTests extends TestBase {
         }  
 		    GlobalUtil.wait(2);
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);

@@ -61,18 +61,23 @@ public class DashboardTests extends TestBase{
 	
 
 	@Test (groups = { "UITest"})
-	public void TC_01_testVerifyCheckInStatusVisibilityOnDashboardScreen()
+	public void TC_01_testVerifyCheckInCheckOutStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkin screen");
-		if(driver.findElement(dashboardpage.getCheckOutTimeLocator()).isDisplayed())
+		if(dashboardpage.getCheckOutTimeLocator()!=null)
 		{ 
-			dashboardpage.checkIn();
+			System.out.println("User is checkedin");
+			Assert.assertNotNull(driver.findElement(dashboardpage.getCheckInTimeLocator()));
 		}
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCheckInTimeLocator()));
+		else
+		{
+			System.out.println("User is checked out");
+			Assert.assertNotNull(driver.findElement(dashboardpage.getCheckOutTimeLocator()));
+		}
 		
 	}
 
-	@Test (groups = { "UITest"})
+	//@Test (groups = { "UITest"})
 	public void TC_01_testVerifyCheckOutStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkoutscreen");

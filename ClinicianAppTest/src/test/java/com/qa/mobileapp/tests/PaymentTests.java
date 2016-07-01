@@ -53,6 +53,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on click Payments nav bar, user is able to see Payments Screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(paymentspage.getPaymentScreenLocator());
@@ -63,6 +65,8 @@ public class PaymentTests extends TestBase{
 	{
 		System.out.println("Verify that on click Payments nav bar, Cash in Hand and Deposited Tab is visible to user");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -76,6 +80,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on click Payments nav bar, Cash in Hand and Deposited Tab is visible to user");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(paymentspage.getRefreshButtonLocator());
@@ -87,6 +93,8 @@ public class PaymentTests extends TestBase{
 	{
 		System.out.println("Verify that on Cash in Hand screen, should display Payment details like Amount, type, User and Date");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -104,6 +112,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on Cash In Hand tab, Checkbox is visible to user");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(paymentspage.getCheckBoxCIHTabLocator());
@@ -116,6 +126,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on Cash In Hand tab, on selecting checkbox, Deposit button is visible to user");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		paymentspage.selectCheckBox();
@@ -127,6 +139,8 @@ public class PaymentTests extends TestBase{
 	{
 		System.out.println("Verify that on Cash In Hand tab, on selecting checkbox, Deposit button is visible to user");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -143,6 +157,8 @@ public class PaymentTests extends TestBase{
 	{
 		System.out.println("Verify that on Deposit Screen, City field is visible to user");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -162,6 +178,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on selecting and tapping  any record in Cash In hand, should display Deposit button on tap.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		paymentspage.selectCheckBox();
@@ -178,6 +196,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that on Deposit amount, pending confirmation message visible to user");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(1);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		paymentspage.selectCheckBox();
@@ -195,6 +215,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that while Deposit amount on leaving blank field, error for required is visible to user");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		paymentspage.selectCheckBox();
@@ -211,6 +233,8 @@ public class PaymentTests extends TestBase{
 
 		System.out.println("Verify that on Deposited amount, deposited amount is visible to user");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -232,6 +256,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that user can able to deposit the amount from cash in hand by using ICICI isure pay");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
 		paymentspage.selectCheckBox();
@@ -250,6 +276,8 @@ public class PaymentTests extends TestBase{
 
 		System.out.println("Verify that user can able to deposit the amount from cash in hand by using Cash Collection");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(2);
@@ -271,6 +299,8 @@ public class PaymentTests extends TestBase{
 		System.out.println("Verify that user can able to refresh the Payments Screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(1);
 		paymentspage.refreshPaymentScreen();
@@ -283,6 +313,8 @@ public class PaymentTests extends TestBase{
 
 		System.out.println("Verify that user should able to decline ICICI iSure pay deposites ");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
 		GlobalUtil.wait(1);

@@ -86,6 +86,8 @@ public class CalendarTests extends TestBase {
 			System.out.println("Verify that on clicking Casefile nav bar, user should able to see Casefile screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
+			GlobalUtil.wait(2);
 			dashboardpage.onTapCaseFileNav();
 			Assert.assertNotNull(casefilepage.getCaseFileScreenLocator());
 		}
@@ -93,11 +95,12 @@ public class CalendarTests extends TestBase {
 		@Test(groups = { "UITest" })
 		public void TC_01testVerify3tabscontainScreenVisiblity()
 		{
-			System.out.println("Verify that on tapping Case file nav, should display 3 tabs Pending,  Case filestab and Documents ");
-			dashboardpage.onTapDashboardtext();
+			System.out.println("Verify that on tapping Case file nav, should display 3 tabs Pending, Case filestab and Documents ");
+			dashboardpage.onTapDashboardtext(); 
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapCaseFileNav();
-			GlobalUtil.wait(2);
 			Assert.assertNotNull(casefilepage.getPendingstatusLocator());
 			Assert.assertNotNull(casefilepage.getCasefiletabLocator());
 			Assert.assertNotNull(casefilepage.getDocumentLocator());
@@ -108,6 +111,8 @@ public class CalendarTests extends TestBase {
 		{
 			System.out.println("Verify ontapping Pending tab,should display all Pendingcases alond with details like PatientName,PatientId and appointmentdate ");
 			dashboardpage.onTapDashboardtext();
+			GlobalUtil.wait(2);
+			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapCaseFileNav();
 			casefilepage.onClickPendingStatusLocator();
@@ -121,6 +126,8 @@ public class CalendarTests extends TestBase {
 		{
 		System.out.println("Verify on tapping Casefiles tab,should display Patientlisting with casefiles details like Patient Name, ID, Status allong with Edit Case file button");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCaseFileNav();
 		GlobalUtil.wait(2);
@@ -141,6 +148,8 @@ public class CalendarTests extends TestBase {
 		
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCaseFileNav();
 		GlobalUtil.wait(2);
 		casefilepage.onClickDocumentsLocator();
@@ -157,6 +166,8 @@ public class CalendarTests extends TestBase {
 		{
 		System.out.println("User should able to Edit case file");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCaseFileNav();
 		GlobalUtil.wait(2);

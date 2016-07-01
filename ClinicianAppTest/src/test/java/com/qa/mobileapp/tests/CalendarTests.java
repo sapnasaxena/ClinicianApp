@@ -86,6 +86,8 @@ public class CalendarTests extends TestBase {
 		System.out.println("Verify that on tapping Calendar nav, should display the current month calendar");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		Assert.assertNotNull(calendarpages.getcalendarScreenLocator());
 		//Assert.assertNotNull(calendarpages.getcurrentmonthtextLocator());
@@ -98,6 +100,8 @@ public class CalendarTests extends TestBase {
 		System.out.println("Verify that on Calendar Screen, Check Button is visible");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(calendarpages.getsaveButtonLocator());
@@ -108,6 +112,8 @@ public class CalendarTests extends TestBase {
 	{
 		System.out.println("Verify that on Calendar Screen, Next month slider is visible");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
@@ -121,6 +127,8 @@ public class CalendarTests extends TestBase {
 	{
 		System.out.println("Verify that on Calendar Screen, Previous slider is visible");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
@@ -136,6 +144,8 @@ public class CalendarTests extends TestBase {
 		System.out.println("Verify that on Calendar Screen, Home Back button is visible");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(3);
 		calendarpages.onClickhomeBackButtonLocator();
@@ -148,6 +158,8 @@ public class CalendarTests extends TestBase {
 	{
 		System.out.println("Verify that tapping on date appointment details should visible");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
@@ -162,6 +174,8 @@ public class CalendarTests extends TestBase {
 	{
 		System.out.println("Verify that on ");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
@@ -188,6 +202,8 @@ public class CalendarTests extends TestBase {
 	{
 		System.out.println("Verify that on tap on cancel button should redirect to calendar screen.");
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCalendarNav();
 		GlobalUtil.wait(2);
