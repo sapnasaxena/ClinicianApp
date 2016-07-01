@@ -928,7 +928,7 @@ public class AppointmentTests extends TestBase {
 					appointmentpage.onTapFabButtonAddAppointment();
 					GlobalUtil.wait(1);
 					Calendar cal = Calendar.getInstance();
-					Assert.assertTrue(DateFormatSymbols.getInstance().getMonths()[cal.get(Calendar.MONTH)].equalsIgnoreCase("May"));
+					Assert.assertTrue(DateFormatSymbols.getInstance().getMonths()[cal.get(Calendar.MONTH)].equalsIgnoreCase(GlobalUtil.getCurrentMonthInWords()));
 					Assert.assertTrue(String.valueOf(cal.get(Calendar.YEAR)).equalsIgnoreCase("2016"));
 					Assert.assertNotNull(appointmentpage.getDoneButtonForAddApptLocator());
 				}
