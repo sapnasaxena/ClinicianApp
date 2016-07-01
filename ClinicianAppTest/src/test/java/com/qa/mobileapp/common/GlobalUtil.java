@@ -103,6 +103,13 @@ public class GlobalUtil {
 	        System.out.println("Current month is  " + month);
 		}
 
+		public static String getCurrentMonthInWords()
+		{
+			 Calendar cal=Calendar.getInstance();
+			  SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+			  String month_name = month_date.format(cal.getTime());
+			  return month_name;
+		}
 //		public static String getCurrentMonth()
 //		{
 //			 Calendar currentDate = Calendar.getInstance();
@@ -129,7 +136,20 @@ public class GlobalUtil {
 		
 		}
 	 
-
+		public static String getCurrentMonthInMMM()
+		{
+			 Calendar cal=Calendar.getInstance();
+			  SimpleDateFormat month_date = new SimpleDateFormat("MMM");
+			  String month_name = month_date.format(cal.getTime());
+			  return month_name;
+		}
+		public static String getCurrentDateInDD()
+		{
+			 Calendar cal=Calendar.getInstance();
+			  SimpleDateFormat month_date = new SimpleDateFormat("DD");
+			  String date = month_date.format(cal.getTime());
+			  return date;
+		}
 /**
  * Scrolls a ListView
  * @param textFieldValue - text that needs to be present in the list view's element
