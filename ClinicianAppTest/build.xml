@@ -23,6 +23,7 @@
   <property name="ANDROID_HOME" value="${env.ANDROID_HOME}" />
   <property name="GENYMOTION_HOME" value="${env.GENYMOTION_HOME}" />
   <property name="test-report" value="test-report/${suite.name}" />
+  <property name="port.number" value="4723"
   
   
    <taskdef name="testng" classname="org.testng.TestNGAntTask">
@@ -64,6 +65,7 @@
 			<arg value="${appium.install.dir}"/>
 			<arg value="${app.path}"/>
 			<arg value="${device.name}"/>
+			<arg value="${port.number}" />
 		</exec>
 		
 		<!--sleep for 10 seconds so that server is fully initialized -->
