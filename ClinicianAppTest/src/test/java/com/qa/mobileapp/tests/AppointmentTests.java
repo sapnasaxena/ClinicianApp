@@ -8,6 +8,7 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
@@ -146,6 +147,9 @@ import junit.framework.Assert;
 
 
 
+
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -1339,14 +1343,23 @@ public class AppointmentTests extends TestBase {
 				    GlobalUtil.wait(2);
 					appointmentpage.onTapFabButton();
 					GlobalUtil.wait(2);
-					appointmentpage.onTapFabButtonSubservices();
-					GlobalUtil.wait(2);
-					//SubServiceModal subservicemodal = new SubServiceModal();
-					appointmentpage.addSubService("7 day Package (INR 700 bracket)");
-					Assert.assertEquals("7 day Package (INR 700 bracket)", driver.findElement(appointmentpage.getAddedSubServiceNameLocator()).getText());
-//					Assert.assertNotNull(appointmentpage.getSubServiceScreenLocator());
-//					Assert.assertTrue("ADL Training", true);
-					//Assert.assertEquals("ADL Training", appointmentpage.getSubServiceName());
+					boolean present;
+					try {
+					   driver.findElement(appointmentpage.getFabButtonAddSubserviceLocator());
+					   present = true;
+					    appointmentpage.onTapFabButtonSubservices();
+						GlobalUtil.wait(2);
+						//SubServiceModal subservicemodal = new SubServiceModal();
+						appointmentpage.addSubService("7 day Package (INR 700 bracket)");
+						Assert.assertEquals("7 day Package (INR 700 bracket)", driver.findElement(appointmentpage.getAddedSubServiceNameLocator()).getText());
+//						Assert.assertNotNull(appointmentpage.getSubServiceScreenLocator());
+//						Assert.assertTrue("ADL Training", true);
+						//Assert.assertEquals("ADL Training", appointmentpage.getSubServiceName());
+					} catch (NoSuchElementException e) {
+					   present = false;
+					   System.out.println("Add Subservice option is not available for confirmed appointment");
+					}
+					
 					
 				}
 		
@@ -1374,9 +1387,12 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					WebElement balanceBeforePayment = driver.findElement(appointmentpage.getBalanceValueLocator());
 			    	String balBeforePay = balanceBeforePayment.getText();
+			    	String balanceBP = balBeforePay.replaceAll("Balance: ₹ ", "");
+			    	System.out.println(balanceBP);
 					appointmentpage.payByCash();
 					WebElement balanceAfterPayment = driver.findElement(appointmentpage.getBalanceValueLocator());
 					String balAfterPay = balanceAfterPayment.getText();
+					System.out.println(balAfterPay);
 					//Assert.assertSame(appointmentpage.balancePayment(), appointmentpage.BalanceAfterPayment());
 					Assert.assertNotSame(balBeforePay, balAfterPay);
 					

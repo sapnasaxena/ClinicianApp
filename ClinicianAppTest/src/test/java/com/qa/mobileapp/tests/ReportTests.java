@@ -103,33 +103,37 @@ public class ReportTests extends TestBase{
 	Assert.assertNotNull(reportspage.getleaves());
 	}
 		
-	@Test(groups = { "UITest" })
-	public void tc_03_testVerfyCnclnContinueBtn()
-	{
-	System.out.println("Verify that Reports tab should have Cancel and continue button");
-	dashboardpage.onTapDashboardtext();
-	GlobalUtil.wait(2);
-	dashboardpage.onTapSettingsExpandButton();
-	GlobalUtil.wait(2);
-	dashboardpage.onTapReportsNav();
-	Assert.assertNotNull(reportspage.getcontinueBtn());
-	Assert.assertNotNull(reportspage.getcancelBtn());
-	}
+
 		
 	@Test(groups = { "UITest" })
-	public void tc_04_testVerifyCancelBtn()
+	public void tc_04_testVerifyReportScreenElements()
 	{
-		System.out.println("Verify that on click cancel button should redirect to Dashboard screen.");
+		System.out.println("Verify that Report Type, From Date, To Date, continue and cancel button should be visible on Reports Screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
+		Assert.assertNotNull(reportspage.getreportTypeText());
+		Assert.assertNotNull(reportspage.getdatePicker());
+		Assert.assertNotNull(reportspage.getcontinueBtn());
 		Assert.assertNotNull(reportspage.getcancelBtn());
 	}
 	
 	@Test(groups = { "functest" })
-	public void tc_05_testVerifySubmitReport()
+	public void tc_05_testVerifyOnClickCancelButtonRedirectDashboardScreen()
+	{
+		System.out.println("Verify that on tap cancel button, should redirect to Dashboard screen.");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapSettingsExpandButton();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapReportsNav();
+		reportspage.cancelReport();
+		Assert.assertNotNull(dashboardpage.getHomeScreenLocator());
+	}
+	@Test(groups = { "functest" })
+	public void tc_05_testVerifySubmitReportForTimings()
 	{
 		System.out.println("Verify that on tap click get reports button should send report to user.");
 		dashboardpage.onTapDashboardtext();
@@ -137,61 +141,40 @@ public class ReportTests extends TestBase{
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
-		Assert.assertNotNull(reportspage.gettimings());
-		
-		//Calendar selection is still left, waiting for calendar.
-		
-		Assert.assertNotNull(reportspage.getcontinueBtn());
-		Assert.assertNotNull(reportspage.getgetReportBtn());
+		reportspage.submitReport("Timings");
+		Assert.assertNotNull(dashboardpage.getHomeScreenLocator());
 	}
 	
-	@Test(groups = { "functest" })
-	public void tc_01_testVerifyTimingReport()
+	
+	//@Test(groups = { "functest" })
+	public void tc_05_testVerifySubmitReportForLeaves()
 	{
-		System.out.println("Verify that User can send the timing report in the entered email id");
+		System.out.println("Verify that on tap click get reports button should send report to user.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
-		reportspage.onClicktimings();
-		reportspage.onClickcontinueBtn();
-		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
-		reportspage.onClickgetReportBtn();
-		
+		reportspage.submitReport("Leaves");
+		Assert.assertNotNull(dashboardpage.getHomeScreenLocator());
 	}
 	
-	@Test(groups = { "functest" })
-	public void tc_02_testVerifyLeaveReport()
+	//@Test(groups = { "functest" })
+	public void tc_05_testVerifySubmitReportForAppointments()
 	{
-		System.out.println("Verify that User can send the leaves report in the entered email id");
+		System.out.println("Verify that on tap click get reports button should send report to user.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapReportsNav();
-		reportspage.onClickleaves();
-		reportspage.onClickcontinueBtn();
-		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
-		reportspage.onClickgetReportBtn();
-		
+		reportspage.submitReport("Appointments");
+		Assert.assertNotNull(dashboardpage.getHomeScreenLocator());
 	}
 	
-	@Test(groups = { "functest" })
-	public void tc_03_testVerifyAppointmentReport()
-	{
-		System.out.println("Verify that User can send the Appointments report in the entered email id");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapReportsNav();
-		reportspage.onClickappointments();
-		reportspage.onClickcontinueBtn();
-		reportspage.onClickentrEmailId("dinnyportea@gmail.com");
-		reportspage.onClickgetReportBtn();
-		
-	}
+	
+	
+	
 	
 	
 }

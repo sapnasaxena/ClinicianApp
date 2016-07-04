@@ -92,46 +92,33 @@ public class FeedbackTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
 		//Assert.assertNotNull(feedbackpage.getfeedbackScreenTitleLocator());
-		Assert.assertNotNull(feedbackpage.getServiceTypeLocator());
-		Assert.assertNotNull(feedbackpage.getPatientTypeLocator());
-		Assert.assertNotNull(feedbackpage.getLocationLocator());
-		Assert.assertNotNull(feedbackpage.getRangeLocator());
+		Assert.assertNotNull(feedbackpage.getIssueTypeLabelLocator());
+		Assert.assertNotNull(feedbackpage.getTechnicalIssueLocator());
+		Assert.assertNotNull(feedbackpage.getEnterFeedbackLocator());
+		Assert.assertNotNull(feedbackpage.getCancelBtnLocator());
+		Assert.assertNotNull(feedbackpage.getSendFeedbackLocator());
 			
 	}
-	@Test(groups = { "UITest" })
-	public void testVerifySearchButtonVisibilty()
-	{
-		System.out.println("Verify that search image should be visible on Patient feedback screen");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapFeedbackNav();
-		Assert.assertNotNull(feedbackpage.getSearchButtonLocator());
-//		Assert.assertNotNull(feedbackpage.getSearchBarLocator());
-//		Assert.assertNotNull(feedbackpage.getMenuLoadLocator());
-//		Assert.assertNotNull(feedbackpage.getRefreshListLocator());
-			
-}
-	//@Test(groups = { "funcTest" })
+	
+
+	@Test(groups = { "funcTest" })
 	public void testVerifyTechnicalFeedbackSubmission()
 	{
-		System.out.println("Verify submit button");
+		System.out.println("Verify submit technical feedback");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
 		GlobalUtil.wait(2);
-		feedbackpage.onclickgetsubmitLocator();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(feedbackpage.getsubmitLocator());
-		
+		feedbackpage.submitTechnicalFeedback();
+		Assert.assertNotNull(dashboardpage.getHomeScreenLocator());
 	}
-	@Test
+	
+	@Test(groups = { "funcTest" })
 	public void testVerifyOperationalFeedbackSubmission()
 	{
-		System.out.println("Verify submit button");
+		System.out.println("Verify submit operational feedback");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
