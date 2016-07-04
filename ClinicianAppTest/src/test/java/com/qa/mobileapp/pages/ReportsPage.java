@@ -2,14 +2,18 @@ package com.qa.mobileapp.pages;
 
 
 
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import io.appium.java_client.AppiumDriver;
 
 import com.qa.mobileapp.common.BasePage;
+import com.qa.mobileapp.common.GlobalUtil;
 
 
 public class ReportsPage extends BasePage{
@@ -211,4 +215,26 @@ public class ReportsPage extends BasePage{
 		Assert.assertNotNull(getyearPicker());
 	}
 	
+	public void submitReport(String type)
+	{
+		//WebElement frame = driver.findElement(By.xpath("//android.widget.LinearLayout"));
+//		WebElement reportType = (WebElement) frame.findElements(By.className("//android.widget.spinner"));
+//		reportType.click();
+//		GlobalUtil.wait(1);
+//		driver.scrollToExact("Timings").click();
+//		GlobalUtil.wait(2);
+//		WebElement date = driver.findElement(By.xpath("//android.widget.Button[contains(@id,'com.healthvista.clinicianapp.stage:id/fromDate')]"));
+//		date.click();
+//		WebElement startDate = driver.findElement(By.xpath("//android.view.View[contains(@text,'01 July 2016')]"));
+//		startDate.click();
+		WebElement continueBtn = driver.findElement(By.name("Continue"));
+		continueBtn.click();
+		WebElement getReportBtn = driver.findElement(By.name("Get Reports"));
+		getReportBtn.click();
+	}
+	public void cancelReport()
+	{
+		WebElement cancelBtn=driver.findElement(By.name("Cancel"));
+		cancelBtn.click();
+	}
 }

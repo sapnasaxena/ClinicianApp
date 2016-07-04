@@ -835,6 +835,9 @@ public class AppointmentPage extends BasePage{
 	{
 		WebElement ele = driver.findElement(fabPayButtonLocator);
 		ele.click();
+		GlobalUtil.wait(2);
+		driver.findElement(By.name("Got It")).click();
+		
 		//clickWhenVisible(fabPayButtonLocator);
 		
 //		if (appointmentStatusLocator.equals("confirmed"))

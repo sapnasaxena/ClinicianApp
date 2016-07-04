@@ -1,9 +1,12 @@
 package com.qa.mobileapp.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import io.appium.java_client.AppiumDriver;
 
 import com.qa.mobileapp.common.BasePage;
+import com.qa.mobileapp.common.GlobalUtil;
 
 public class FeedbackPage extends BasePage {
 
@@ -29,16 +32,31 @@ public class FeedbackPage extends BasePage {
 	private final By serviceTypeLocator = By.name("com.healthvista.clinicianapp.stage:id/service_type");
 	private final By rangeLocator = By.name("com.healthvista.clinicianapp.stage:id/range");
 	private final By submitLocator = By.name("submit");
+	private final By cancelBtnLocator = By.name("Cancel");
+	private final By sendFeedbackLocator = By.name("Send FeedBack");
+	private final By issueTypeLabelLocator = By.name("Select Issue Type: ");
+	private final By technicalIssueLocator = By.name("Technical");
+	private final By enterFeedbackLocator = By.name("Enter feedback");
+	
 	
 	
 	
 	public By getfeedbackScreenTitleLocator(){
 		return feedbackScreenTitleLocator;
 	}
+	public By getSendFeedbackLocator() {
+		return sendFeedbackLocator;
+	}
+	public By getEnterFeedbackLocator() {
+		return enterFeedbackLocator;
+	}
 	public By getSearchButtonLocator(){
 		return searchButtonLocator;
 	}
 	
+	public By getTechnicalIssueLocator() {
+		return technicalIssueLocator;
+	}
 	public By getSearchBarLocator(){
 		return searchBarLocator;
 	}
@@ -55,10 +73,16 @@ public class FeedbackPage extends BasePage {
 		return locationLocator ;
 	}
 	
+	public By getCancelBtnLocator() {
+		return cancelBtnLocator;
+	}
 	public By getRefreshListLocator(){
 		return refreshListLocator ;
 	}
 	
+	public By getIssueTypeLabelLocator() {
+		return issueTypeLabelLocator;
+	}
 	public By getPatientTypeLocator(){
 		return patientTypeLocator ;
 	}
@@ -133,6 +157,32 @@ public class FeedbackPage extends BasePage {
    {
    clickWhenVisible(submitLocator);
 
+   }
+   
+   public void submitTechnicalFeedback()
+   {
+	   WebElement spin = driver.findElement(By.xpath("//android.widget.spinner[contains(@text,'Technical')]"));
+	   spin.click();
+	   GlobalUtil.wait(2);
+	   WebElement enterTxt = driver.findElement(By.name("Enter Feedback"));
+	   enterTxt.sendKeys("test");
+	   GlobalUtil.wait(2);
+	   WebElement btn = driver.findElement(By.xpath("//android.widget.Button[contains(@text,'Send FeedBack')]"));
+	   btn.click();
+   }
+   
+   public void submitOperationalFeedback()
+   {
+	   WebElement spin = driver.findElement(By.xpath("//android.widget.spinner[contains(@text,'Technical')]"));
+	   spin.click();
+	   GlobalUtil.wait(2);
+	   driver.scrollToExact("Operational").click();
+	   GlobalUtil.wait(1);
+	   WebElement enterTxt = driver.findElement(By.xpath("//android.widget.EditText[contains(@text,'Enter Feedback')]"));
+	   enterTxt.sendKeys("test");
+	   GlobalUtil.wait(2);
+	   WebElement btn = driver.findElement(By.xpath("//android.widget.Button[contains(@text,'Send FeedBack')]"));
+	   btn.click();
    }
 
 }
