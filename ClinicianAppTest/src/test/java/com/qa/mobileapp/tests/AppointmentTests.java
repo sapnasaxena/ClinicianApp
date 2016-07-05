@@ -229,16 +229,18 @@ public class AppointmentTests extends TestBase {
 		@Test(groups = {"UITest"})
 		public void TC_02_testVerifyTodayTabVisibiltyOnAppointmentScreen()
 		{
-			System.out.println("Verify that Today Tab is visible on Appointment Screen");
+			System.out.println("Verify that Today, Upcoming and Past Tabs are visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			Assert.assertNotNull(appointmentpage.getTodayAppointmentTabLocator());
+			Assert.assertNotNull(appointmentpage.getUpcomingsAppointmentTabLocator());
+			Assert.assertNotNull(appointmentpage.getPastAppointmentTabLocator());
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_02_testVerifyUpcomingTabVisibiltyOnAppointmentScreen()
 		{
 			System.out.println("Verify that Upcoming Tab is visible on Appointment Screen");
@@ -250,7 +252,7 @@ public class AppointmentTests extends TestBase {
 			Assert.assertNotNull(appointmentpage.getUpcomingsAppointmentTabLocator());
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_02_testVerifyPastTabVisibiltyOnAppointmentScreen()
 		{
 			System.out.println("Verify that PAST Tab is visible on Appointment Screen");
@@ -315,7 +317,10 @@ public class AppointmentTests extends TestBase {
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
-			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
+			GlobalUtil.wait(2);
+//			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
+//			{
+			if (appointmentpage.getAppointmentScreenPatientNameLocator()!= null)
 			{
 			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
@@ -328,7 +333,7 @@ public class AppointmentTests extends TestBase {
 		@Test(groups = {"UITest"})
 		public void TC_06_testVerifyAllAppointmentsOptionVisiblity()
 		{
-			System.out.println("Verify that on click All Appointment link, all Appointments are visible on Appointment Screen");
+			System.out.println("Verify that on click All Appointment link, all Appointments, Open and closed are visible on Appointment Screen");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapMyTasksExpandButton();
@@ -337,9 +342,11 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			appointmentpage.onTapAllAppointmentsSpinner();
 			Assert.assertNotNull(appointmentpage.getAllAppointmentdropLocator());
+			Assert.assertNotNull(appointmentpage.getOpenAppointmentdropLocator());
+			Assert.assertNotNull(appointmentpage.getClosedAppointmentdropLocator());
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_012_testVerifyOpenAppointmentsOptionVisiblity()
 		{
 			System.out.println("Verify that on click Open Appointment link, all Open appointments are visible on Appointment Screen");
@@ -353,7 +360,7 @@ public class AppointmentTests extends TestBase {
 			Assert.assertNotNull(appointmentpage.getOpenAppointmentdropLocator());
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_011_testVerifyClosedAppointmentsOptionVisiblity()
 		{
 			System.out.println("Verify that on click Closed Appointment link, all Closed appointments are visible on Appointment Screen");
@@ -367,7 +374,7 @@ public class AppointmentTests extends TestBase {
 			Assert.assertNotNull(appointmentpage.getClosedAppointmentdropLocator());
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_07_testVerifyPatientDetailsVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on click Patient Name, verify Patient details is visible on Patient Details Screen");
@@ -398,7 +405,7 @@ public class AppointmentTests extends TestBase {
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
-					if (appointmentpage.getAppointmentStatusLocator().equals("Pending"))
+					if (appointmentpage.getAppointmentStatusLocator().equals("Status:pending"))
 					{
 						Assert.assertNotNull(appointmentpage.getConfirmAppointmentButtonLocator());
 					}
@@ -408,9 +415,9 @@ public class AppointmentTests extends TestBase {
 				}
 
 		@Test(groups = {"UITest"})
-		public void TC_13_testOnTapPatientNameAppointmentDetailsScreenVisibilty() throws NoSuchFieldException, SecurityException
+		public void TC_13to15_testOnTapPatientNameAppointmentDetailsScreenVisibilty() throws NoSuchFieldException, SecurityException
 		{
-			System.out.println("Verify that on tap on any Patient name Appointment Details screen should be displayed");
+			System.out.println("Verify that on Patient details screen Appointment Details, Patient and Payment tab should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapMyTasksExpandButton();
@@ -422,10 +429,12 @@ public class AppointmentTests extends TestBase {
 			//appointmentpage.onTapPatienframe();
 			appointmentpage.onClickPatientName("successful");
 			Assert.assertNotNull(appointmentpage.getAppointmentScreenLocator());
+			Assert.assertNotNull(appointmentpage.getPatientTabLocator());
+			Assert.assertNotNull(appointmentpage.getApptPaymentTabLocator());
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_14_testOnAppointmentDetailsScreenPatientTabVisibilty() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on Appointment Details screen, Patient tab should be displayed");
@@ -440,10 +449,11 @@ public class AppointmentTests extends TestBase {
 			//sappointmentpage.onTapPatienframe();
 			appointmentpage.onClickPatientName("successful");
 			Assert.assertNotNull(appointmentpage.getPatientTabLocator());
+			Assert.assertNotNull(appointmentpage.getApptPaymentTabLocator());
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_15_testOnAppointmentDetailsScreenPaymentTabVisibilty() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on Appointment Details screen, Payment tab should be displayed");
@@ -462,9 +472,9 @@ public class AppointmentTests extends TestBase {
 		}
 
 		@Test(groups = {"UITest"})
-		public void TC_16_testOnAppointmentDetailsScreenAppointmentTabVisibilty() throws NoSuchFieldException, SecurityException
+		public void TC_16to17_testVerifyOnAppointmentDetailsScreenAppointmentTabVisibilty() throws NoSuchFieldException, SecurityException
 		{
-			System.out.println("Verify that on Appointment Details screen, appointment tab should be displayed");
+			System.out.println("Verify that on Appointment Details screen, appointment tab,Menu Options should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapMyTasksExpandButton();
@@ -476,11 +486,12 @@ public class AppointmentTests extends TestBase {
 			//appointmentpage.onTapPatienframe();
 			appointmentpage.onClickPatientName("successful");
 			Assert.assertNotNull(appointmentpage.getAppointmentTabLocator());
+			Assert.assertNotNull(appointmentpage.getAppointmentScreenMenuOptionsLocator());	
 
 		}
 
-		@Test(groups = {"UITest"})
-		public void TC_17_testOnAppointmentDetailsScreenMenuOptionVisibilty() throws NoSuchFieldException, SecurityException
+		//@Test(groups = {"UITest"})
+		public void TC_17_testVerifyOnAppointmentDetailsScreenMenuOptionVisibilty() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on Appointment Details screen, menu Option should be displayed");
 			dashboardpage.onTapDashboardtext();
@@ -576,9 +587,9 @@ public class AppointmentTests extends TestBase {
 		}
 
 		@Test(groups = {"UITest"})
-		public void TC_22_testVerifyOnTabFabButtonAddAppointmentOptionsVisiblity() throws NoSuchFieldException, SecurityException
+		public void TC_22to25_testVerifyOnTabFabButtonAddAppointmentCasePayOptionsVisiblity() throws NoSuchFieldException, SecurityException
 		{
-			System.out.println("Verify that on tap fab button, Add Appointment button should be displayed");
+			System.out.println("Verify that on tap fab button, Add Appointment, Add Case, Pay, Upload  button should be displayed");
 			dashboardpage.onTapDashboardtext();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapMyTasksExpandButton();
@@ -587,15 +598,19 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
 			GlobalUtil.wait(2);
-			//appointmentpage.onTapPatienframe();
+			appointmentpage.onTapLoadMoreButton();
+			GlobalUtil.wait(2);
 			appointmentpage.onClickPatientName("successful");
 			GlobalUtil.wait(2);
 			appointmentpage.onTapFabButton();
 			Assert.assertNotNull(appointmentpage.getFabAddAppointmentButtonLocator());
+			Assert.assertNotNull(appointmentpage.getFabAddCaseButtonLocator());
+			Assert.assertNotNull(appointmentpage.getFabUploadButtonLocator());
+			Assert.assertNotNull(appointmentpage.getFabPayButtonLocator());
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_23_testVerifyOnTabFabButtonAddCaseOptionsVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on tap fab button, Add Case button should be displayed");
@@ -615,7 +630,7 @@ public class AppointmentTests extends TestBase {
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_24_testVerifyOnTabFabButtonUploadOptionsVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on tap fab button, upload button should be displayed");
@@ -635,7 +650,7 @@ public class AppointmentTests extends TestBase {
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_25_testVerifyOnTabFabButtonPayOptionsVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on tap fab button, Pay button should be displayed");
@@ -666,6 +681,8 @@ public class AppointmentTests extends TestBase {
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPastTab();
+			GlobalUtil.wait(2);
+			appointmentpage.onTapLoadMoreButton();
 			GlobalUtil.wait(2);
 			//appointmentpage.onTapPatienframe();
 			appointmentpage.onClickPatientName("successful");
@@ -756,6 +773,8 @@ public class AppointmentTests extends TestBase {
 			appointmentpage.onClickPastTab();
 			GlobalUtil.wait(2);
 			//appointmentpage.onTapPatienframe();
+			appointmentpage.onTapLoadMoreButton();
+			GlobalUtil.wait(2);
 			appointmentpage.onClickPatientName("successful");
 			GlobalUtil.wait(2);
 			appointmentpage.onTapFabButton();
@@ -775,6 +794,8 @@ public class AppointmentTests extends TestBase {
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
 					GlobalUtil.wait(2);
 					//appointmentpage.onTapPatienframe();
 					appointmentpage.onClickPatientName("successful");
@@ -798,6 +819,8 @@ public class AppointmentTests extends TestBase {
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
 					GlobalUtil.wait(2);
 					//appointmentpage.onTapPatienframe();
 					appointmentpage.onClickPatientName("successful");
@@ -871,6 +894,8 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
 					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
+					GlobalUtil.wait(2);
 					//appointmentpage.onTapPatienframe();
 					appointmentpage.onClickPatientName("successful");
 					GlobalUtil.wait(2);
@@ -896,6 +921,8 @@ public class AppointmentTests extends TestBase {
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
 					GlobalUtil.wait(2);
 					//appointmentpage.onTapPatienframe();
 					appointmentpage.onClickPatientName("successful");
@@ -932,6 +959,7 @@ public class AppointmentTests extends TestBase {
 					appointmentpage.onTapFabButtonAddAppointment();
 					GlobalUtil.wait(1);
 					Calendar cal = Calendar.getInstance();
+					System.out.println(GlobalUtil.getCurrentMonthInWords());
 					Assert.assertTrue(DateFormatSymbols.getInstance().getMonths()[cal.get(Calendar.MONTH)].equalsIgnoreCase(GlobalUtil.getCurrentMonthInWords()));
 					Assert.assertTrue(String.valueOf(cal.get(Calendar.YEAR)).equalsIgnoreCase("2016"));
 					Assert.assertNotNull(appointmentpage.getDoneButtonForAddApptLocator());
@@ -948,6 +976,8 @@ public class AppointmentTests extends TestBase {
 					dashboardpage.onTapAppointmentsNav();
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
 					GlobalUtil.wait(2);
 					//appointmentpage.onTapPatienframe();
 					appointmentpage.onClickPatientName("successful");
@@ -998,8 +1028,8 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
 					GlobalUtil.wait(2);
-//					appointmentpage.onTapPatienframe();
-//					GlobalUtil.wait(2);
+					appointmentpage.onTapLoadMoreButton();
+					GlobalUtil.wait(2);
 					appointmentpage.onClickPatientName("successful");
 					appointmentpage.onTapFabButton();
 					GlobalUtil.wait(2);
@@ -1023,7 +1053,8 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					appointmentpage.onClickPastTab();
 					GlobalUtil.wait(2);
-//					appointmentpage.onTapPatienframe();
+					appointmentpage.onTapLoadMoreButton();
+					GlobalUtil.wait(2);
 					appointmentpage.onClickPatientName("successful");
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButton();
@@ -1412,7 +1443,7 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);	
 					appointmentpage.onTapLoadMoreButton();
 					appointmentpage.onClickPatientName("successful");
-					GlobalUtil.wait(1);
+					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButton();
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButtonPay();
