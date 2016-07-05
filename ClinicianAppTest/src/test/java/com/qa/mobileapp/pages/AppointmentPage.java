@@ -63,7 +63,8 @@ public class AppointmentPage extends BasePage{
 	private final By chequeIssueBankDetailsTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etChequeBank");
 	private final By chequeNoDetailsLocator = By.id("com.healthvista.clinicianapp.stage:id/etChequeNo");
 	private final By apptCalDateLocator = By.xpath("//android.widget.ImageView[contains(@id,'com.healthvista.clinicianapp.stage:id/imageView1')]");
-	private final By loadMoreButtonLocator = By.name("Load More");
+	private final By loadMoreButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/bLoadMore");
+			//By.name("Load More");
 
 	private final By walletCheckBoxLocator =By.id("com.healthvista.clinicianapp.stage:id/cbWallet");
 	private final By walletEnterAmountTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etWallet");
@@ -78,6 +79,7 @@ public class AppointmentPage extends BasePage{
 	//xpath for on click on any Patient's appointment
 	private final By patientAppointmentDetailsScreenLocator = By.className("android.widget.RelativeLayout");
 	private final By appointmentStatusLocator = By.id("com.healthvista.clinicianapp.stage:id/statusName");
+	private final By pendingStatusLocator = By.name("Status:pending");
 	private final By patientTabLocator = By.name("PATIENT");
 	private final By patientProfileLocator = By.id("com.healthvista.clinicianapp.stage:id/llProfile");
 	private final By appointmentScreenMenuOptionsLocator = By.id("com.healthvista.clinicianapp.stage:id/edit");
@@ -1226,7 +1228,10 @@ public class AppointmentPage extends BasePage{
 
 	public void onTapLoadMoreButton()
 	{
-		clickWhenVisible(loadMoreButtonLocator);
+		WebElement btn = driver.findElement(loadMoreButtonLocator);
+		GlobalUtil.wait(1);
+		btn.click();
+		//clickWhenVisible(loadMoreButtonLocator);
 	}
 	
 	public void payThroughWallet()
@@ -1331,6 +1336,9 @@ public class AppointmentPage extends BasePage{
 			return getFreeDateForAppointment("1", false);
 		}
 		return appointmentDate;
+	}
+	public By getPendingStatusLocator() {
+		return pendingStatusLocator;
 	}
 
 
