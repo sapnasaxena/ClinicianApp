@@ -27,16 +27,11 @@ import com.qa.mobileapp.pages.DashboardPage;
 
 public class CasefileTests extends TestBase {
 	
-
-public static final int priority = 0;
-
-public class CalendarTests extends TestBase {
-
 	public static final String userName ="dinnyportea@gmail.com";
 	public static final String password ="password";
 	
 	@BeforeClass
-	public void initPayment() throws MalformedURLException{		
+	public void initCasefile() throws MalformedURLException{		
 		ensureLogin(userName, password);
 	}
 	
@@ -92,7 +87,7 @@ public class CalendarTests extends TestBase {
 			Assert.assertNotNull(casefilepage.getCaseFileScreenLocator());
 		}
 
-		@Test(groups = { "UITest" })
+		//@Test(groups = { "UITest" })
 		public void TC_01testVerify3tabscontainScreenVisiblity()
 		{
 			System.out.println("Verify that on tapping Case file nav, should display 3 tabs Pending, Case filestab and Documents ");
@@ -236,6 +231,6 @@ public class CalendarTests extends TestBase {
 		Assert.assertNotNull(casefilepage. getSaveLocator());
 		}
 }
-}
+
 		
 
