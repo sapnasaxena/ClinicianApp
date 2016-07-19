@@ -36,7 +36,8 @@ public class LoginPage extends BasePage {
 	
 	private final By homeScreenRedirectLocator = By.id("com.healthvista.clinicianapp.stage:id/rlProgressLayout");
 	private final By versionNumberLocator = By.id("com.healthvista.clinicianapp.stage:id/versionText");
-	private final By versionByNameLocator = By.name("App Version: 33.1 (45) - Stage");
+	private final By versionByNameLocator = By.name("App Version: 34.1 - dev (49) - Stage");
+	private final By changeLoginLocator = By.name("Change Login Mode");
 	
 	
 		
@@ -109,6 +110,10 @@ public class LoginPage extends BasePage {
 	
 	// **** FUNCTIONS FOR LOGIN ****
 	
+	public By getChangeLoginLocator() {
+		return changeLoginLocator;
+	}
+
 	public void login(String username, String password)
 	{
 		inputText(userNameFieldLocator, username);
@@ -204,6 +209,7 @@ public class LoginPage extends BasePage {
 	{
 		clickWhenVisible(showPasswordFieldLocator);
 	}
+	
 	
 	
 }
