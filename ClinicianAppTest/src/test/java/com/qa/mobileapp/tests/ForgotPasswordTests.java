@@ -17,7 +17,7 @@ public class ForgotPasswordTests extends TestBase{
 	
 	String mobileNo ="8095627267";
 	String votp="";
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 	
 //	@BeforeClass(alwaysRun=true)

@@ -40,7 +40,7 @@ import com.qa.mobileapp.pages.LoginPage;
 public class LoginTests extends TestBase {
 
 
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 
 	@BeforeMethod(alwaysRun=true)
@@ -57,11 +57,12 @@ public class LoginTests extends TestBase {
 	{
 
 		System.out.println("Verify that Username Field is visible On Login screen");
-		Assert.assertNotNull(driver.findElement(loginpage.getUserNameFieldLocator()));
-		Assert.assertNotNull(driver.findElement(loginpage.getPasswordFieldLocator()));
-		Assert.assertNotNull(driver.findElement(loginpage.getLoginButtonLocator()));
-		Assert.assertNotNull(driver.findElement(loginpage.getForgotPasswordLocator()));
-		Assert.assertNotNull(driver.findElement(loginpage.getShowPasswordFieldLocator()));
+		Assert.assertNotNull(loginpage.getUserNameFieldLocator());
+		Assert.assertNotNull(loginpage.getPasswordFieldLocator());
+		Assert.assertNotNull(loginpage.getLoginButtonLocator());
+		Assert.assertNotNull(loginpage.getForgotPasswordLocator());
+		Assert.assertNotNull(loginpage.getShowPasswordFieldLocator());
+		Assert.assertNotNull(loginpage.getChangeLoginLocator());
 	}
 
 	//@Test(groups = {"UItest"})
@@ -85,7 +86,7 @@ public class LoginTests extends TestBase {
 		Assert.assertNotNull(driver.findElement(loginpage.getForgotPasswordLocator()));
 	}
 
-	@Test(groups = {"UItest"})
+	//@Test(groups = {"UItest"})
 	public void TC_03_testVerifyShowPasswordButtonVisibilityOnLoginScreen()
 	{
 		System.out.println("Verify that Forgot Password Button is visible On Login screen");
@@ -96,7 +97,7 @@ public class LoginTests extends TestBase {
 	//Functional test Scenarios
 
 
-	@Test(groups = {"functest"})
+	//@Test(groups = {"functest"})
 	public void TC_07_testVerifyUserGetsLocationEnabledAlert()
 	{
 		System.out.println("Verify that after login user can able to get the notification for enable the location");
@@ -152,12 +153,12 @@ public class LoginTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianNameLocator());
 		String name = text.getText();
-		String expected="Dinny Dinny";
+		String expected="DoNotAssignApptTest prof H";
 		Assert.assertTrue(name.startsWith(expected));
 
 	}
 
-	@Test(groups = {"smoketest", "functest"})
+	@Test(groups = {"smoketest"})
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
@@ -170,7 +171,7 @@ public class LoginTests extends TestBase {
 
 	}
 
-	@Test(groups = {"smoketest", "functest"})
+	@Test(groups = {"smoketest"})
 	public void TS_01_testVerifyLoginAsLOngTermNursing()
 	{
 		System.out.println("Verify that LTN should able to login successfully");
@@ -181,7 +182,7 @@ public class LoginTests extends TestBase {
 		Assert.assertEquals(profession, "Nursing - Long Term");
 
 	}
-	@Test(groups = {"smoketest", "functest"})
+	@Test(groups = {"smoketest"})
 	public void TS_01_testVerifyLoginAsShortTermNursing()
 	{
 		System.out.println("Verify that STN should able to login successfully");
@@ -207,7 +208,7 @@ public class LoginTests extends TestBase {
 	}
 
 
-	@Test(groups = {"UItest"})
+	//@Test(groups = {"UItest"})
 	public void TS_05_testVerifyVersionNumberVisibiltyOnLoginScreen()
 	{
 		System.out.println("Verify the App version number in Login screen should be correct.");

@@ -165,7 +165,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 
 public class AppointmentTests extends TestBase {
 
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 	String balanceBeforePayment;
 	
@@ -803,7 +803,6 @@ public class AppointmentTests extends TestBase {
 					appointmentpage.onTapFabButton();
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButtonPay();
-					GlobalUtil.wait(1);
 					Assert.assertNotNull(appointmentpage.getCashTabOnPayScreenLocator());	
 					Assert.assertNotNull(appointmentpage.getOnlineTabOnPayScreenLocator());
 				}

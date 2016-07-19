@@ -27,7 +27,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 
 public class CasefileTests extends TestBase {
 	
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 	
 	@BeforeClass

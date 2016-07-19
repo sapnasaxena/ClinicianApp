@@ -30,7 +30,7 @@ import com.qa.mobileapp.pages.PaymentPage;
 
 public class PaymentTests extends TestBase{
 
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 
 	@BeforeClass(alwaysRun=true)

@@ -29,7 +29,7 @@ import com.qa.mobileapp.pages.LogOutPage;
 
 public class LogOutTests extends TestBase {
 
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="testphysio@test.com";
 	public static final String password ="password";
 	
 	
