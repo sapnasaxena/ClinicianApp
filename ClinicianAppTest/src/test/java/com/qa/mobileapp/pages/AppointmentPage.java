@@ -47,7 +47,7 @@ public class AppointmentPage extends BasePage{
 	private final By allAppointmentsSpinnerLocator = By.name("All Appointments");
 	private final By addAppointmentScreenLocator = By.name("Add Appointment");
 	private final By errorAddDuplicateApptLocator = By.name("Error");
-	private final By uploadScreenLocator =By.name("Add Document");
+	private final By uploadScreenLocator=By.name(" Add Document");
 	private final By addCaseScreenLocator = By.name("Case Details");
 	private final By payScreenLocator = By.name("Balance");
 	private final By cashTabOnPayScreenLocator = By.name("Cash Payments");
@@ -192,7 +192,8 @@ public class AppointmentPage extends BasePage{
 	private final By addNewSubserviceButtonLocator = By.name("Add new service");
 	private final By subServiceName= By.id("com.healthvista.clinicianapp.stage:id/subServiceName");
 	private final By subServicePrice=By.id("com.healthvista.clinicianapp.stage:id/subServicePrice");
-	private final By selectSubServiceButtonLocator=By.id("com.healthvista.clinicianapp.stage:id/subServiceState");
+	private final By selectSubServiceButtonLocator=By.id("com.healthvista.clinicianapp.stage:id/ibSubServiceAction");
+			//By.id("com.healthvista.clinicianapp.stage:id/subServiceState");
 	private final By saveSubServiceLocator = By.name("Done");
 	//By.id("com.healthvista.clinicianapp.stage:id/DoneButton");
 	private final By searchTextBoxLocator = By.id("id/search_src_text");
@@ -708,8 +709,11 @@ public class AppointmentPage extends BasePage{
 
 	public void onTapFabButton()
 	{
-		driver.findElement(By.name("Got It")).click();
-		GlobalUtil.wait(2);
+		if(driver.findElement(By.name("Got It")).isDisplayed())
+			{
+			driver.findElement(By.name("Got It")).click();
+			}
+					GlobalUtil.wait(2);
 		clickWhenVisible(appointmentExpandFabButtonLocator);
 	}
 
@@ -863,8 +867,11 @@ public class AppointmentPage extends BasePage{
 
 	public void payByCash()
 	{
-		driver.findElement(By.name("Got It")).click();
-		GlobalUtil.wait(1);
+//		if(driver.findElement(By.name("Got It")).isDisplayed())
+//		{
+//		driver.findElement(By.name("Got it")).click();
+//		}
+		GlobalUtil.wait(2);
 		WebElement txt = clickWhenVisible(cashAmountTextBoxLocator);
 		txt.sendKeys("1");
 		GlobalUtil.wait(1);
@@ -893,16 +900,24 @@ public class AppointmentPage extends BasePage{
 
 	public void payByCheque(String bankName, String chequeNo )
 	{
-		driver.findElement(By.name("Got It")).click();
-		GlobalUtil.wait(1);
+     
+//		WebElement gotIt = driver.findElement(By.name("Got It"));
+//		GlobalUtil.wait(2);
+//		if(gotIt.isDisplayed())
+//		{
+//			gotIt.click();
+//		}
+		GlobalUtil.wait(2);
 		WebElement txt = clickWhenVisible(chequeTextBoxLocator);
 		txt.sendKeys("1");
-		GlobalUtil.wait(1);
-		WebElement  bank = clickWhenVisible(chequeIssueBankDetailsTextBoxLocator);
+		GlobalUtil.wait(2);
+		WebElement bank = clickWhenVisible(chequeIssueBankDetailsTextBoxLocator);
 		bank.sendKeys(bankName);
 		GlobalUtil.wait(2);
-		WebElement  chequeno = clickWhenVisible(chequeNoDetailsLocator);
+		WebElement chequeno = clickWhenVisible(chequeNoDetailsLocator);
+		GlobalUtil.wait(2);
 		chequeno.sendKeys(chequeNo);
+		GlobalUtil.wait(2);
 		clickWhenVisible(payButtonLocator);
 
 	}
@@ -1270,7 +1285,8 @@ public class AppointmentPage extends BasePage{
 				elements.get(0).click();
 		}
 		GlobalUtil.wait(1);
-		WebElement sub = driver.findElement(By.id("subServiceState"));
+		WebElement sub = driver.findElement(selectSubServiceButtonLocator);
+				//driver.findElement(By.id("subServiceState"));
 		GlobalUtil.wait(1);
 		sub.click();
 		WebElement done = driver.findElement(By.name("Done"));

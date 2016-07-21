@@ -618,11 +618,10 @@ public class PatientPage extends BasePage {
 	
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void selectPackageFromList()
 	{
-		
-		@SuppressWarnings("unchecked")
-		List<WebElement> pack = driver.findElements(By.className("android.widget.ListView"));
+		List<WebElement> pack = (List<WebElement>)driver.findElements(By.className("android.widget.ListView"));
 		pack.get(0).click();
 	
 	}
