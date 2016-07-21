@@ -459,6 +459,7 @@ public class PatientTests extends TestBase {
 		patientpage.onTapOptions();
 		GlobalUtil.wait(2);
 		patientpage.onTapAddPackage();
+		GlobalUtil.wait(2);
 		patientpage.addPackage();
 		Assert.assertNotNull(driver.findElement(patientpage.getSubscribedPackageScreenLocator()));
 	} 

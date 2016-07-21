@@ -1224,8 +1224,8 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					appointmentpage.onClickUpcomingTab();
 					GlobalUtil.wait(2);
-					appointmentpage.onTapPatienframe();
-					GlobalUtil.wait(2);
+//					appointmentpage.onTapPatienframe();
+//					GlobalUtil.wait(2);
 					appointmentpage.onClickPatientName("confirmed");
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButton();
@@ -1233,8 +1233,9 @@ public class AppointmentTests extends TestBase {
 					appointmentpage.onTapFabButtonAddAppointment();
 					GlobalUtil.wait(1);
 					//appointmentpage.selectDate("10");
-					String date = GlobalUtil.getCurrentDate();
-					appointmentpage.getFreeDateForAppointment(date, true).click();
+//					String date = GlobalUtil.getCurrentDateDay();
+//					System.out.println(date);
+					appointmentpage.getFreeDateForAppointment("21",true).click();
 					GlobalUtil.wait(1);
 					appointmentpage.addAppointment("5:30 PM");
 					Assert.assertNotNull(appointmentpage.getAddAppointmentScreenLocator());
@@ -1310,10 +1311,12 @@ public class AppointmentTests extends TestBase {
 			appointmentpage.onClickRescheduleButton();
 			GlobalUtil.wait(2);
 			String date = GlobalUtil.getTomorrowDate();
-			appointmentpage.selectDate(date);
-			//appointmentpage.getFreeDateForAppointment(date, true).click();
+			//appointmentpage.selectDate(date);
+			WebElement resch = appointmentpage.getFreeDateForAppointment(date, true);
 			GlobalUtil.wait(2);
-			appointmentpage.rescheduleAppt("5:30 PM");
+			resch.click();
+			GlobalUtil.wait(2);
+			appointmentpage.rescheduleAppt("4:00 PM");
 			Assert.assertNotNull(appointmentpage.getAppointmentExpandFabButtonLocator());
 
 		}
@@ -1327,6 +1330,8 @@ public class AppointmentTests extends TestBase {
 			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
+			GlobalUtil.wait(2);
+			appointmentpage.onClickUpcomingTab();
 			GlobalUtil.wait(2);
 			appointmentpage.onClickPatientName("confirmed");
 			GlobalUtil.wait(2);
@@ -1380,8 +1385,8 @@ public class AppointmentTests extends TestBase {
 					    appointmentpage.onTapFabButtonSubservices();
 						GlobalUtil.wait(2);
 						//SubServiceModal subservicemodal = new SubServiceModal();
-						appointmentpage.addSubService("7 day Package (INR 700 bracket)");
-						Assert.assertEquals("7 day Package (INR 700 bracket)", driver.findElement(appointmentpage.getAddedSubServiceNameLocator()).getText());
+						appointmentpage.addSubService("ELECTRICAL STIMULATION");
+						Assert.assertEquals("ELECTRICAL STIMULATION", driver.findElement(appointmentpage.getAddedSubServiceNameLocator()).getText());
 //						Assert.assertNotNull(appointmentpage.getSubServiceScreenLocator());
 //						Assert.assertTrue("ADL Training", true);
 						//Assert.assertEquals("ADL Training", appointmentpage.getSubServiceName());
@@ -1522,6 +1527,7 @@ public class AppointmentTests extends TestBase {
 					appointmentpage.onTapPatienframe();
 					GlobalUtil.wait(1);		
 					appointmentpage.onTapLoadMoreButton();
+					GlobalUtil.wait(2);
 					appointmentpage.onClickPatientName("successful");
 					GlobalUtil.wait(1);
 					appointmentpage.onTapFabButton();
