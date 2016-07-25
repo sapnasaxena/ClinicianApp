@@ -23,7 +23,7 @@ import com.qa.mobileapp.pages.LoginPage;
 public class CampTests extends TestBase{
 
 	
-	public static final String userName ="testphysio@test.com";
+	public static final String userName ="dinnyportea@gmail.com";
 	public static final String password ="password";
 
 	
@@ -101,6 +101,7 @@ public class CampTests extends TestBase{
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		camppage.onClickCampNavBar();
+		camppage.onClickcampLocationLocator();
 		Assert.assertNotNull(camppage.getAddLeadBtnLocator());
 	}
 	
@@ -115,8 +116,6 @@ public class CampTests extends TestBase{
 		camppage.onClickCampNavBar();
 		Assert.assertNotNull(camppage.getAddPatientBtnLocator());
 	}
-	
-	
 	
 	@Test(groups = { "UITest" })
 	public void tc_02_testVerifyAndAddressAndLeadAndPatientButton()
@@ -140,7 +139,8 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		//camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onClickaddLead();
 		Assert.assertNotNull(camppage.getLeadScreenLocator());
@@ -156,7 +156,7 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onClickAddPatient();
 		Assert.assertNotNull(camppage.getpatientBtn());
@@ -173,7 +173,7 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.getaddLeadBtn();
 		camppage.onClickAddLeadButton();
@@ -203,7 +203,7 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
 		Assert.assertNotNull(camppage.getpatientBtn());
@@ -220,11 +220,12 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
-		camppage.onTapaddPatientBtn();
-		camppage.onClickMobilenumber(10);
-		Assert.assertNotNull(camppage.getpatientTxt());
+		camppage.onClickAddPatientButton();
+		GlobalUtil.wait(2);
+		camppage.onClickMobilenumber();
+		Assert.assertNotNull(camppage.getPatientstxt());
 			}
 
 	@Test(groups = { "UITest" })
@@ -237,10 +238,10 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
-		camppage.onClickMobilenumber(10);
+		camppage.onClickMobileNumber("8888888888");
 		//Assert.assertNotNull(camppage.getCampLocationLocator());
 		Assert.assertNotNull(camppage.getmobileNumber());
 		Assert.assertNotNull(camppage.getpatientId());
@@ -256,20 +257,23 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that if patient not exists with searched mobile number, should display alert message screen, No Patient found along with options to Add New Patient.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
-		camppage.onClickMobilenumber(10);
+		camppage.onClickMobilenumber();
 		//camppage.onClickSearcButton();
+		camppage.onClickokButton();
 		Assert.assertNotNull(camppage.getCampLocationLocator());
 		Assert.assertNotNull(camppage.getmobileNumber());
 		Assert.assertNotNull(camppage.errorMessage());
 		Assert.assertNotNull(camppage.getpatientMobileNbr());
 	}
 	
-	//@Test(groups = { "UITest" })
+	@Test(groups = { "UITest" })
 	public void tc_12_addNewPatientIfPatientNotThere()
 	{
 		System.out.println("Verify that on tap on OK button should redirect to Add Patient details screen.");
@@ -279,10 +283,10 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
-		camppage.onClickMobilenumber(10);
+		camppage.onClickMobilenumber();
 		//camppage.onClickSearcButton();
 		Assert.assertNotNull(camppage.getCampLocationLocator());
 		Assert.assertNotNull(camppage.getmobileNumber());
@@ -307,13 +311,15 @@ public class CampTests extends TestBase{
 		System.out.println("Verify that on tap cancel button should redirect to Patient search screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
-		camppage.onClickMobilenumber(10);
-		camppage.onClickSearcButton();
+		camppage.onClickMobilenumber();
+		//camppage.onClickSearcButton();
 		Assert.assertNotNull(camppage.getCampLocationLocator());
 		Assert.assertNotNull(camppage.getmobileNumber());
 		Assert.assertNotNull(camppage.errorMessage());
@@ -330,7 +336,7 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
 		Assert.assertNotNull(camppage.getCampLocationLocator());
@@ -347,7 +353,7 @@ public class CampTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapCampsNav();
 		GlobalUtil.wait(2);
-		camppage.onTapcampLocationLocator();
+		camppage.onClickcampLocationLocator();
 		GlobalUtil.wait(2);
 		camppage.onTapaddPatientBtn();
 		//Assert.assertNotNull(camppage.getCampLocationLocator());
