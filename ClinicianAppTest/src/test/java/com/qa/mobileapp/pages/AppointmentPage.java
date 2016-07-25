@@ -183,6 +183,8 @@ public class AppointmentPage extends BasePage{
 	private final By serviceFeesLocatorOnPaymentScreen = By.id("com.healthvista.clinicianapp.stage:id/package_service_feesTv");
 	private final By onlineEnterAmountLocator = By.id("com.healthvista.clinicianapp.stage:id/etOnline");
 	//private final By cashEnterAmountLocator = By.id("com.healthvista.clinicianapp.stage:id/etCash");
+	private final By paymentHistoryLabelLocator =By.name("Payment History");
+	private final By paymentHistoryLocator = By.id("com.healthvista.clinicianapp.stage:id/tvPayHistory");
 
 
 	//xpath for subservice
@@ -1299,6 +1301,15 @@ public class AppointmentPage extends BasePage{
 		fabButton.click();
 	}
 
+	public void onTapAppointmentTab()
+	{
+		clickWhenVisible(appointmentTabLocator);
+	}
+	
+	public void onTapAppointmentsPaymentTab()
+	{
+		clickWhenVisible(apptPaymentTabLocator);
+	}
 
 	public WebElement verticalScroll(String textFieldValue, By scrollTo, int maxScroll)
 	{
@@ -1355,6 +1366,12 @@ public class AppointmentPage extends BasePage{
 	}
 	public By getPendingStatusLocator() {
 		return pendingStatusLocator;
+	}
+	public By getPaymentHistoryLocator() {
+		return paymentHistoryLocator;
+	}
+	public By getPaymentHistoryLabelLocator() {
+		return paymentHistoryLabelLocator;
 	}
 
 

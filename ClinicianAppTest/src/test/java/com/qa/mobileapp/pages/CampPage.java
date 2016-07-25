@@ -19,10 +19,12 @@ public class CampPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private final By campNameLocator = By.name("Camp"); 
-	private final By campLocationLocator = By.id("com.healthvista.clinicianapp.stage:id/campLoc");
+	private final By campNameLocator = By.name("Camps"); 
+	private final By campLocationLocator = By.id("com.healthvista.clinicianapp.stage:id/campName");
+			//.id("com.healthvista.clinicianapp.stage:id/campLoc");
 	private final By addLeadBtnLocator = By.id("com.healthvista.clinicianapp.stage:id/leadBtn");
 	private final By addPatientBtnLocator = By.id("com.healthvista.clinicianapp.stage:id/patientBtn");
+	
 	
 	public By getCampNameLocator()
 	{
@@ -43,6 +45,11 @@ public class CampPage extends BasePage {
 	{
 		return addPatientBtnLocator;
 	}
+	
+//	public By getCampNavBar()
+//	{
+//		return CampNavBar;
+//	}
 
 	//Functions
 	public void onClickCampNavBar()
@@ -71,7 +78,9 @@ public class CampPage extends BasePage {
 		private final By addPatientBtn = By.id("com.healthvista.clinicianapp.stage:id/patientBtn");
 		private final By leadScreenLocator = By.name("Camp");
 		private final By LeadName = By.id("com.healthvista.clinicianapp.stage:id/tilPatientName");
-		private final By LeadMobileNumber = By.id("com.healthvista.clinicianapp.stage:id/tilPateintPhone");
+		private final By LeadMobileNumber = By.name("Mobile (10 digits only)");
+				//.id("com.healthvista.clinicianapp.stage:id/tilPateintPhone");
+		private final By MobileNumber = By.name("Mobile (10 digits only)");
 		private final By LeadEmailId = By.id("com.healthvista.clinicianapp.stage:id/tilEmail");
 		private final By LeadAge1 = By.id("com.healthvista.clinicianapp.stage:id/tilAge");
 		private final By selectLeadGender = By.name("Gender");
@@ -103,7 +112,7 @@ public class CampPage extends BasePage {
 		private final By errorMessage = By.id("com.healthvista.clinicianapp.stage:id/snackbar_text");
 
 		// Form for Lead and Patient
-
+		
 		private final By patientTxt = By.name("Patient(s) List");
 		private final By mobileNumber = By.name("Mobile No:");
 		private final By patientId = By.name("ID");
@@ -112,6 +121,7 @@ public class CampPage extends BasePage {
 		private final By patientGender = By.name("Gender");
 		private final By addPatientPlusBtn = By.id("com.healthvista.clinicianapp.stage:id/fabAddPatient");
 		private final By spinrPtntLocation= By.id("com.healthvista.clinicianapp.stage:id/sPatientArea");
+		private final By Patientstxt= By.name("Patients");
 		// Click xpath is left on the patient details page
 
 		// Cancel Button Pop Up
@@ -317,6 +327,11 @@ public class CampPage extends BasePage {
 			return submitButton;
 		}
 		
+		public By getPatientstxt() {
+			return Patientstxt;
+		}
+
+		
 		// ***************************************************
 		public By getaddLeadBtn() {
 			return addLeadBtn;
@@ -517,6 +532,11 @@ public class CampPage extends BasePage {
 			return addAptForPtnt;
 		}
 		
+		public By MobileNumber()
+		{
+			return MobileNumber;
+		}
+		
 		// Functions
 		
 		public void onClickLocationCochin()
@@ -524,6 +544,7 @@ public class CampPage extends BasePage {
 			WebElement cochinLotn= driver.findElement(cochin);
 			cochinLotn.click();
 		}
+		
 
 		// **********************************************************
 
@@ -547,12 +568,17 @@ public class CampPage extends BasePage {
 			addLead.click();
 		}
 
-		public void onClickMobilenumber(int len) {
+		public void onClickMobilenumber() {
 			WebElement LeadMobile = driver.findElement(LeadMobileNumber);
 			LeadMobile.click();
-			LeadMobile.sendKeys(GlobalUtil.getRandomNumber(len));
+			LeadMobile.sendKeys(GlobalUtil.generateRandomMobileNo());
 			WebElement search = driver.findElement(searchBtn);
 			search.click();
+		}
+		
+		public void onClickMobileNumber(String len){
+			WebElement MobileNber= driver.findElement(MobileNumber);
+			MobileNber.sendKeys(len);
 		}
 
 		public void onClickAddLeadEmail() {
@@ -1098,6 +1124,9 @@ public class CampPage extends BasePage {
 			ele.click();
 		}
 	
-	
+		public void getPatientsTxt() {
+			WebElement patienttxt = driver.findElement(Patientstxt);
+			patienttxt.click();
+		}
 	
 }
