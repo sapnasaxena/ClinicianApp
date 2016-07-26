@@ -6,15 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.Assert;
-
-
-
-
-
-
-
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -27,7 +20,7 @@ import com.qa.mobileapp.pages.ReportsPage;
 
 public class ReportTests extends TestBase{
 
-	public static final String userName ="testphysio@test.com";
+	public static final String userName ="dinnyportea@gmail.com";
 	public static final String password ="password";
 	
 	@BeforeClass(alwaysRun=true)
