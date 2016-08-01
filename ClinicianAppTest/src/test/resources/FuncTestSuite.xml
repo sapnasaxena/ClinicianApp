@@ -23,6 +23,7 @@
 			<class name="com.qa.mobileapp.tests.ReportTests"/>
 			<class name="com.qa.mobileapp.tests.ProfileTests"/>
 			<class name="com.qa.mobileapp.tests.FeedbackTests"/>
+			<class name="com.qa.mobileapp.tests.NAAppTests"/>
 			<class name="com.qa.mobileapp.tests.CalendarTests"/>
 			
 		</classes>
