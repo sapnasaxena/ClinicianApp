@@ -69,21 +69,37 @@ public class GlobalUtil {
     }
 
 
+//		public static String getCurrentDate()
+//		{
+//			 Calendar currentDate = Calendar.getInstance();
+//			  SimpleDateFormat formatter= 
+//			  //new SimpleDateFormat("yyyy/MMM/dd");
+//			  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+//			  String dateNow = formatter.format(currentDate.getTime());
+//			  System.out.println("Now the date is :=>  " + dateNow);
+//			  return dateNow;
+//		}
+	
+	public static String getCurrentDateDay()
+	{
+		return new SimpleDateFormat("yyyy-MM-dd").format(Calendar.DATE);
+		 
+	}
 		public static String getCurrentDate()
 		{
-			 Calendar currentDate = Calendar.getInstance();
-			  SimpleDateFormat formatter= 
-			  //new SimpleDateFormat("yyyy/MMM/dd");
-			  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-			  String dateNow = formatter.format(currentDate.getTime());
-			  System.out.println("Now the date is :=>  " + dateNow);
-			  return dateNow;
+			 return new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+			 
+		}
+		public static String getCurrentDateInDD()
+		{
+			 Calendar cal=Calendar.getInstance();
+			  SimpleDateFormat month_date = new SimpleDateFormat("DD");
+			  String date = month_date.format(cal.getTime());
+			  return date;
 		}
 		
 		public static String getTomorrowDate() throws ParseException
 		{
-			 
-			
 			String untildate=getCurrentDate();//can take any date in current format    
 			SimpleDateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSSXXX" );   
 			Calendar cal = Calendar.getInstance();    
@@ -94,6 +110,17 @@ public class GlobalUtil {
 			return convertedDate;
 		}
 		
+		public static String getTomorrowDateinDD() throws ParseException
+		{
+			String untildate=getCurrentDate();//can take any date in current format    
+			SimpleDateFormat dateFormat = new SimpleDateFormat("DD");   
+			Calendar cal = Calendar.getInstance();    
+			cal.setTime(dateFormat.parse(untildate));    
+			cal.add(Calendar.DATE, 1 );    
+			String convertedDate=dateFormat.format(cal.getTime());    
+			System.out.println("Date increase by one.."+convertedDate);
+			return convertedDate;
+		}
 		public static void getCurrentMonth()
 		{
 			int month;
@@ -143,13 +170,14 @@ public class GlobalUtil {
 			  String month_name = month_date.format(cal.getTime());
 			  return month_name;
 		}
-		public static String getCurrentDateInDD()
-		{
-			 Calendar cal=Calendar.getInstance();
-			  SimpleDateFormat month_date = new SimpleDateFormat("DD");
-			  String date = month_date.format(cal.getTime());
-			  return date;
-		}
+		
+//		public static String getCurrentDateInDD()
+//		{
+//			 Calendar cal=Calendar.getInstance();
+//			  SimpleDateFormat month_date = new SimpleDateFormat("DD");
+//			  String date = month_date.format(cal.getTime());
+//			  return date;
+//		}
 /**
  * Scrolls a ListView
  * @param textFieldValue - text that needs to be present in the list view's element

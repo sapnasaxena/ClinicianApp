@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
 import com.qa.mobileapp.pages.AlertPage;
 import com.qa.mobileapp.pages.AppointmentPage;
 import com.qa.mobileapp.pages.CalendarPage;
@@ -27,6 +28,8 @@ import com.qa.mobileapp.pages.LabAutomationPage;
 import com.qa.mobileapp.pages.LeavePage;
 import com.qa.mobileapp.pages.LogOutPage;
 import com.qa.mobileapp.pages.LoginPage;
+import com.qa.mobileapp.pages.NAAppPage;
+import com.qa.mobileapp.pages.PCOScreenPage;
 import com.qa.mobileapp.pages.PatientPage;
 import com.qa.mobileapp.pages.PaymentPage;
 import com.qa.mobileapp.pages.ProfilePage;
@@ -63,6 +66,8 @@ public class TestBase {
 	protected ForgotPasswordPage forgotpasswordpage;
 	protected CheckInCheckOutPage checkincheckoutpage;
 	protected LabAutomationPage labautomationpage;
+	protected NAAppPage naapppage;
+	protected PCOScreenPage pcoscreenpage;
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
