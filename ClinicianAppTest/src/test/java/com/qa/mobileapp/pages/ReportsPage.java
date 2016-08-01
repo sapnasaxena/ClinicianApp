@@ -4,11 +4,13 @@ package com.qa.mobileapp.pages;
 
 import java.util.List;
 
-import junit.framework.Assert;
+
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import io.appium.java_client.AppiumDriver;
 

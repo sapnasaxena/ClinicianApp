@@ -7,8 +7,6 @@ import io.appium.java_client.AppiumDriver;
 public class CaseFilePage extends BasePage  {
 
 
-	private static final By CasefileLocator = null;
-
 
 	public CaseFilePage(AppiumDriver driver) {
 		super(driver);

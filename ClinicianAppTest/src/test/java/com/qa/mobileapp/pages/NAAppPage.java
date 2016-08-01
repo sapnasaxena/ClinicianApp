@@ -1,7 +1,5 @@
 package com.qa.mobileapp.pages;
 
-
-
 import java.util.List;
 
 import org.openqa.selenium.By;
