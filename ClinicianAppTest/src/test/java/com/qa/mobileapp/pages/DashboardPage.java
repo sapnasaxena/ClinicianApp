@@ -50,6 +50,9 @@ public class DashboardPage extends BasePage {
 	private final By feedbackNavLocator = By.name("Feedback");
 	private final By logOutNavLocator = By.name("Logout");
 	private final By exitAppTitleLocator = By.name("Exit App");
+	private final By myTeamNavBarLocator = By.name("My Team");
+	private final By myTaskNavBarLocator =By.name("My Tasks");
+	private final By settingsNavBarLocator =By.name("Settings");
 	
 	@Override
 	public By getExitAppTitleLocator(){
@@ -168,6 +171,21 @@ public class DashboardPage extends BasePage {
 	{
 		return cashInHandLocator;
 	}
+
+	public By getMyTeamNavBarLocator() {
+		return myTeamNavBarLocator;
+	}
+
+
+	public By getSettingsNavBarLocator() {
+		return settingsNavBarLocator;
+	}
+
+
+	public By getMyTaskNavBarLocator() {
+		return myTaskNavBarLocator;
+	}
+
 
 	public By getLogOutNavLocator()
 	{
@@ -310,6 +328,11 @@ public class DashboardPage extends BasePage {
 	public void checkIn()
 	{
 		clickWhenVisible(checkOutTimeLocator);
+	}
+	
+	public void onTapMyTeamNav()
+	{
+		clickWhenVisible(myTeamNavBarLocator);
 	}
 	
 }
