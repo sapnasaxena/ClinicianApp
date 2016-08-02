@@ -7,6 +7,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -14,6 +15,7 @@ import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
+
 
 
 
@@ -41,7 +43,7 @@ public class LoginTests extends TestBase {
 
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
@@ -65,34 +67,7 @@ public class LoginTests extends TestBase {
 		Assert.assertNotNull(loginpage.getChangeLoginLocator());
 	}
 
-	//@Test(groups = {"UItest"})
-	public void TC_02_testVerifyPasswordFieldVisibilityOnLoginScreen()
-	{
-		System.out.println("Verify that Password Field is visible On Login screen");
-		Assert.assertNotNull(driver.findElement(loginpage.getPasswordFieldLocator()));
-	}
-
-	//@Test(groups = {"UItest"})
-	public void TC_05_testVerifyLoginButtonVisibilityOnLoginScreen()
-	{
-		System.out.println("Verify that Login to Portea Button is visible On Login screen");
-		Assert.assertNotNull(driver.findElement(loginpage.getLoginButtonLocator()));
-	}
-
-	//@Test(groups = {"UItest"})
-	public void TC_04_testVerifyForgotPasswordButtonVisibilityOnLoginScreen()
-	{
-		System.out.println("Verify that Forgot Password Button is visible On Login screen");
-		Assert.assertNotNull(driver.findElement(loginpage.getForgotPasswordLocator()));
-	}
-
-	//@Test(groups = {"UItest"})
-	public void TC_03_testVerifyShowPasswordButtonVisibilityOnLoginScreen()
-	{
-		System.out.println("Verify that Forgot Password Button is visible On Login screen");
-		Assert.assertNotNull(driver.findElement(loginpage.getShowPasswordFieldLocator()));
-	}
-
+	
 
 	//Functional test Scenarios
 
@@ -144,8 +119,63 @@ public class LoginTests extends TestBase {
 
 	}
 
+	@Test(groups = {"functest"})
+	public void TC_004_testVerifyOnTapChangeLoginModeOTPBasedLoginScreenVisiility()
+	{
+		System.out.println("Verify that on tapping change login mode navigate to Mobile based OTP Screen");
+		loginpage.onTapChangeLoginModeButton();
+		Assert.assertNotNull(loginpage.getMobileOTPLoginLocator());
+		
+	}
+	
+	@Test(groups = {"functest"})
+	public void TC_005_testVerifyEnterMobileFieldisfunctional()
+	{
+		System.out.println("Verify that enter mobile number field is functional on Mobile OTP based login screen");
+		loginpage.onTapChangeLoginModeButton();
+		GlobalUtil.wait(2);
+		loginpage.sendOTP("8553013244");
+		Assert.assertNotNull("Please wait, trying to fetch the OTP. You can also enter the OTP manually.");
+		
+	}
+	
+	@Test(groups = {"functest"})
+	public void TC_006_testVerifyOnlyNumericValuesAllowedInEnterMobileNoField()
+	{
+		System.out.println("Verify that only numeric value allowed Mobile No field on Mobile OTP based login screen");
+		loginpage.onTapChangeLoginModeButton();
+		GlobalUtil.wait(2);
+		loginpage.sendOTP("qwertyuiop");
+		Assert.assertNotNull(loginpage.getMobileOTPLoginLocator());
+		
+	}
+	
+	@Test(groups = {"functest"})
+	public void TC_007_testVerifyErrorMsgOnTapSendOTPWithoutEnterMobileNo()
+	{
+		System.out.println("Verify that error message will display on tap Send OTP button without enter mobile number");
+		loginpage.onTapChangeLoginModeButton();
+		GlobalUtil.wait(2);
+		loginpage.sendOTP("");
+		Assert.assertNotNull(loginpage.getMobileOTPLoginLocator());
+		
+	}
+	
+	
+	@Test(groups = {"functest"})
+	public void TC_010_testVerifyOnEnterInvalidOTPShouldDisplayErrorMsg()
+	{
+		System.out.println("Verify that on enter invalid OTP should display error message.");
+		loginpage.onTapChangeLoginModeButton();
+		GlobalUtil.wait(2);
+		loginpage.sendOTP("8553013244");
+		GlobalUtil.wait(2);
+		loginpage.enterOTP("1234");
+		Assert.assertNotNull(loginpage.getLoginPorteaButtonLocator());
+		
+	}
 	//Functional Test Scenarios
-	@Test(groups = {"smoketest", "functest"})
+	@Test(groups = {"functest"})
 	public void TS_01_testVerifyLoginSuccessfully()
 	{
 		System.out.println("Verify that User is able to Login successfully on android application");
@@ -170,6 +200,31 @@ public class LoginTests extends TestBase {
 		Assert.assertEquals(profession, "Phlebotomists");
 
 	}
+	
+	@Test(groups = {"smoketest"})
+	public void TS_01_testVerifyLoginAsPCO()
+	{
+		System.out.println("Verify that Physio Coordinator should able to login successfully");
+		ensureLogin("amitava.pc@test.com",password);
+		GlobalUtil.wait(1);
+		dashboardpage.onTapDashboardtext();
+		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
+		String profession = text.getText();
+		Assert.assertEquals(profession, "Physiotherapist");
+
+	}
+	@Test(groups = {"smoketest"})
+	public void TC_001_LoginAsNursingCoordinator()
+	{
+		System.out.println("Verify that NA coordinator should able to login to app");
+		ensureLogin("kaneez.fathima@porteamedical.com",password);
+		GlobalUtil.wait(1);
+		dashboardpage.onTapDashboardtext();
+		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
+		String profession = text.getText();
+		Assert.assertEquals(profession, "Nursing Coordinator");
+	}
+
 
 	@Test(groups = {"smoketest"})
 	public void TS_01_testVerifyLoginAsLOngTermNursing()

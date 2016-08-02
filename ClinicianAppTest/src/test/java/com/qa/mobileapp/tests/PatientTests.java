@@ -25,7 +25,7 @@ import com.qa.mobileapp.pages.PatientPage;
 public class PatientTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 	String patientID="";
 	
 	@BeforeClass(alwaysRun=true)

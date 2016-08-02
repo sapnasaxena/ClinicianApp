@@ -34,7 +34,7 @@ import com.qa.mobileapp.pages.ReportsPage;
 public class DashboardTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 
 	@BeforeClass(alwaysRun=true)
 	public void initDashboard() throws MalformedURLException{		
@@ -98,7 +98,7 @@ public class DashboardTests extends TestBase{
 		//Assert.assertNotNull(driver.findElement(dashboardpage.));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "smoketest" })
 	public void TC_04_testVerifyProfileScreenVisibility()
 	{
 		System.out.println("Verify that on tapping Clinician Name, Profile screen should be displayed");
@@ -109,14 +109,14 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(profilepage.getProfileScreenLocator()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "smoketest" })
 	public void TC_05_testVerifyOnTopDashboardNavVisibilty()
 	{
 		System.out.println("Verify that on top Dashboard nav should be displayed");
 		Assert.assertNotNull(driver.findElement(dashboardpage.getHomeScreenLocator()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = { "UITest" })
 	public void TC_06_testVerifyClincianNameVisibility()
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user name should be displayed");
@@ -154,7 +154,7 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianWorkingHrs()));
 	}
 
-	@Test (groups = { "UITest","smoketest" })
+	@Test (groups = {"smoketest" })
 	public void TC_10_testVerifyMyTasksNavVisibility()
 	{
 		System.out.println("Verify that My Tasks navigation menus Appointment, Patient, Payment, Calendar, Camps, CaseFile nav should be displayed");

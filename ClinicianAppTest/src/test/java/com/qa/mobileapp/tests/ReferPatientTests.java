@@ -25,7 +25,7 @@ public class ReferPatientTests extends TestBase{
 
 	
 	public static final String userName ="dinnyportea@gmail.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 	
 	@BeforeClass(alwaysRun=true)
 	public void initReferPatient() throws MalformedURLException{		

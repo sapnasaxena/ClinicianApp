@@ -25,7 +25,7 @@ import com.qa.mobileapp.pages.ProfilePage;
 public class ProfileTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 
 	@BeforeClass(alwaysRun=true)
 	public void initProfile() throws MalformedURLException{		
