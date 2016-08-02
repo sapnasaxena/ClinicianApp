@@ -33,11 +33,15 @@ public class LoginPage extends BasePage {
 	private final By forgotPasswordButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/tvForgotPassword");
 	private final By locationEnableAlertLocator = By.name("Location Disabled!");
 	private final By enableLocationLocator = By.name("Enable Location");
-	
+	private final By mobileOTPLoginLocator = By.name("Mobile Number");
 	private final By homeScreenRedirectLocator = By.id("com.healthvista.clinicianapp.stage:id/rlProgressLayout");
 	private final By versionNumberLocator = By.id("com.healthvista.clinicianapp.stage:id/versionText");
 	private final By versionByNameLocator = By.name("App Version: 34.1 - dev (49) - Stage");
 	private final By changeLoginLocator = By.name("Change Login Mode");
+	private final By sendOTPButtonLocator = By.name("Send OTP");
+	private final By enterMobileNoFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etMobileNumber");
+	private final By enterOTPFieldLocator = By.name("Enter OTP");
+	private final By loginPorteaButtonLocator = By.name("LOGIN TO PORTEA");
 	
 	
 		
@@ -94,15 +98,27 @@ public class LoginPage extends BasePage {
 	}
 	
 	
+	public By getSendOTPButtonLocator() {
+		return sendOTPButtonLocator;
+	}
+
 	public By getSecurityscreenLocator() {
 		return securityscreenLocator;
 	}
+	public By getLoginPorteaButtonLocator() {
+		return loginPorteaButtonLocator;
+	}
+
 	public By getEnterSecurityPinNoFieldLocator() {
 		return enterSecurityPinNoFieldLocator;
 	}
 	public By getReenterSecurityPinFieldLocator() {
 		return reenterSecurityPinFieldLocator;
 	}
+	public By getEnterOTPFieldLocator() {
+		return enterOTPFieldLocator;
+	}
+
 	public By getRegisterButtonLocator() {
 		return registerButtonLocator;
 	}
@@ -110,6 +126,14 @@ public class LoginPage extends BasePage {
 	
 	// **** FUNCTIONS FOR LOGIN ****
 	
+	public By getEnterMobileNoFieldLocator() {
+		return enterMobileNoFieldLocator;
+	}
+
+	public By getMobileOTPLoginLocator() {
+		return mobileOTPLoginLocator;
+	}
+
 	public By getChangeLoginLocator() {
 		return changeLoginLocator;
 	}
@@ -210,6 +234,26 @@ public class LoginPage extends BasePage {
 		clickWhenVisible(showPasswordFieldLocator);
 	}
 	
+	public void onTapChangeLoginModeButton()
+	{
+		clickWhenVisible(changeLoginLocator);
+	}
 	
+	public void sendOTP(String mobileNo)
+	{
+		WebElement enterMobileNo = driver.findElement(enterMobileNoFieldLocator);
+		enterMobileNo.sendKeys(mobileNo);
+		GlobalUtil.wait(2);
+		WebElement sendOtp = driver.findElement(sendOTPButtonLocator);
+		sendOtp.click();
+	}
+	
+	public void enterOTP(String otp)
+	{
+		WebElement ele = driver.findElement(enterOTPFieldLocator);
+		ele.sendKeys(otp);
+		GlobalUtil.wait(2);
+		clickWhenVisible(loginPorteaButtonLocator);
+	}
 	
 }

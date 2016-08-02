@@ -128,6 +128,8 @@ public class PatientPage extends BasePage {
 	private final By  feedbackDoneButtonLocator = By.name("Done");
 	private final By serviceSpinnerTextLocator = By.id("android:id/text1");
 	
+	
+	
 	public By getPatientFrameLocator()
 	{
 		return patientFrameLocator;
