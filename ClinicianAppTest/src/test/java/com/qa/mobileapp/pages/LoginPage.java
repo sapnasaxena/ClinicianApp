@@ -37,7 +37,7 @@ public class LoginPage extends BasePage {
 	private final By homeScreenRedirectLocator = By.id("com.healthvista.clinicianapp.stage:id/rlProgressLayout");
 	private final By versionNumberLocator = By.id("com.healthvista.clinicianapp.stage:id/versionText");
 	private final By versionByNameLocator = By.name("App Version: 34.1 - dev (49) - Stage");
-	private final By changeLoginLocator = By.name("Change Login Mode");
+	private final By changeLoginLocator = By.id("com.healthvista.clinicianapp.stage:id/tvToogleLoginMode");
 	private final By sendOTPButtonLocator = By.name("Send OTP");
 	private final By enterMobileNoFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etMobileNumber");
 	private final By enterOTPFieldLocator = By.name("Enter OTP");
