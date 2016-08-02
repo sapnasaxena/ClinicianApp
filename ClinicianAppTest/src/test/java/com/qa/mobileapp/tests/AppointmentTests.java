@@ -166,7 +166,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class AppointmentTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="password";
+	public static final String password ="Portea123";
 	String balanceBeforePayment;
 	
 
