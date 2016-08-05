@@ -28,7 +28,7 @@ public class CampTests extends TestBase{
 
 	
 	@BeforeClass
-	public void initPayment() throws MalformedURLException{		
+	public void initCamp() throws MalformedURLException{		
 		ensureLogin(userName, password);
 	}
 	
@@ -40,7 +40,7 @@ public class CampTests extends TestBase{
 	}
 	
 	@AfterMethod
-	public void ensureDashboardPage() throws MalformedURLException{	
+	public void ensureCampPage() throws MalformedURLException{	
 		boolean bFound = false;
 		try{
 		driver.navigate().back();
