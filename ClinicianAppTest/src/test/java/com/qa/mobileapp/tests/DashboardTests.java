@@ -60,7 +60,7 @@ public class DashboardTests extends TestBase{
 	}
 	
 
-	@Test (groups = { "UITest"})
+	//@Test (groups = { "UITest"})
 	public void TC_01_testVerifyCheckInCheckOutStatusVisibilityOnDashboardScreen()
 	{
 		System.out.println("Verify that on logged in to app, user should able to see Checkin screen");
