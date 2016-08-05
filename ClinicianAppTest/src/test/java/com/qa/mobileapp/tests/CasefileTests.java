@@ -113,7 +113,7 @@ public class CasefileTests extends TestBase {
 			casefilepage.onClickPendingStatusLocator();
 			GlobalUtil.wait(2);
 			Assert.assertNotNull(casefilepage.getPatientIDLocator());
-			Assert.assertNotNull(casefilepage. getPatientNameLocator());
+			Assert.assertNotNull(casefilepage.getPatientNameLocator());
 			Assert.assertNotNull(casefilepage.getAppointmentDateLocator());
 		}
 		@Test(groups = { "UITest" })
