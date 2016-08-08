@@ -71,7 +71,7 @@ public class TestBase {
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
-		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_v34.1-dev_49_STAGE_18072016_01.apk");
+		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","clinicianApp-staging-release_V_34.1_20160808.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "21.0");
