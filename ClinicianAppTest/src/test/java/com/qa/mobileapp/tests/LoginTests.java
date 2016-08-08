@@ -135,7 +135,7 @@ public class LoginTests extends TestBase {
 		loginpage.onTapChangeLoginModeButton();
 		GlobalUtil.wait(2);
 		loginpage.sendOTP("8553013244");
-		Assert.assertNotNull("Please wait, trying to fetch the OTP. You can also enter the OTP manually.");
+		Assert.assertNotNull("Please wait, trying to fetch the OTP.You can also enter the OTP manually.");
 		
 	}
 	
@@ -183,7 +183,7 @@ public class LoginTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianNameLocator());
 		String name = text.getText();
-		String expected="DoNotAssignApptTest prof H";
+		String expected="DoNotAssignApp";
 		Assert.assertTrue(name.startsWith(expected));
 
 	}
@@ -192,7 +192,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
-		ensureLogin("lab.p@gmail.com",password);
+		ensureLogin("lab.p@gmail.com","lab@12345");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -241,7 +241,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsShortTermNursing()
 	{
 		System.out.println("Verify that STN should able to login successfully");
-		ensureLogin("sample@gmail.com", password);
+		ensureLogin("shortterm@test.com", password);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();

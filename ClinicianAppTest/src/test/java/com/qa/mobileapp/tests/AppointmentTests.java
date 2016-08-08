@@ -11,7 +11,144 @@ import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.Assert
+import junit.framework.Assert;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -28,7 +165,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 
 public class AppointmentTests extends TestBase {
 
-	public static final String userName ="dinnyportea@gmail.com";
+	public static final String userName ="dinnyportea@test.com";
 	public static final String password ="Portea123";
 	String balanceBeforePayment;
 	
