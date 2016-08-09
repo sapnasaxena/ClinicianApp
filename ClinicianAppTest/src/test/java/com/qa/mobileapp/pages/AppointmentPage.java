@@ -711,11 +711,11 @@ public class AppointmentPage extends BasePage{
 
 	public void onTapFabButton()
 	{
-		if(driver.findElement(By.name("Got It")).isDisplayed())
-			{
-			driver.findElement(By.name("Got It")).click();
-			}
-					GlobalUtil.wait(2);
+//		if(driver.findElement(By.name("Got It")).isDisplayed())
+//			{
+//			driver.findElement(By.name("Got It")).click();
+//			}
+//					GlobalUtil.wait(2);
 		clickWhenVisible(appointmentExpandFabButtonLocator);
 	}
 
@@ -843,8 +843,8 @@ public class AppointmentPage extends BasePage{
 	{
 		WebElement ele = driver.findElement(fabPayButtonLocator);
 		ele.click();
-		GlobalUtil.wait(2);
-		driver.findElement(By.name("Got It")).click();
+//		GlobalUtil.wait(2);
+//		driver.findElement(By.name("Got It")).click();
 		
 		//clickWhenVisible(fabPayButtonLocator);
 		
