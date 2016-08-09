@@ -162,12 +162,12 @@ public class DashboardTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getAppointmentNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getPatientNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getPaymentsNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCalendarNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCampsNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getCaseFileNavLocator()));
+		Assert.assertNotNull(dashboardpage.getAppointmentNavLocator());
+		Assert.assertNotNull(dashboardpage.getPatientNavLocator());
+		Assert.assertNotNull(dashboardpage.getPaymentsNavLocator());
+		Assert.assertNotNull(dashboardpage.getCalendarNavLocator());
+		Assert.assertNotNull(dashboardpage.getCampsNavLocator());
+		Assert.assertNotNull(dashboardpage.getCaseFileNavLocator());
 	}
 	
 	@Test (groups = { "UITest","smoketest" })
@@ -178,11 +178,11 @@ public class DashboardTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getAlertsNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getReportsNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getReferPatientLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getFeedbackNavLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getLogOutNavLocator()));
+		Assert.assertNotNull(dashboardpage.getAlertsNavLocator());
+		Assert.assertNotNull(dashboardpage.getReportsNavLocator());
+		Assert.assertNotNull(dashboardpage.getReferPatientLocator());
+		Assert.assertNotNull(dashboardpage.getFeedbackNavLocator());
+		Assert.assertNotNull(dashboardpage.getLogOutNavLocator());
 	}
 	
 
@@ -265,7 +265,7 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapLeavessNav();
 		GlobalUtil.wait(2);
 		LeavePage leavepage = new LeavePage(driver);
-		Assert.assertNotNull(driver.findElement(leavepage.getLeaveScreenLocator()));
+		Assert.assertNotNull(leavepage.getLeaveScreenLocator());
 	}
 
 
@@ -282,7 +282,7 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapReportsNav();
 		GlobalUtil.wait(2);
 		ReportsPage reportspage = new ReportsPage(driver);
-		Assert.assertNotNull(driver.findElement(reportspage.getreportScreenLocator()));
+		Assert.assertNotNull(reportspage.getreportScreenLocator());
 	}
 
 
@@ -328,7 +328,7 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapReferPatientNav();
 		GlobalUtil.wait(2);
 		ReferPatientPage referpatientpage = new ReferPatientPage(driver);
-		Assert.assertNotNull(driver.findElement(referpatientpage.getReferPatientScreenLocator()));
+		Assert.assertNotNull(referpatientpage.getReferPatientScreenLocator());
 	}
 
 	
