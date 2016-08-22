@@ -23,8 +23,8 @@ import com.qa.mobileapp.pages.LoginPage;
 public class CampTests extends TestBase{
 
 	
-	public static final String userName ="dinnyportea@gmail.com";
-	public static final String password ="Portea123";
+	public static final String userName ="testphysio@test.com";
+	public static final String password ="Portea1234";
 
 	
 	@BeforeClass

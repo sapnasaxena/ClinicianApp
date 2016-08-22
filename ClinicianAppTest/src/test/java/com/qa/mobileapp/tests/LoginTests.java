@@ -43,7 +43,7 @@ public class LoginTests extends TestBase {
 
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123";
+	public static final String password ="Portea1234";
 
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
@@ -205,7 +205,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPCO()
 	{
 		System.out.println("Verify that Physio Coordinator should able to login successfully");
-		ensureLogin("amitava.pc@test.com",password);
+		ensureLogin("amitava.pc@test.com","Portea123");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -259,7 +259,7 @@ public class LoginTests extends TestBase {
 		GlobalUtil.wait(1);
 		ensureLogin(userName, password);
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(loginpage.getHomeScreenLocator()));
+		Assert.assertNotNull(loginpage.getHomeScreenLocator());
 	}
 
 
@@ -267,7 +267,7 @@ public class LoginTests extends TestBase {
 	public void TS_05_testVerifyVersionNumberVisibiltyOnLoginScreen()
 	{
 		System.out.println("Verify the App version number in Login screen should be correct.");
-		Assert.assertNotNull(driver.findElement(loginpage.getVersionByNameLocator()));
+		Assert.assertNotNull(loginpage.getVersionByNameLocator());
 	}
 
 	@AfterMethod(alwaysRun=true)

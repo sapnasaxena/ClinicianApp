@@ -18,7 +18,7 @@ public class ForgotPasswordTests extends TestBase{
 	String mobileNo ="8095627267";
 	String votp="";
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123";
+	public static final String password ="Portea1234";
 	
 //	@BeforeClass(alwaysRun=true)
 //	public void initForgotPassword() throws MalformedURLException{		

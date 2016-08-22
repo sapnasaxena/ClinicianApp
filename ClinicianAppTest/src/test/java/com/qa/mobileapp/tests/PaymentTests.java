@@ -31,7 +31,7 @@ import com.qa.mobileapp.pages.PaymentPage;
 public class PaymentTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123";
+	public static final String password ="Portea1234";
 
 	@BeforeClass(alwaysRun=true)
 	public void initPayment() throws MalformedURLException{		
