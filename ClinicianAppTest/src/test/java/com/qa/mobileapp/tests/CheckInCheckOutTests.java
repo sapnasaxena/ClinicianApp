@@ -23,7 +23,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class CheckInCheckOutTests extends TestBase {
 	
 	public static final String userName ="dinnyportea@gmail.com";
-	public static final String password ="Portea123";
+	public static final String password ="Portea1234";
 
 	@BeforeClass(alwaysRun=true)
 	public void initCheckInCheckOut() throws MalformedURLException{		
