@@ -74,8 +74,8 @@ public class TestBase {
 		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_v34.1_50_STAGE_24082016_01.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "21.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "GenyAVD");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "23.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MarshAVD");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
 		capabilities.setCapability(MobileCapabilityType.APP_PACKAGE,"com.healthvista.clinicianapp.stage");
