@@ -15,20 +15,6 @@ import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.ImageTextExtracter;
 //import org.testng.annotations.AfterMethod;
