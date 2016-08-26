@@ -15,6 +15,20 @@ import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.ImageTextExtracter;
 //import org.testng.annotations.AfterMethod;
@@ -178,7 +192,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
-		ensureLogin("lab.p@gmail.com","Portea123");
+		ensureLogin("lab.p@gmail.com",password);
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -216,7 +230,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsLOngTermNursing()
 	{
 		System.out.println("Verify that LTN should able to login successfully");
-		ensureLogin("longterm@test.com", "Portea123");
+		ensureLogin("longterm@test.com", password);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
@@ -227,7 +241,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsShortTermNursing()
 	{
 		System.out.println("Verify that STN should able to login successfully");
-		ensureLogin("shortterm@test.com", "Portea123");
+		ensureLogin("shortterm@test.com", password);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
