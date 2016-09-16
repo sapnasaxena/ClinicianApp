@@ -38,8 +38,8 @@ public static final int priority = 0;
 
 
 
-	public static final String userName ="kiranrarun77@gmail.com";
-	public static final String password ="Portea123";
+	public static final String userName ="lab.p@gmail.com";
+	public static final String password ="Portea1234";
 	
 	@BeforeClass
 	public void initlabAutomation() throws MalformedURLException{		

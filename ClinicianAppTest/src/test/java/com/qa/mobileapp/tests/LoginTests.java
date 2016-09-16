@@ -15,20 +15,6 @@ import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.ImageTextExtracter;
 //import org.testng.annotations.AfterMethod;
@@ -106,7 +92,7 @@ public class LoginTests extends TestBase {
 		loginpage.clearUserNameField();
 		loginpage.clearPasswordField();
 		loginpage.login("",password);
-		Assert.assertTrue(true, "Enter your username/email");
+		Assert.assertTrue(true,"Enter your username/email");
 
 	}
 
@@ -183,7 +169,7 @@ public class LoginTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianNameLocator());
 		String name = text.getText();
-		String expected="DoNotAssignApp";
+		String expected="DoNotAssignApptTest";
 		Assert.assertTrue(name.startsWith(expected));
 
 	}
@@ -205,7 +191,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPCO()
 	{
 		System.out.println("Verify that Physio Coordinator should able to login successfully");
-		ensureLogin("amitava.pc@test.com",password);
+		ensureLogin("amitava.pc@test.com","Portea123");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -213,12 +199,13 @@ public class LoginTests extends TestBase {
 		Assert.assertEquals(profession, "Physiotherapist");
 
 	}
-	@Test(groups = {"smoketest"})
+	
+	//@Test(groups = {"smoketest"})
 	public void TC_001_LoginAsNursingCoordinator()
 	{
 		System.out.println("Verify that NA coordinator should able to login to app");
 		ensureLogin("kaneez.fathima@porteamedical.com","Portea123");
-		GlobalUtil.wait(1);
+		GlobalUtil.wait(2);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
@@ -271,7 +258,7 @@ public class LoginTests extends TestBase {
 	}
 
 	@AfterMethod(alwaysRun=true)
-	public void ensureAppointmentPage() throws MalformedURLException{
+	public void ensureLoginPage() throws MalformedURLException{
 		System.out.println("Cleaning up and restoring login screen.");
 		driver.quit();
 		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
