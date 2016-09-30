@@ -71,7 +71,7 @@ public class TestBase {
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
-		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_v34.2_52_STAGE_23092016_01.apk");
+		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_v34.3_53_STAGE_30092016_01.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "23.0");
