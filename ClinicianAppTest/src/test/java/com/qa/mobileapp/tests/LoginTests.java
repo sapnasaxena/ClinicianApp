@@ -178,7 +178,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
-		ensureLogin("lab.p@gmail.com",password);
+		ensureLogin("testphlebo@test.com",password);
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -191,7 +191,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPCO()
 	{
 		System.out.println("Verify that Physio Coordinator should able to login successfully");
-		ensureLogin("amitava.pc@test.com","Portea123");
+		ensureLogin("amitava.pc@test.com","Portea1234");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
@@ -200,11 +200,11 @@ public class LoginTests extends TestBase {
 
 	}
 	
-	//@Test(groups = {"smoketest"})
+	@Test(groups = {"smoketest"})
 	public void TC_001_LoginAsNursingCoordinator()
 	{
 		System.out.println("Verify that NA coordinator should able to login to app");
-		ensureLogin("kaneez.fathima@porteamedical.com","Portea123");
+		ensureLogin("kaneez.fathima@porteamedical.com","Portea1234");
 		GlobalUtil.wait(2);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());

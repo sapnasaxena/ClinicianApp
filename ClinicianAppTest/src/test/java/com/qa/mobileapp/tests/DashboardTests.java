@@ -173,19 +173,30 @@ public class DashboardTests extends TestBase{
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_10_testVerifySettingsNavVisibility()
 	{
-		System.out.println("Verify that Settings navigation menus Alert, Reports, Refer Patient, Feedback, Logout should be displayed");
+		System.out.println("Verify that Settings navigation menus Help, About App and  Logout should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(dashboardpage.getAlertsNavLocator());
-		Assert.assertNotNull(dashboardpage.getReportsNavLocator());
-		Assert.assertNotNull(dashboardpage.getReferPatientLocator());
-		Assert.assertNotNull(dashboardpage.getFeedbackNavLocator());
+		Assert.assertNotNull(dashboardpage.getHelpNavBarLocator());
+		Assert.assertNotNull(dashboardpage.getAboutAppNavBarLocator());
 		Assert.assertNotNull(dashboardpage.getLogOutNavLocator());
 	}
 	
-
+	@Test (groups = { "UITest","smoketest" })
+	public void TC_CA692_05_testVerifyOperationsNavVisibility()
+	{
+		System.out.println("Verify that Settings navigation menus Alert, Reports, Tickets, Refer Patient and Feedback should be displayed");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapOperationsExpandButton();
+		GlobalUtil.wait(2);
+		Assert.assertNotNull(dashboardpage.getAlertsNavLocator());
+		Assert.assertNotNull(dashboardpage.getReportsNavLocator());
+		Assert.assertNotNull(dashboardpage.getTicketNavLocator());
+		Assert.assertNotNull(dashboardpage.getReferPatientLocator());
+		Assert.assertNotNull(dashboardpage.getFeedbackNavLocator());
+	}
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_11_testVerifyOnTapAppointmentNavAppointmentScreenVisibility()
 	{
@@ -277,8 +288,8 @@ public class DashboardTests extends TestBase{
 		GlobalUtil.wait(2);
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Reports");
-		GlobalUtil.wait(1);
+//		driver.scrollTo("Reports");
+//		GlobalUtil.wait(1);
 		dashboardpage.onTapReportsNav();
 		GlobalUtil.wait(2);
 		ReportsPage reportspage = new ReportsPage(driver);

@@ -78,7 +78,7 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that on tap Refer Patient nav, should display Refer a Patient details screen");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -92,7 +92,7 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that Refer Patient details screen should have fields like New Patient name, Mobile number, Service required, City, Existing Patient ID, details, radio button Portea Patient or Personal network along with Cancel and Done button.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -120,7 +120,7 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that user should able to submit Refer a Patient successfully.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -147,7 +147,7 @@ public class ReferPatientTests extends TestBase{
 		System.out.println("Verify that on tap cancel button should redirect to Dashboard screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
@@ -156,36 +156,72 @@ public class ReferPatientTests extends TestBase{
 		Assert.assertNotNull(referpatientpages.getCancelButton());
 	}
 	
-	//**************** SHITAL FUNCTIONAL TEST CASES********************//
-	
-	@Test(groups = { "functest" })
-	public void tc_01_validatePorteaPatient() {
-		System.out.println("Verify that user can able to refer patient for any service for the option portea patients");
+	@Test (groups = { "UITest" })
+	public void tc_04_testUploadsfieldOnReferPatientPage()
+	{
+		System.out.println("Verify that Upload field should be visible on Refer Patient screen.");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Refer patient");
-		GlobalUtil.wait(1);
+//		driver.scrollTo("Refer patient");
+//		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
-		GlobalUtil.wait(2);
-		referpatientpages.validatePorteaPatient("test");
-		//Assert.assertNotNull(dashboardpage.onTapDashboardtext());
+		GlobalUtil.wait(3);
+		Assert.assertNotNull(referpatientpages.getUploadFieldLocator());
 	}
 	
+	//**************** SHITAL FUNCTIONAL TEST CASES********************//
+	
+	//@Test(groups = { "functest" })
+	
 	@Test(groups = { "functest" })
-	public void tc_02_validatePersonalNetwork() {
+	public void tc_CA693_06_uploadImageDocument() {
 		System.out.println("Verify that user can able to refer patient for any service for the option Personal Networks");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		driver.scrollTo("Refer patient");
 		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
 		GlobalUtil.wait(2);
-		referpatientpages.ValidatePersonalNwPatient();
-		
+		referpatientpages.uploadImageDocument();
+		Assert.assertNotNull("Take photo");
+		Assert.assertNotNull("Choose from Library");
+		Assert.assertNotNull("Cancel");
 	}
+	
+	@Test(groups = { "functest" })
+	public void tc_CA693_06_ReferPatientThroughPorteaPatient() {
+		System.out.println("Verify that user can able to refer patient for any service for the option Portea Patient");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapOperationsExpandButton();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Refer patient");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReferPatientNav();
+		GlobalUtil.wait(2);
+		referpatientpage.referPatientViaPorteaPatient();
+		//Assert.assertNotNull(referpatientpage.getChooseFromLibraryLocator());
+		Assert.assertNotNull(referpatientpage.getReferAPatientText());
+	}
+	
+	@Test(groups = { "functest" })
+	public void tc_CA693_06_ReferPatientThroughPersonalNetwork() {
+		System.out.println("Verify that user can able to refer patient for any service for the option Personal Networks");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapOperationsExpandButton();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Refer patient");
+		GlobalUtil.wait(1);
+		dashboardpage.onTapReferPatientNav();
+		GlobalUtil.wait(2);
+		referpatientpage.referPatientViaPersonalNetwork();
+		Assert.assertNotNull(referpatientpage.getReferAPatientText());
+	}
+	
 	
 }

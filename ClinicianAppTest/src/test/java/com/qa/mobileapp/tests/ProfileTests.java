@@ -100,6 +100,30 @@ public class ProfileTests extends TestBase {
 	}
 
 	@Test(groups = { "UITest" })
+	public void TS_02_testVerifyUploadImageButtonVisiblity()
+	{
+		System.out.println("Verify that Upload Image Button is visible on Profile Screen");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapClinicianName();
+		Assert.assertNotNull(driver.findElement(profilepage.getProfilePcImageLocator()));
+	}
+	
+	@Test(groups = { "UITest" })
+	public void TS_02_testVerifyUploadImageOptionsVisiblity()
+	{
+		System.out.println("Verify that Upload Image Options Choose from library, Take photo and cancel should visible on Profile Screen");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapClinicianName();
+		GlobalUtil.wait(2);
+		profilepage.onClickUploadImageLocator();
+		Assert.assertNotNull(driver.findElement(profilepage.getChooseFromLibraryLocator()));
+		Assert.assertNotNull(driver.findElement(profilepage.getTakePhotoLocator()));
+		Assert.assertNotNull(driver.findElement(profilepage.getCancelUploadImageLocator()));
+	}
+	
+	@Test(groups = { "UITest" })
 	public void TS_03_testVerifyEditButtonVisiblity()
 	{
 		System.out.println("Verify that Profile edit button is visible on Profile Screen");
@@ -137,4 +161,6 @@ public class ProfileTests extends TestBase {
 		profilepage.editProfile();
 		Assert.assertNotNull(profilepage.getProfileScreenLocator());
 	}
+	
+	
 }
