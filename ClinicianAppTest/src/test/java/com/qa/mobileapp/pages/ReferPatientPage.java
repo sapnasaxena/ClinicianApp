@@ -20,15 +20,15 @@ public class ReferPatientPage extends BasePage {
 	private final By referPatientScreenLocator = By.name("Refer a Patient");
 	private final By ReferAPatientText = By.name("Refer a Patient");
 	private final By radioButton= By.id("com.healthvista.clinicianapp.stage:id/patientSource");
-	private final By PorteaPatient = By.id("com.healthvista.clinicianapp.stage:id/porteaNetwork");
+	private final By PorteaPatient = By.id(" com.healthvista.clinicianapp.stage:id/porteaNetwork");
 	private final By PersonalNetwork=By.id("com.healthvista.clinicianapp.stage:id/personalNetwork");
-	private final By NewPatientName= By.id("com.healthvista.clinicianapp.stage:id/patientName");
-	private final By PatientMobileNumber= By.id("com.healthvista.clinicianapp.stage:id/patientPhone");
+	private final By NewPatientName= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientName");
+	private final By PatientMobileNumber= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientMobile");
 	private final By ServiceRequiredText= By.name("Service Required");
 	private final By PhysiotherapyText = By.id("android:id/text1");
 	private final By CityText= By.name("City");
 	private final By BangaloreText= By.name("Bangalore");
-	private final By ExistingPatinet=By.id("com.healthvista.clinicianapp.stage:id/referralPatId");
+	private final By ExistingPatient=By.id("com.healthvista.clinicianapp.stage:id/referralPatId");
 	private final By PatientDetails= By.id("com.healthvista.clinicianapp.stage:id/referralPatDetail");
 	private final By CancelButton= By.id("com.healthvista.clinicianapp.stage:id/referCancel");
 	private final By DoneButton=By.id("com.healthvista.clinicianapp.stage:id/referOk");
@@ -36,10 +36,57 @@ public class ReferPatientPage extends BasePage {
 	private final By radioButtonPersonalNetwork=By.id("com.healthvista.clinicianapp.stage:id/personalNetwork");
 	private final By ServiceRequestDrpDwn= By.id("com.healthvista.clinicianapp.stage:id/serviceReffer");
 	private final By CochinText= By.name("Cochin");
-	private final By CityDropDown= By.id("com.healthvista.clinicianapp.stage:id/cityReffer");
+	private final By chooseFromLibraryLocator = By.name("Choose from Library");
 	
+	public By getChooseFromLibraryLocator()
+	{
+		return chooseFromLibraryLocator;
+	}
+	private final By notesLocator=By.name("Notes");
+	public By getNotesLocator()
+	{
+		return notesLocator;
+	}
+	private final By serviceSpinnerLocator = By.id("com.healthvista.clinicianapp.stage:id/sServiceRef");
+	public By getServiceSpinnerLocator()
+	{
+		return serviceSpinnerLocator;
+	}
+	private final By CityDropDown= By.id("com.healthvista.clinicianapp.stage:id/sCityRef");
+	private final By relationSpinnerLocator = By.id("com.healthvista.clinicianapp.stage:id/sRelation");
+	public By getRelationSpinnerLocator()
+	{
+		return relationSpinnerLocator;
+	}
 	
+	private final By enterPatientIDFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etRefPatientId");
+	public By getEnterPatientIDFieldLocator()
+	{
+		return enterPatientIDFieldLocator;
+	}
 	
+	private final By uploadFieldLocator = By.name("Uploads:");
+	public By getUploadFieldLocator()
+	{
+		return uploadFieldLocator;
+	}
+	
+	private final By chooseUploadButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/bChoose");
+	public By getChooseUploadButtonLocator()
+	{
+		return chooseUploadButtonLocator;
+	}
+	
+	private final By referButtonLocator =By.id("com.healthvista.clinicianapp.stage:id/bRefer");
+	public By getReferButtonLocator()
+	{
+		return referButtonLocator;
+	}
+	private final By cancelButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/bCancelRef");
+	public By getCancelButtonLocator()
+	{
+		return cancelButtonLocator;
+	}
 	public By getReferPatientScreenLocator()
 	{
 		return referPatientScreenLocator;
@@ -98,7 +145,7 @@ public class ReferPatientPage extends BasePage {
 	
 	public By getExistingPatinet()
 	{
-		return ExistingPatinet;
+		return ExistingPatient;
 	}
 	
 	public By getPatientDetails()
@@ -213,7 +260,7 @@ public class ReferPatientPage extends BasePage {
 	
 	public void onClickExistingPatinet()
 	{
-		clickWhenVisible(ExistingPatinet);
+		clickWhenVisible(ExistingPatient);
 		
 	}
 	
@@ -316,7 +363,7 @@ public class ReferPatientPage extends BasePage {
 	
 	public void onClickExistnPtntId(String PID)
 	{
-		WebElement existinPtId= driver.findElement(ExistingPatinet);
+		WebElement existinPtId= driver.findElement(ExistingPatient);
 		existinPtId.sendKeys(PID);
 	}
 	
@@ -341,5 +388,90 @@ public class ReferPatientPage extends BasePage {
 		WebElement ctyDrpDn= driver.findElement(CityDropDown);
 		ctyDrpDn.click();
 	}
+	public void uploadImageDocument()
+	{
+		WebElement ele = driver.findElement(chooseUploadButtonLocator);
+		ele.click();
+	}
+	
+	public void referPatientViaPorteaPatient()
+	{
+		WebElement name = driver.findElement(NewPatientName);
+		name.sendKeys("test");
+		GlobalUtil.wait(2);
+		WebElement mobNo = driver.findElement(PatientMobileNumber);
+		mobNo.sendKeys("8553013244");
+		GlobalUtil.wait(2);
+		WebElement relation = driver.findElement(serviceSpinnerLocator);
+		relation.click();
+		GlobalUtil.wait(2);
+		relation.sendKeys("Brother");
+		GlobalUtil.wait(2);
+		WebElement patientID = driver.findElement(enterPatientIDFieldLocator);
+		patientID.sendKeys("POR035079");
+		GlobalUtil.wait(2);
+		WebElement dropdown = driver.findElement(serviceSpinnerLocator);
+		dropdown.click();
+		GlobalUtil.wait(2);
+		dropdown.sendKeys("Physiotherapy");
+		GlobalUtil.wait(2);
+		WebElement city = driver.findElement(CityDropDown);
+		city.click();
+		GlobalUtil.wait(2);
+		city.sendKeys("Bangalore");
+		GlobalUtil.wait(2);
+		WebElement notes = driver.findElement(notesLocator);
+		notes.sendKeys("test");
+		GlobalUtil.wait(2);
+		WebElement uploads = driver.findElement(chooseUploadButtonLocator);
+		uploads.click();
+		GlobalUtil.wait(2);
+//		WebElement chooseLibrary = driver.findElement(By.name("Choose from Library"));
+//		chooseLibrary.click();
+//		GlobalUtil.wait(2);
+		WebElement referButton = driver.findElement(referButtonLocator);
+		referButton.click();
+	}
+	
+	public void referPatientViaPersonalNetwork()
+	{
+			WebElement name = driver.findElement(NewPatientName);
+			name.sendKeys("test");
+			GlobalUtil.wait(2);
+			WebElement mobNo = driver.findElement(PatientMobileNumber);
+			mobNo.sendKeys("8553013244");
+			GlobalUtil.wait(2);
+			WebElement relation = driver.findElement(serviceSpinnerLocator);
+			relation.click();
+			GlobalUtil.wait(2);
+			relation.sendKeys("Brother");
+			GlobalUtil.wait(2);
+			WebElement patientID = driver.findElement(enterPatientIDFieldLocator);
+			patientID.sendKeys("POR035079");
+			GlobalUtil.wait(2);
+			WebElement dropdown = driver.findElement(serviceSpinnerLocator);
+			dropdown.click();
+			GlobalUtil.wait(2);
+			dropdown.sendKeys("Physiotherapy");
+			GlobalUtil.wait(2);
+			WebElement city = driver.findElement(CityDropDown);
+			city.click();
+			GlobalUtil.wait(2);
+			city.sendKeys("Bangalore");
+			GlobalUtil.wait(2);
+			WebElement notes = driver.findElement(notesLocator);
+			notes.sendKeys("test");
+			GlobalUtil.wait(2);
+			WebElement uploads = driver.findElement(chooseUploadButtonLocator);
+			uploads.click();
+			GlobalUtil.wait(2);
+//			WebElement chooseLibrary = driver.findElement(By.name("Choose from Library"));
+//			chooseLibrary.click();
+//			GlobalUtil.wait(2);
+			WebElement referButton = driver.findElement(referButtonLocator);
+			referButton.click();
+
+		}
+	
 	
 }

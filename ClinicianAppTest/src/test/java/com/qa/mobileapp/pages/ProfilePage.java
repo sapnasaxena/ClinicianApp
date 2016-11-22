@@ -67,6 +67,30 @@ public class ProfilePage extends BasePage{
 	private final By confirmScreenSaveButtonLocator =By.name("Save");
 	
 	private final By confirmScreenBackButtonLocator = By.name("Back");
+	
+	private final By profilePicImageLocator = By.id("com.healthvista.clinicianapp.stage:id/bControl");
+	//com.healthvista.clinicianapp.stage:id/editImage
+	public By getProfilePcImageLocator()
+	{
+		return profilePicImageLocator;
+	}
+	
+	private final By chooseFromLibraryLocator = By.name("Choose from Library");
+	public By getChooseFromLibraryLocator()
+	{
+		return chooseFromLibraryLocator;
+	}
+	
+	private final By takePhotoLocator = By.name("Take Photo");
+	public By getTakePhotoLocator()
+	{
+		return takePhotoLocator;
+	}
+	private final By cancelUploadImageLocator = By.name("Cancel");
+	public By getCancelUploadImageLocator()
+	{
+		return cancelUploadImageLocator;
+	}
 
 	public By getProfileScreenLocator()
 	{
@@ -197,6 +221,12 @@ public void editProfile()
 	GlobalUtil.wait(1);
 	clickWhenVisible(confirmScreenSaveButtonLocator);
 	
+}
+
+public void onClickUploadImageLocator()
+{
+	WebElement ele = driver.findElement(profilePicImageLocator);
+	ele.click();
 }
 
 

@@ -91,11 +91,11 @@ public class LoginPage extends BasePage {
 	{
 		return securityscreenLocator;
 	}
-	public String securityPinRegistrationScreenLocator ="";
-	public String getSecurityPinRegistrationScreenLocator()
-	{
-		return securityPinRegistrationScreenLocator;
-	}
+//	public String securityPinRegistrationScreenLocator ="";
+//	public String getSecurityPinRegistrationScreenLocator()
+//	{
+//		return securityPinRegistrationScreenLocator;
+//	}
 	
 	
 	public By getSendOTPButtonLocator() {

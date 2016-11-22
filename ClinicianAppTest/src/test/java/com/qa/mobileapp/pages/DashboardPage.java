@@ -52,7 +52,23 @@ public class DashboardPage extends BasePage {
 	private final By exitAppTitleLocator = By.name("Exit App");
 	private final By myTeamNavBarLocator = By.name("My Team");
 	private final By myTaskNavBarLocator =By.name("My Tasks");
+	private final By operationsBarLocator = By.name("Operations");
 	private final By settingsNavBarLocator =By.name("Settings");
+	private final By helpNavBarLocator=By.name("Help");
+	public By getHelpNavBarLocator()
+	{
+		return helpNavBarLocator;
+	}
+	private final By aboutAppNavBarLocator = By.name("About App");
+	public By getAboutAppNavBarLocator()
+	{
+		return aboutAppNavBarLocator;
+	}
+	private final By ticketNavLocator = By.name("Tickets");
+	public By getTicketNavLocator()
+	{
+		return ticketNavLocator;
+	}
 	
 	@Override
 	public By getExitAppTitleLocator(){
@@ -198,7 +214,8 @@ public class DashboardPage extends BasePage {
 	{
 		clickWhenVisible(navigationDrawerLocator);
 		GlobalUtil.wait(1);
-		WebElement ele = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/imageView"));
+		WebElement ele = driver.findElement(By.name("My Tasks"));
+				//(By.id("com.healthvista.clinicianapp.stage:id/imageView"));
 		ele.click();
 		
 	}
@@ -213,13 +230,18 @@ public class DashboardPage extends BasePage {
 		 ls.click();
 	}
 	
+	public void onTapOperationsExpandButton()
+	{
+	     WebElement ls = driver.findElement(operationsBarLocator);
+		 ls.click();
+	}
 	public void onTapAppointmentsNav()
 	{
 		clickWhenVisible(appointmentNavLocator);
 		GlobalUtil.wait(1);
 		clickWhenVisible(By.name("Got It"));
-		
 	}
+	
 	
 	public void onTapPatientNav()
 	{
