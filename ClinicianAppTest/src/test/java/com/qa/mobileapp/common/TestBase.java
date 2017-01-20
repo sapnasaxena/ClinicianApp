@@ -28,13 +28,17 @@ import com.qa.mobileapp.pages.LabAutomationPage;
 import com.qa.mobileapp.pages.LeavePage;
 import com.qa.mobileapp.pages.LogOutPage;
 import com.qa.mobileapp.pages.LoginPage;
+import com.qa.mobileapp.pages.MyTasksPage;
+import com.qa.mobileapp.pages.MyTeamPage;
 import com.qa.mobileapp.pages.NAAppPage;
+import com.qa.mobileapp.pages.OperationsPage;
 import com.qa.mobileapp.pages.PCOScreenPage;
 import com.qa.mobileapp.pages.PatientPage;
 import com.qa.mobileapp.pages.PaymentPage;
 import com.qa.mobileapp.pages.ProfilePage;
 import com.qa.mobileapp.pages.ReferPatientPage;
 import com.qa.mobileapp.pages.ReportsPage;
+import com.qa.mobileapp.pages.SettingsPage;
 
 
 
@@ -68,21 +72,27 @@ public class TestBase {
 	protected LabAutomationPage labautomationpage;
 	protected NAAppPage naapppage;
 	protected PCOScreenPage pcoscreenpage;
+	protected SettingsPage settingspage;
+	protected MyTeamPage myteampage;
+	protected MyTasksPage mytaskspage;
+	protected OperationsPage operationspage;
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
-		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA-34.4(54)_STAGE_21112016.apk");
+		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_V34.5_STAGE_19012017.apk");
 		capabilities = new DesiredCapabilities(); 
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "23.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MarshAVD");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"23.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"MarshAvd");
+				//DEVICE_NAME,"GenyAvd");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
 		capabilities.setCapability(MobileCapabilityType.APP_PACKAGE,"com.healthvista.clinicianapp.stage");
 		capabilities.setCapability(MobileCapabilityType.APP_WAIT_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
-		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 600);
-		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,600);
+		
+		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
 
