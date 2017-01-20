@@ -28,7 +28,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class CalendarTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 	
 	@BeforeClass(alwaysRun=true)
 	public void initCalendar() throws MalformedURLException{		
@@ -197,7 +197,7 @@ public class CalendarTests extends TestBase {
 		
 	}
 	
-	@Test(groups = { "funcTest" })
+	//@Test(groups = { "funcTest" })
 	public void TC07testVerifycancelbutton()
 	{
 		System.out.println("Verify that on tap on cancel button should redirect to calendar screen.");

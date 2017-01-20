@@ -35,7 +35,7 @@ import com.qa.mobileapp.pages.FeedbackPage;
 public class FeedbackTests extends TestBase{
 	
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 	
 	@BeforeClass(alwaysRun=true)
 	public void initFeedback() throws MalformedURLException{		

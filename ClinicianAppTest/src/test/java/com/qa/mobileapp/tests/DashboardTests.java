@@ -34,7 +34,7 @@ import com.qa.mobileapp.pages.ReportsPage;
 public class DashboardTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 
 	@BeforeClass(alwaysRun=true)
 	public void initDashboard() throws MalformedURLException{		
@@ -170,6 +170,21 @@ public class DashboardTests extends TestBase{
 		Assert.assertNotNull(dashboardpage.getCaseFileNavLocator());
 	}
 	
+	@Test (groups = {"smoketest" })
+	public void TC_10_testVerifyMyTeamNavVisibility()
+	{
+		System.out.println("Verify that My Team navigation menus Appointment, Patient, Team Member nav should be displayed");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		//dashboardpage.onTapMyTeamExpandButton();
+		GlobalUtil.wait(2);
+		Assert.assertNotNull(dashboardpage.getAppointmentNavLocator());
+		Assert.assertNotNull(dashboardpage.getPatientNavLocator());
+		//Assert.assertNotNull(dashboardpage.getTeamMemberNavLocator);
+	
+		
+	}
+	
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_10_testVerifySettingsNavVisibility()
 	{
@@ -186,7 +201,7 @@ public class DashboardTests extends TestBase{
 	@Test (groups = { "UITest","smoketest" })
 	public void TC_CA692_05_testVerifyOperationsNavVisibility()
 	{
-		System.out.println("Verify that Settings navigation menus Alert, Reports, Tickets, Refer Patient and Feedback should be displayed");
+		System.out.println("Verify that Operations navigation menus Alert, Reports, Tickets, Refer Patient and Feedback should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapOperationsExpandButton();

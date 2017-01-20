@@ -25,7 +25,7 @@ import com.qa.mobileapp.pages.PatientPage;
 public class PatientTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 	String patientID="";
 	
 	@BeforeClass(alwaysRun=true)
@@ -82,7 +82,7 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getAddPatientButtonLocator());
 	}
 	
-	@Test(groups = { "UITest" })
+	//@Test(groups = { "UITest" })
 	public void TC_03_testVerifySearchButtonVisibilityOnPatientListing()
 	{
 		System.out.println("Verify that on Patient listing screen, search image should be visible");
@@ -94,17 +94,7 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getSearchButtonLocator());
 	}
 	
-	@Test(groups = { "UITest" })
-	public void TC_04_testVerifyRefreshButtonVisibilityOnPatientListing()
-	{
-		System.out.println("Verify that on Patient listing screen, refresh image should be visible");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		Assert.assertNotNull(patientpage.getRefreshButtonLocator());
-	}
+	
 	
 	@Test(groups = { "UITest" })
 	public void TC_06_testVerifyOnTapPatientNamePatientDetailsScreenVisiblity()
@@ -142,101 +132,15 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getPatientDetailsCaseLocator());
 	}
 	
-	//@Test(groups = { "UITest" })
-	public void TC_08_testVerifyOnPatientDetailsScreenReferAServiceLinkVisiblity()
-	{
-		System.out.println("Verify that on Patient details screen, Refer a service link should be visible.");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		Assert.assertNotNull(patientpage.getPatientDetailsReferServiceLocator());
-	}
-	
-	//@Test(groups = { "UITest" })
-	public void TC_09_testVerifyOnPatientDetailsScreenFeedbackLinkVisiblity()
-	{
-		System.out.println("Verify that on Patient details screen, Patient feedback link should be visible.");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		Assert.assertNotNull(patientpage.getPatientDetailsFeedbackLocator());
-	}
-	
-	@Test(groups = { "UITest" })
-	public void TC_10_testVerifyOnPatientDetailsScreenRefreshImageVisiblity()
-	{
-		System.out.println("Verify that on Patient details screen, refresh image should be visible");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		Assert.assertNotNull(patientpage.getPatientDetailsTopRgtMenuLocator());
-	}
-	
-	@Test(groups = { "UITest" })
-	public void TC_11_testVerifyMenuOptionsOnPatientListingVisiblity()
-	{
-		System.out.println("Verify that on Click on Patient Nav bar, AddPackage,ViewAppointments,AddCase,Add Service and CheckVitals Options is visible to user");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientScreenNavOptions();
-		Assert.assertNotNull(patientpage.getAddPackageOptionsLocator());
-		Assert.assertNotNull(patientpage.getViewAppointmentsOptionsLocator());
-		Assert.assertNotNull(patientpage.getAddCaseOptionsLocator());
-		Assert.assertNotNull(patientpage.getAddServiceOptionsLocator());
-		Assert.assertNotNull(patientpage.getCheckVitalsOptionsLocator());
-		Assert.assertNotNull(patientpage.getVitalsHistoryLocator());
-	}
+
 	
 	
-	//@Test(groups = { "UITest" })
-	public void TC_12_testVerifyReferServiceScreenVisiblity()
-	{
-		System.out.println("Verify that on tap Refer a service link, should display Refer a service screen.");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		GlobalUtil.wait(2);
-		patientpage.onTapReferServiceLink();
-		Assert.assertNotNull(patientpage.getReferServiceScreenLocator());
-	}
 	
-	//@Test(groups = { "UITest" })
-	public void TC_13_testVerifyFeedbackScreenVisiblity()
-	{
-		System.out.println("Verify that on tap Feedback link, should display Feedback screen.");
-		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapMyTasksExpandButton();
-		GlobalUtil.wait(2);
-		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onTapPatientFrame();
-		GlobalUtil.wait(2);
-		patientpage.onTapFeedbackLink();
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientFeedbackScreenLocator()));
-	}
+	
+	
+	
+	
+	
 	
 	//@Test(groups = { "UITest" })
 	public void TC_14_testVerifyAddPatientScreenVisiblity()
@@ -252,7 +156,7 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(driver.findElement(patientpage.getAddPatienScreenLocator()));
 	}
 	
-	@Test(groups = { "funcTest" })
+	//@Test(groups = { "funcTest" })
 	public void TS_01_testVerifyUserIsAbleToSearchPatientByName()
 	{
 		System.out.println("Verify that user can able to search a patient by entering patient name.");
@@ -268,7 +172,7 @@ public class PatientTests extends TestBase {
 		Assert.assertEquals("test", ls.get(0).getText());
 	}
 	
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_01_testVerifyUserIsAbleToSearchPatientByID()
 	{
 		System.out.println("Verify that user can able to search a patient by entering patient ID.");
@@ -443,11 +347,11 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getAddCaseMessageLocator());
 	}
 	
-	//Not working
+	
 	@Test(groups = { "functest" })
 	public void TS_06_testVerifyUserShouldAbleToAddPackage()
 	{
-		System.out.println("Verify that user can able to add package for aparticular patient");
+		System.out.println("Verify that user can able to subscribe package for aparticular patient");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapMyTasksExpandButton();
@@ -456,15 +360,15 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(1);
 		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
-		patientpage.onTapOptions();
+		patientpage.onTabFabButton();
 		GlobalUtil.wait(2);
-		patientpage.onTapAddPackage();
+		patientpage.onTapSubscribePackage();
 		GlobalUtil.wait(2);
 		patientpage.addPackage();
-		Assert.assertNotNull(driver.findElement(patientpage.getSubscribedPackageScreenLocator()));
+		Assert.assertNotNull(patientpage.getFabButtonLocator());
 	} 
 
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_07_testVerifyUserShouldAbleToAddServiceForPatient()
 	{
 		System.out.println("Verify that user can able to add service for a particular patient");
@@ -505,13 +409,13 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(1);
 		patientpage.onTapPatientFrame();
 		GlobalUtil.wait(2);
-		patientpage.onTapOptions();
+		patientpage.onTabFabButton();
 		GlobalUtil.wait(2);
-		patientpage.onTapViewSubscription();
+		patientpage.onTapActiveSubscriptions();
 		Assert.assertNotNull(patientpage.getSubscribedPackageScreenLocator());
 	}
 	
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_09_testVerifyUserShouldAbleToCheckVitalsOfPatient()
 	{
 		System.out.println("Verify that user can able to check vitals for a particular patient");
@@ -529,7 +433,7 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getCheckVitalsScreenLocator());
 	}	
 	
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_10_testVerifyUserShouldAbleToViewVitalHistoryOfPatient()
 	{
 		System.out.println("Verify that user can able view vitals History for a particular patient");

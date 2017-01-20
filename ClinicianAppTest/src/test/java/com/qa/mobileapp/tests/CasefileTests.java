@@ -27,8 +27,8 @@ import com.qa.mobileapp.pages.DashboardPage;
 
 public class CasefileTests extends TestBase {
 	
-	public static final String userName ="dinnyportea@gmail.com";
-	public static final String password ="Portea1234";
+	public static final String userName ="testphysio@test.com";
+	public static final String password ="Portea123456";
 	
 	@BeforeClass
 	public void initCasefile() throws MalformedURLException{		
@@ -110,8 +110,8 @@ public class CasefileTests extends TestBase {
 			dashboardpage.onTapMyTasksExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapCaseFileNav();
-			casefilepage.onClickPendingStatusLocator();
 			GlobalUtil.wait(2);
+			casefilepage.onClickPendingStatusLocator();
 			Assert.assertNotNull(casefilepage.getPatientIDLocator());
 			Assert.assertNotNull(casefilepage.getPatientNameLocator());
 			Assert.assertNotNull(casefilepage.getAppointmentDateLocator());

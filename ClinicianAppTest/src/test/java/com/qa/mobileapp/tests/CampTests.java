@@ -24,7 +24,7 @@ public class CampTests extends TestBase{
 
 	
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 
 	
 	@BeforeClass

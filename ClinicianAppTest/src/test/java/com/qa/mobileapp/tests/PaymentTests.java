@@ -26,12 +26,13 @@ import com.qa.mobileapp.pages.PaymentPage;
 
 //**Author: Sapna Saxena
 //**Created date: 05-APR-2016
+//**Updated On: 17 Jan 2017
 
 
 public class PaymentTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 
 	@BeforeClass(alwaysRun=true)
 	public void initPayment() throws MalformedURLException{		
@@ -190,7 +191,7 @@ public class PaymentTests extends TestBase{
 
 	//functional test scenarios
 
-	//@Test(groups = { "UITest" })
+	@Test(groups = { "UITest" })
 	public void testVerifyPendingConfirmationStatusVisiblityOnCashInHandTab()
 	{
 		System.out.println("Verify that on Deposit amount, pending confirmation message visible to user");
@@ -227,7 +228,7 @@ public class PaymentTests extends TestBase{
 		Assert.assertNotNull(paymentspage.getPendingConfirmationMessageLocator());
 	}
 
-	//@Test(groups = { "UITest" })
+	@Test(groups = { "UITest" })
 	public void TC_testVerifyDepositedAmountCASHINHANDListedOnDepositedTab()
 	{
 
