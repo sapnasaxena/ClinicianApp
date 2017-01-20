@@ -55,6 +55,10 @@ public class PatientPage extends BasePage {
 	private final By patientDetailsPendingAmountLocator = By.id("com.healthvista.clinicianapp.stage:id/pending_amount");
 	private final By patientDetailsCaseLocator = By.id("com.healthvista.clinicianapp.stage:id/content_end");
 	private final By errorAlreadyApptLocator = By.name("Error");
+	private final By fabButtonLocator=By.id("com.healthvista.clinicianapp.stage:id/fab_expand_menu_button");
+	private final By activeSubscriptionLocator=By.name("Active Subscription");
+	private final By subscribePackageLocator = By.name("Subscribe package");
+	private final By packageListingLocator = By.xpath("//android.widget.ListView[1]//android.widget.LinearLayout");
 	
 
 	private final By referServiceScreenLocator = By.name("Refer a Service");
@@ -102,8 +106,8 @@ public class PatientPage extends BasePage {
 	private final By editPackageDurationLocator = By.id("com.healthvista.clinicianapp.stage:id/durationText");
 	private final By nextButtonLocator = By.name("Next");
 	private final By subserviceScreenLocator = By.name("Sub - Service");
-	private final By subserviceproceedButtonLocator = By.name("Proceed");
-	private final By preferencesProceedButtonLocator = By.name("Proceed");
+	private final By subserviceproceedButtonLocator = By.name("Subscribe");
+	private final By preferencesProceedButtonLocator = By.name("Yes");
 	private final By addPackselectDateLocator = By.id("com.healthvista.clinicianapp.stage:id/fromDatePicker");
 	private final By addPackselectTimeLocator = By.id("com.healthvista.clinicianapp.stage:id/timeSpinner");
 	private final By addPackContinueButtonLocator =By.name("Continue");
@@ -539,7 +543,7 @@ public class PatientPage extends BasePage {
 
 	public void addPackage()
 	{
-		if(driver.findElement(packageListLocator)==null)
+		if(driver.findElement(packageListingLocator)==null)
 		{
 		System.out.println("No Packages found");
 		}
@@ -549,13 +553,13 @@ public class PatientPage extends BasePage {
 		GlobalUtil.wait(2);
 		clickWhenVisible(preferencesProceedButtonLocator);
 		GlobalUtil.wait(2);
-		clickWhenVisible(addPackContinueButtonLocator);
-		selectDateAndTime();
-		GlobalUtil.wait(1);
-		clickWhenVisible(nextButtonLocator);
-		//selectCostForPackage();
-		GlobalUtil.wait(1);
-		clickWhenVisible(doneButtonLocator);
+//		clickWhenVisible(addPackContinueButtonLocator);
+//		selectDateAndTime();
+//		GlobalUtil.wait(1);
+//		clickWhenVisible(nextButtonLocator);
+//		//selectCostForPackage();
+//		GlobalUtil.wait(1);
+//		clickWhenVisible(doneButtonLocator);
 		//clickWhenVisible(addPackContinueButtonLocator);
 		
 		}
@@ -623,9 +627,9 @@ public class PatientPage extends BasePage {
 	@SuppressWarnings("unchecked")
 	public void selectPackageFromList()
 	{
-		List<WebElement> pack = (List<WebElement>)driver.findElements(By.className("android.widget.ListView"));
+		List<WebElement> pack = (List<WebElement>)driver.findElements(packageListingLocator);
+		//WebElement pack = driver.findElement(packageListingLocator);
 		pack.get(0).click();
-	
 	}
 	
 	public void onClickAddPatientButton()
@@ -806,8 +810,16 @@ public class PatientPage extends BasePage {
 		//driver.findElement(By.xpath(patientNameLinkLocator.replace(GlobalUtil.PLACEHOLDER, patientModal.getPatientFirstName()))).click();
 	}
 	
+	public By getPackageListingLocator() {
+		return packageListingLocator;
+	}
+
 	public By getCaseStatusOnPatientDetailScreenLocator() {
 		return caseStatusOnPatientDetailScreenLocator;
+	}
+
+	public By getActiveSubscriptionLocator() {
+		return activeSubscriptionLocator;
 	}
 
 	public By getErrorAlreadyApptLocator() {
@@ -816,6 +828,14 @@ public class PatientPage extends BasePage {
 
 	public By getCaseApptDateOnPatientDetailScreenLocator() {
 		return caseApptDateOnPatientDetailScreenLocator;
+	}
+
+	public By getSubscribePackageLocator() {
+		return subscribePackageLocator;
+	}
+
+	public By getFabButtonLocator() {
+		return fabButtonLocator;
 	}
 
 	public By getCaseDateOfFirstVisitOnPatientDetailScreenLocator() {
@@ -835,6 +855,19 @@ public class PatientPage extends BasePage {
 		dateOfFirstVisit.getText();
 		
 	}
+	public void onTabFabButton()
+	{
+		clickWhenVisible(fabButtonLocator);
+		
+	}
+	public void onTapActiveSubscriptions()
+	{
+		clickWhenVisible(activeSubscriptionLocator);
+	}
 	
+	public void onTapSubscribePackage()
+	{
+		clickWhenVisible(subscribePackageLocator);
+	}
 }
 

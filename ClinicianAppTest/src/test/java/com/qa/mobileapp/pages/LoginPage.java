@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
 	 * */
 	
 	private final By userNameFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etEmail"); 
-	private final By passwordFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/tilPassword");
+	private final By passwordFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etPassword");
 	private final By showPasswordFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/cbShowPwd");
 	private final By loginButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/acbLogin");
 	private final By profileScreenLocator = By.className("android.widget.RelativeLayout");
@@ -142,6 +142,8 @@ public class LoginPage extends BasePage {
 	{
 		inputText(userNameFieldLocator, username);
 		inputText(passwordFieldLocator, password);
+		GlobalUtil.wait(2);
+		driver.hideKeyboard();
 		GlobalUtil.wait(2);
 		clickWhenVisible(loginButtonLocator);
 		GlobalUtil.wait(2);

@@ -36,7 +36,9 @@ public class FeedbackPage extends BasePage {
 	private final By sendFeedbackLocator = By.name("Send FeedBack");
 	private final By issueTypeLabelLocator = By.name("Select Issue Type: ");
 	private final By technicalIssueLocator = By.name("Technical");
-	private final By enterFeedbackLocator = By.name("Enter feedback");
+	private final By enterFeedbackLocator = By.id("feedBackText");
+			//By.name("Enter feedback");
+
 	
 	
 	
@@ -161,13 +163,14 @@ public class FeedbackPage extends BasePage {
    
    public void submitTechnicalFeedback()
    {
-	   WebElement spin = driver.findElement(By.xpath("//android.widget.spinner[contains(@text,'Technical')]"));
-	   spin.click();
-	   GlobalUtil.wait(2);
-	   WebElement enterTxt = driver.findElement(By.name("Enter Feedback"));
+//	   WebElement spin = driver.findElement(By.xpath("//android.widget.spinner[contains(@text,'Technical')]"));
+//	   spin.click();
+//	   GlobalUtil.wait(2);
+	   clickWhenVisible(enterFeedbackLocator);
+	   WebElement enterTxt = driver.findElement(enterFeedbackLocator);
 	   enterTxt.sendKeys("test");
 	   GlobalUtil.wait(2);
-	   WebElement btn = driver.findElement(By.xpath("//android.widget.Button[contains(@text,'Send FeedBack')]"));
+	   WebElement btn = driver.findElement(sendFeedbackLocator);
 	   btn.click();
    }
    

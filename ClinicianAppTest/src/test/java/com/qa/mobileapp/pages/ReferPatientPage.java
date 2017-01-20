@@ -22,7 +22,8 @@ public class ReferPatientPage extends BasePage {
 	private final By radioButton= By.id("com.healthvista.clinicianapp.stage:id/patientSource");
 	private final By PorteaPatient = By.id(" com.healthvista.clinicianapp.stage:id/porteaNetwork");
 	private final By PersonalNetwork=By.id("com.healthvista.clinicianapp.stage:id/personalNetwork");
-	private final By NewPatientName= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientName");
+	private final By NewPatientName= By.xpath("//android.widget.EditText[contains(@id,'com.healthvista.clinicianapp.stage:id/etNewPatientName')]");
+			//By.id("com.healthvista.clinicianapp.stage:id/etNewPatientName");
 	private final By PatientMobileNumber= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientMobile");
 	private final By ServiceRequiredText= By.name("Service Required");
 	private final By PhysiotherapyText = By.id("android:id/text1");
@@ -397,15 +398,17 @@ public class ReferPatientPage extends BasePage {
 	public void referPatientViaPorteaPatient()
 	{
 		WebElement name = driver.findElement(NewPatientName);
-		name.sendKeys("test");
+		name.click();
+		GlobalUtil.wait(2);
+		name.sendKeys("ttttttt");
 		GlobalUtil.wait(2);
 		WebElement mobNo = driver.findElement(PatientMobileNumber);
 		mobNo.sendKeys("8553013244");
 		GlobalUtil.wait(2);
-		WebElement relation = driver.findElement(serviceSpinnerLocator);
+		WebElement relation = driver.findElement(relationSpinnerLocator);
 		relation.click();
 		GlobalUtil.wait(2);
-		relation.sendKeys("Brother");
+		relation.sendKeys("Mother");
 		GlobalUtil.wait(2);
 		WebElement patientID = driver.findElement(enterPatientIDFieldLocator);
 		patientID.sendKeys("POR035079");

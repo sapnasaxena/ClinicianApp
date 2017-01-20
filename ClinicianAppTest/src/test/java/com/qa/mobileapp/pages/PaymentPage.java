@@ -30,7 +30,8 @@ public class PaymentPage extends BasePage {
 	private final By userFieldCIHTabLocator = By.id("com.healthvista.clinicianapp.stage:id/user");
 	private final By dateFieldCIHTabLocator = By.id("com.healthvista.clinicianapp.stage:id/date");
 	private final By checkBoxCIHTabLocator = By.id("com.healthvista.clinicianapp.stage:id/checkbox_payment");
-	private final By depositButtonOnSelectedCIHLocator = By.id("com.healthvista.clinicianapp.stage:id/deposit");
+	private final By depositButtonOnSelectedCIHLocator = By.name("Deposit");
+			//By.id("com.healthvista.clinicianapp.stage:id/deposit");
 	private final By depositScreenTitleLocator = By.id("android:id/title=Deposit Amount :- 700");
 	private final By enterBankNameFieldLocator  = By.id("com.portea.internal:id/bank");
 	private final By enterBranchNameFieldLocator = By.id("com.portea.internal:id/branch");
@@ -43,7 +44,7 @@ public class PaymentPage extends BasePage {
 	private final By amountFieldDepoistedTabLocator = By.id("com.healthvista.clinicianapp.stage:id/amount");
 	private final By statusOnDepositedTabLocator = By.id("com.healthvista.clinicianapp.stage:id/status");
 	private final By depositModeLocator = By.name("Choose a Deposit Mode");
-	private final By chooseDepositModeLocator = By.className("android.widget.CheckedTextView");
+	private final By chooseDepositModeLocator = By.className("android.widget.Spinner");
 	//By.name("Choose a Deposit Mode");
 	private final By iciciIsureModeLocator = By.name("ICICI iSure Pay");
 	private final By cashCollectionModeLocator = By.name("Cash Collection");
@@ -196,7 +197,7 @@ public class PaymentPage extends BasePage {
     	WebElement sendOTP= driver.findElement(By.name("Send OTP"));
     	sendOTP.click();
     	WebElement enterOtp = driver.findElement(enterOTPLocator);
-    	enterOtp.sendKeys("");
+    	enterOtp.sendKeys("123456");
     	WebElement notes = driver.findElement(By.name("Notes"));
     	notes.sendKeys("test");
     	WebElement depositBtn = driver.findElement(By.name("Deposit"));
@@ -206,8 +207,11 @@ public class PaymentPage extends BasePage {
     {
     	WebElement spin= driver.findElement(chooseDepositModeLocator);
     	spin.click();
+    	GlobalUtil.wait(1);
     	driver.scrollTo("ICICI iSure Pay").click();
+    	GlobalUtil.wait(2);
     	WebElement depositBtn = driver.findElement(By.name("Deposit"));
+    	depositBtn.click();
 	}
     
 	public void depositAmount(String bankName, String branchName, String city, String notes)

@@ -28,7 +28,8 @@ public class ReportsPage extends BasePage{
 	private final By reportScreenLocator = By.name("Email Report");
 			//By.id("com.healthvista.clinicianapp.stage:id/design_menu_item_text");
 	private final By startNEndDateText= By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
-	private final By reportTypeText= By.id("com.healthvista.clinicianapp.stage:id/reporttypetext");
+	private final By reportTypeText= By.name("Report Type:");
+			//By.id("com.healthvista.clinicianapp.stage:id/reporttypetext");
 	private final By cancelBtn= By.name("Cancel");
 	private final By continueBtn= By.name("Continue");
 	private final By timings= By.name("Timings");
@@ -42,6 +43,8 @@ public class ReportsPage extends BasePage{
 	private final By datePicker= By.id("android:id/date_picker_day");
 	private final By yearPicker= By.id("android:id/date_picker_year");
 	private final By dayPicker= By.id("android:id/date_picker_header");
+	private final By toDateLocator = By.id("com.healthvista.clinicianapp.stage:id/toDate");
+	private final By fromDateLocator = By.id("com.healthvista.clinicianapp.stage:id/fromDate");
 	
 	
 	
@@ -184,6 +187,14 @@ public class ReportsPage extends BasePage{
 		return monthPicker;
 	}
 	
+	public By getToDateLocator() {
+		return toDateLocator;
+	}
+
+	public By getFromDateLocator() {
+		return fromDateLocator;
+	}
+
 	public By getdatePicker()
 	{
 		return datePicker;
@@ -238,5 +249,10 @@ public class ReportsPage extends BasePage{
 	{
 		WebElement cancelBtn=driver.findElement(By.name("Cancel"));
 		cancelBtn.click();
+	}
+	public void onTapReportTypeSpinner()
+	{
+		WebElement ele = driver.findElement(By.className("android.widget.spinner"));
+		ele.click();
 	}
 }

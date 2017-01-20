@@ -41,12 +41,12 @@ public class DashboardPage extends BasePage {
 	private final By patientNavLocator = By.name("Patients");
 	private final By calendarNavLocator = By.name("Calendar");
 	private final By paymentsNavLocator = By.name("Payments");
-	private final By casefileNavLocator = By.name("Casefile");
+	private final By casefileNavLocator = By.name("Casefiles");
 	private final By campsNavLocator = By.name("Camps");
 	private final By alertsNavLocator = By.name("Alerts");
 	private final By leavesNavLocator = By.name("Leaves");
 	private final By reportsNavLocator = By.name("Reports");
-	private final By referPatientNavLocator = By.name("Refer patient");
+	private final By referPatientNavLocator = By.name("Refer Patient");
 	private final By feedbackNavLocator = By.name("Feedback");
 	private final By logOutNavLocator = By.name("Logout");
 	private final By exitAppTitleLocator = By.name("Exit App");

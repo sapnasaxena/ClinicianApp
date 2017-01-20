@@ -8,6 +8,7 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.qa.mobileapp.common.BasePage;
 import com.qa.mobileapp.common.GlobalUtil;
@@ -51,7 +52,8 @@ public class AppointmentPage extends BasePage{
 	private final By addCaseScreenLocator = By.name("Case Details");
 	private final By payScreenLocator = By.name("Balance");
 	private final By cashTabOnPayScreenLocator = By.name("Cash Payments");
-	private final By onlineTabOnPayScreenLocator = By.name("Online Payments");
+	private final By onlineTabOnPayScreenLocator = By.name("Online Link");
+	private final By paymentBalanceLocator = By.name("Balance");
 	private final By cashCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbCash");
 	private final By chequeCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbCheque");
 	private final By cashAmountTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etCash");
@@ -74,7 +76,8 @@ public class AppointmentPage extends BasePage{
 	private final By emailOptionsLocator = By.id("com.healthvista.clinicianapp.stage:id/etOnlineEmail");
 	private final By mobileNoTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etOnlineMobile");
 	private final By sendPaymentLinkLocator = By.id("com.healthvista.clinicianapp.stage:id/bSendLink");
-	private final By onlineCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbOnline");
+	private final By onlineCheckBoxLocator = By.name("Online Link");
+			//By.id("com.healthvista.clinicianapp.stage:id/cbOnline");
 
 	//xpath for on click on any Patient's appointment
 	private final By patientAppointmentDetailsScreenLocator = By.className("android.widget.RelativeLayout");
@@ -94,6 +97,7 @@ public class AppointmentPage extends BasePage{
 	//By.id("com.healthvista.clinicianapp.stage:id/newAppointmentFab");
 	private final By fabPayButtonLocator = By.name("Pay");
 			//By.xpath("//android.view.View[contains(@text,'Pay')]");
+	private final By proceedButtonLocator = By.name("Proceed");
 		private final By appointmentOptionCheckVitalLocator = By.name("Check Vitals");
 	private final By appointmentOptionViewVitalsLocator=By.name("View Vitals");
 	private final By appointmentScreenPatientNameLocator = By.id("com.healthvista.clinicianapp.stage:id/tvPatientName");
@@ -161,6 +165,29 @@ public class AppointmentPage extends BasePage{
 	private final By apptPaymentTabLocator = By.name("PAYMENT"); 
 	private final By reachedFabButtonLocator = By.name("Reached");
 	private final By successfulFabButtonLocator = By.name("Successfull");
+	private final By denySelectReasonScreenLocator = By.name("Select Reason");
+	public By getDenySelectReasonLocator()
+	{
+		return denySelectReasonScreenLocator;
+	}
+	private final By saveLocator = By.name("Save");
+	private final By denyFabButtonLocator = By.name("Deny");
+	private final By denyPastApptScreenLocator = By.name("Can't deny");
+	public By getDenyPastApptScreenLocator()
+	{
+		return denyPastApptScreenLocator;
+	}
+	private final By cantDenyCallWFMLocator = By.name("Call WFM");
+	public By getCantDenyCallWFMLocator()
+	{
+		return cantDenyCallWFMLocator;
+	}
+	private final By cantdenyOkButtonLocator = By.name("Ok");
+	public By getCantDenyOkButtonLocator()
+	{
+		return cantdenyOkButtonLocator;
+	}
+	
 	private final By serviceLevelPendingFeesLabelLocator = By.name("Service level pending fees");
 	private final By serviceLevelPendingFeesValueLocator = By.id("");
 	private final By packageFeesLabelLocator = By.name("Package Fees");
@@ -224,6 +251,10 @@ public class AppointmentPage extends BasePage{
 	public By getLocationEnabledButtonLocator()
 	{
 		return LocationEnabledButtonLocator;
+	}
+	public By getDenyFabButtonLocator()
+	{
+		return denyFabButtonLocator;
 	}
 	public By getAllAppointmentdropLocator() {
 		return AllAppointmentdropLocator;
@@ -866,6 +897,14 @@ public class AppointmentPage extends BasePage{
 //				clickWhenVisible(fabPayButtonLocator);
 //			}
 	}
+	
+	public void editAmountForPayment()
+	{
+		WebElement ele = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/etPayAmount"));
+		ele.clear();
+		GlobalUtil.wait(2);
+		ele.sendKeys("1");
+	}
 
 	public void payByCash()
 	{
@@ -874,8 +913,8 @@ public class AppointmentPage extends BasePage{
 //		driver.findElement(By.name("Got it")).click();
 //		}
 		GlobalUtil.wait(2);
-		WebElement txt = clickWhenVisible(cashAmountTextBoxLocator);
-		txt.sendKeys("1");
+		WebElement txt = clickWhenVisible(cashCheckBoxLocator);
+		//txt.sendKeys("1");
 		GlobalUtil.wait(1);
 		clickWhenVisible(payButtonLocator);
 
@@ -903,16 +942,6 @@ public class AppointmentPage extends BasePage{
 	public void payByCheque(String bankName, String chequeNo )
 	{
      
-//		WebElement gotIt = driver.findElement(By.name("Got It"));
-//		GlobalUtil.wait(2);
-//		if(gotIt.isDisplayed())
-//		{
-//			gotIt.click();
-//		}
-		GlobalUtil.wait(2);
-		WebElement txt = clickWhenVisible(chequeTextBoxLocator);
-		txt.sendKeys("1");
-		GlobalUtil.wait(2);
 		WebElement bank = clickWhenVisible(chequeIssueBankDetailsTextBoxLocator);
 		bank.sendKeys(bankName);
 		GlobalUtil.wait(2);
@@ -962,13 +991,9 @@ public class AppointmentPage extends BasePage{
 
 	public void payByOnline(String email, String mobileNo)
 	{
-		clickWhenVisible(By.name("Got it"));
-		GlobalUtil.wait(1);
-		clickWhenVisible(onlineTabOnPayScreenLocator);
-		GlobalUtil.wait(1);
-		WebElement online = clickWhenVisible(onlineEnterAmountLocator);
-		online.sendKeys("1");
-		GlobalUtil.wait(1);
+	    WebElement onlineLink = driver.findElement(onlineCheckBoxLocator);
+	    onlineLink.click();
+	    GlobalUtil.wait(2);
 		WebElement txt = clickWhenVisible(emailOptionsLocator);
 		txt.clear();
 		txt.sendKeys(email);
@@ -976,8 +1001,8 @@ public class AppointmentPage extends BasePage{
 		WebElement mobile = clickWhenVisible(mobileNoTextBoxLocator);
 		mobile.clear();
 		mobile.sendKeys(mobileNo);
-		GlobalUtil.wait(1);
-		clickWhenVisible(sendPaymentLinkLocator);
+		GlobalUtil.wait(2);
+		clickWhenVisible(payButtonLocator);
 
 	}
 
@@ -1157,6 +1182,9 @@ public class AppointmentPage extends BasePage{
 	public By getSelectSubServiceButtonLocator() {
 		return selectSubServiceButtonLocator;
 	}
+	public By getProceedButtonLocator() {
+		return proceedButtonLocator;
+	}
 	public void getOpenAppointmentOption()
 	{
 		@SuppressWarnings("unchecked")
@@ -1251,15 +1279,7 @@ public class AppointmentPage extends BasePage{
 		//clickWhenVisible(loadMoreButtonLocator);
 	}
 	
-	public void payThroughWallet()
-	{
-
-	}
-
-	public void payThroughCash()
-	{
-
-	}
+	
 
 	public void paySendPaymentLink()
 	{
@@ -1374,7 +1394,35 @@ public class AppointmentPage extends BasePage{
 		return paymentHistoryLabelLocator;
 	}
 
+	public void onClickDenyFabButton()
+	{
+		WebElement ele = driver.findElement(denyFabButtonLocator);
+		ele.click();
+	}
+	
+	public void selectReasonAppointmentNotCreated()
+	{
+		WebElement dropdown = driver.findElement(By.name("Please select reason"));
+		dropdown.click();
+		GlobalUtil.wait(2);
+		Select ele = new Select(driver.findElement(By.name("Emergency Leave")));
+		ele.selectByVisibleText("Emergency Leave");
+		//WebElement ele = driver.findElement(By.name("Emergency Leave"));
+		//ele.click();
+		GlobalUtil.wait(2);
+		WebElement save = driver.findElement(By.name("Save"));
+		save.click();
+	}
 
+	public void onTapProceedButton()
+	{
+		clickWhenVisible(proceedButtonLocator);
+	}
+public void onSelectOnlinePaymentCheckBox()
+{
+clickWhenVisible(onlineCheckBoxLocator);
 }
+}
+
 
 
