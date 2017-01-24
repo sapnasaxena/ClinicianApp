@@ -25,13 +25,14 @@ public class ReportsPage extends BasePage{
 		
 	}
 
-	private final By reportScreenLocator = By.name("Email Report");
+	private final By reportScreenLocator = By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
+			//By.name(" Email Report");
 			//By.id("com.healthvista.clinicianapp.stage:id/design_menu_item_text");
 	private final By startNEndDateText= By.id("com.healthvista.clinicianapp.stage:id/alertTitle");
 	private final By reportTypeText= By.name("Report Type:");
 			//By.id("com.healthvista.clinicianapp.stage:id/reporttypetext");
-	private final By cancelBtn= By.name("Cancel");
-	private final By continueBtn= By.name("Continue");
+	private final By cancelBtn= By.name("CANCEL");
+	private final By continueBtn= By.name("CONTINUE");
 	private final By timings= By.name("Timings");
 	private final By leaves= By.name("Leaves");
 	private final By appointments= By.name("Appointments");

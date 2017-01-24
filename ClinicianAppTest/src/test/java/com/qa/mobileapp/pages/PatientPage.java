@@ -44,7 +44,7 @@ public class PatientPage extends BasePage {
 	private final By refreshButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/menu_load");
 	private final By patientDetailsScreenLocator = By.xpath("//android.widget.TextView[contains(@text,'Patient Details')]");
 	private final By patientDetailsMenuButtonLocator = By.name("Options");//By.id("com.healthvista.clinicianapp.stage:id/edit");
-	private final By patientDetailsReferServiceLinkLocator = By.name("Refer a Service");
+	private final By patientDetailsReferServiceLinkLocator = By.name("Refer Service");
 	private final By patientDetailsPatientFeedbackLinkLocator = By.name("Patient Feedback");
 	private final By patientDetailsPatientNameLocator = By.id("com.healthvista.clinicianapp.stage:id/patient_name");
 	private final By patientDetailsPatientIDLocator = By.id("com.healthvista.clinicianapp.stage:id/patient_brandid");
@@ -92,7 +92,7 @@ public class PatientPage extends BasePage {
 	private final By selectServiceLocator = By.className("android.widget.Spinner");
 	private final By enterNotesLocator = By.className("android.widget.EditText");
 	private final By cancelButtonLocator = By.name("Cancel");
-	private final By doneButtonLocator = By.name("Done");
+	private final By doneButtonLocator = By.name("Save");
 	
 	//xpath for Add case
 	private final By addCaseMessageLocator = By.name("Message");

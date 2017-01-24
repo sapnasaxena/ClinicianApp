@@ -22,7 +22,7 @@ public class ReferPatientPage extends BasePage {
 	private final By radioButton= By.id("com.healthvista.clinicianapp.stage:id/patientSource");
 	private final By PorteaPatient = By.id(" com.healthvista.clinicianapp.stage:id/porteaNetwork");
 	private final By PersonalNetwork=By.id("com.healthvista.clinicianapp.stage:id/personalNetwork");
-	private final By NewPatientName= By.xpath("//android.widget.EditText[contains(@id,'com.healthvista.clinicianapp.stage:id/etNewPatientName')]");
+	private final By NewPatientName= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientName");
 			//By.id("com.healthvista.clinicianapp.stage:id/etNewPatientName");
 	private final By PatientMobileNumber= By.id("com.healthvista.clinicianapp.stage:id/etNewPatientMobile");
 	private final By ServiceRequiredText= By.name("Service Required");
@@ -48,7 +48,8 @@ public class ReferPatientPage extends BasePage {
 	{
 		return notesLocator;
 	}
-	private final By serviceSpinnerLocator = By.id("com.healthvista.clinicianapp.stage:id/sServiceRef");
+	private final By serviceSpinnerLocator = By.name("Physiotherapy");
+			//By.id("com.healthvista.clinicianapp.stage:id/sServiceRef");
 	public By getServiceSpinnerLocator()
 	{
 		return serviceSpinnerLocator;
@@ -60,7 +61,8 @@ public class ReferPatientPage extends BasePage {
 		return relationSpinnerLocator;
 	}
 	
-	private final By enterPatientIDFieldLocator = By.id("com.healthvista.clinicianapp.stage:id/etRefPatientId");
+	private final By enterPatientIDFieldLocator = By.name("Referrer ID/Name");
+	//By.id("com.healthvista.clinicianapp.stage:id/etRefPatientId");
 	public By getEnterPatientIDFieldLocator()
 	{
 		return enterPatientIDFieldLocator;
@@ -405,10 +407,18 @@ public class ReferPatientPage extends BasePage {
 		WebElement mobNo = driver.findElement(PatientMobileNumber);
 		mobNo.sendKeys("8553013244");
 		GlobalUtil.wait(2);
-		WebElement relation = driver.findElement(relationSpinnerLocator);
-		relation.click();
+		WebElement ele = driver.findElement(By.className("android.widget.Spinner"));
+		ele.click();
 		GlobalUtil.wait(2);
-		relation.sendKeys("Mother");
+		driver.findElement(By.name("Select")).click();
+		GlobalUtil.wait(2);
+		driver.scrollTo("Sister");
+		GlobalUtil.wait(2);
+		driver.findElementByName("Sister").click();
+//		WebElement relation = driver.findElement(relationSpinnerLocator);
+//		relation.click();
+//		GlobalUtil.wait(2);
+//		relation.sendKeys("Mother");
 		GlobalUtil.wait(2);
 		WebElement patientID = driver.findElement(enterPatientIDFieldLocator);
 		patientID.sendKeys("POR035079");
