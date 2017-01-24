@@ -1203,7 +1203,7 @@ public class AppointmentTests extends TestBase {
 					//appointmentpage.selectDate("10");
 //					String date = GlobalUtil.getCurrentDateDay();
 //					System.out.println(date);
-					appointmentpage.getFreeDateForAppointment("26",true).click();
+					appointmentpage.getFreeDateForAppointment("27",true).click();
 					GlobalUtil.wait(1);
 					appointmentpage.addAppointment("5:30 PM");
 					Assert.assertNotNull(appointmentpage.getAddAppointmentScreenLocator());
@@ -1289,7 +1289,7 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			resch.click();
 			GlobalUtil.wait(2);
-			appointmentpage.rescheduleAppt("4:30 PM");
+			appointmentpage.rescheduleAppt("4:00 PM");
 			//System.out.println("Appointment Reschedule successfully");
 			if(driver.findElement(appointmentpage.getAppointmentExpandFabButtonLocator()).isDisplayed())
 			{

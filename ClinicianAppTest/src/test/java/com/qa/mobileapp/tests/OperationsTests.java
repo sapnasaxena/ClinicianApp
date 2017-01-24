@@ -15,8 +15,10 @@ import org.testng.annotations.Test;
 import com.qa.mobileapp.common.GlobalUtil;
 import com.qa.mobileapp.common.TestBase;
 import com.qa.mobileapp.pages.DashboardPage;
+import com.qa.mobileapp.pages.FeedbackPage;
 import com.qa.mobileapp.pages.OperationsPage;
 import com.qa.mobileapp.pages.ReferPatientPage;
+import com.qa.mobileapp.pages.ReportsPage;
 
 public class OperationsTests extends TestBase {
 
@@ -34,6 +36,9 @@ public class OperationsTests extends TestBase {
 		dashboardpage = new DashboardPage(driver);
 		referpatientpages = new ReferPatientPage(driver);
 		operationspage = new OperationsPage(driver);
+		reportspage = new ReportsPage(driver);
+		feedbackpage = new FeedbackPage(driver);
+		
 	}
 	
 	@AfterMethod(alwaysRun=true)
@@ -199,9 +204,9 @@ public class OperationsTests extends TestBase {
 //			GlobalUtil.wait(1);
 			dashboardpage.onTapReferPatientNav();
 			GlobalUtil.wait(2);
-			referpatientpage.referPatientViaPorteaPatient();
+			referpatientpages.referPatientViaPorteaPatient();
 			//Assert.assertNotNull(referpatientpage.getChooseFromLibraryLocator());
-			Assert.assertNotNull(referpatientpage.getReferAPatientText());
+			Assert.assertNotNull(referpatientpages.getReferAPatientText());
 		}
 		
 		@Test(groups = { "functest" })
@@ -215,8 +220,8 @@ public class OperationsTests extends TestBase {
 			GlobalUtil.wait(1);
 			dashboardpage.onTapReferPatientNav();
 			GlobalUtil.wait(2);
-			referpatientpage.referPatientViaPersonalNetwork();
-			Assert.assertNotNull(referpatientpage.getReferAPatientText());
+			referpatientpages.referPatientViaPersonalNetwork();
+			Assert.assertNotNull(referpatientpages.getReferAPatientText());
 		}
 		
 		//Feedback Test Scripts
@@ -301,11 +306,14 @@ public class OperationsTests extends TestBase {
 			dashboardpage.onTapOperationsExpandButton();
 			GlobalUtil.wait(2);
 			dashboardpage.onTapReportsNav();
+			//GlobalUtil.wait(2);
+			//driver.getWindowHandle().contains("Email Report");
+			Assert.assertNotNull(reportspage.getreportScreenLocator());
 			Assert.assertNotNull(reportspage.getreportTypeText());
-//			Assert.assertNotNull(reportspage.getToDateLocator());
-//			Assert.assertNotNull(reportspage.getFromDateLocator());
-//			Assert.assertNotNull(reportspage.getcontinueBtn());
-//			Assert.assertNotNull(reportspage.getcancelBtn());
+			Assert.assertNotNull(reportspage.getToDateLocator());
+			Assert.assertNotNull(reportspage.getFromDateLocator());
+			Assert.assertNotNull(reportspage.getcontinueBtn());
+			Assert.assertNotNull(reportspage.getcancelBtn());
 		}
 		
 		@Test(groups = { "functest" })

@@ -106,7 +106,7 @@ public class LoginTests extends TestBase {
 	}
 
 	@Test(groups = {"functest"})
-	public void TC_004_testVerifyOnTapChangeLoginModeOTPBasedLoginScreenVisiility()
+	public void TC_004_testVerifyOnTapChangeLoginModeOTPBasedLoginScreenVisibility()
 	{
 		System.out.println("Verify that on tapping change login mode navigate to Mobile based OTP Screen");
 		loginpage.onTapChangeLoginModeButton();
@@ -179,8 +179,9 @@ public class LoginTests extends TestBase {
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
 		ensureLogin("lab.p@gmail.com",password);
-		GlobalUtil.wait(1);
+		GlobalUtil.wait(5);
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
 		Assert.assertEquals(profession, "Phlebotomists");
