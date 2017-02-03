@@ -32,7 +32,7 @@ public class PaymentPage extends BasePage {
 	private final By checkBoxCIHTabLocator = By.id("com.healthvista.clinicianapp.stage:id/checkbox_payment");
 	private final By depositButtonOnSelectedCIHLocator = By.name("Deposit");
 			//By.id("com.healthvista.clinicianapp.stage:id/deposit");
-	private final By depositScreenTitleLocator = By.id("android:id/title=Deposit Amount :- 700");
+	private final By depositScreenTitleLocator = By.id("android:id/title=Deposit Amount :");
 	private final By enterBankNameFieldLocator  = By.id("com.portea.internal:id/bank");
 	private final By enterBranchNameFieldLocator = By.id("com.portea.internal:id/branch");
 	private final By enterCityFieldLocator = By.id("com.portea.internal:id/city");
@@ -53,7 +53,7 @@ public class PaymentPage extends BasePage {
 	private final By iSurePopUpOKButtonLocator =By.name("Ok");
 	private final By paymentUserLocator = By.id("com.healthvista.clinicianapp.stage:id/paymentUsers");
 	private final By enterOTPLocator = By.id("com.healthvista.clinicianapp.stage:id/paymentUsersOtp");
-	private final By sendOTPButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/otpBtn");
+	private final By sendOTPButtonLocator = By.name("SEND OTP");//By.id("com.healthvista.clinicianapp.stage:id/otpBtn");
 	private final By notesLocator = By.id("com.healthvista.clinicianapp.stage:id/notesText");
 	private final By depositButtonLocator = By.name("Deposit");
 	private final By canceliSureButtonLocator = By.name("Cancel I-Sure");

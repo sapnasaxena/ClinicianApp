@@ -1,7 +1,12 @@
 package com.qa.mobileapp.pages;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import javax.swing.text.DateFormatter;
 
 import io.appium.java_client.AppiumDriver;
 
@@ -55,6 +60,7 @@ public class AppointmentPage extends BasePage{
 	private final By onlineTabOnPayScreenLocator = By.name("Online Link");
 	private final By paymentBalanceLocator = By.name("Balance");
 	private final By cashCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbCash");
+	private final By paytmCheckBoxLocator = By.id("PayTM");
 	private final By chequeCheckBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/cbCheque");
 	private final By cashAmountTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etCash");
 	private final By chequeTextBoxLocator = By.id("com.healthvista.clinicianapp.stage:id/etCheque");
@@ -92,7 +98,7 @@ public class AppointmentPage extends BasePage{
 	private final By successCheckPointLocator = By.id("com.healthvista.clinicianapp.stage:id/tvCheckpointSuccessful");
 	private final By appointmentExpandFabButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/fab_expand_menu_button");
 	private final By fabUploadButtonLocator =By.name("Upload");
-	private final By fabAddCaseButtonLocator = By.name("add case file");
+	private final By fabAddCaseButtonLocator = By.name("Case files");
 	private final By fabAddAppointmentButtonLocator = By.name("Add appointment");
 	//By.id("com.healthvista.clinicianapp.stage:id/newAppointmentFab");
 	private final By fabPayButtonLocator = By.name("Pay");
@@ -920,6 +926,19 @@ public class AppointmentPage extends BasePage{
 
 	}
 
+	public void payByPaytm()
+	{
+//		if(driver.findElement(By.name("Got It")).isDisplayed())
+//		{
+//		driver.findElement(By.name("Got it")).click();
+//		}
+		GlobalUtil.wait(2);
+		WebElement txt = clickWhenVisible(paytmCheckBoxLocator);
+		//txt.sendKeys("1");
+		GlobalUtil.wait(1);
+		clickWhenVisible(payButtonLocator);
+
+	}
 	public void balancePayment()
 	{
 		List<WebElement> ele = driver.findElements(By.className("android.view.View"));
@@ -1065,6 +1084,10 @@ public class AppointmentPage extends BasePage{
 		driver.scrollToExact(time).click();
 		GlobalUtil.wait(2);
 		clickWhenVisible(addAppointmentButtonLocator);
+		GlobalUtil.wait(2);
+		driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/checkbutton")).click();
+		GlobalUtil.wait(2);
+		driver.findElement(By.name("Add New Appointment")).click();
 
 	}
 	
@@ -1365,10 +1388,15 @@ public class AppointmentPage extends BasePage{
 	public WebElement getFreeDateForAppointment(String currentAppointmentDate, boolean checkInNextMonth)
 	{
 		WebElement appointmentDate = null;
+		String[] daySplit = currentAppointmentDate.split("-");
+		if(daySplit[2].startsWith("0")){
+			daySplit[2] = daySplit[2].substring(1);
+		}
 		String calendarBlocksLocator = "//android.widget.TextView[@text='" + 
-					String.valueOf(currentAppointmentDate) + "']/..//following-sibling::android.widget.RelativeLayout";
+					String.valueOf(daySplit[2]) + "']/..//following-sibling::android.widget.RelativeLayout";
 		@SuppressWarnings("unchecked")
 		List<WebElement> calendarBlocks = driver.findElements(By.xpath(calendarBlocksLocator));
+		
 		
 		for(int i = 1; i <= calendarBlocks.size(); i++){
 			List<WebElement> calendarBlockElements = driver.findElements(By.xpath(calendarBlocksLocator+"[" + i + "]/child::android.widget.ImageView"));
@@ -1378,9 +1406,24 @@ public class AppointmentPage extends BasePage{
 		}
 		if(checkInNextMonth){
 			//ToDo:click to open next month
-//			WebElement ele = driver.findElement(By.xpath("//android.widget.ImageView"));
-//			ele.click();
-			return getFreeDateForAppointment("1", false);
+			try{
+				driver.findElement(By.xpath("//android.widget.TextView[@text='" + daySplit[1] + " " + daySplit[0] + "']/following-sibling::android.widget.ImageView")).click();
+				}
+				catch(NoSuchElementException e)
+				{
+					driver.findElement(By.xpath("//android.widget.TextView[@text='January']/following-sibling::android.widget.ImageView")).click();
+				}
+			try{
+				Date date = new SimpleDateFormat("yyyy-MMMM-dd").parse(currentAppointmentDate);
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(date);
+				cal.add(Calendar.MONTH, 1);
+				cal.set(Calendar.DATE, 1);
+				String newDate = new SimpleDateFormat("yyyy-MMMM-dd").format(cal.getTime());
+				return getFreeDateForAppointment(newDate, false);
+			}catch(Exception ex){
+				ex.printStackTrace();
+			}
 		}
 		return appointmentDate;
 	}
@@ -1394,6 +1437,9 @@ public class AppointmentPage extends BasePage{
 		return paymentHistoryLabelLocator;
 	}
 
+	public By getPaytmCheckBoxLocator() {
+		return paytmCheckBoxLocator;
+	}
 	public void onClickDenyFabButton()
 	{
 		WebElement ele = driver.findElement(denyFabButtonLocator);

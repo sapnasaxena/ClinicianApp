@@ -26,7 +26,7 @@ public class PatientPage extends BasePage {
 	private final By patientAddressLocator = By.id("com.healthvista.clinicianapp.stage:id/address");
 	private final By patientGenderLocator = By.id("com.healthvista.clinicianapp.stage:id/personal");
 	private final By patientContactNumberLocator = By.id("com.healthvista.clinicianapp.stage:id/phone");
-	private final By addPatientButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/fab1");
+	private final By addPatientButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/fabAddPatient");
 	private final By addPackageOptionsLocator = By.xpath("//android.widget.TextView[contains(@text,'Add Package')]");
 	private final By addCaseOptionLocator = By.name("Add Case");
 	private final By addServiceOptionLocator = By.name("Add Service");
@@ -66,13 +66,13 @@ public class PatientPage extends BasePage {
 	private final By viewAppointmentscreenLocator = By.name("Appointments");
 	private final By checkVitalsScreenLocator = By.name("History");
 	private final By addPatientScreenLocator = By.name("Add Patient Details");
-	private final By enterFirstNameLocator = By.id("com.healthvista.clinicianapp.stage:id/name");
+	private final By enterFirstNameLocator = By.id("com.healthvista.clinicianapp.stage:id/etPatientName");
 	private final By enterLastNameLocator = By.id("com.healthvista.clinicianapp.stage:id/lastname");
-	private final By enterAddressLocator = By.id("com.healthvista.clinicianapp.stage:id/address");
-	private final By enterMobileNoLocator=By.id("com.healthvista.clinicianapp.stage:id/mobileNumber");
+	private final By enterAddressLocator = By.id("com.healthvista.clinicianapp.stage:id/etPatientAddress");
+	private final By enterMobileNoLocator=By.id("com.healthvista.clinicianapp.stage:id/etPatientPhone");
 	private final By enterAltNoLocator =By.id("com.healthvista.clinicianapp.stage:id/alternateNumber");
-	private final By enterEmailLocator=By.id("com.healthvista.clinicianapp.stage:id/email");
-	private final By enterPinCodeLocator=By.id("com.healthvista.clinicianapp.stage:id/pincode");
+	private final By enterEmailLocator=By.id("com.healthvista.clinicianapp.stage:id/etPatientEmail");
+	private final By enterPinCodeLocator=By.id("com.healthvista.clinicianapp.stage:id/etPatientPincode");
 	private final By addPatientDoneBtnLocator = By.id("com.healthvista.clinicianapp.stage:id/done");
 	private final By patientListingLocatorOnPatientDetailsScreen = By.id("com.healthvista.clinicianapp.stage:id/general_list");
 	private final By enterSearchPatientLocator =By.id("com.healthvista.clinicianapp.stage:id/search_src_text");
@@ -655,21 +655,39 @@ public class PatientPage extends BasePage {
 	
 	public void addPatient(PatientModal patientModal)
 	{
-	    clickWhenVisible(addPatientButtonLocator);
+	    //clickWhenVisible(addPatientButtonLocator);
 		WebElement name = clickWhenVisible(enterFirstNameLocator);
 		name.sendKeys(patientModal.getPatientFirstName());
-		WebElement txt = clickWhenVisible(enterLastNameLocator);
-		txt.sendKeys(patientModal.getPatientLastName());
-		WebElement mob = clickWhenVisible(enterMobileNoLocator);
-		mob.sendKeys(patientModal.getMobileNo());
+		GlobalUtil.wait(2);
+//		WebElement txt = clickWhenVisible(enterLastNameLocator);
+//		txt.sendKeys(patientModal.getPatientLastName());
 		WebElement mail = clickWhenVisible(enterEmailLocator);
 		mail.sendKeys(patientModal.getEmail());
+		GlobalUtil.wait(2);
+		WebElement mob = clickWhenVisible(enterMobileNoLocator);
+		mob.sendKeys(patientModal.getMobileNo());
+		GlobalUtil.wait(2);
+		WebElement Dob = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/etDob"));
+		Dob.click();
+		GlobalUtil.wait(2);
+		WebElement date = driver.findElement(By.id("android:id/date_picker_header_date"));
+		date.sendKeys("25");
+		date.click();
+		GlobalUtil.wait(2);
+		WebElement ele = driver.findElement(By.name("OK"));
+		ele.click();
+		GlobalUtil.wait(2);
+		WebElement locality = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/etPatientLocality"));
+		locality.sendKeys("Domlur, Bengaluru, Karnataka India");
+		GlobalUtil.wait(2);
+		driver.scrollTo("Address");
 		WebElement add = clickWhenVisible(enterAddressLocator);
 		add.sendKeys(patientModal.getAddress());
+		GlobalUtil.wait(2);
 		driver.scrollToExact("Pincode");
 		WebElement pin = clickWhenVisible(enterPinCodeLocator);
 		pin.sendKeys(patientModal.getPinCode());
-		clickWhenVisible(addPatientDoneBtnLocator);
+//		clickWhenVisible(addPatientDoneBtnLocator);
 		clickWhenVisible(addPatientSaveButtonLocator);
 		
 	}
@@ -868,6 +886,19 @@ public class PatientPage extends BasePage {
 	public void onTapSubscribePackage()
 	{
 		clickWhenVisible(subscribePackageLocator);
+	}
+	
+	public void modifySubscription()
+	{
+		List<WebElement> pack = (List<WebElement>)driver.findElements(packageListingLocator);
+		//WebElement pack = driver.findElement(packageListingLocator);
+		pack.get(0).click();
+		
+		List<WebElement> service = (List<WebElement>)driver.findElement(By.name("Physiotherapy"));
+		
+		//select checkbox
+		WebElement assign = driver.findElement(By.name("Assign"));
+		assign.click();
 	}
 }
 

@@ -1,5 +1,7 @@
 package com.qa.mobileapp.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -74,7 +76,8 @@ public class ReferPatientPage extends BasePage {
 		return uploadFieldLocator;
 	}
 	
-	private final By chooseUploadButtonLocator = By.id("com.healthvista.clinicianapp.stage:id/bChoose");
+	private final By chooseUploadButtonLocator = By.name("Choose");
+			//By.id("com.healthvista.clinicianapp.stage:id/bChoose");
 	public By getChooseUploadButtonLocator()
 	{
 		return chooseUploadButtonLocator;
@@ -410,38 +413,36 @@ public class ReferPatientPage extends BasePage {
 		WebElement ele = driver.findElement(By.className("android.widget.Spinner"));
 		ele.click();
 		GlobalUtil.wait(2);
-		driver.findElement(By.name("Select")).click();
-		GlobalUtil.wait(2);
-		driver.scrollTo("Sister");
-		GlobalUtil.wait(2);
-		driver.findElementByName("Sister").click();
-//		WebElement relation = driver.findElement(relationSpinnerLocator);
-//		relation.click();
-//		GlobalUtil.wait(2);
-//		relation.sendKeys("Mother");
+		driver.scrollToExact("Sister").click();
 		GlobalUtil.wait(2);
 		WebElement patientID = driver.findElement(enterPatientIDFieldLocator);
 		patientID.sendKeys("POR035079");
+		//GlobalUtil.wait(2);
+//		WebElement dropdown = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/sServiceRef"));
+//		dropdown.click();
+//		GlobalUtil.wait(2);
+//		driver.scrollToExact("Physiotherapy").click();
+//		GlobalUtil.wait(2);
+//		WebElement city = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/sCityRef"));
+//		city.click();
+//		GlobalUtil.wait(2);
+//		driver.scrollToExact("Bangalore").click();
 		GlobalUtil.wait(2);
-		WebElement dropdown = driver.findElement(serviceSpinnerLocator);
-		dropdown.click();
-		GlobalUtil.wait(2);
-		dropdown.sendKeys("Physiotherapy");
-		GlobalUtil.wait(2);
-		WebElement city = driver.findElement(CityDropDown);
-		city.click();
-		GlobalUtil.wait(2);
-		city.sendKeys("Bangalore");
+		driver.scrollTo("Notes");
 		GlobalUtil.wait(2);
 		WebElement notes = driver.findElement(notesLocator);
 		notes.sendKeys("test");
 		GlobalUtil.wait(2);
+		driver.scrollTo("Uploads");
+		GlobalUtil.wait(2);
 		WebElement uploads = driver.findElement(chooseUploadButtonLocator);
 		uploads.click();
 		GlobalUtil.wait(2);
-//		WebElement chooseLibrary = driver.findElement(By.name("Choose from Library"));
-//		chooseLibrary.click();
-//		GlobalUtil.wait(2);
+		WebElement chooseLibrary = driver.findElement(By.name("Choose from Library"));
+		chooseLibrary.click();
+		GlobalUtil.wait(2);
+		chooseLibrary.sendKeys("C:/Users/Public/Pictures/Sample Pictures/Desert");
+		GlobalUtil.wait(2);
 		WebElement referButton = driver.findElement(referButtonLocator);
 		referButton.click();
 	}
