@@ -15,18 +15,23 @@
 		    <class name="com.qa.mobileapp.tests.PatientTests" />
 		    <class name="com.qa.mobileapp.tests.AppointmentTests"/>
 		    <class name="com.qa.mobileapp.tests.PaymentTests"/>
-		     <class name="com.qa.mobileapp.tests.LogOutTests"/>
-		     <class name="com.qa.mobileapp.tests.ReferPatientTests"/>
-		     <class name="com.qa.mobileapp.tests.LabAutomationTests"/> 
-		     <class name="com.qa.mobileapp.tests.CasefileTests"/>
-		     <class name="com.qa.mobileapp.tests.CalendarTests"/>
-		     <class name="com.qa.mobileapp.tests.FeedbackTests"/>
+		     <class name="com.qa.mobileapp.tests.SettingsTests"/>
+		     <class name="com.qa.mobileapp.tests.OperationsTests"/>
+		     
+
 		     <class name="com.qa.mobileapp.tests.ForgotPasswordTests"/>
 		     <class name="com.qa.mobileapp.tests.ProfileTests"/>
-		      <class name="com.qa.mobileapp.tests.ReportTests"/>
-		      <class name="com.qa.mobileapp.tests.CampTests"/>
+		       
 		      <class name="com.qa.mobileapp.tests.NAAppTests"/>
 		      <class name="com.qa.mobileapp.tests.CheckInCheckOutTests"/>
+		      <!--
+		      <class name="com.qa.mobileapp.tests.LabAutomationTests"/>
+		      <class name="com.qa.mobileapp.tests.CampTests"/>
+		      <class name="com.qa.mobileapp.tests.CalendarTests"/>
+		     <class name="com.qa.mobileapp.tests.FeedbackTests"/>
+		     <class name="com.qa.mobileapp.tests.ReportTests"/> 
+		     <class name="com.qa.mobileapp.tests.CasefileTests"/>
+		      -->
         </classes>
  
 	</test>

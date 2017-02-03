@@ -22,25 +22,26 @@
                  
                  </methods>
                  </class>
-                 <!--  
+                  
 		    <class name="com.qa.mobileapp.tests.DashboardTests">
 		    <methods>
-            <include name="My Tasks Nav"/>
-            <include name="My Team Nav"/>
-            <include name="Operations Nav"/>
-            <include name="Settings Nav"/>
-            <include name="Profile"/>
-            <include name="Ticket"/>
-            <include name="Team Members"/>
+            <include name="TC_10_testVerifyMyTasksNavVisibility()"/>
+            <include name="TC_10_testVerifyMyTeamNavVisibility()"/>
+            <include name="TC_CA692_05_testVerifyOperationsNavVisibility()"/>
+            <include name="TC_10_testVerifySettingsNavVisibility()"/>
+            <include name="TS_04_testVerifyUserAbleToEditProfile()"/>
+            <include name="TC_testVerifyTicketScreenVisibilty()"/>
+            <include name="TC_10_testVerifyMyTeamNavVisibility()"/>
             </methods>
-            </class>-->
+            </class>
+            
 		    <class name="com.qa.mobileapp.tests.PatientTests">
 		        <methods>
                  <include name="TS_0_testVerifyUserIsAbleToAddPatient()"/>
-                 <include name = "TS_06_testVerifyUserShouldAbleToAddPackage()"/>
-                 <include name = "TS_08_testVerifyUserShouldAbleToViewSubscriptionsOfPatient()"/>
-                 <include name = "TS_11_testVerifyUserShouldAbleToViewCaseDetailsOfPatient()"/>
-                 <include name = "TS_04_testVerifyUserIsAbleToReferService()"/>
+                 <include name ="TS_06_testVerifyUserShouldAbleToAddPackage()"/>
+                 <include name ="TS_08_testVerifyUserShouldAbleToViewSubscriptionsOfPatient()"/>
+                 <include name ="TS_11_testVerifyUserShouldAbleToViewCaseDetailsOfPatient()"/>
+                 <include name ="TS_04_testVerifyUserIsAbleToReferService()"/>
 		        </methods>
 		        </class>
 		        
@@ -51,15 +52,14 @@
                  <include name="TC_CA668_testVerifyDenyReasonAppointmentNotCreated()"/>
                  <include name="TS_19_testVerifyUserShouldAbleToSendPaymentLinkOnline()"/>
                  <include name="TS_62_testVerifyUserShouldAbleToPayByCash()"/>
+                 <include name="TS_62_testVerifyUserShouldAbleToPayByPaytm()"/>
+                 <include name="TC_40_testVerifyOnTapYesForAddCaseRedirectToPhysioApp()"/>
 		        </methods>
 		        </class>
 		        
 		         <class name="com.qa.mobileapp.tests.OperationsTests">
 		         
 		          <methods>
-                 <include name="tc_CA693_06_uploadImageDocument()"/>
-                 <include name ="tc_CA693_06_ReferPatientThroughPorteaPatient()"/>
-                 <include name="tc_CA693_06_ReferPatientThroughPersonalNetwork()"/>
                  <include name ="testVerifyTechnicalFeedbackSubmission()"/>
                  <include name="testVerifyOperationalFeedbackSubmission()"/>
                  <include name="tc_05_testVerifyOnClickCancelButtonRedirectDashboardScreen()"/>
@@ -71,7 +71,7 @@
 		        
 		         <class name="com.qa.mobileapp.tests.PaymentTests">
 		        <methods>
-                 <include name="TS_02_testVerifyDepositedAmountThroughCashCollection()"/>
+                 
                  <include name ="TS_01_testVerifyDepositedAmountThroughiSure()"/>
                  <include name ="TS_06_testVerifyUserIsAbleToDeclineiSurePayment()"/>
                  <include name ="TS_05_testVerifyUserIsAbleToRefreshPaymentScreen()"/>

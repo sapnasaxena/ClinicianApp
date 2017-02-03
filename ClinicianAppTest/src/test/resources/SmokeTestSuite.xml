@@ -14,6 +14,7 @@
 		<classes>
 		    <class name="com.qa.mobileapp.tests.LoginTests">
 		    <methods>
+		          
                  <include name="TS_01_testVerifyLoginAsPCO()"/>
                  <include name="TC_001_LoginAsNursingCoordinator()"/>
                  <include name="TS_01_testVerifyLoginAsLOngTermNursing()"/>
@@ -34,9 +35,10 @@
             
 		    <class name="com.qa.mobileapp.tests.PatientTests">
 		        <methods>
+		            <include name ="TS_08_testVerifyUserShouldAbleToViewSubscriptionsOfPatient()"/>
+		          
                  <include name="TS_0_testVerifyUserIsAbleToAddPatient()"/>
                  <include name ="TC_01_testVerifyOnClickPatientNavBarPatientListVisibilty()"/>
-                 <include name ="TS_08_testVerifyUserShouldAbleToViewSubscriptionsOfPatient()"/>
                  <include name ="TS_06_testVerifyUserShouldAbleToAddPackage()"/>
 		        </methods>
 		        </class>
@@ -50,8 +52,9 @@
 		     
 		         <class name="com.qa.mobileapp.tests.PaymentTests">
 		        <methods>
+		            <include name ="TS_02_testVerifyDepositedAmountThroughCashCollection()"/>
+		       
                  <include name="TS_01_testVerifyDepositedAmountThroughiSure()"/>
-                 <include name ="TS_02_testVerifyDepositedAmountThroughCashCollection()"/>
                  <include name="TC_02_testVerifyCashInHandANDDepositedTabVisiblity()"/>
                  <include name ="TC_01_testVerifyPaymentScreenVisiblity()"/>
 		        </methods>
@@ -59,17 +62,20 @@
 		       
 		         <class name="com.qa.mobileapp.tests.SettingsTests">
 		          <methods>
+		               
                  <include name="TS_01_testVerifyLogOutFunctionality()"/>
                  <include name ="TC_03_testVerifyHelpScreenVisibilty()"/>
+                  
                  <include name="TC_03_testVerifyAboutAppScreenVisibilty()"/>
 		        </methods>
 		        </class>
 		     
 		         <class name ="com.qa.mobileapp.tests.OperationsTests">
 		          <methods>
+		         <include name="tc_04_testVerifyReportScreenElements()"/>
                  <include name="testVerifyFeedBackScreenVisiblity()"/>
+                
                  <include name ="tc_01_testVerifyReferPatientOnSideMenu()"/>
-                 <include name="tc_04_testVerifyReportScreenElements()"/>
                  <include name ="TC_testVerifyTicketScreenVisibilty()"/>
 		        </methods>
 		        </class>
