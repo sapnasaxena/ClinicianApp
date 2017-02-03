@@ -87,13 +87,13 @@ public class GlobalUtil {
 	}
 		public static String getCurrentDate()
 		{
-			 return new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+			 return new SimpleDateFormat("yyyy-MMMM-dd").format(Calendar.getInstance().getTime());
 			 
 		}
 		public static String getCurrentDateInDD()
 		{
 			 Calendar cal=Calendar.getInstance();
-			  SimpleDateFormat month_date = new SimpleDateFormat("DD");
+			  SimpleDateFormat month_date = new SimpleDateFormat("dd");
 			  String date = month_date.format(cal.getTime());
 			  return date;
 		}
@@ -113,7 +113,7 @@ public class GlobalUtil {
 		public static String getTomorrowDateinDD() throws ParseException
 		{
 			String untildate=getCurrentDate();//can take any date in current format    
-			SimpleDateFormat dateFormat = new SimpleDateFormat("DD");   
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd");   
 			Calendar cal = Calendar.getInstance();    
 			cal.setTime(dateFormat.parse(untildate));    
 			cal.add(Calendar.DATE, 1 );    
