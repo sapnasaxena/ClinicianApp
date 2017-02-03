@@ -28,7 +28,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class CalendarTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 	
 	@BeforeClass(alwaysRun=true)
 	public void initCalendar() throws MalformedURLException{		

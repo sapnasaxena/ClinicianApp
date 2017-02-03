@@ -29,7 +29,7 @@ public class LoginTests extends TestBase {
 
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
@@ -40,7 +40,7 @@ public class LoginTests extends TestBase {
 
 	// BVT (P1) Test Scenarios
 
-	@Test(groups = {"UItest"})
+	@Test(groups = {"UITest"})
 	public void TC_01_testVerifyUsernameFieldVisibilityOnLoginScreen()
 	{
 
@@ -178,7 +178,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
-		ensureLogin("lab.p@gmail.com",password);
+		ensureLogin("lab.p@gmail.com","Portea123456");
 		GlobalUtil.wait(5);
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);

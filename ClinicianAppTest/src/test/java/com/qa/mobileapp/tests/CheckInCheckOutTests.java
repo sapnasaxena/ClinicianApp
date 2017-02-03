@@ -23,7 +23,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class CheckInCheckOutTests extends TestBase {
 	
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 
 	@BeforeClass(alwaysRun=true)
 	public void initCheckInCheckOut() throws MalformedURLException{		
@@ -96,7 +96,7 @@ public class CheckInCheckOutTests extends TestBase {
 		}
 	
 	
-	@Test(groups = { "functest"})
+	//@Test(groups = { "functest"})
 	public void TS_011_testVerifyAfterCheckOutUserShouldNotAbleToMakeAppointmentSuccessful() throws NoSuchFieldException, SecurityException
 	{
 		System.out.println("Verify that if user is checkout, should not able to make appointment successful.");

@@ -25,7 +25,7 @@ import com.qa.mobileapp.pages.PatientPage;
 public class PatientTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 	String patientID="";
 	
 	@BeforeClass(alwaysRun=true)
@@ -49,9 +49,9 @@ public class PatientTests extends TestBase {
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientListsLocator()));
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientNameLocator()));
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientAddressLocator()));
+		Assert.assertNotNull(patientpage.getPatientListsLocator());
+		Assert.assertNotNull(patientpage.getPatientNameLocator());
+		Assert.assertNotNull(patientpage.getPatientAddressLocator());
 	}
 	
 	@Test(groups = { "UITest" })
@@ -132,16 +132,6 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getPatientDetailsCaseLocator());
 	}
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//@Test(groups = { "UITest" })
 	public void TC_14_testVerifyAddPatientScreenVisiblity()
 	{
@@ -185,6 +175,7 @@ public class PatientTests extends TestBase {
 		patientpage.searchPatient("POR099554");
 		Assert.assertNotNull(driver.findElement(patientpage.getSearchStringLocator()));
 	}
+
 	
 	//@Test(groups = { "functest" })
 	public void TS_0_testVerifyUserIsAbleToAddPatient()
@@ -195,6 +186,8 @@ public class PatientTests extends TestBase {
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(2);
+		patientpage.onClickAddPatientButton();
 		GlobalUtil.wait(2);
 		PatientModal patientModal=PatientModal.getPatientDetails();
 		patientModal.setPatientFirstName(GlobalUtil.getRandomName(8));
@@ -213,7 +206,7 @@ public class PatientTests extends TestBase {
 	
 
 
-	//@Test(groups = { "functest" })
+	@Test(groups = { "functest" })
 	public void TS_04_testVerifyUserIsAbleToReferService()
 	{
 		System.out.println("Verify that user can able to Refer a service for the selected patient.");
@@ -225,8 +218,10 @@ public class PatientTests extends TestBase {
 		GlobalUtil.wait(2);
 		patientpage.onClickPatientName();
 		GlobalUtil.wait(2);
+		driver.scrollTo("REFER SERVICE");
+		GlobalUtil.wait(2);
 		patientpage.referService();
-		Assert.assertNotNull(driver.findElement(patientpage.getPatientDetailsScreenLocator()));
+		Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
 	}
 
 	@Test(groups = { "UITest" })
@@ -238,10 +233,10 @@ public class PatientTests extends TestBase {
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPatientNav();
-		GlobalUtil.wait(2);
-		patientpage.onClickPatientName();
 		GlobalUtil.wait(1);
-		patientpage.onTapOptions();
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.onTabFabButton();
 		Assert.assertNotNull(patientpage.getAddPackageOptionsLocator());
 	}
 	
@@ -279,7 +274,7 @@ public class PatientTests extends TestBase {
 
 	//functional Test Scenarios
 	
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_01_testVerifyUserShouldAbleToSearchPatient()
 	{
 		System.out.println("Verify that user can able to search a patient by entering patient name and ID");
@@ -385,7 +380,7 @@ public class PatientTests extends TestBase {
 		patientpage.onTapAddService();
 		GlobalUtil.wait(2);
 		System.out.println(GlobalUtil.getCurrentMonthInMMM());
-		patientpage.addService(GlobalUtil.getCurrentMonthInMMM(), "02", "2016");
+		patientpage.addService(GlobalUtil.getCurrentMonthInMMM(), "02", "2017");
 		if (appointmentpage.getApptCalDateLocator()!=null)
 		{
 			Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
@@ -529,7 +524,25 @@ public class PatientTests extends TestBase {
 		Assert.assertNotNull(patientpage.getPatientDetailsScreenLocator());
 	}
 	
-	
+	@Test(groups = { "functest" })
+	public void TS_08_testVerifyUserShouldAbleToModifySubscriptions()
+	{
+		System.out.println("Verify that user can able to modify subscriptions for aparticular patient");
+		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapPatientNav();
+		GlobalUtil.wait(1);
+		patientpage.onTapPatientFrame();
+		GlobalUtil.wait(2);
+		patientpage.onTabFabButton();
+		GlobalUtil.wait(2);
+		patientpage.onTapActiveSubscriptions();
+		GlobalUtil.wait(2);
+		patientpage.modifySubscription();
+		Assert.assertNotNull(patientpage.getSubscribedPackageScreenLocator());
+	}
 	
 	@AfterMethod(alwaysRun=true)
 	public void ensurePatientPage() throws MalformedURLException{		

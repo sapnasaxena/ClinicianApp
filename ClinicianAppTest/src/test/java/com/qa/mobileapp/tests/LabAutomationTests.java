@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 
 
@@ -39,7 +40,7 @@ public static final int priority = 0;
 
 
 	public static final String userName ="lab.p@gmail.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea123456";
 	
 	@BeforeClass
 	public void initlabAutomation() throws MalformedURLException{		
@@ -85,7 +86,7 @@ public static final int priority = 0;
 			ensureLogin(userName, password);
 		}
 	}
-	
+	/*
 	       @Test(groups = { "functest" })
 			public void testVerifyTc_174LabappointmentVisibility()
 			{
@@ -336,28 +337,34 @@ public static final int priority = 0;
 		GlobalUtil.wait(2);
 		Assert.assertNotNull(labautomationpage.getBalanceScreenLocator());
 	}
-	
+	*/
 	@Test(groups = { "functest" })
 	public void TC_181_testVerifySampleDelivered() throws NoSuchFieldException, SecurityException
 	{
 		System.out.println("Verify that the user is able to change the status to sample Delivered ");
+		dashboardpage.onTapCheckIn();
+		GlobalUtil.wait(2);
 		dashboardpage.onTapDashboardtext();
+		GlobalUtil.wait(2);
+		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapAppointmentsNav();
 		GlobalUtil.wait(2);
+		try{
+			appointmentpage.onClickUpcomingTab();
+		}
+		catch(NoSuchElementException e)
+		{
 		labautomationpage.onClickPastTabLocator();
+		}
 		GlobalUtil.wait(2);
 		labautomationpage.onClickPatientNames("confirmed");
-		GlobalUtil.wait(2);
-		labautomationpage.onClickGotButtonLocator();
 		GlobalUtil.wait(2);
 		appointmentpage.onTapFabButton();
 		GlobalUtil.wait(2);
 		labautomationpage.onClickSampleCollectedButtonLocator();
 		GlobalUtil.wait(2);
 		labautomationpage.onClickYesButtonLocator();
-		GlobalUtil.wait(2);
-		labautomationpage.onClickGotButtonLocator();
 		GlobalUtil.wait(2);
 		labautomationpage.onClickOnlinePaymentsLocator();
 		GlobalUtil.wait(2);

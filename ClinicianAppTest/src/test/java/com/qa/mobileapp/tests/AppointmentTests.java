@@ -12,144 +12,6 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -167,7 +29,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 public class AppointmentTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 	String balanceBeforePayment;
 	
 
@@ -257,7 +119,7 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
-			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
+			if(appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
 			{
 			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
@@ -278,11 +140,12 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			dashboardpage.onTapAppointmentsNav();
 			GlobalUtil.wait(2);
-			if (appointmentpage.waitVisible(appointmentpage.getAppointmentScreenPatientNameLocator())!= null)
-			{
+			appointmentpage.onClickUpcomingTab();
+			GlobalUtil.wait(2);
+           try{
 			Assert.assertNotNull(appointmentpage.getAppointmentListViewPageLocator());
 			}
-			else
+			catch(NoSuchElementException e)
 			{
 			System.out.println("Not found any Upcoming Appointment");
 			}
@@ -332,7 +195,7 @@ public class AppointmentTests extends TestBase {
 		
 	
 
-	    @Test(groups = {"UITest"})
+	    //@Test(groups = {"UITest"})
 		public void TC_07_testVerifyPatientDetailsVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on click Patient Name, verify Patient details is visible on Patient Details Screen");
@@ -648,7 +511,7 @@ public class AppointmentTests extends TestBase {
 			appointmentpage.onTapLoadMoreButton();
 			GlobalUtil.wait(2);
 			//appointmentpage.onTapPatienframe();
-			appointmentpage.onClickPatientName("successful");
+			appointmentpage.onClickPatientName("pending");
 			GlobalUtil.wait(2);
 			appointmentpage.onTapFabButton();
 			GlobalUtil.wait(2);
@@ -679,7 +542,7 @@ public class AppointmentTests extends TestBase {
 
 		}
 
-		@Test(groups = {"UITest"})
+		//@Test(groups = {"UITest"})
 		public void TC_28_testVerifyOnTabFabButtonUploadOptionsAddDocumentPopUpVisiblity() throws NoSuchFieldException, SecurityException
 		{
 			System.out.println("Verify that on tap fab button Upload, Add Document screen should be displayed");
@@ -793,7 +656,7 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButtonPay();
 					Assert.assertNotNull(appointmentpage.getCashCheckBoxLocator());	
-					Assert.assertNotNull(appointmentpage.getChequeCheckBoxLocator());
+					//Assert.assertNotNull(appointmentpage.getChequeCheckBoxLocator());
 				}
 				
 				//@Test(groups = {"UITest"})
@@ -1194,16 +1057,16 @@ public class AppointmentTests extends TestBase {
 					GlobalUtil.wait(2);
 //					appointmentpage.onTapPatienframe();
 //					GlobalUtil.wait(2);
-					appointmentpage.onClickPatientName("successful");
+					appointmentpage.onClickPatientName("confirmed");
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButton();
 					GlobalUtil.wait(2);
 					appointmentpage.onTapFabButtonAddAppointment();
 					GlobalUtil.wait(1);
 					//appointmentpage.selectDate("10");
-//					String date = GlobalUtil.getCurrentDateDay();
-//					System.out.println(date);
-					appointmentpage.getFreeDateForAppointment("27",true).click();
+					String day = GlobalUtil.getCurrentDate();
+					System.out.println(day);
+					appointmentpage.getFreeDateForAppointment(day,true).click();
 					GlobalUtil.wait(1);
 					appointmentpage.addAppointment("5:30 PM");
 					Assert.assertNotNull(appointmentpage.getAddAppointmentScreenLocator());
@@ -1283,9 +1146,9 @@ public class AppointmentTests extends TestBase {
 			GlobalUtil.wait(2);
 			appointmentpage.onClickRescheduleButton();
 			GlobalUtil.wait(2);
-			//String date = GlobalUtil.getTomorrowDate();
-			//appointmentpage.selectDate(date);
-			WebElement resch = appointmentpage.getFreeDateForAppointment("27", true);
+			String day = GlobalUtil.getCurrentDate();
+			appointmentpage.selectDate(day);
+			WebElement resch = appointmentpage.getFreeDateForAppointment(day, true);
 			GlobalUtil.wait(2);
 			resch.click();
 			GlobalUtil.wait(2);
@@ -1506,6 +1369,36 @@ public class AppointmentTests extends TestBase {
 					Assert.assertNotNull(appointmentpage.getPaymentHistoryLocator());
 				}  
 				
+				@Test(groups = {"functest"})
+				public void TS_62_testVerifyUserShouldAbleToPayByPaytm() throws NoSuchFieldException, SecurityException
+				{
+					System.out.println("Verify that Clinician should able to do Payment by Paytm");
+					dashboardpage.onTapDashboardtext();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapMyTasksExpandButton();
+					GlobalUtil.wait(2);
+					dashboardpage.onTapAppointmentsNav();
+					GlobalUtil.wait(2);
+					appointmentpage.onClickPastTab();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapPatienframe();
+					GlobalUtil.wait(1);		
+					appointmentpage.onTapLoadMoreButton();
+					GlobalUtil.wait(2);
+					appointmentpage.onClickPatientName("successful");
+					GlobalUtil.wait(1);
+					appointmentpage.onTapFabButton();
+					GlobalUtil.wait(1);
+					appointmentpage.onTapFabButtonPay();
+					GlobalUtil.wait(2);
+					appointmentpage.editAmountForPayment();
+					GlobalUtil.wait(2);
+					appointmentpage.onTapProceedButton();
+					GlobalUtil.wait(2);
+					appointmentpage.payByPaytm();
+					//Assert.assertTrue("Amount has been paid successfully", true);
+					Assert.assertNotNull(driver.findElement(By.name("Dismiss")));
+				}  
 				//Feature Removed
 				//@Test(groups = {"functest"})
 				public void TS_62_testVerifyUserShouldAbleToPayByCheque() throws NoSuchFieldException, SecurityException

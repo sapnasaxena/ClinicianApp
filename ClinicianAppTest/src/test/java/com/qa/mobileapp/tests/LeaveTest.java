@@ -35,7 +35,7 @@ public class LeaveTest extends TestBase{
 
 	
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea12345";
 	
 	@BeforeClass
 	public void initPayment() throws MalformedURLException{		

@@ -25,6 +25,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.PaymentPage;
 
 //**Author: Sapna Saxena
+
 //**Created date: 05-APR-2016
 //**Updated On: 17 Jan 2017
 
@@ -32,7 +33,7 @@ import com.qa.mobileapp.pages.PaymentPage;
 public class PaymentTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 
 	@BeforeClass(alwaysRun=true)
 	public void initPayment() throws MalformedURLException{		
@@ -57,7 +58,6 @@ public class PaymentTests extends TestBase{
 		dashboardpage.onTapMyTasksExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapPaymentsNav();
-		GlobalUtil.wait(2);
 		Assert.assertNotNull(paymentspage.getPaymentScreenLocator());
 	}
 
@@ -191,7 +191,7 @@ public class PaymentTests extends TestBase{
 
 	//functional test scenarios
 
-	@Test(groups = { "UITest" })
+	//@Test(groups = { "UITest" })
 	public void testVerifyPendingConfirmationStatusVisiblityOnCashInHandTab()
 	{
 		System.out.println("Verify that on Deposit amount, pending confirmation message visible to user");
@@ -271,10 +271,9 @@ public class PaymentTests extends TestBase{
 		Assert.assertNotNull(paymentspage.getiSurePopUpOKButtonLocator());  
 	}
 
-	@Test(groups = { "functest" })
+	//@Test(groups = { "functest" })
 	public void TS_02_testVerifyDepositedAmountThroughCashCollection()
 	{
-
 		System.out.println("Verify that user can able to deposit the amount from cash in hand by using Cash Collection");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
@@ -286,10 +285,10 @@ public class PaymentTests extends TestBase{
 		GlobalUtil.wait(1);
 		paymentspage.onClickDepositButtonOnCIHTab();
 		GlobalUtil.wait(2);
-		paymentspage.selectPaymentMode(2);
+		paymentspage.selectPaymentMode(0);
 		Assert.assertNotNull(paymentspage.getChooseDepositModeLocator());
 		Assert.assertNotNull(paymentspage.getEnterNotesFieldLocator());
-		Assert.assertNotNull(paymentspage.getEnterOTPLocator());  
+//		Assert.assertNotNull(paymentspage.getEnterOTPLocator());  
 		Assert.assertNotNull(paymentspage.getDepositButtonLocator()); 
 	}
 	

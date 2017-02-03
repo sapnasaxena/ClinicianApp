@@ -25,6 +25,7 @@ import com.qa.mobileapp.pages.DashboardPage;
 import com.qa.mobileapp.pages.FeedbackPage;
 import com.qa.mobileapp.pages.LeavePage;
 import com.qa.mobileapp.pages.LogOutPage;
+import com.qa.mobileapp.pages.OperationsPage;
 import com.qa.mobileapp.pages.PatientPage;
 import com.qa.mobileapp.pages.PaymentPage;
 import com.qa.mobileapp.pages.ProfilePage;
@@ -34,7 +35,7 @@ import com.qa.mobileapp.pages.ReportsPage;
 public class DashboardTests extends TestBase{
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 
 	@BeforeClass(alwaysRun=true)
 	public void initDashboard() throws MalformedURLException{		
@@ -56,7 +57,8 @@ public class DashboardTests extends TestBase{
 		feedbackpage=new FeedbackPage(driver);
 		logoutpage = new LogOutPage(driver);
 		calendarpages = new CalendarPage(driver);
-		
+		referpatientpage = new ReferPatientPage(driver);
+		operationspage = new OperationsPage(driver);
 	}
 	
 
@@ -121,11 +123,11 @@ public class DashboardTests extends TestBase{
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user name should be displayed");
 		dashboardpage.onTapDashboardtext();
-		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianNameLocator()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianCashInHand()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianProfession()));
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianWorkingHrs()));
+		
+		Assert.assertNotNull(dashboardpage.getClinicianNameLocator());
+		Assert.assertNotNull(dashboardpage.getClinicianCashInHand());
+		Assert.assertNotNull(dashboardpage.getClinicianProfession());
+		Assert.assertNotNull(dashboardpage.getClinicianWorkingHrs());
 	}
 
 	//@Test (groups = { "UITest","smoketest" })
@@ -134,7 +136,7 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's  cash in hand should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianCashInHand()));
+		Assert.assertNotNull(dashboardpage.getClinicianCashInHand());
 	}
 
 	//@Test (groups = { "UITest","smoketest" })
@@ -142,7 +144,7 @@ public class DashboardTests extends TestBase{
 	{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's professional should be displayed");
 		dashboardpage.onTapDashboardtext();
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianProfession()));
+		Assert.assertNotNull(dashboardpage.getClinicianProfession());
 	}
 
 	//@Test (groups = { "UITest","smoketest" })
@@ -151,7 +153,7 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping to Dashboard image, on logged in user's  Work timings should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		Assert.assertNotNull(driver.findElement(dashboardpage.getClinicianWorkingHrs()));
+		Assert.assertNotNull(dashboardpage.getClinicianWorkingHrs());
 	}
 
 	@Test (groups = {"smoketest" })
@@ -336,7 +338,7 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapAlertsNav();
-		Assert.assertNotNull(alertpage.getAlertScreenLocator());
+		Assert.assertNotNull(operationspage.getAlertScreenLocator());
 	}
 
 	
@@ -347,14 +349,10 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Refer Patient nav, Refer Patient Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
-		driver.scrollTo("Refer patient");
-		GlobalUtil.wait(1);
 		dashboardpage.onTapReferPatientNav();
-		GlobalUtil.wait(2);
-		ReferPatientPage referpatientpage = new ReferPatientPage(driver);
-		Assert.assertNotNull(referpatientpage.getReferPatientScreenLocator());
+		Assert.assertNotNull(operationspage.getReferPatientScreenLocator());
 	}
 
 	
@@ -364,10 +362,10 @@ public class DashboardTests extends TestBase{
 		System.out.println("Verify that on tapping Feedback nav, Feedback Screen should be displayed");
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
-		dashboardpage.onTapSettingsExpandButton();
+		dashboardpage.onTapOperationsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapFeedbackNav();
-		Assert.assertNotNull(feedbackpage.getfeedbackScreenTitleLocator());
+		Assert.assertNotNull(operationspage.getfeedbackScreenTitleLocator());
 	}
 
 

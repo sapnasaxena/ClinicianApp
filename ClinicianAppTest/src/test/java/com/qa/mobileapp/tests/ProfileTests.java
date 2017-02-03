@@ -25,7 +25,7 @@ import com.qa.mobileapp.pages.ProfilePage;
 public class ProfileTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea1234";
+	public static final String password ="Portea12345";
 
 	@BeforeClass(alwaysRun=true)
 	public void initProfile() throws MalformedURLException{		
@@ -78,12 +78,12 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapClinicianName();
-		Assert.assertNotNull(driver.findElement(profilepage.getProfNameLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getEmpcliniIdLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getProfEmailIdLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getProfMobileNoLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getProfAddressLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getProfGenderProfessionaLocator()));
+		Assert.assertNotNull(profilepage.getProfNameLocator());
+		Assert.assertNotNull(profilepage.getEmpcliniIdLocator());
+		Assert.assertNotNull(profilepage.getProfEmailIdLocator());
+		Assert.assertNotNull(profilepage.getProfMobileNoLocator());
+		Assert.assertNotNull(profilepage.getProfAddressLocator());
+		Assert.assertNotNull(profilepage.getProfGenderProfessionaLocator());
 		//Assert.assertNotNull(driver.findElement(profilepage.getQualificationLocator()));
 		//Assert.assertNotNull(driver.findElement(profilepage.getSecurityPinLocator()));
 	}
@@ -96,7 +96,7 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapClinicianName();
-		Assert.assertNotNull(driver.findElement(profilepage.getRefreshButtonLocator()));
+		Assert.assertNotNull(profilepage.getRefreshButtonLocator());
 	}
 
 	@Test(groups = { "UITest" })
@@ -106,10 +106,10 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapClinicianName();
-		Assert.assertNotNull(driver.findElement(profilepage.getProfilePcImageLocator()));
+		Assert.assertNotNull(profilepage.getProfilePcImageLocator());
 	}
 	
-	@Test(groups = { "UITest" })
+	//@Test(groups = { "UITest" })
 	public void TS_02_testVerifyUploadImageOptionsVisiblity()
 	{
 		System.out.println("Verify that Upload Image Options Choose from library, Take photo and cancel should visible on Profile Screen");
@@ -118,9 +118,9 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapClinicianName();
 		GlobalUtil.wait(2);
 		profilepage.onClickUploadImageLocator();
-		Assert.assertNotNull(driver.findElement(profilepage.getChooseFromLibraryLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getTakePhotoLocator()));
-		Assert.assertNotNull(driver.findElement(profilepage.getCancelUploadImageLocator()));
+		Assert.assertNotNull(profilepage.getChooseFromLibraryLocator());
+		Assert.assertNotNull(profilepage.getTakePhotoLocator());
+		Assert.assertNotNull(profilepage.getCancelUploadImageLocator());
 	}
 	
 	@Test(groups = { "UITest" })
@@ -130,7 +130,7 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapClinicianName();
-		Assert.assertNotNull(driver.findElement(profilepage.getProfileEditLocator()));
+		Assert.assertNotNull(profilepage.getProfileEditLocator());
 	}
 
 	@Test(groups = { "UITest" })
@@ -140,11 +140,11 @@ public class ProfileTests extends TestBase {
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapClinicianName();
-		Assert.assertNotNull(driver.findElement(profilepage.getCashInHandLocator()));
+		Assert.assertNotNull(profilepage.getCashInHandLocator());
 		GlobalUtil.wait(1);
-		Assert.assertNotNull(driver.findElement(profilepage.getPaymentDetailsLocator()));
+		Assert.assertNotNull(profilepage.getPaymentDetailsLocator());
 		GlobalUtil.wait(1);
-		Assert.assertNotNull(driver.findElement(profilepage.getPendingVerificationLocator()));
+		Assert.assertNotNull(profilepage.getPendingVerificationLocator());
 	}
 	
 	//functional Test Scenarios

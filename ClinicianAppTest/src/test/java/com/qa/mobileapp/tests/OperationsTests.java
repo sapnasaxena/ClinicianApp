@@ -23,7 +23,7 @@ import com.qa.mobileapp.pages.ReportsPage;
 public class OperationsTests extends TestBase {
 
 	public static final String userName ="testphysio@test.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea12345";
 	
 	@BeforeClass(alwaysRun=true)
 	public void initOperations() throws MalformedURLException{		
@@ -72,7 +72,7 @@ public class OperationsTests extends TestBase {
 	}
 	
 	//UI Scenarios
-	
+
 		@Test(groups = { "UITest" })
 		public void tc_01_testVerifyReferPatientOnSideMenu()
 		{
@@ -95,10 +95,7 @@ public class OperationsTests extends TestBase {
 			GlobalUtil.wait(2);
 			dashboardpage.onTapOperationsExpandButton();
 			GlobalUtil.wait(2);
-			driver.scrollTo("Refer patient");
-			GlobalUtil.wait(1);
 			dashboardpage.onTapReferPatientNav();
-			GlobalUtil.wait(3);
 			Assert.assertNotNull(referpatientpages.getReferAPatientText());
 			Assert.assertNotNull(referpatientpages.getradioButton());
 			Assert.assertNotNull(referpatientpages.getPorteaPatient());
@@ -150,10 +147,7 @@ public class OperationsTests extends TestBase {
 			GlobalUtil.wait(2);
 			dashboardpage.onTapOperationsExpandButton();
 			GlobalUtil.wait(2);
-			driver.scrollTo("Refer patient");
-			GlobalUtil.wait(1);
 			dashboardpage.onTapReferPatientNav();
-			GlobalUtil.wait(3);
 			Assert.assertNotNull(referpatientpages.getCancelButton());
 		}
 		
@@ -193,7 +187,7 @@ public class OperationsTests extends TestBase {
 			Assert.assertNotNull("Cancel");
 		}
 		
-		//@Test(groups = { "functest" })
+		@Test(groups = { "functest" })
 		public void tc_CA693_06_ReferPatientThroughPorteaPatient() {
 			System.out.println("Verify that user can able to refer patient for any service for the option Portea Patient");
 			dashboardpage.onTapDashboardtext();
@@ -279,7 +273,7 @@ public class OperationsTests extends TestBase {
 		
 		//Report Test Scripts
 		
-		@Test(groups = { "UITest" })
+		//@Test(groups = { "UITest" })
 		public void tc_02_testVerifyTimingLeaveAppointment()
 		{
 		System.out.println("Verify that on Reports should display the field Report type with options: Timings, Leaves and Appointments");
@@ -290,9 +284,9 @@ public class OperationsTests extends TestBase {
 		dashboardpage.onTapReportsNav();
 		GlobalUtil.wait(2);
 		reportspage.onTapReportTypeSpinner();
-		Assert.assertNotNull(reportspage.gettimings());
-		Assert.assertNotNull(reportspage.getappointments());
-		Assert.assertNotNull(reportspage.getleaves());
+		Assert.assertNotNull(operationspage.gettimings());
+		Assert.assertNotNull(operationspage.getappointments());
+		Assert.assertNotNull(operationspage.getleaves());
 		}
 			
 
@@ -371,7 +365,7 @@ public class OperationsTests extends TestBase {
 		
 		//Alerts Tests
 		
-		//Tickets Tests
+		  //Tickets Tests
 		   @Test(groups = { "UITest" })
 				public void TC_testVerifyTicketScreenVisibilty()
 				{
