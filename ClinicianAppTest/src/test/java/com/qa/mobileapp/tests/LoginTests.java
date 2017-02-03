@@ -179,7 +179,7 @@ public class LoginTests extends TestBase {
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
 		ensureLogin("lab.p@gmail.com","Portea123456");
-		GlobalUtil.wait(5);
+		GlobalUtil.wait(10);
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
