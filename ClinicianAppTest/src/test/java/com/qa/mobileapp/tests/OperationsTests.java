@@ -120,10 +120,9 @@ public class OperationsTests extends TestBase {
 			GlobalUtil.wait(2);
 			dashboardpage.onTapOperationsExpandButton();
 			GlobalUtil.wait(2);
-			driver.scrollTo("Refer patient");
-			GlobalUtil.wait(1);
+//			driver.scrollTo("Refer patient");
+//			GlobalUtil.wait(1);
 			dashboardpage.onTapReferPatientNav();
-			GlobalUtil.wait(3);
 			Assert.assertNotNull(referpatientpages.getReferAPatientText());
 			Assert.assertNotNull(referpatientpages.getradioButton());
 			Assert.assertNotNull(referpatientpages.getPorteaPatient());

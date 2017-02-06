@@ -378,9 +378,7 @@ public class DashboardTests extends TestBase{
 		dashboardpage.onTapSettingsExpandButton();
 		GlobalUtil.wait(2);
 		dashboardpage.onTapLogOut();
-		GlobalUtil.wait(2);
-		LogOutPage logoutpage = new LogOutPage(driver);
-		Assert.assertNotNull(driver.findElement(logoutpage.getLogOutLocator()));
+		Assert.assertNotNull(logoutpage.getLogOutLocator());
 	}
 	
 	@AfterMethod(alwaysRun=true)
