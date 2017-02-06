@@ -23,7 +23,7 @@ import com.qa.mobileapp.pages.NAAppPage;
 public class NAAppTests extends TestBase {
 	
 	public static final String userName ="Nursing@test.com";
-	public static final String password ="Portea12345";
+	public static final String password ="Portea123456";
 	String balanceBeforePayment;
 	
 
