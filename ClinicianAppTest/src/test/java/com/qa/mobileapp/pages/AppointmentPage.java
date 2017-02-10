@@ -730,7 +730,7 @@ public class AppointmentPage extends BasePage{
 
 	}
 
-	public void rescheduleAppt(String time)
+	public void postponeAppt(String time)
 	{
 		WebElement spin = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/timeSpinner"));
 		spin.click();
@@ -1468,7 +1468,19 @@ public void onSelectOnlinePaymentCheckBox()
 {
 clickWhenVisible(onlineCheckBoxLocator);
 }
+
+
+public void rescheduleAppt(String time)
+{
+	WebElement spin = driver.findElement(By.id("com.healthvista.clinicianapp.stage:id/timeSpinner"));
+	spin.click();
+	driver.scrollToExact(time).click();
+	GlobalUtil.wait(2);
+	WebElement postappt = driver.findElement(rescheduleAppointmentButtonLocator);
+	postappt.click();
+	GlobalUtil.wait(5);
+	WebElement done = driver.findElement(doneButtonForAddApptLocator);
+	done.click();
+	}
+
 }
-
-
-
