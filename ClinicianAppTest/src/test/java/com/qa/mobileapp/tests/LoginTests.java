@@ -178,7 +178,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsPhlebotomists()
 	{
 		System.out.println("Verify that Phlebotomists should able to login successfully");
-		ensureLogin("lab.p@gmail.com","Portea123456");
+		ensureLogin("lab.p@gmail.com","Portea12345");
 		GlobalUtil.wait(10);
 		dashboardpage.onTapDashboardtext();
 		GlobalUtil.wait(2);
@@ -218,7 +218,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsLOngTermNursing()
 	{
 		System.out.println("Verify that LTN should able to login successfully");
-		ensureLogin("longterm@test.com", "Portea12345");
+		ensureLogin("longterm@test.com", "Portea123456");
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
@@ -229,7 +229,7 @@ public class LoginTests extends TestBase {
 	public void TS_01_testVerifyLoginAsShortTermNursing()
 	{
 		System.out.println("Verify that STN should able to login successfully");
-		ensureLogin("shortterm@test.com", "Portea12345");
+		ensureLogin("shortterm@test.com", "Portea123456");
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
 		String profession = text.getText();
