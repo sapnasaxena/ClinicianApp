@@ -83,7 +83,7 @@ public class TestBase {
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"21.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"LollipopAvd");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"LP");
 				//DEVICE_NAME,"GenyAvd");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
