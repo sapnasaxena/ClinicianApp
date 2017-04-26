@@ -160,8 +160,8 @@ public class LoginPage extends BasePage {
 		GlobalUtil.wait(2);
 		clickWhenVisible(loginButtonLocator);
 		GlobalUtil.wait(2);
-		WebElement ele =driver.findElement(By.name("Skip"));
-		ele.click();
+		//WebElement ele =driver.findElement(By.name("Skip"));
+		//ele.click();
 
 	}
 	
