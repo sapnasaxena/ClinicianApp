@@ -82,8 +82,8 @@ public class TestBase {
 		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_STAGE_V35.1_21042017.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"21.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"LollipopAvd");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"23.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"MarshAvd");
 				//DEVICE_NAME,"GenyAvd");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
