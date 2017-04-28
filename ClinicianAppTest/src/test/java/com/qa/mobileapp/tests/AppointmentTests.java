@@ -40,12 +40,7 @@ public class AppointmentTests extends TestBase {
 	
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
+		
 		dashboardpage = new DashboardPage(driver);
 		appointmentpage = new AppointmentPage(driver);
 	}
