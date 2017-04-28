@@ -45,12 +45,7 @@ public class DashboardTests extends TestBase{
 		
 	@BeforeMethod(alwaysRun=true)
 	public void initPageObjects(){
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
+		
 		dashboardpage = new DashboardPage(driver);
 		camppage= new CampPage(driver);
 		profilepage = new ProfilePage(driver);
