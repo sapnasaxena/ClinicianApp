@@ -34,7 +34,13 @@ public class AppointmentTests extends TestBase {
 	
 
 	@BeforeClass(alwaysRun=true)
-	public void initAppointment() throws MalformedURLException{		
+	public void initAppointment() throws MalformedURLException{	
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(2);
 		ensureLogin(userName, password);
 	}
 	
