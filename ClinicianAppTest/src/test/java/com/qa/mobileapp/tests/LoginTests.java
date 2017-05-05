@@ -205,7 +205,7 @@ public class LoginTests extends TestBase {
 	public void TC_001_LoginAsNursingCoordinator()
 	{
 		System.out.println("Verify that NA coordinator should able to login to app");
-		ensureLogin("Nursing@test.com","Portea1234");
+		ensureLogin("Nursing@test.com","Portea12345");
 		GlobalUtil.wait(2);
 		dashboardpage.onTapDashboardtext();
 		WebElement text = driver.findElement(dashboardpage.getClinicianProfessionLocator());
