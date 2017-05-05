@@ -40,16 +40,11 @@ public static final int priority = 0;
 
 
 	public static final String userName ="lab.p@gmail.com";
-	public static final String password ="Portea123456";
+	public static final String password ="Portea1234";
 	
 	@BeforeClass
 	public void initlabAutomation() throws MalformedURLException{	
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(1);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(1);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
+		
 		ensureLogin(userName, password);
 	}
 	
