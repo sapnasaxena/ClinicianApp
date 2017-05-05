@@ -38,7 +38,13 @@ public class DashboardTests extends TestBase{
 	public static final String password ="Portea12345";
 
 	@BeforeClass(alwaysRun=true)
-	public void initDashboard() throws MalformedURLException{		
+	public void initDashboard() throws MalformedURLException{	
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(2);
 		ensureLogin(userName, password);
 	}
 	
