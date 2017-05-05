@@ -99,6 +99,12 @@ public class TestBase {
 	protected void ensureLogin(String userName, String password){
 		
 		GlobalUtil.wait(2);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
 		loginpage = new LoginPage(driver);
 		loginpage.login(userName, password);
 		dashboardpage = new DashboardPage(driver);
