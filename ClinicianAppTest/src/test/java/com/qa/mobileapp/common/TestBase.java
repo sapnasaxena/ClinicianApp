@@ -9,6 +9,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
@@ -79,7 +80,7 @@ public class TestBase {
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
-		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_STAGE_V35.1_21042017.apk");
+		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_STAGE_V35.126042017.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"23.0");
@@ -95,7 +96,7 @@ public class TestBase {
 		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	}
-
+ 
 	protected void ensureLogin(String userName, String password){
 		
 		GlobalUtil.wait(2);
