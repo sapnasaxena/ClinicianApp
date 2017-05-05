@@ -43,7 +43,13 @@ public static final int priority = 0;
 	public static final String password ="Portea123456";
 	
 	@BeforeClass
-	public void initlabAutomation() throws MalformedURLException{		
+	public void initlabAutomation() throws MalformedURLException{	
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(1);
+		driver.findElement(By.name("Allow")).click();
+		GlobalUtil.wait(2);
 		ensureLogin(userName, password);
 	}
 	
