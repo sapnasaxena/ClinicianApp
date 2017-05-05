@@ -35,12 +35,7 @@ public class LogOutTests extends TestBase {
 	
 	@BeforeClass(alwaysRun=true)
 	public void initLogOut() throws MalformedURLException{	
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(1);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(1);
-		driver.findElement(By.name("Allow")).click();
-		GlobalUtil.wait(2);
+		
 		ensureLogin(userName, password);
 	}
 	
