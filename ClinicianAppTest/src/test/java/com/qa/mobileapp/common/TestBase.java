@@ -80,11 +80,11 @@ public class TestBase {
 
 	@BeforeClass(alwaysRun=true)
 	public void setUp() throws Exception {		
-		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_STAGE_V35.126042017.apk");
+		File app = new File(System.getProperty("user.dir")+"/src/test/resources/android","CA_STAGE_V35.1_26042017.apk");
 		capabilities = new DesiredCapabilities(); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"23.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"MarshAvd");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"6.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"emulator-5554 (6.0)");
 				//DEVICE_NAME,"GenyAvd");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.portea.internal.app.activity.SplashActivity");
